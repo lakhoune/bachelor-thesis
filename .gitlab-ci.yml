@@ -4,7 +4,7 @@ image: marvinmenzerath/latex
   stage: build
   variables: 
     THESIS_STATUS: 'Thesis' # 'Proposal' or 'Thesis'
-    TEX_CMD: 'latexmk -pdf'
+    TEX_CMD: 'latexmk -e "$latex=q/latex %O -shell-escape %S/" -pdf'
   artifacts:
     paths:
       - ${TEX_DIR}/${TEX_JOB}.pdf

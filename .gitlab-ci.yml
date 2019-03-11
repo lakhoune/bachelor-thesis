@@ -1,0 +1,25 @@
+image: marvinmenzerath/latex
+
+.build-tex:
+  stage: build
+  variables: 
+    THESIS_STATUS: 'Thesis' # 'Proposal' or 'Thesis'
+    TEX_CMD: 'latexmk -pdf'
+  artifacts:
+    paths:
+      - ${TEX_DIR}/${TEX_JOB}.pdf
+    expire_in: 1 mos
+  script:
+    - cd "${TEX_DIR}" && ${TEX_CMD} "${TEX_JOB}.tex"
+
+build-thesis-text:
+  variables: 
+    TEX_DIR: '${THESIS_STATUS}/Text'
+    TEX_JOB: 'thesis'
+  extends: .build-tex
+    
+build-thesis-slides:
+  variables: 
+    TEX_DIR: '${THESIS_STATUS}/Presentation'
+    TEX_JOB: 'slides'
+  extends: .build-tex

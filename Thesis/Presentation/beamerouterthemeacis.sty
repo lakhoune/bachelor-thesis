@@ -1,0 +1,247 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\newdimen\beamer@sidebarwidth
+\newdimen\beamer@headheight
+\usebeamerfont{frametitle}
+\beamer@sidebarwidth=2.65\baselineskip
+\beamer@headheight=30pt
+\reset@font
+
+\def\beamer@lefttext{left}
+
+\DeclareOptionBeamer{hideothersubsections}[]{\beamer@nav@subsectionstyle{show/show/hide}}
+\DeclareOptionBeamer{hideallsubsections}[]{\beamer@nav@subsectionstyle{hide}}
+
+\DeclareOptionBeamer{width}{\beamer@sidebarwidth=#1}
+\DeclareOptionBeamer{height}{\beamer@headheight=#1}
+\DeclareOptionBeamer{left}{\def\beamer@sidebarside{left}}
+\DeclareOptionBeamer{right}{\def\beamer@sidebarside{right}}
+\ExecuteOptionsBeamer{left}
+\ProcessOptionsBeamer
+
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+
+\newcommand{\cfbox}[2]{%
+    \colorlet{currentcolor}{.}%
+    {\color{#1}%
+    \fbox{\color{currentcolor}#2}}%
+}
+
+\mode<presentation>
+
+\definecolor{RWTHblue}{RGB}{0,83,159}
+\definecolor{RWTHblack}{RGB}{0,0,0}
+\definecolor{RWTHwhite}{RGB}{255,255,255}
+\definecolor{RWTHlightblue}{RGB}{127,170,208}
+\definecolor{RWTHgrey}{RGB}{51,51,51}
+\definecolor{RWTHlightgrey}{RGB}{204,204,204}
+\definecolor{RWTHsuperlightgrey}{RGB}{247,247,247}
+
+
+\definecolor{CCColor}{HTML}{AAB2AB}
+
+\def\shortyear#1{\expandafter\shortyearhelper#1}
+\def\shortyearhelper#1#2#3#4{#3#4}
+
+% Assign the colors to the differen pars
+    % Title
+    \setbeamercolor{title}{fg = RWTHblue}
+    % Frame title
+    \setbeamercolor{frametitle}{fg = RWTHblue}
+    % Table of contents
+    \setbeamercolor{section in toc}{fg = RWTHblack}
+    \setbeamercolor{subsection in toc}{fg = RWTHblue}
+    \setbeamercolor{section in toc shaded}{fg = RWTHlightgrey}
+    % List colors (itemize)
+    \setbeamercolor{item}{fg = RWTHblue}
+    \setbeamercolor{subitem}{fg = RWTHblack}
+    \setbeamercolor{subsubitem}{fg = RWTHblack}
+    % The color of the bullets points
+    \setbeamercolor{description item}{fg = RWTHblue}
+    % Captions
+    \setbeamercolor{caption}{fg = RWTHblack}
+    \setbeamercolor{caption name}{fg = RWTHblack}
+    \setbeamercolor{section in sidebar}{fg=RWTHblue}
+    \setbeamercolor{section in sidebar shaded}{fg= RWTHlightblue}
+    \setbeamercolor{subsection in sidebar}{fg=RWTHblack}
+    \setbeamercolor{subsection in sidebar shaded}{fg= RWTHlightgrey}
+
+    % Style the block elements:
+    % - Standard blocks
+    % - Alert blocks
+    % - Example block
+        % Standard block
+        \setbeamercolor{block title}{fg = RWTHblue, bg = RWTHlightgrey}
+        \setbeamercolor{block body}{fg = RWTHblack, bg = RWTHsuperlightgrey}
+    
+        % Alert block
+        \setbeamercolor{block title alerted}{fg = RWTHwhite, bg = RWTHgrey}
+        \setbeamercolor{block body alerted}{fg = RWTHblack, bg = RWTHsuperlightgrey}
+        
+        % Example block
+        \setbeamercolor{block title example}{fg = RWTHwhite, bg = RWTHblue}
+        \setbeamercolor{block body example}{fg = RWTHblack, bg = RWTHsuperlightgrey}
+    
+    % Normal text
+    \setbeamercolor{normal text}{fg = RWTHblack}
+
+\ifdim\beamer@headheight>0pt
+% if head height is 0pt, use default frame title
+
+  \setbeamercolor*{frametitle}{parent=sidebar}
+
+  \defbeamertemplate*{frametitle}{sidebar theme}
+  {%
+    \nointerlineskip%
+    \vskip-\beamer@headheight%
+    \vbox to \beamer@headheight{%
+      \vfil
+      \leftskip=-\beamer@leftmargin%
+      \advance\leftskip by0.6cm%
+      \rightskip=-\beamer@rightmargin%
+      \advance\rightskip by0.6cm plus1fil%
+      {\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle\par}%
+      {\usebeamercolor[fg]{framesubtitle}\usebeamerfont{framesubtitle}\insertframesubtitle\par}%
+      \textcolor{RWTHlightgrey}{\vbox{}%
+      \vskip-1em%
+      \vfil
+      \hrule height 1.3pt}
+    }%
+  }
+
+  \setbeamertemplate{logo} {
+  \hspace{+3pt}
+  \fboxrule1.3pt
+  \cfbox{RWTHlightgrey}{\parbox[b][2.14\textheight][b]{0.13\textwidth}{
+  \begin{centering}\textcolor{RWTHblack}{
+      \includegraphics[height=0.45cm]{cc}\\
+      \includegraphics[height=0.8cm]{acis}\\
+      \vspace{+2pt}
+      \begin{tiny}
+          \mbox{Lehrstuhl i5}\\
+          \vspace{+1pt}
+          \mbox{Information}
+          \mbox{Systems}
+          \vspace{+1pt}
+          \mbox{Prof.~Dr.~M.~Jarke}\\
+          \insertframenumber
+      \end{tiny}
+      }
+
+  \end{centering}
+  }}
+  }
+
+  \defbeamertemplate*{headline}{sidebar theme}
+  {%
+    \begin{beamercolorbox}[wd=\paperwidth]{frametitle}
+      \ifx\beamer@sidebarside\beamer@lefttext%
+      \else%
+        \hfill%
+      \fi%
+      \ifdim\beamer@sidebarwidth>0pt%  
+        \usebeamercolor[bg]{logo}%
+        \vrule width\beamer@sidebarwidth height 0mm%
+        \hskip-\beamer@sidebarwidth%
+        \hbox to \beamer@sidebarwidth{\hss\vbox to
+          \beamer@headheight{\vss\hbox{\color{fg}\insertlogo}\vss}\hss}%
+      \else%
+        \vrule width0pt height \beamer@headheight%  
+      \fi%
+    \end{beamercolorbox}
+  }
+\fi
+
+
+\def\beamer@sidebarformat#1#2#3{%
+  \begin{beamercolorbox}[wd=\beamer@sidebarwidth,leftskip=#1,rightskip=1ex plus1fil,vmode]{#2}
+    \vbox{}%
+    #3\par%
+    \vbox{}%
+    \vskip-1.5ex%
+  \end{beamercolorbox}
+}
+
+\defbeamertemplate*{section in sidebar}{sidebar theme}
+{%
+  \vbox{%
+    \vskip1ex%
+    \beamer@sidebarformat{3pt}{section in sidebar}{\insertsectionhead}%
+  }%
+}
+
+\defbeamertemplate*{section in sidebar shaded}{sidebar theme}
+{%
+  \vbox{%
+    \vskip1ex%
+    \beamer@sidebarformat{3pt}{section in sidebar shaded}{\insertsectionhead}%
+  }%
+}
+
+\defbeamertemplate*{subsection in sidebar}{sidebar theme}
+{%
+  \beamer@sidebarformat{5pt}{subsection in sidebar}{\insertsubsectionhead}%
+}
+
+\defbeamertemplate*{subsection in sidebar shaded}{sidebar theme}
+{%
+  \beamer@sidebarformat{5pt}{subsection in sidebar shaded}{\insertsubsectionhead}%
+}
+
+\defbeamertemplate*{subsubsection in sidebar}{sidebar theme}
+{%
+  \beamer@sidebarformat{7pt}{subsubsection in sidebar}{\insertsubsubsectionhead}%
+}
+
+\defbeamertemplate*{subsubsection in sidebar shaded}{sidebar theme}
+{%
+  \beamer@sidebarformat{7pt}{subsubsection in sidebar shaded}{\insertsubsubsectionhead}%
+}
+
+
+\ifdim\beamer@sidebarwidth>0pt
+
+                                % Sidebar
+  \setbeamersize{sidebar width \beamer@sidebarside=\beamer@sidebarwidth}
+  \defbeamertemplate*{sidebar \beamer@sidebarside}{sidebar theme}
+  {
+  \vspace{-33pt}
+    \beamer@tempdim=\beamer@sidebarwidth%
+    \advance\beamer@tempdim by -0pt%
+    {\usebeamerfont{title in sidebar}%
+      \vskip1.5em%
+      \hskip1.5pt%
+      \usebeamercolor[RWTHblack]{title in sidebar}%
+      \insertshorttitle[width=\beamer@tempdim,center,respectlinebreaks]\par%
+      \vskip1.25em%
+    }%
+    \insertverticalnavigation{\beamer@sidebarwidth}%
+    \vfill
+    \ifx\beamer@sidebarside\beamer@lefttext%
+    \else%
+      \usebeamercolor{normal text}%
+      \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+      \vskip2pt%
+    \fi%
+  }%
+  
+  \ifx\beamer@sidebarside\beamer@lefttext%
+    \defbeamertemplate*{sidebar right}{sidebar theme}
+    {%
+      \vfill%
+      \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+      \vskip2pt}
+  \fi
+                                % Margins
+  \setbeamersize{text margin left=0.5cm,text margin right=0.5cm}
+\fi
+
+\mode
+<all>

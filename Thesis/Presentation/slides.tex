@@ -1,0 +1,128 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+\useoutertheme{acis}
+
+%Uncomment this to have the table of contents shown before each new section
+
+%\AtBeginSection[]
+%{
+  %\begin{frame}
+    %\frametitle{Table of Contents}
+    %\tableofcontents[currentsection,currentsubsection]
+    %\addtocounter{framenumber}{-1}
+  %\end{frame}
+%}
+
+%Uncomment this to have the table of contents shown before each new subsection
+
+%\AtBeginSubsection[]
+%{
+  %\begin{frame}
+    %\frametitle{Table of Contents}
+    %\tableofcontents[currentsection,currentsubsection]
+    %\addtocounter{framenumber}{-1}
+  %\end{frame}
+%}
+
+%Uncomment this to have the table of contents shown before each new subsubsection
+
+%\AtBeginSubsubsection[]
+%{
+  %\begin{frame}
+    %\frametitle{Table of Contents}
+    %\tableofcontents[currentsection,currentsubsection, currentsubsubsection]
+    %\addtocounter{framenumber}{-1}
+  %\end{frame}
+%}
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage[T1]{fontenc}    % Makes all text copyable
+\usepackage{lmodern}        % Use modern T1 font rendering
+\usepackage[utf8]{inputenc} % Allows inpit in utf8
+\input{../../preamble/config}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\subtitle{\ifdefined\BACHELOR Bachelor \else Master \fi Thesis \ifdefined\PROPOSAL
+	\PROPOSAL
+	\fi}
+
+\author[\firstname{ }\lastname]{\firstname{ }\lastname\\\vspace{0.5em}\scriptsize{Computer Science \ifdefined\BACHELOR B.Sc. \else M.Sc. \fi\ Program}~~~~\scriptsize{Matr.-Nr. \matrNo}}
+% Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+\institute[RWTH Aachen University]{Chair of Computer Science 5 Information Systems \& Databases \flushleft
+	\begin{center}
+		\parbox{0cm}{
+			\vspace{-1.5em}
+			\begin{tabbing}
+				\={Supervisors}:~~~\=\firstsupervisor\\
+				\>                 \>\secondsupervisor\\[0.5em]
+				\>{Advisor}:       \>\firstadvisor\ifdefined\secondadvisor\\
+				\>                 \>\secondsupervisor\\[0.5em]
+				\fi
+			\end{tabbing}
+			\vspace{-1.5em}
+		}
+\end{center}}
+\date{\today} % Date, can be changed to a custom date
+
+\graphicspath{{../../figures/}}
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\input{Content/introduction}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{References}
+\footnotesize{
+	\bibliographystyle{apalike}
+	\bibliography{../Bibliography/bibliography}
+}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\Huge{\centerline{The End}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 

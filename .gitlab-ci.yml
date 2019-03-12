@@ -3,7 +3,7 @@ image: marvinmenzerath/latex
 .build-tex:
   stage: build
   variables: 
-    THESIS_STATUS: 'Thesis' # 'Proposal' or 'Thesis'
+    THESIS_STATUS: 'Proposal' # 'Proposal' or 'Thesis'
     TEX_CMD: "latexmk -xelatex -latexoption='-shell-escape'"
   artifacts:
     paths:

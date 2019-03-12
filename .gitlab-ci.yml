@@ -15,7 +15,7 @@ image: marvinmenzerath/latex
 build-thesis-text:
   variables: 
     TEX_DIR: '${THESIS_STATUS}/Text'
-    TEX_JOB: 'thesis'
+    TEX_JOB: 'proposal' # 'proposal' or 'thesis'
   extends: .build-tex
     
 build-thesis-slides:

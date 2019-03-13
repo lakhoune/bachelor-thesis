@@ -1,5 +1,10 @@
 image: marvinmenzerath/latex
 
+before_script:
+    - apt-get update -qy
+    - apt-get install -y python-dev python-pip
+    - pip install Pygments
+
 .build-tex:
   stage: build
   variables: 

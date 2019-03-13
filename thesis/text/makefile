@@ -1,19 +1,11 @@
 JOB = thesis
 
-all: $(JOB).pdf
+.PHONY: FORCE
+$(JOB).pdf: FORCE
+	latexmk -xelatex -latexoption="-shell-escape" $(JOB) 
+	rm *.aux *.log *.out  *.bbl *.blg
 
-$(JOB).pdf: content/*.tex bibliography/* thesis.tex preamble/*.tex images/*
-	pdflatex $(JOB)
-	bibtex   $(JOB)
-	pdflatex $(JOB)
-	pdflatex $(JOB)
-
-	rm *.aux *.log *.out  *.bbl *.blg **/*.aux
-
-deploy: $(JOB).pdf
-
+.PHONY: clean
 clean:
-	rm -f *~ *bak *.ps *.pdf *.dvi *.log *.aux *.out *.nav *.snm *.toc *.vrb *.bbl *.blg *.lof *.lot
-	rm **/*.aux
-
-.PHONY: clean all
+	rm -f *~ *bak *.ps *.pdf *.dvi *.log *.aux *.out *.nav *.snm *.toc *.vrb *.bbl *.blg *.lof *.lot *.fdb_latexmk *.fls
+	rm -f **/*.aux

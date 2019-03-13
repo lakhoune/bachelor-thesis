@@ -1,4 +1,4 @@
-JOB = proposal
+JOB = slides
 
 .PHONY: FORCE
 $(JOB).pdf: FORCE

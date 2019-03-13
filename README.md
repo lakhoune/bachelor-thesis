@@ -19,7 +19,7 @@ Thesis:
 [![latest thesis slides](https://img.shields.io/badge/Download-Thesis%20Presentation-blue.svg)](https://git.dbis.rwth-aachen.de/ACIS_BA_MA/{YOUR_PROJECT}/-/jobs/artifacts/master/file/thesis/presentation/slides.pdf?job=build-thesis-slides)
 ```
 
-Also update the [.gitlab-ci.yml](./.gitlab-ci.yml##L6) and change `proposal`to `thesis`
+Also update the [.gitlab-ci.yml](./.gitlab-ci.yml#L6) and change `proposal`to `thesis`
 
 ## Configuration
 Adjust the [config.tex](preamble/config.tex). 

@@ -9,7 +9,7 @@ Replace `thesis-template` with your Gitlab Project name.
 Update from `proposal` to `thesis` once you reached this stage. 
 
 
-Also update the [.gitlab-ci.yml](./.gitlab-ci.yml#L6) and change `proposal`to `thesis`
+Also update the [.gitlab-ci.yml](./.gitlab-ci.yml#L11) and change `proposal`to `thesis`
 
 ## Configuration
 Adjust the [config.tex](preamble/config.tex). 

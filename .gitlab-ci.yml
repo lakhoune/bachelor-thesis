@@ -1,9 +1,4 @@
-image: marvinmenzerath/latex
-
-before_script:
-    - apt-get update -qy && apt dist-upgrade -qy 
-    - apt-get install -y -f python-dev python-pip
-    - pip install Pygments
+image: rwthacis/latex
 
 .build-tex:
   stage: build

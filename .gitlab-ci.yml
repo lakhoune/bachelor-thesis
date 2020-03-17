@@ -1,8 +1,8 @@
 image: marvinmenzerath/latex
 
 before_script:
-    - apt-get update -qy
-    - apt-get install -y -f python-pip-whl=18.1-5 python-dev python-pip
+    - apt-get update -qy && apt dist-upgrade -qy 
+    - apt-get install -y -f python-dev python-pip
     - pip install Pygments
 
 .build-tex:

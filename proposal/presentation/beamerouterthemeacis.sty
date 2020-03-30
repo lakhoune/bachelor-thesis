@@ -7,6 +7,13 @@
 %
 % See the file doc/licenses/LICENSE for more details.
 
+% RWTH Font (Helvetica) according to http://www9.rwth-aachen.de/global/show_document.asp?id=aaaaaaaaaadrbpl#page=25
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+% Alternatively: 
+%\renewcommand{\rmdefault}{phv} % Arial
+%\renewcommand{\sfdefault}{phv} % Arial
+
 \newdimen\beamer@sidebarwidth
 \newdimen\beamer@headheight
 \usebeamerfont{frametitle}
@@ -19,6 +26,7 @@
 \DeclareOptionBeamer{hideothersubsections}[]{\beamer@nav@subsectionstyle{show/show/hide}}
 \DeclareOptionBeamer{hideallsubsections}[]{\beamer@nav@subsectionstyle{hide}}
 
+\DeclareOptionBeamer{cc}{\def\ccbysa{#1}}
 \DeclareOptionBeamer{width}{\beamer@sidebarwidth=#1}
 \DeclareOptionBeamer{height}{\beamer@headheight=#1}
 \DeclareOptionBeamer{left}{\def\beamer@sidebarside{left}}
@@ -36,13 +44,14 @@
 
 \mode<presentation>
 
-\definecolor{RWTHblue}{RGB}{0,83,159}
+% RWTH Colors according to http://www9.rwth-aachen.de/global/show_document.asp?id=aaaaaaaaaadrbpl#page=27
+\definecolor{RWTHblue}{RGB}{0,84,159}
 \definecolor{RWTHblack}{RGB}{0,0,0}
 \definecolor{RWTHwhite}{RGB}{255,255,255}
-\definecolor{RWTHlightblue}{RGB}{127,170,208}
-\definecolor{RWTHgrey}{RGB}{51,51,51}
-\definecolor{RWTHlightgrey}{RGB}{204,204,204}
-\definecolor{RWTHsuperlightgrey}{RGB}{247,247,247}
+\definecolor{RWTHlightblue}{RGB}{142,186,229}
+\definecolor{RWTHgrey}{RGB}{100,101,103}
+\definecolor{RWTHlightgrey}{RGB}{207,209,210}
+\definecolor{RWTHsuperlightgrey}{RGB}{236,237,237}
 
 
 \definecolor{CCColor}{HTML}{AAB2AB}
@@ -96,6 +105,11 @@
 % if head height is 0pt, use default frame title
 
   \setbeamercolor*{frametitle}{parent=sidebar}
+  
+  
+  
+  
+  % BEAMER TEMPLATES
 
   \defbeamertemplate*{frametitle}{sidebar theme}
   {%
@@ -119,24 +133,33 @@
   \setbeamertemplate{logo} {
   \hspace{+3pt}
   \fboxrule1.3pt
-  \cfbox{RWTHlightgrey}{\parbox[b][2.14\textheight][b]{0.13\textwidth}{
-  \begin{centering}\textcolor{RWTHblack}{
-      \includegraphics[height=0.45cm]{cc}\\
-      \includegraphics[height=0.8cm]{acis}\\
-      \vspace{+2pt}
-      \begin{tiny}
+  \cfbox{RWTHlightgrey}{
+      \parbox[b][2.14\textheight][b]{\beamer@sidebarwidth}{
+      \begin{centering}
+        \color{RWTHblack}
+
+        % CCbySA Logo
+        \ifdefined\ccbysa
+          \includegraphics[height=0.45cm]{cc}\\
+        \fi
+
+        % Chair Logo
+        \includegraphics[width=1.8cm]{rwth_i5_bild_rgb}\\
+
+
+        % Chair Info
+        {\fontsize{5}{6}\selectfont 
           \mbox{Lehrstuhl i5}\\
           \vspace{+1pt}
           \mbox{Information}
           \mbox{Systems}
-          \vspace{+1pt}
-          \mbox{Prof.~Dr.~M.~Jarke}\\
-          \insertframenumber
-      \end{tiny}
+          %\vspace{+1pt}
+          \mbox{and Databases}\\
+          \mbox{\insertframenumber/\inserttotalframenumber}\\
+        }
+      \end{centering}
       }
-
-  \end{centering}
-  }}
+    }
   }
 
   \defbeamertemplate*{headline}{sidebar theme}
@@ -160,15 +183,21 @@
 \fi
 
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Navigation / Content Outline Rendering helper
 \def\beamer@sidebarformat#1#2#3{%
-  \begin{beamercolorbox}[wd=\beamer@sidebarwidth,leftskip=#1,rightskip=1ex plus1fil,vmode]{#2}
-    \vbox{}%
-    #3\par%
-    \vbox{}%
-    \vskip-1.5ex%
-  \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\beamer@sidebarwidth,leftskip=#1,rightskip=1ex plus1fil,vmode]{#2}
+        \vbox{}%
+        #3\par%
+        \vbox{}%
+        \vskip-1.5ex%
+    \end{beamercolorbox}
 }
 
+% Templates to render Content Outline Items (Naviation)
 \defbeamertemplate*{section in sidebar}{sidebar theme}
 {%
   \vbox{%
@@ -204,17 +233,20 @@
 {%
   \beamer@sidebarformat{7pt}{subsubsection in sidebar shaded}{\insertsubsubsectionhead}%
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \ifdim\beamer@sidebarwidth>0pt
 
-                                % Sidebar
+  % Render Sidebar
   \setbeamersize{sidebar width \beamer@sidebarside=\beamer@sidebarwidth}
   \defbeamertemplate*{sidebar \beamer@sidebarside}{sidebar theme}
   {
   \vspace{-33pt}
     \beamer@tempdim=\beamer@sidebarwidth%
     \advance\beamer@tempdim by -0pt%
+    
+    % Title of talk
     {\usebeamerfont{title in sidebar}%
       \vskip1.5em%
       \hskip1.5pt%
@@ -222,8 +254,14 @@
       \insertshorttitle[width=\beamer@tempdim,center,respectlinebreaks]\par%
       \vskip1.25em%
     }%
+    
+    % Content Outline
     \insertverticalnavigation{\beamer@sidebarwidth}%
+    
+    % Fill up blank space
     \vfill
+    
+    % ?
     \ifx\beamer@sidebarside\beamer@lefttext%
     \else%
       \usebeamercolor{normal text}%
@@ -239,7 +277,8 @@
       \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
       \vskip2pt}
   \fi
-                                % Margins
+  
+  % Margins for slide content (not the sidebar)
   \setbeamersize{text margin left=0.5cm,text margin right=0.5cm}
 \fi
 

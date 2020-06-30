@@ -1,128 +1,136 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Beamer Presentation
-% LaTeX Template
-% Version 1.0 (10/11/12)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This file provides an example Beamer presentation using the RWTH theme
+% showcasing some of the more common options, similar to the Powerpoint version
+% 12.11.2014: Revision 1 (Harold Bruintjes, Tim Lange)
 
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND THEMES
-%----------------------------------------------------------------------------------------
-
+% For RWTH, beamer should be loaded with class option t (top)
 \documentclass[aspectratio=169]{beamer}
+%\newcommand{\PROPOSAL}{Proposal}
 
-\mode<presentation> {
+% Use fontspec to get Arial font
+% Requires use of XeLaTeX
+%\usepackage{fontspec}
+%\setmainfont{Arial}
+%\setsansfont{Arial}
+% Also force Arial for math for a more consistent look
+%\usepackage{unicode-math}
+%\setmathfont{Arial}
 
-\useoutertheme{acis}
-
-%Uncomment this to have the table of contents shown before each new section
-
-%\AtBeginSection[]
-%{
-  %\begin{frame}
-    %\frametitle{Table of Contents}
-    %\tableofcontents[currentsection,currentsubsection]
-    %\addtocounter{framenumber}{-1}
-  %\end{frame}
-%}
-
-%Uncomment this to have the table of contents shown before each new subsection
-
-%\AtBeginSubsection[]
-%{
-  %\begin{frame}
-    %\frametitle{Table of Contents}
-    %\tableofcontents[currentsection,currentsubsection]
-    %\addtocounter{framenumber}{-1}
-  %\end{frame}
-%}
-
-%Uncomment this to have the table of contents shown before each new subsubsection
-
-%\AtBeginSubsubsection[]
-%{
-  %\begin{frame}
-    %\frametitle{Table of Contents}
-    %\tableofcontents[currentsection,currentsubsection, currentsubsubsection]
-    %\addtocounter{framenumber}{-1}
-  %\end{frame}
-%}
-}
-
-\usepackage{graphicx} % Allows including images
-\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
-\usepackage[T1]{fontenc}    % Makes all text copyable
-\usepackage{lmodern}        % Use modern T1 font rendering
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{MnSymbol}%
+\usepackage{lmodern}%
 \usepackage[utf8]{inputenc} % Allows inpit in utf8
+% German style date formatting (footer)
+\usepackage[ddmmyyyy]{datetime}
+
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+\renewcommand{\dateseparator}{.}
+
+% Format the captions used for figures etc.
+\usepackage[compatibility=false]{caption}
+\captionsetup{singlelinecheck=off,justification=raggedleft,labelformat=empty,labelsep=none}
+
+% PGFPlots is used for drawing some of the charts
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\input{plot_commands.tex}
+
+% Load the actual RWTH theme. Suggested is to load the full theme,
+% as it requires some specific dimensions
+\usetheme{rwth}
 \input{../../preamble/config}
-
-%----------------------------------------------------------------------------------------
-%	TITLE PAGE
-%----------------------------------------------------------------------------------------
-
-\subtitle{\ifdefined\BACHELOR Bachelor \else Master \fi Thesis \ifdefined\PROPOSAL
-	\PROPOSAL
-	\fi}
-
-\author[\firstname{ }\lastname]{\firstname{ }\lastname\\\vspace{0.5em}\scriptsize{Study Program: \studyProgram}~~~~\scriptsize{Matr.-Nr.: \matrNo}}
-% Your institution as it will appear on the bottom of every slide, may be shorthand to save space
-\institute[RWTH Aachen University]{Chair of Computer Science 5 Information Systems \& Databases \flushleft
-	\begin{center}
-		\parbox{0cm}{
-			\vspace{-1.5em}
-			\begin{tabbing}
-				\={Supervisors}:~~~\=\firstsupervisor\\
-				\>                 \>\secondsupervisor\\[0.5em]
-				\>{Advisor}:       \>\firstadvisor\ifdefined\secondadvisor\\
-				\>                 \>\secondadvisor\\[0.5em]
-				\fi
-			\end{tabbing}
-			\vspace{-1.5em}
-		}
-\end{center}}
-\date{\today} % Date, can be changed to a custom date
-
 \graphicspath{{../../figures/}}
+
+% Setup presentation information
+\author[\firstname]{\firstname~\lastname~\email}
+\institute[RWTH]{RWTH Aachen University}
+
+
+
+% Set the logo to the file `logo`
+% It will be scaled automatically
+\logo{\includegraphics{rwth_i5_en_rgb}}
+
+% Uncomment this if you want a TOC at every section start
+%\AtBeginSection{\frame{
+%    \frametitle{Content}
+%    \tableofcontents[currentsection]
+%}}
+
+% Use this to control some aspects of the footer
+\setbeamertemplate{footertextextra}{\ifdefined\BACHELOR Bachelor \else Master \fi Thesis \ifdefined\PROPOSAL
+\PROPOSAL
+\fi}
+%\setbeamertemplate{footertext}{Example of an overridden footer}
+
 \begin{document}
 
-\begin{frame}
-\titlepage % Print the title page as the first slide
-\end{frame}
+% Note: Title pages should be created as plain
+% Title page with a blue bar
+\setbeamercolor{title page bar}{fg=rwth}
+\setbeamertemplate{title page}[rwth]{}
+\begin{frame}[plain]
+\titlepage
 
-\begin{frame}
-\frametitle{Overview} % Table of contents slide, comment this block out to remove it
-\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
-\end{frame}
-
-%----------------------------------------------------------------------------------------
-%	PRESENTATION SLIDES
-%----------------------------------------------------------------------------------------
-
-%------------------------------------------------
-\input{content}
-
-%------------------------------------------------
-
-\begin{frame}
-\frametitle{References}
-\footnotesize{
-	\bibliographystyle{apalike}
-	\bibliography{../../bibliography/bibliography}
+\parbox{0cm}{
+  \vspace{-5.5em}
+  \begin{tabbing}
+    \=\textbf{\firstname~\lastname}\=\\[0.5em]
+    \=Study Program: \studyProgram~~~\=Matr.-Nr.:\matrNo\\[0.5em]
+    \=Chair of Computer Science 5 Information Systems \& Databases \=\\[0.5em]
+    \={Supervisors}:~~~\=\firstsupervisor\\
+    \>                 \>\secondsupervisor\\[0.5em]
+    \>{Advisor}:       \>\firstadvisor\ifdefined\secondadvisor\\
+    \>                 \>\secondadvisor\\[0.5em]
+    \fi
+  \end{tabbing}
 }
 \end{frame}
 
-%------------------------------------------------
+% Title page with a 1/3rd size picture
+\setbeamercolor{title page bar}{fg=white}
+\setbeamertemplate{title page}[rwth][title_small]{}
+\begin{frame}[plain]
+\vspace{1cm}
+\titlepage
 
-\begin{frame}
-\Huge{\centerline{The End}}
+\vspace{-6em}
+\parbox{0cm}{
+  \begin{tabbing}
+    \=\textbf{\firstname~\lastname}\=\\[0.4em]
+    \=Study Program: \studyProgram~~~\=Matr.-Nr.:\matrNo\\[0.4em]
+    \=Chair of Computer Science 5 Information Systems \& Databases \=\\[0.4em]
+    \={Supervisors}:~~~\=\firstsupervisor\\
+    \>                 \>\secondsupervisor\\[0.4em]
+    \>{Advisor}:       \>\firstadvisor\ifdefined\secondadvisor\\
+    \>                 \>\secondadvisor\\[0.4em]
+    \fi
+  \end{tabbing}
+}
 \end{frame}
 
-%----------------------------------------------------------------------------------------
+% Frame with items
+\section*{Overview}
+\begin{frame}
+  \tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
 
-\end{document} 
+\input{content}
+
+% Final frame, subtext is optional
+% Note: should be plain
+%\setbeamertemplate{final page}[rwth][Any questions?]{Thank you for your attention}
+%\begin{frame}[plain]
+%\usebeamertemplate{final page}
+%\end{frame}
+
+\section*{References}
+\begin{frame}[allowframebreaks]
+  \Large{
+    \bibliographystyle{apalike}
+    \bibliography{../../bibliography/bibliography}
+  }
+  \end{frame}
+
+\end{document}

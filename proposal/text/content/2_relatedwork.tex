@@ -6,20 +6,28 @@
 \subsection{Social Bots and Chatbots}
 Bots in general are an interfaces, which provide automated services to end-users. Bots, which are deployed in social media, are called social bots. The definition of a social bot is provided by \cite{FVD*16b}:
 \begin{quote}
-    ``A social bot is a computer algorithm that automatically produces content and interacts with humans on social media, trying to emulate and possibly alter their behavior.''
+    ``A social bot is a computer algorithm that automatically produces content and interacts with humans on social media, [...]''
 \end{quote}
-They interact with users through a social media account.
 
-Users can also interact directly with a bot through a dedicated channel, such as chat. Social bots, which use chats to interact with users are called chatbots. Chatbots have recently become very popular in the context of customer care \cite{CHW*17}, where they act as virtual assistants, which can answer simple questions or perform predefined tasks and thereby assist companies in customer service as they are more economical and the staff can concentrate on less mundane tasks.
+Users can interact with a bot through a dedicated channel, such as the chat functionality of a social network. Social bots, which use chats to interact with users are called chatbots, or conversational bots \cite{WWX*16}. Chatbots have recently become very popular in the context of customer care \cite{CHW*17,FVD*16b}, where they act as virtual assistants, which can answer simple questions or perform predefined tasks and thereby assist companies in customer service as they are more economical and the staff can concentrate on less mundane tasks.
 
-Chatbots can be classified into Chit-Chat chatbots, or task-oriented bots. The task of a chit-chat bot is to engage users into interesting conversations. Task-oriented bots are focussed on getting specific tasks done and less on engaging in a conversation.
+Chatbots can be classified into chit-chat chatbots, or task-oriented bots. A chit-chat bot engages users into interesting conversations. Task-oriented bots are focussed on getting specific tasks done and fcous less on engaging in a coherent conversation.
 
 We can distinguish between retrieval based chatbots and generic chatbots \cite{NLKl19,WWX*16}.
 
-Retrieval chatbots measure the similarity of user queries to candidate responses and run the task that is defined for the candidate repsonse. Generic chatbots on the other hand use machine-learning techniques in order to make assumptions about the user's intentions. An advantage of the generic chatbots is that they provide a better user experience as users can interact more naturally with them than with retrieval based chatbots. However the classification of the intentions can sometimes be wrong (false positives), which can also lead to a bad user experience if the task, which is performed, does not match the desired outcome. Furthermore they need to be able to generate human-like responses.
+Retrieval chatbots measure the similarity of user queries to candidate responses and run the task that is defined for the candidate repsonse. Generic chatbots on the other hand use machine-learning techniques in order to make assumptions about the user's intentions. An advantage of the generic chatbots is that they provide a better user experience as users can interact more naturally with them than with retrieval based chatbots.
 
-In order to reduce false positives, the model which chatbots use to classify intentions needs to be trained on a labelled dataset. Such a dataset, which is also commonly called a trainingset, consists pairs of input data and desired output data. The higher, the qualitity, diversity and quantity of the trainingset, the better the resulting model will be able to classify intentions.
-Once such a classifier is trained, it can be used by the chatbot to determine the intentions in chat and thereby run specific tasks that match those intentions.
-A prominent example for such a classifier are deep learing technologies, which are publicly available \cite{NLKl19}
+In order to classify human intentions chatbots use machine-learning techniques to generate a model, which they then use to classify intentions.
 
 The resulting chatbot is user-friendly, because the user is not required to memorize commands in order to get the desired results. From such standpoint, it becomes clear why such chatbots are desirable as assistants. Furthermore due to this even non-trained users can use such chatbots.
+
+\subsection{Machine Leatning}
+Machine learning is a branch of Artifial Intelligence, that specialises in systems that learn from past experience. Machine-learning algorithms can be subdivided into supervised and unsupervised learning \cite{MiBu16}.
+
+Supervised machine-learning systems classify data based on a model that was previously trained on a labelled dataset. Such a dataset, which is also commonly called a trainingset, consists of pairs of input data and desired output data. The trainingset influences the accuracy of the classifier. The higher, the qualitity, diversity and quantity of the trainingset, the better the resulting model will be able to classify intentions. Decision tree, Random-forest \cite{Brei01}, neural networks are only a few examples of supervised machine-learning techniques.
+
+In contrast, unsupervised machine-learning techniques do not need a trainingset, but only rely on the input data to do the classification.
+They are thereby able to be deployed in unknown complex environments \cite{Adam17}
+
+Once a classifier is trained, it can be used by the chatbot to determine the intentions in chat and thereby run specific tasks that match those intentions.
+A prominent example for such a classifier are deep learing technologies, which are publicly available \cite{NLKl19}

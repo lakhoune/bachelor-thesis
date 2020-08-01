@@ -4,7 +4,7 @@
 \section{Background}
 
 \subsection{Social Bots and Chatbots}
-Bots in general are an interfaces, which provide automated services to end-users. Bots, which are deployed in social media, are called social bots. The definition of a social bot is provided by \cite{FVD*16b}:
+Bots in general are an interfaces, which provide automated services to end-users. In contrast to normal computer programs, bots use the services, which were designed for human users, such as browsing webpages and issuing API calls. Bots, which are deployed in social media, are called social bots. The definition of a social bot is provided by \cite{FVD*16b}:
 \begin{quote}
     ``A social bot is a computer algorithm that automatically produces content and interacts with humans on social media, [...]''
 \end{quote}
@@ -24,10 +24,16 @@ The resulting chatbot is user-friendly, because the user is not required to memo
 \subsection{Machine Leatning}
 Machine learning is a branch of Artifial Intelligence, that specialises in systems that learn from past experience. Machine-learning algorithms can be subdivided into supervised and unsupervised learning \cite{MiBu16}.
 
-Supervised machine-learning systems classify data based on a model that was previously trained on a labelled dataset. Such a dataset, which is also commonly called a trainingset, consists of pairs of input data and desired output data. The trainingset influences the accuracy of the classifier. The higher, the qualitity, diversity and quantity of the trainingset, the better the resulting model will be able to classify intentions. Decision tree, Random-forest \cite{Brei01}, neural networks are only a few examples of supervised machine-learning techniques.
+Supervised machine-learning systems classify data based on a model that was previously trained on a labelled dataset. Such a dataset, which is also commonly called a trainingset, consists of pairs of input data and desired output data. The provided trainingset highgly influences the accuracy of the classifier. The higher, the qualitity, diversity and quantity of the trainingset, the better the resulting model will be able to classify intentions.
 
 In contrast, unsupervised machine-learning techniques do not need a trainingset, but only rely on the input data to do the classification.
 They are thereby able to be deployed in unknown complex environments \cite{Adam17}
 
 Once a classifier is trained, it can be used by the chatbot to determine the intentions in chat and thereby run specific tasks that match those intentions.
-A prominent example for such a classifier are deep learing technologies, which are publicly available \cite{NLKl19}
+Decision tree, Random-forest , neural networks are only a few examples of classifiers. Another prominent example for such a classifier are deep learing technologies, which are publicly available \cite{NLKl19}.
+
+\section{Bot Frameworks}
+Creating a chatbot from scratch is a difficult challenge. Luckily, there are already publicly available frameworks, which can be used to create a variety of bots
+
+\subsection{Microsoft Bot Framwork}
+The Microsoft Bot Framwork provides both an SDK\footnote{Azure Bot Service: \href{https://docs.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0}{https://docs.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0}}, as well as a GUI\footnote{Bot Framework Composer: \href{https://docs.microsoft.com/en-us/composer/}{https://docs.microsoft.com/en-us/composer/}} to create chatbots. Such bots use Language Understanding \footnote{Language Understanding: \href{https://www.luis.ai/}{https://www.luis.ai/}} to understand human requests. The Microsoft Bot Framework allows for an easy creation of a chatbot that can perform simple tasks, such as fetching weather reports, or answering FAQ questions. They can be deployed in a .NET or Node.js environment and can connect to a variety of different channels, such as Microsoft Teams, Amazon Alexa and Slack.

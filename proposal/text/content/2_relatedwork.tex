@@ -9,19 +9,20 @@ Bots in general are an interfaces, which provide automated services to end-users
     ``A social bot is a computer algorithm that automatically produces content and interacts with humans on social media, [...]''
 \end{quote}
 
-Users can interact with a bot through a dedicated channel, such as the chat functionality of a social network. Social bots, which use chats to interact with users are called chatbots, or conversational bots \cite{WWX*16}. Chatbots have recently become very popular in the context of customer care \cite{CHW*17,FVD*16b}, where they act as virtual assistants, which can answer simple questions or perform predefined tasks and thereby assist companies in customer service as they are more economical and the staff can concentrate on less mundane tasks.
+Users can interact with a social bot through a dedicated channel, such as the chat functionality of a social network. Social bots, which use chats to interact with users are called chatbots, or conversational bots \cite{WWX*16}. Chatbots have recently become very popular in the context of customer care \cite{CHW*17,FVD*16b}, where they act as virtual assistants, which can answer simple questions or perform predefined tasks. They thereby assist companies in customer service as they are more economical and the staff can concentrate on less mundane tasks.
 
-Chatbots can be classified into chit-chat chatbots, or task-oriented bots. A chit-chat bot engages users into interesting conversations. Task-oriented bots are focussed on getting specific tasks done and fcous less on engaging in a coherent conversation.
+Chatbots can be classified into chit-chat chatbots, or task-oriented bots. A chit-chat bot engages users into interesting conversations.
 
-We can distinguish between retrieval based chatbots and generic chatbots \cite{NLKl19,WWX*16}.
+We can distinguish between retrieval based chatbots and generic chatbots \cite{NLKl19,WWX*16}. Retrieval based bots are focussed on getting specific tasks done and focus less on engaging in a coherent conversation.
 
-Retrieval chatbots measure the similarity of user queries to candidate responses and run the task that is defined for the candidate repsonse. Generic chatbots on the other hand use machine-learning techniques in order to make assumptions about the user's intentions. An advantage of the generic chatbots is that they provide a better user experience as users can interact more naturally with them than with retrieval based chatbots.
+Retrieval based chatbots measure the similarity of user queries to candidate responses and run the task that is defined for the candidate repsonse. They do this by using natural language processing and machine learning techniques. Generic chatbots on the other hand also use machine-learning techniques to generate generic responses. An advantage of the generic chatbots is that they provide a better user experience as users can interact more naturally with them than with retrieval based chatbots.
 
-In order to classify human intentions chatbots use machine-learning techniques to generate a model, which they then use to classify intentions.
+Chatbots provide a better user experience \cite{CHW*17}, because the user is not required to memorize commands in order to get the desired results. This means that even non-trained users can use such chatbots. From such a standpoint, it becomes clear why such chatbots are desirable as assistants.
 
-The resulting chatbot is user-friendly, because the user is not required to memorize commands in order to get the desired results. From such standpoint, it becomes clear why such chatbots are desirable as assistants. Furthermore due to this even non-trained users can use such chatbots.
+\subsection{Natural Language Processing}
 
-\subsection{Machine Leatning}
+
+\subsection{Machine Learning}
 Machine learning is a branch of Artifial Intelligence, that specialises in systems that learn from past experience. Machine-learning algorithms can be subdivided into supervised and unsupervised learning \cite{MiBu16}.
 
 Supervised machine-learning systems classify data based on a model that was previously trained on a labelled dataset. Such a dataset, which is also commonly called a trainingset, consists of pairs of input data and desired output data. The provided trainingset highgly influences the accuracy of the classifier. The higher, the qualitity, diversity and quantity of the trainingset, the better the resulting model will be able to classify intentions.
@@ -33,7 +34,13 @@ Once a classifier is trained, it can be used by the chatbot to determine the int
 Decision tree, Random-forest , neural networks are only a few examples of classifiers. Another prominent example for such a classifier are deep learing technologies, which are publicly available \cite{NLKl19}.
 
 \section{Bot Frameworks}
-Creating a chatbot from scratch is a difficult challenge. Luckily, there are already publicly available frameworks, which can be used to create a variety of bots
+Creating a chatbot from scratch is a difficult challenge. Luckily, there are already publicly available frameworks, which can be used to create a variety of bots.
 
 \subsection{Microsoft Bot Framwork}
 The Microsoft Bot Framwork provides both an SDK\footnote{Azure Bot Service: \href{https://docs.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0}{https://docs.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0}}, as well as a GUI\footnote{Bot Framework Composer: \href{https://docs.microsoft.com/en-us/composer/}{https://docs.microsoft.com/en-us/composer/}} to create chatbots. Such bots use Language Understanding \footnote{Language Understanding: \href{https://www.luis.ai/}{https://www.luis.ai/}} to understand human requests. The Microsoft Bot Framework allows for an easy creation of a chatbot that can perform simple tasks, such as fetching weather reports, or answering FAQ questions. They can be deployed in a .NET or Node.js environment and can connect to a variety of different channels, such as Microsoft Teams, Amazon Alexa and Slack.
+
+\subsection{Rasa Stack}
+
+\subsection{Social Bot Framework}
+
+The Social Bot Framework (SBF) is a Web-based model-driven near-realtime environment to develop chatbots \cite{NLKl19}. The model-driven development allows less experienced users to take part in the development, which is favorable for the creation of a chatbot inside a Community of Practice (CoP).

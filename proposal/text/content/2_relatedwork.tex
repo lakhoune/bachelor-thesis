@@ -9,7 +9,7 @@ Bots in general are an interfaces, which provide automated services to end-users
     ``A social bot is a computer algorithm that automatically produces content and interacts with humans on social media, [...]''
 \end{quote}
 
-Users can interact with a social bot through a dedicated channel, such as the chat functionality of a social network. Social bots, which use chats to interact with users are called chatbots, or conversational bots \cite{WWX*16}. Chatbots have recently become very popular in the context of customer care \cite{CHW*17,FVD*16b}, where they act as virtual assistants, which can answer simple questions or perform predefined tasks. They thereby assist companies in customer service as they are more economical and the staff can concentrate on less mundane tasks.
+Users can interact with a social bot through a dedicated channel, such as the chat functionality of a social network. Social bots, which use chats to interact with users are called chatbots, or conversational bots \cite{WWX*16}. Chatbots have recently become very popular in the context of customer care \cite{CHW*17,FVD*16b}, where they act as virtual assistants, which can answer simple questions \cite{CaWh14} or perform predefined tasks. They thereby assist companies in customer service as they are more economical and the staff can concentrate on less mundane tasks.
 
 Chatbots can be classified into chit-chat chatbots, or task-oriented bots. A chit-chat bot engages users into interesting conversations.
 
@@ -19,8 +19,12 @@ Retrieval based chatbots measure the similarity of user queries to candidate res
 
 Chatbots provide a better user experience \cite{CHW*17}, because the user is not required to memorize commands in order to get the desired results. This means that even non-trained users can use such chatbots. From such a standpoint, it becomes clear why such chatbots are desirable as assistants.
 
-\subsection{Natural Language Processing}
+\subsection{Natural Language Understanding}
+Natural Language Understanding (NLU) is a branch of Artificial Intelligence (AI), which tries to make computer programs understand the semantics of human language. It does this by transforming a block of input text into a data structure that is programmer-friendly but still describes the original meaning of the text \cite{CWB*11}.
 
+Most NLU algorithms these days only look at the syntacticts of words, which relies on statistical features, such as word occurence frequency \cite{CaWh14}. However humans take far more information into consideration, as the reading of a word triggers a whole bunch of related concepts and experiences which are combined to give the understanding of a text.
+
+Computers try to close this knowledge gap with computational models, which emulate human cognitive processing. By evaluating the results of those models for a given input, researchers can incrementally improve the accuracy of the model \cite{CaWh14}
 
 \subsection{Machine Learning}
 Machine learning is a branch of Artifial Intelligence, that specialises in systems that learn from past experience. Machine-learning algorithms can be subdivided into supervised and unsupervised learning \cite{MiBu16}.
@@ -36,10 +40,12 @@ Decision tree, Random-forest , neural networks are only a few examples of classi
 \section{Bot Frameworks}
 Creating a chatbot from scratch is a difficult challenge. Luckily, there are already publicly available frameworks, which can be used to create a variety of bots.
 
-\subsection{Microsoft Bot Framwork}
-The Microsoft Bot Framwork provides both an SDK\footnote{Azure Bot Service: \href{https://docs.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0}{https://docs.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0}}, as well as a GUI\footnote{Bot Framework Composer: \href{https://docs.microsoft.com/en-us/composer/}{https://docs.microsoft.com/en-us/composer/}} to create chatbots. Such bots use Language Understanding \footnote{Language Understanding: \href{https://www.luis.ai/}{https://www.luis.ai/}} to understand human requests. The Microsoft Bot Framework allows for an easy creation of a chatbot that can perform simple tasks, such as fetching weather reports, or answering FAQ questions. They can be deployed in a .NET or Node.js environment and can connect to a variety of different channels, such as Microsoft Teams, Amazon Alexa and Slack.
+\subsection{Microsoft Bot Framework}
+The Microsoft Bot Framework provides both an SDK\footnote{Azure Bot Service: \href{https://docs.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0}{https://docs.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0}}, as well as a GUI\footnote{Bot Framework Composer: \href{https://docs.microsoft.com/en-us/composer/}{https://docs.microsoft.com/en-us/composer/}} to create chatbots. Such bots use Language Understanding \footnote{Language Understanding: \href{https://www.luis.ai/}{https://www.luis.ai/}} to understand human requests. The Microsoft Bot Framework allows for an easy creation of a chatbot that can perform simple tasks, such as fetching weather reports, or answering FAQ questions \cite{CaWh14}. They can be deployed in a .NET or Node.js environment and can connect to a variety of different channels, such as Microsoft Teams, Amazon Alexa and Slack.
 
-\subsection{Rasa Stack}
+\subsection{Rasa}
+Rasa is an open sourced framework for building chat- and voice-based bots. The RASA also provides an NLU component that can be used independantly of the rest of the framework, which makes it easy to integrate into an existing system, such as the Social Bot Framework.
+
 
 \subsection{Social Bot Framework}
 

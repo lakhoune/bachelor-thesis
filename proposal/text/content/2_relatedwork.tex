@@ -1,13 +1,17 @@
 %  Prerequisites
-\chapter{Related Work}
+\chapter{State of the Art}
+This chapter provides an overview of the concepts and technologies which are important in the field of my current work. First in Section \ref{lab:background} we define domain-specific terms. In Section \ref{lab:relWork} we discuss related work in the field.
+In Section \ref{lab:systems}, we describe the systems, which will be used for this thesis.
 
-\section{Social Bots and Chatbots}
+\section{Background} \label{lab:background}
+
+\subsection{Social Bots and Chatbots}
 Bots in general are an interfaces, which provide automated services to end-users. In contrast to normal computer programs, bots use the services, which were designed for human users, such as browsing webpages and issuing API calls. Bots, which are deployed in social media, are called social bots. The definition of a social bot is provided by \cite{FVD*16b}:
 \begin{quote}
     ``A social bot is a computer algorithm that automatically produces content and interacts with humans on social media, [...]''
 \end{quote}
 
-Users can interact with a social bot through a dedicated channel, such as the chat functionality of a social network. Social bots, which use chats to interact with users are called chatbots, or conversational bots \cite{WWX*16}. Chatbots have recently become very popular in the context of customer care \cite{CHW*17,FVD*16b}, where they act as virtual assistants, which can answer simple questions \cite{CaWh14} or perform predefined tasks. They thereby assist companies in customer service as they are more economical and the staff can concentrate on less mundane tasks.
+Social bots are getting more and more popular in Human-Computer Interactin (HCI), by integrating automation into daily lives of people \cite{BFPN17}. Users can interact with a social bot through a dedicated channel, such as the chat functionality of a social network. Social bots, which use chats to interact with users are called chatbots, or conversational bots \cite{WWX*16}. Chatbots have recently become very popular in the context of customer care \cite{CHW*17,FVD*16b}, where they act as virtual assistants, which can answer simple questions \cite{CaWh14} or perform predefined tasks. They thereby assist companies in customer service as they are more economical and the staff can concentrate on less mundane tasks.
 
 Chatbots can be classified into chit-chat chatbots, or task-oriented bots. A chit-chat bot engages users into interesting conversations.
 
@@ -35,23 +39,33 @@ They are thereby able to be deployed in unknown complex environments \cite{Adam1
 Once a classifier is trained, it can be used by the chatbot to determine the intentions in chat and thereby run specific tasks that match those intentions.
 Decision tree, Random-forest , neural networks are only a few examples of classifiers. Another prominent example for such a classifier are deep learing technologies, which are publicly available \cite{NLKl19}.
 
-\subsection{Bot Frameworks}
+\subsection{Measurement of Success}
+In order tp justify their existence, communities have to constantly be aware of their successes and failures . They need to constantly adjust measurements of success to satisfy current needs. Therefore a measurement of success is needed.
+
+
+\section{Related Work} \label{lab:relWork}
+
 Creating a chatbot from scratch is a difficult challenge. Luckily, there are already publicly available frameworks, which can be used to create a variety of bots.
 
-\subsubsection{Microsoft Bot Framework}
+\subsection{Microsoft Bot Framework}
 The Microsoft Bot Framework provides both an SDK\footnote{Azure Bot Service: \href{https://docs.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0}{https://docs.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0}}, as well as a GUI\footnote{Bot Framework Composer: \href{https://docs.microsoft.com/en-us/composer/}{https://docs.microsoft.com/en-us/composer/}} to create chatbots. Such bots use Language Understanding \footnote{Language Understanding: \href{https://www.luis.ai/}{https://www.luis.ai/}} to understand human requests. The Microsoft Bot Framework allows for an easy creation of a chatbot that can perform simple tasks, such as fetching weather reports, or answering FAQ questions \cite{CaWh14}. They can be deployed in a .NET or Node.js environment and can connect to a variety of different channels, such as Microsoft Teams, Amazon Alexa and Slack.
 
-\subsubsection{RASA}
-Rasa is an open sourced framework for building chat- and voice-based bots. The RASA also provides an NLU component that can be used independantly of the rest of the framework, which makes it easy to integrate into an existing system, such as the Social Bot Framework.
+\subsection{RASA}
+Rasa is an open sourced framework for building chat- and voice-based bots. The goal of RASA is to bring current advances in machine-learning to end-users, such that they can create chatbots in a simple way \cite{BFPN17}. The RASA system is split into a component for natural language understanding (RASA NLU) and a dialogue management component (RASA Core).
 
+RASA NLU is used to extract the intents of a user message with a text classification based on the fastText approach \cite{BFPN17}. fastText has a similar accuracy to conventional deep learning classifiers, but is much faster and therefore more easily scalable \cite{JGBM16}.
 
-\subsubsection{Social Bot Framework}
+RASA Core consists of a \emph{Tracker}, a \emph{Policy} and a set of \emph{Actions} \cite{BFPN17}. The Tracker manages the current state of the conversation. It gets an intent as an input and forwards it the Policy, which selects the next action, given the current state of the conversation and a predefined list of actions for each intent. The Action triggers the Tracker to recalculate the new state and might also send a reply to the user.
+
+The system is built in a modularized way and each service provides HTTP APIs \cite{BFPN17}, which makes it possible to use the NLU component independantly of the rest of the framework. This makes it easy to integrate it into an existing system, such as the Social Bot Framework.
+
+\section{Systems} \label{lab:systems}
+
+\subsection{Social Bot Framework}
 
 The Social Bot Framework (SBF) is a Web-based model-driven near-realtime environment to develop chatbots \cite{NLKl19}. The model-driven development allows less experienced users to take part in the development, which is favorable for the creation of a chatbot inside a Community of Practice (CoP).
 
-
-\section{Measurement of Success}
-In order tp justify their existence, communities have to constantly be aware of their successes and failures . They need to constantly adjust measurements of success to satisfy current needs. Therefore a measurement of success is needed.
-
 \subsection{MobSOS}
 The MobSOS framework is a success model, which assists online communities in monitoring and evaluating services. The MobSOS success model extends the classical D\&M IS success model by adding feature aspects which were not covered initially, such as Qualitity of Service and mobility \cite{Renz08}.
+
+\subsection{las2peer}

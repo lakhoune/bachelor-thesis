@@ -46,8 +46,33 @@ Communities of Practice (CoP) are groups of entities, which share a common resea
 In order to justify their existence, communities have to constantly be aware of their successes and failures. They need to constantly adjust measurements of success to satisfy current needs. Therefore a measurement of success is needed. Success criteria can be internal aspects, like project duration, cost and qualitity, as well as external aspects, like customer satisfaction \cite{AgRa06}.
 
 In order to estimate success, a model is required. It is important to note, that a project can be evaluated from different perspectives, e.g. the developers, the customers or the end-users. In each of these perspectives, each dimension of success can be more, or less, important.
+DeLone and McLean \cite{DeMc92} base their model on six different interdependant measures:
+\begin{itemize}
+    \item System Qualitity: metrics that describe the technical specifations of the system
+    \item Information Quality: metrics about content qualitity
+    \item Use: Metrics about how a system is used
+    \item User Satisfaction: includes metrics which measure user experience
+    \item Individual Impact: metrics about how a user adapts to the system
+    \item Organizational Impact: metrics about how the system influences the community
+\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[width=12cm]{related_work/deloneMclean.png}
+    \caption{Success Model by Delone and McLean \cite{DeMc92}}
+\end{figure}
+
+\subsection{GraphQL}
+GraphQL\footnotemark is a query language specifation for web APIs. Instead of hitting multiple endpoints for different requests, users can query all data from one endpoint, by specfifying the kind of data that they need. Data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean and String.
+\begin{lstlisting}[caption={Example of a GraphQL schema},captionpos=b]
+    
+type User {
+  id: ID
+  name: String
+}
+\end{lstlisting}
 
 
+\footnotetext{GraphQL: \href{https://graphql.github.io/}{https://graphql.github.io/}}
 \section{Related Work} \label{lab:relWork}
 
 Creating a chatbot from scratch is a difficult challenge. Luckily, there are already publicly available frameworks, which can be used to create a variety of bots.

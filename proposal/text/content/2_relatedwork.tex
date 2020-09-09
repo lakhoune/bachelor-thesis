@@ -55,10 +55,29 @@ DeLone and McLean \cite{DeMc92} base their model on six different interdependant
     \item Individual Impact: metrics about how a user adapts to the system
     \item Organizational Impact: metrics about how the system influences the community
 \end{itemize}
-\begin{figure}
-    \centering
-    \includegraphics[width=12cm]{related_work/deloneMclean.png}
-    \caption{Success Model by Delone and McLean \cite{DeMc92}}
+\begin{figure}[!h]
+	\centering
+	\begin{tikzpicture}[node distance=3.0cm and 6.0cm]
+	\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (0,2) (SysQ) {System\\ Quality};
+	\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (0,0) (InfoQ) {Information\\ Quality};
+	\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (4,2) (Use) {Use};
+	\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (4,0) (UserSat) {User\\ Satisfaction};
+	\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (8,1) (Indivi) {Individual\\ Impact};
+	\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (12,1) (Orga) {Organizational\\ Impact};
+	\draw [->, very thick] (InfoQ) -- (Use);
+	\draw [->, very thick] (InfoQ) -- (UserSat);
+	\draw [->, very thick] (SysQ) -- (Use);
+	\draw [->, very thick] (SysQ) -- (UserSat);
+	\draw [->, very thick] (Use) -- (Indivi);
+	\draw [->, very thick] (UserSat) -- (Indivi);
+	\draw [->, very thick] (Use) -- (UserSat);
+	\draw [->, very thick] (UserSat) -- (Use);
+	\draw [->, very thick] (Indivi) -- (Orga);
+	\draw[dotted] (2,-1) -- (2,3);
+	\draw[dotted] (6,-1) -- (6,3);
+	\end{tikzpicture}
+	\caption{Community Information Systems Success Model by DeLone and McLean~\cite{DeMc92}}
+	\label{CISModel}
 \end{figure}
 
 \subsection{GraphQL}

@@ -1,12 +1,18 @@
 \chapter{Concept}
 \section{Scenario: Mensa Community}
-We illustrate the software system by considering a community of frequent Mensa visitors. The students in this community share a common interests which is the food at the canteen. Students can rate meals inside a chat application, called Slack, is designed with the help of the Social Bot Framework, which is deployed with las2peer. Furhtermore, the students can query visualisations through the chat application. Those visualisations include current success metrics which were previously defined by the community. The metrics can be defined inside the MobSOS Continious Community system. On the other hand the staff at the Mensa can gain insight into how successfull their canteen is and thereby improve their work.
+We illustrate the software system by considering a community of frequent Mensa visitors. The students in this community share a common interests which is the food at the canteen.
+
+Students can rate meals thorugh a social bot, which is designed with the help of the Social Bot Framework. The bot can be accessed by the Slack chat application. Students can ask the bot about which food will be served on a given day.
+
+Furhtermore, the students can query visualisations about the meals through the chat application. Those visualisations include current success metrics which were previously defined by the community. The metrics can be defined inside the MobSOS Continious Community Analytics (CCA) system.
 
 \subsection{Use Cases}
 
-\subsubsection{Issuing a visualization request} The MobSOS Continious Community system contains a mediabase with all the reviews of meals, made by students. Those can be accessed by a GraphQL interface. A user wants to know how active the community is. He opens Slack and asks the bot for a visualization. The bot issues a query to the GraphQL interface. The resulting data is then displayed as a chart inside the chat.
+\subsubsection{Issuing a visualization request} The CCA system contains a mediabase with all the reviews of meals, made by students. Those can be accessed by a GraphQL interface. A student wants to decide wether to go to the canteen on a given day. He opens Slack and asks the bot, which food will be served on that day. The bot issues a query to the GraphQL interface. The resulting meal is then displayed inside the chat.
 
-\subsubsection{Adding a review} A user can rate a meal inside the chat. The user therefore tells the bot which meal he had. The bot will start a dialogue, by asking questions about the meal. Each question results in a datapoint for the review. The final review is then added to the Mediabase database.
+The student is still unsure on wether to go and asks the bot how popular a specific meal is. The bot issues another GraphQL requests. The resulting data, which includes data from all reviews of that specific meal, is displayed as a chart inside the chat. After the user has seen how successfull the food is, he is asked by the bot, wether he will go to the canteen.
+
+\subsubsection{Adding a review} After the canteen has closed, the bot will ask the user how the meal was. The user can rate the meal inside the chat. The bot will start a dialogue, by asking questions about the meal. Those questions are designed to capture the success metrics, which were previously defined. Each question results in a datapoint for the review. The final review is then added to the Mediabase database and will be taken into consideration for further evaluation requests.
 
 \subsubsection{Modifying a review} A user can choose to update a past review. The bot will ask the user the same questions and afterwards update the entry in the database with the new review.
 

@@ -8,7 +8,7 @@ In Section \ref{lab:systems}, we describe the systems, which will be used for th
 \subsection{Social Bots and Chatbots}
 Bots in general are an interfaces, which provide automated services to end-users. In contrast to normal computer programs, bots use the services, which were designed for human users, such as browsing webpages and issuing API calls. Bots, which are deployed in social media, are called social bots. The definition of a social bot is provided by \cite{FVD*16b}:
 \begin{quote}
-    ``A social bot is a computer algorithm that automatically produces content and interacts with humans on social media, [...]''
+	``A social bot is a computer algorithm that automatically produces content and interacts with humans on social media, [...]''
 \end{quote}
 
 Social bots are getting more and more popular in Human-Computer Interactin (HCI), by integrating automation into daily lives of people \cite{BFPN17}. Users can interact with a social bot through a dedicated channel, such as the chat functionality of a social network. Social bots, which use chats to interact with users are called chatbots, or conversational bots \cite{WWX*16}. Chatbots have recently become very popular in the context of customer care \cite{CHW*17,FVD*16b}, where they act as virtual assistants, which can answer simple questions \cite{CaWh14} or perform predefined tasks. They thereby assist companies in customer service as they are more economical and the staff can concentrate on less mundane tasks.
@@ -48,37 +48,45 @@ In order to justify their existence, communities have to constantly be aware of 
 In order to estimate success, a model is required. It is important to note, that a project can be evaluated from different perspectives, e.g. the developers, the customers or the end-users. In each of these perspectives, each dimension of success can be more, or less, important.
 DeLone and McLean \cite{DeMc92} base their model on six different interdependant measures:
 \begin{itemize}
-    \item System Qualitity: metrics that describe the technical specifations of the system
-    \item Information Quality: metrics about content qualitity
-    \item Use: Metrics about how a system is used
-    \item User Satisfaction: includes metrics which measure user experience
-    \item Individual Impact: metrics about how a user adapts to the system
-    \item Organizational Impact: metrics about how the system influences the community
+	\item System Qualitity: metrics that describe the technical specifations of the system
+	\item Information Quality: metrics about content qualitity
+	\item Use: Metrics about how a system is used
+	\item User Satisfaction: includes metrics which measure user experience
+	\item Individual Impact: metrics about how a user adapts to the system
+	\item Organizational Impact: metrics about how the system influences the community
 \end{itemize}
 \begin{figure}[!h]
 	\centering
 	\begin{tikzpicture}[node distance=3.0cm and 6.0cm]
-	\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (0,2) (SysQ) {System\\ Quality};
-	\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (0,0) (InfoQ) {Information\\ Quality};
-	\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (4,2) (Use) {Use};
-	\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (4,0) (UserSat) {User\\ Satisfaction};
-	\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (8,1) (Indivi) {Individual\\ Impact};
-	\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (12,1) (Orga) {Organizational\\ Impact};
-	\draw [->, very thick] (InfoQ) -- (Use);
-	\draw [->, very thick] (InfoQ) -- (UserSat);
-	\draw [->, very thick] (SysQ) -- (Use);
-	\draw [->, very thick] (SysQ) -- (UserSat);
-	\draw [->, very thick] (Use) -- (Indivi);
-	\draw [->, very thick] (UserSat) -- (Indivi);
-	\draw [->, very thick] (Use) -- (UserSat);
-	\draw [->, very thick] (UserSat) -- (Use);
-	\draw [->, very thick] (Indivi) -- (Orga);
-	\draw[dotted] (2,-1) -- (2,3);
-	\draw[dotted] (6,-1) -- (6,3);
+		\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (0,2) (SysQ) {System\\ Quality};
+		\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (0,0) (InfoQ) {Information\\ Quality};
+		\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (4,2) (Use) {Use};
+		\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (4,0) (UserSat) {User\\ Satisfaction};
+		\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (8,1) (Indivi) {Individual\\ Impact};
+		\node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (12,1) (Orga) {Organizational\\ Impact};
+		\draw [->, very thick] (InfoQ) -- (Use);
+		\draw [->, very thick] (InfoQ) -- (UserSat);
+		\draw [->, very thick] (SysQ) -- (Use);
+		\draw [->, very thick] (SysQ) -- (UserSat);
+		\draw [->, very thick] (Use) -- (Indivi);
+		\draw [->, very thick] (UserSat) -- (Indivi);
+		\draw [->, very thick] (Use) -- (UserSat);
+		\draw [->, very thick] (UserSat) -- (Use);
+		\draw [->, very thick] (Indivi) -- (Orga);
+		\draw[dotted] (2,-1) -- (2,3);
+		\draw[dotted] (6,-1) -- (6,3);
 	\end{tikzpicture}
 	\caption{Community Information Systems Success Model by DeLone and McLean~\cite{DeMc92}}
 	\label{CISModel}
 \end{figure}
+
+\subsection{Mediabase}
+Mediabase is a database schema, which has been proposed to store Web 2.0 data in a dynamic way. Mediabase use graphs to model generated data. The nodes in those graphs are called \emph{Actors} and represent either a \emph{ Medium}, an \emph {Artifact}, a \emph{Member}, or a \emph{Network}. Furthermore, Mediabase includes \emph{Services} \cite{KlPe08}.
+\begin{figure}
+	\centering
+	\includegraphics*[width=12cm]{related_work/mediabase.png}
+\end{figure}
+
 
 \subsection{GraphQL}
 GraphQL\footnotemark is a query language specifation for web APIs. Instead of hitting multiple endpoints for different requests, users can query all data from one endpoint, by specfifying the kind of data that they need. Data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean and String.

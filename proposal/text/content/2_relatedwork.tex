@@ -92,23 +92,46 @@ Furthermore, Mediabase includes \emph{Services}. A Mediabase consists of a backe
 This approach is favorable for the management of large scale-free dynamic social graphs.
 
 \subsection{GraphQL}
-GraphQL\footnotemark is a query language specifation for web APIs. Instead of hitting multiple endpoints for different requests, users can query all data from one endpoint, by specfifying the kind of data that they need. Data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean and String.
-\begin{lstlisting}[caption={Example of a GraphQL schema},captionpos=b]
-    
-type User {
+GraphQL\footnotemark is a query language specifation for web APIs. Instead of hitting multiple endpoints, like in standard REST APIs, for different requests, users can get all data from one endpoint, by specfifying the kind of data that they need as a query.
+
+\footnotetext{GraphQL: \href{https://graphql.github.io/}{https://graphql.github.io/}}
+
+Data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean and String, but new types can also be defined. An example can be seen in \ref{lst:GraphQLType}.
+\begin{lstlisting}[caption={Example of a GraphQL schema},captionpos=b,label={lst:GraphQLType}]
+type human {
   id: ID
   name: String
+  height: Int
+  weight: Int
+}
+\end{lstlisting}
+New fields can be dynamically added without influencing existing queries. The schemas are formalized as either a \emph{Query }, or a \emph{Mutation}. They are declared by the keyword \emph{schema}. The query keyword can be omitted. An example of a query can be seen in listing \ref{lst:GraphQLQuery}.
+\begin{lstlisting}[caption={Example of a GraphQL Query},captionpos=b,label={lst:GraphQLQuery}]
+{
+  human(id: "1000") {
+    name
+    height
+  }
+}
+\end{lstlisting}
+Mutations are used to modify data. An example of a query can be seen in listing \ref{lst:GraphQLMut}.
+\begin{lstlisting}[caption={Example of a GraphQL Mutation},captionpos=b,label={lst:GraphQLMut}]
+mutation addHuman(name:String){
+  {
+    name
+    id
+  }
 }
 \end{lstlisting}
 
-
-\footnotetext{GraphQL: \href{https://graphql.github.io/}{https://graphql.github.io/}}
 \section{Related Work} \label{lab:relWork}
 
 Creating a chatbot from scratch is a difficult challenge. Luckily, there are already publicly available frameworks, which can be used to create a variety of bots.
 
 \subsection{Microsoft Bot Framework}
-The Microsoft Bot Framework provides both an SDK\footnote{Azure Bot Service: \href{https://docs.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0}{https://docs.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0}}, as well as a GUI\footnote{Bot Framework Composer: \href{https://docs.microsoft.com/en-us/composer/}{https://docs.microsoft.com/en-us/composer/}} to create chatbots. Such bots use Language Understanding \footnote{Language Understanding: \href{https://www.luis.ai/}{https://www.luis.ai/}} to understand human requests. The Microsoft Bot Framework allows for an easy creation of a chatbot that can perform simple tasks, such as fetching weather reports, or answering FAQ questions \cite{CaWh14}. They can be deployed in a .NET or Node.js environment and can connect to a variety of different channels, such as Microsoft Teams, Amazon Alexa and Slack.
+The Microsoft Bot Framework provides both an SDK\footnote{Azure Bot Service: \href{https://docs.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0}{https://docs.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0}}, as well as a GUI\footnote{Bot Framework Composer: \href{https://docs.microsoft.com/en-us/composer/}{https://docs.microsoft.com/en-us/composer/}} to create chatbots. Such bots use Language Understanding\footnote{Language Understanding: \href{https://www.luis.ai/}{https://www.luis.ai/}} to understand human requests.
+
+The Microsoft Bot Framework allows for an easy creation of a chatbot that can perform simple tasks, such as fetching weather reports, or answering FAQ questions \cite{CaWh14}. They can be deployed in a .NET or Node.js environment and can connect to a variety of different channels, such as Microsoft Teams, Amazon Alexa and Slack.
 
 \subsection{RASA}
 Rasa is an open sourced framework for building chat- and voice-based bots. The goal of RASA is to bring current advances in machine-learning to end-users, such that they can create chatbots in a simple way \cite{BFPN17}. The RASA system is split into a component for natural language understanding (RASA NLU) and a dialogue management component (RASA Core).

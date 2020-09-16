@@ -81,12 +81,15 @@ DeLone and McLean \cite{DeMc92} base their model on six different interdependant
 \end{figure}
 
 \subsection{Mediabase}
-Mediabase is a database schema, which has been proposed to store Web 2.0 data in a dynamic way. Mediabase use graphs to model generated data. The nodes in those graphs are called \emph{Actors} and represent either a \emph{ Medium}, an \emph {Artifact}, a \emph{Member}, or a \emph{Network}. Furthermore, Mediabase includes \emph{Services} \cite{KlPe08}.
+Mediabase is a database schema, which has been proposed to store Web 2.0 data in a dynamic way \cite{KlPe08}. Mediabase uses graphs to model generated data. The nodes in those graphs are called \emph{Actors} and represent either a \emph{ Medium}, an \emph{Artifact}, a \emph{Member}, or a \emph{Network}. A \emph{ Medium} can be a blog or a wiki. The \emph{Artifact} would be an individual entry. The \emph{Network} represents the community, in which the different \emph{Members} interact in. \emph{Members} do not have to be human, but are assigned a specific role in the \emph{Network}.
 \begin{figure}
 	\centering
 	\includegraphics*[width=12cm]{related_work/mediabase.png}
+	\caption{Mediabase Overview \cite{Klam10e}}
 \end{figure}
+Furthermore, Mediabase includes \emph{Services}. A Mediabase consists of a backend database, like DB2, or MySQL, crawler scripts and monitoring processes and a frontend for visualization of data  and user interaction.
 
+This approach is favorable for the management of large scale-free dynamic social graphs.
 
 \subsection{GraphQL}
 GraphQL\footnotemark is a query language specifation for web APIs. Instead of hitting multiple endpoints for different requests, users can query all data from one endpoint, by specfifying the kind of data that they need. Data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean and String.

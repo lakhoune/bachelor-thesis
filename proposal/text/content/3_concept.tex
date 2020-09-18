@@ -12,7 +12,7 @@ Furhtermore, the students can query visualisations about the meals through the c
 
 The student is still unsure on wether to go to the canteen. He asks the bot how popular a specific meal is. The bot issues another GraphQL requests. The resulting data is displayed as a chart inside the chat. The data is aggregated from different sources, like reviews on Facebook, Google and Reviews which were made inside the las2peer system. After the user has seen how successfull the food is, he is asked by the bot, wether he will go to the canteen.
 
-\subsubsection{Success Awareness} Students in the community are aware that the success of their community depends on the participation of its members. They are discussing about the success of the community inside a group chat. They want to know how active the members of the community are. A student  mentions the bot, which is a member of the chat group, and tells it to visulize the active time of an average member of the community.
+\subsubsection{Success Awareness} Students in the community are aware that the success of their community depends on the participation of its members. They are discussing about the success of the community inside a group chat. They want to know how active the members of the community are. A student  mentions the bot, which is a member of the chat group, and tells it to visulize the active time of an average member of the community. The bot recognizes this and runs a predefined query. The resulting data is visualized in the group chat.
 
 \subsubsection{Adding a review} After the canteen has closed, the bot will ask the user how the meal was. The user can rate the meal inside the chat. The bot will start a dialogue, by asking questions about the meal. Those questions are designed to capture the success metrics, which were previously defined. Each question results in a datapoint for the review. The final review is then added to the database and will be taken into consideration for further evaluation requests.
 
@@ -28,19 +28,24 @@ The student is still unsure on wether to go to the canteen. He asks the bot how 
 
 \subsection{Functional Requirements}
 
-\subsubsection{Issuing a GraphQL Request}
+\subsubsection{Retrieving Data from GraphQL API}
+The system needs to be able to make queries to the GraphQL API, to get data, which will be used for the visualization.
 
-\subsection{Enter Review Context}
+\subsection{Enter Review Context} The bot should be able to recognize, if a user wants to start a review.
 
-\subsection{Cope with spelling mistakes}
+\subsection{Cope with spelling mistakes} The bot should be able to understand the user, even if they made a spelling mistake.
 
-\subsubsection{Use Google Charts API}
+\subsubsection{Use Google Charts API} The data which has been retrieved from the GraphQL API needs to be passed to the Google Charts API to create a visualization. The resulting visualization should be a picture,so that it can be represented inside a chat.
 
-\subsubsection{}
+\subsubsection{Group Chats} Users should be able to add a bot to a group chat.
+
+\subsubsection{Listen for Mentions} Inside a group chat, the bot should only respond to messages which specifically mentioned the bot.
 
 \subsection{Non-Functional Requirements}
 
-\subsection{Usability}
+\subsubsection{Usability} The bot should be easy to use. Non-trained users should be able to interact with the bot with ease.
 
-\subsection{Mobility}
+\subsubsection{UI optimization} The bot should be designed, for chats which will mainly run on mobile devices. As such, visualisations should be easy to read even on small devices.
+
+\subsubsection{Compatibility} The bot should be extendible to any chat platform, which allows for the use of bots.
 

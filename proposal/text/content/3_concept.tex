@@ -2,7 +2,7 @@
 \section{Scenario: Mensa Community}
 We illustrate the software system by considering a community of frequent Mensa visitors. The students in this community share a common interests which is the food at the canteen.
 
-Students can rate meals thorugh a social bot, which is designed with the help of the Social Bot Framework. The bot can be accessed by the Slack chat application. Students can ask the bot about which food will be served on a given day.
+Students can rate meals through a social bot, which is designed with the help of the Social Bot Framework. The bot can be accessed by the Slack chat application. Students can ask the bot about which food will be served on a given day.
 
 Furhtermore, the students can query visualisations about the meals through the chat application. Those visualisations include current success metrics which were previously defined by the community. The metrics can be defined inside the MobSOS Continious Community Analytics (CCA) system.
 
@@ -29,13 +29,13 @@ The students are asked to add a comment to the change, so that members of the co
 \subsubsection{Visualizations of multiple databases} Multiple databases can exist in a system. Apart from the reviews, which were added by chat, other reviews about overall user satisfaction are also collected with the help of crawlers. A student request a visualization of a metric which represents the overall success of the community. The resulting visualization contains results from all databases, to give an overview on how popular the specific canteen really is.
 
 \section{Requirements}
-
+The requirements are derived from the use case. We distinguish between functional and non-functional requirements.
 \subsection{Functional Requirements}
 
 \subsubsection{Retrieving Data from GraphQL API}
-The system needs to be able to make queries to the GraphQL API, to get data, which will be used for the visualization of success metrics.
+The system needs to be able to make queries to the GraphQL API, to get data, which will be used for the visualization of success metrics. The GraphQL API  for the Continious Community Analytics systems provides data from different datasources, such as a las2peer database, a Mediabase with data, which is collected from outside the las2peer system and a database, which contains service logs.
 
-\subsubsection{Get Menu for the Canteen} The bot needs to be able to get the menu for a canteen for the given day and display it inside the chat
+\subsubsection{Get Menu for the Canteen} The bot needs to be able to get the menu for a specific canteen for the given day and display it inside the chat as a list of text items.
 
 \subsubsection{Enter Review Context} The bot should be able to recognize, if a user wants to start a review.
 

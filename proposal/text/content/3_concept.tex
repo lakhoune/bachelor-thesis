@@ -62,4 +62,12 @@ The system needs to be able to make queries to the GraphQL API, to get data, whi
 \begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth]{realization/Component_Diagramm.png}
+    \caption{Overview of the different components}
+    \label{fig:sytsemOverview}
 \end{figure}
+
+Figure \ref{fig:sytsemOverview} shows how the \emph{Bot Service} can be integrated into an existing community information system. Users communicate with the \emph{Chat Platform}, which transmits requests to the Bot Service.
+
+The Bot Service communicates with the \emph{Community Service} in order to provide users the same, or similar, information as an existing \emph{Community Application}. The bot service also communicates with the \emph{MobSOS CCA} system in order to retrieve success visualizations and display them as charts on the Chat Platform. Users can also use the chat to model success queries and modify the existing success model.
+
+Both the community service and the bot service log request, which are stored in a database representing the \emph{System Quality} dimension of the MobSOS success model. Those logs can be retrieved by the MobSOS CCA system. Furhtermore, the MobSOS CCA system also has access to a variety of content databases which represent the \emph{Information Quality} dimension of the MobSOS success model.

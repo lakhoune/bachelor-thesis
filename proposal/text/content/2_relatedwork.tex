@@ -97,31 +97,32 @@ GraphQL\footnotemark is a query language specifation for web APIs. Instead of hi
 
 Data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean and String, but new types can also be defined. An example can be seen in \ref{lst:GraphQLType}.
 \begin{lstlisting}[caption={Example of a GraphQL schema},captionpos=b,label={lst:GraphQLType}]
-type human {
+type Review {
   id: ID
-  name: String
-  height: Int
-  weight: Int
+  rating: Int
+  description:String
 }
 \end{lstlisting}
 New fields can be dynamically added without influencing existing queries. The schemas are formalized as either a \emph{Query }, or a \emph{Mutation}. They are declared by the keyword \emph{schema}. The query keyword can be omitted. An example of a query can be seen in listing \ref{lst:GraphQLQuery}.
 \begin{lstlisting}[caption={Example of a GraphQL Query},captionpos=b,label={lst:GraphQLQuery}]
 {
-  human(id: "1000") {
-    name
-    height
+  Review(id: "1000") {
+    rating
   }
 }
 \end{lstlisting}
+Here we access the rating of the review with the ID 1000.
+
 Mutations are used to modify data. An example of a query can be seen in listing \ref{lst:GraphQLMut}.
 \begin{lstlisting}[caption={Example of a GraphQL Mutation},captionpos=b,label={lst:GraphQLMut}]
-mutation addHuman(name:String){
+mutation addReview(){
   {
-    name
-    id
+	rating 
+	description
   }
 }
 \end{lstlisting}
+
 
 \section{Related Work} \label{lab:relWork}
 
@@ -157,3 +158,10 @@ The MobSOS Continuous Community Analytics (CCA) system extends the MobSOS framew
 las2peer is a disributed platform, which allows users to easily deploy their HTTP services. Each service is a node in the network and many nodes can form a peer-to-peer seed network, which communicate through standard protocols. Data storage and communications are encrypted, adding an extra layer of security to las2peer services. This allows even small communities to securely design and deploy las2peer services.
 
 The las2peer platform contains the MobSOS framework, but not the CCA.
+
+\subsection{Google Charts API}
+Google Charts API\footnotemark is an API that provides visualizations for database data. The data, which should be visulaized needs to be wrapped inside a Javascript class called \texttt{DataTable}, which represents a two-dimensional table with rows and columns, where each column has a datatype.
+
+The visualizations are rendered as SVGs in the browser, but can be the PNG file can be accessed by maken an http call with the \texttt{getImageURI} as image URI parameter.
+
+\footnotetext{\href{https://developers.google.com/chart}{Google Charts API}}

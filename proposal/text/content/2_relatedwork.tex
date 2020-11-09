@@ -1,31 +1,49 @@
 %  Prerequisites
 \chapter{State of the Art}
-This chapter provides an overview of the concepts and technologies which are important in the field of my current work. First in Section \ref{lab:background} we define domain-specific terms. In Section \ref{lab:relWork} we discuss related work in the field. In Section \ref{lab:systems}, we describe the systems, which will be used for this thesis.
+This chapter provides an overview of the concepts and technologies which are important in the field of my current work. First in Section \ref{lab:background} we define domain-specific terms. In Section \ref{lab:systems}, we describe the systems, which will be used for this thesis.
 
 \section{Background} \label{lab:background}
 
+This section gives a brief introduction to the concepts, which are relevant to the implementation part of this thesis.
+
 \subsection{Social Bots and Chatbots}
-Bots in general are an interfaces, which provide automated services to end-users. In contrast to normal computer programs, bots use the services, which were designed for human users, such as browsing webpages and issuing API calls. Bots, which are deployed in social media, are called social bots. The definition of a social bot is provided by \cite{FVD*16b}:
+Bots in general are an interfaces, which provide automated services to end-users.
+In contrast to normal computer programs, bots use the services, which were designed for human users, such as browsing webpages and issuing API calls.
+Bots, which are deployed in social media, are called social bots.
+The definition of a social bot is provided by \cite{FVD*16b}:
 \begin{quote}
 	``A social bot is a computer algorithm that automatically produces content and interacts with humans on social media, [...]''
 \end{quote}
 
-Social bots are getting more and more popular in Human-Computer Interactin (HCI), by integrating automation into daily lives of people \cite{BFPN17}. Users can interact with a social bot through a dedicated channel, such as the chat functionality of a social network. Social bots, which use chats to interact with users are called chatbots, or conversational bots \cite{WWX*16}. Chatbots have recently become very popular in the context of customer care \cite{CHW*17,FVD*16b}, where they act as virtual assistants, which can answer simple questions \cite{CaWh14} or perform predefined tasks. They thereby assist companies in customer service as they are more economical and the staff can concentrate on less mundane tasks.
+Social bots are getting more and more popular in Human-Computer Interactin (HCI), by integrating automation into daily lives of people \cite{BFPN17}. Users can interact with a social bot through a dedicated channel, such as the chat functionality of a social network.
+Social bots, which use chats to interact with users are called chatbots, or conversational bots \cite{WWX*16}.
+Chatbots have recently become very popular in the context of customer care \cite{CHW*17,FVD*16b}, where they act as virtual assistants, which can answer simple questions \cite{CaWh14} or perform predefined tasks.
+They thereby assist companies in customer service as they are more economical and the staff can concentrate on less mundane tasks.
 
-Chatbots can be classified into chit-chat chatbots, or task-oriented bots. A chit-chat bot engages users into interesting conversations.
+Chatbots can be classified into chit-chat chatbots, or task-oriented bots.
+A chit-chat bot engages users into interesting conversations.
 
-We can distinguish between retrieval based chatbots and generic chatbots \cite{NLKl19,WWX*16}. Retrieval based bots are focussed on getting specific tasks done and focus less on engaging in a coherent conversation.
+We can distinguish between retrieval based chatbots and generic chatbots \cite{NLKl19,WWX*16}.
+Retrieval based bots are focussed on getting specific tasks done and focus less on engaging in a coherent conversation.
 
-Retrieval based chatbots measure the similarity of user queries to candidate responses and run the task that is defined for that response. They do this by using natural language processing techniques. Generic chatbots on the other hand also produce generic responses. An advantage of the generic chatbots is that they provide a better user experience as users can interact more naturally with them than with retrieval based chatbots.
+Retrieval based chatbots measure the similarity of user queries to candidate responses and run the task that is defined for that response.
+They do this by using natural language processing techniques.
+Generic chatbots on the other hand also produce generic responses.
+An advantage of the generic chatbots is that they provide a better user experience as users can interact more naturally with them than with retrieval based chatbots.
 
-Chatbots provide a better user experience \cite{CHW*17}, because the user is not required to memorize commands in order to get the desired results. This means that even non-trained users can use such chatbots. From such a standpoint, it becomes clear why such chatbots are desirable as assistants, as they provide a familiar environment for users to interact with.
+Chatbots provide a better user experience \cite{CHW*17}, because the user is not required to memorize commands in order to get the desired results.
+This means that even non-trained users can use such chatbots.
+From such a standpoint, it becomes clear why such chatbots are desirable as assistants, as they provide a familiar environment for users to interact with.
 
 \subsubsection{Natural Language Understanding}
-Natural Language Understanding (NLU) is a branch of Artificial Intelligence (AI), which tries to make computer programs understand the semantics of human language. It does this by transforming a block of input text into a data structure that is programmer-friendly but still describes the original meaning of the text \cite{CWB*11}.
+Natural Language Understanding (NLU) is a branch of Artificial Intelligence (AI), which tries to make computer programs understand the semantics of human language.
+It does this by transforming a block of input text into a data structure that is programmer-friendly but still describes the original meaning of the text \cite{CWB*11}.
 
-Most NLU algorithms these days only look at the syntacticts of words, which relies on statistical features, such as word occurence frequency \cite{CaWh14}. However humans take far more information into consideration, as the reading of a word triggers a whole bunch of related concepts and experiences which are combined to give the understanding of a text.
+Most NLU algorithms these days only look at the syntacticts of words, which relies on statistical features, such as word occurence frequency \cite{CaWh14}.
+However humans take far more information into consideration, as the reading of a word triggers a whole bunch of related concepts and experiences which are combined to give the understanding of a text.
 
-Computers try to close this knowledge gap with computational models, which emulate human cognitive processing. By evaluating the results of those models for a given input, researchers can incrementally improve the accuracy of the model \cite{CaWh14}
+Computers try to close this knowledge gap with computational models, which emulate human cognitive processing.
+By evaluating the results of those models for a given input, researchers can incrementally improve the accuracy of the model \cite{CaWh14}
 
 
 \subsection{Communities of Practice}
@@ -34,17 +52,22 @@ Members of this group are distinguishable from people outside of this group by t
 Such groups are called communities.
 
 Communities of Practice (CoP) are groups of people who share a concern or a passion for something they do and who interact regularly to learn how to do it better \cite{Weng98}.
-Such CoPs are caracterized by a small number of members. The advantage of CoPs is that they enhance learning and transferring knowledge inside the community. In contrast to traditional knowledge systems, where the learner digests a static body of information, the transfer of knowledge is a dynamic social process, where an individual volontarily shares knowledge in the community \cite{AMMi15,Kern08}.
+Such CoPs are caracterized by a small number of members.
+The advantage of CoPs is that they enhance learning and transferring knowledge inside the community.
+In contrast to traditional knowledge systems, where the learner digests a static body of information, the transfer of knowledge is a dynamic social process, where an individual volontarily shares knowledge in the community \cite{AMMi15,Kern08}.
 
 The use of communities improves the qualitity of activities and makes the learning process easier\cite{SaAr05} and faster\cite{CuZe05}.
 Members of CoPs do not have to belong to the same organization, but rather participate in common work through the use of social networks\cite{CuZe05}.
 
 \subsection{Measurement of Success}
-In order to justify their existence, communities have to constantly be aware of their successes and failures in order to improve their work and adjust to current needs. A general model for success does not exist, as communities are very diverse, dynamic and informal structures with permeable boundaries. The members of the community thus can be active participators in the community success modeling, as the success factors are relevant to the practice of the community members \cite{RKJa15}.
+In order to justify their existence, communities have to constantly be aware of their successes and failures in order to improve their work and adjust to current needs.
+A general model for success does not exist, as communities are very diverse, dynamic and informal structures with permeable boundaries.
+The members of the community thus can be active participators in the community success modeling, as the success factors are relevant to the practice of the community members \cite{RKJa15}.
 
-In order to cope with dynamic changes, the community must continiously adjust success factors of the success model to satisfy current needs . Success factors can be internal aspects, like project duration, cost and qualitity, as well as external aspects, like customer satisfaction \cite{AgRa06}.
+In order to cope with dynamic changes, the community must continiously adjust success factors of the success model to satisfy current needs. Success factors can be internal aspects, like project duration, cost and qualitity, as well as external aspects, like customer satisfaction \cite{AgRa06}.
 
-It is important to note, that a project can be evaluated from different perspectives \cite{RKJa15}, e.g. the developers, the customers or the end-users. In each of these perspectives, each dimension of success can be more, or less, important.
+It is important to note, that a project can be evaluated from different perspectives \cite{RKJa15}, e.g. the developers, the customers or the end-users.
+In each of these perspectives, each dimension of success can be more, or less, important.
 DeLone and McLean \cite{DeMc92} base their model on six different interdependant measures:
 \begin{itemize}
 	\item System Qualitity: metrics that describe the technical specifations of the system, such as service response time and scalability.
@@ -84,50 +107,22 @@ In order to collect data for the metrics, one should follow the principle \cite{
 \end{quotation}
 
 \subsection{Mediabase}
-Mediabase is a database schema, which has been proposed to store Web 2.0 data in a dynamic way \cite{KlPe08}. Mediabase uses graphs to model generated data. The nodes in those graphs are called \emph{Actors} and represent either a \emph{ Medium}, an \emph{Artifact}, a \emph{Member}, or a \emph{Network}. A \emph{ Medium} can be a blog or a wiki. The \emph{Artifact} would be an individual entry. The \emph{Network} represents the community, in which the different \emph{Members} interact in. \emph{Members} do not have to be human, but are assigned a specific role in the \emph{Network}.
+Mediabase has been proposed to store Web 2.0 data in a dynamic way \cite{KlPe08}.
+Mediabase uses graphs to model generated data.
+The nodes in those graphs are called \emph{Actors} and represent either a \emph{ Medium}, an \emph{Artifact}, a \emph{Member}, or a \emph{Network}.
+A \emph{ Medium} can be a blog or a wiki. 
+The \emph{Artifact} would be an individual entry.
+The \emph{Network} represents the community, in which the different \emph{Members} interact in.
+\emph{Members} do not have to be human, but are assigned a specific role in the \emph{Network}.
 \begin{figure}
 	\centering
 	\includegraphics*[width=12cm]{related_work/mediabase.png}
 	\caption{Mediabase Overview \cite{Klam10e}}
 \end{figure}
-Furthermore, Mediabase includes \emph{Services}. A Mediabase consists of a backend database, like DB2, or MySQL, crawler scripts and monitoring processes and a frontend for visualization of data  and user interaction.
+Furthermore, Mediabase includes \emph{Services}.
+A Mediabase consists of a backend database, like DB2, or MySQL, crawler scripts and monitoring processes and a frontend for visualization of data  and user interaction.
 
 This approach is favorable for the management of large scale-free dynamic social graphs.
-
-\subsection{GraphQL}
-GraphQL\footnotemark is a query language specifation for web APIs. Instead of hitting multiple endpoints, like in standard REST APIs, for different requests, users can get all data from one endpoint, by specfifying the kind of data that they need as a query.
-
-\footnotetext{GraphQL: \href{https://graphql.github.io/}{https://graphql.github.io/}}
-
-Data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean and String, but new types can also be defined. An example can be seen in \ref{lst:GraphQLType}.
-\begin{lstlisting}[caption={Example of a GraphQL schema},captionpos=b,label={lst:GraphQLType}]
-type Review {
-  id: ID
-  rating: Int
-  description:String
-}
-\end{lstlisting}
-New fields can be dynamically added without influencing existing queries. The schemas are formalized as either a \emph{Query }, or a \emph{Mutation}. They are declared by the keyword \emph{schema}. The query keyword can be omitted. An example of a query can be seen in listing \ref{lst:GraphQLQuery}.
-\begin{lstlisting}[caption={Example of a GraphQL Query},captionpos=b,label={lst:GraphQLQuery}]
-{
-  Review(id: "1000") {
-    rating
-  }
-}
-\end{lstlisting}
-Here we access the rating of the review with the ID 1000.
-
-Mutations are used to modify data. An example of a query can be seen in listing \ref{lst:GraphQLMut}.
-\begin{lstlisting}[caption={Example of a GraphQL Mutation},captionpos=b,label={lst:GraphQLMut}]
-mutation addReview(){
-  {
-	rating 
-	description
-  }
-}
-\end{lstlisting}
-
-
 
 \section{Systems} \label{lab:systems}
 Creating a chatbot from scratch is a difficult challenge. Luckily, there are already publicly available frameworks, which can be used to create a variety of bots.

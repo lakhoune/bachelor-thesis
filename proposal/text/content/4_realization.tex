@@ -44,6 +44,42 @@ to modify the success model in chat. Therefore, an update routine needs to be im
 \subsection{MobSOS CCA}
 The MobSOS CCA system needs to be extended such that the success model data can be visualized and sent as a picture to the user. Therefore, the Google Charts API will be used in combination with an HTML renderer, which will render the visualizations which were produced by the Charts API and send them back as a PNG to the Bot Service.
 
+\subsection{GraphQL}
+GraphQL\footnotemark is a query language specifation for web APIs. Instead of hitting multiple endpoints, like in standard REST APIs, for different requests, users can get all data from one endpoint, by specfifying the kind of data that they need as a query.
+
+\footnotetext{GraphQL: \href{https://graphql.github.io/}{https://graphql.github.io/}}
+
+Data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean and String, but new types can also be defined. An example can be seen in \ref{lst:GraphQLType}.
+\begin{lstlisting}[caption={Example of a GraphQL schema},captionpos=b,label={lst:GraphQLType}]
+type Review {
+  id: ID
+  rating: Int
+  description:String
+}
+\end{lstlisting}
+New fields can be dynamically added without influencing existing queries. The schemas are formalized as either a \emph{Query }, or a \emph{Mutation}. They are declared by the keyword \emph{schema}. The query keyword can be omitted. An example of a query can be seen in listing \ref{lst:GraphQLQuery}.
+\begin{lstlisting}[caption={Example of a GraphQL Query},captionpos=b,label={lst:GraphQLQuery}]
+{
+  Review(id: "1000") {
+    rating
+  }
+}
+\end{lstlisting}
+Here we access the rating of the review with the ID 1000.
+
+Mutations are used to modify data. An example of a query can be seen in listing \ref{lst:GraphQLMut}.
+\begin{lstlisting}[caption={Example of a GraphQL Mutation},captionpos=b,label={lst:GraphQLMut}]
+mutation addReview(){
+  {
+	rating 
+	description
+  }
+}
+\end{lstlisting}
+
+
+
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\linewidth]{realization/chat_mockup.png}

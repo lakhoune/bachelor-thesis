@@ -20,7 +20,7 @@ Retrieval based chatbots measure the similarity of user queries to candidate res
 
 Chatbots provide a better user experience \cite{CHW*17}, because the user is not required to memorize commands in order to get the desired results. This means that even non-trained users can use such chatbots. From such a standpoint, it becomes clear why such chatbots are desirable as assistants, as they provide a familiar environment for users to interact with.
 
-\subsection{Natural Language Understanding}
+\subsubsection{Natural Language Understanding}
 Natural Language Understanding (NLU) is a branch of Artificial Intelligence (AI), which tries to make computer programs understand the semantics of human language. It does this by transforming a block of input text into a data structure that is programmer-friendly but still describes the original meaning of the text \cite{CWB*11}.
 
 Most NLU algorithms these days only look at the syntacticts of words, which relies on statistical features, such as word occurence frequency \cite{CaWh14}. However humans take far more information into consideration, as the reading of a word triggers a whole bunch of related concepts and experiences which are combined to give the understanding of a text.
@@ -128,14 +128,13 @@ mutation addReview(){
 \end{lstlisting}
 
 
-\section{Related Work} \label{lab:relWork}
 
+\section{Systems} \label{lab:systems}
 Creating a chatbot from scratch is a difficult challenge. Luckily, there are already publicly available frameworks, which can be used to create a variety of bots.
 
-\subsection{Microsoft Bot Framework}
-The Microsoft Bot Framework provides both an SDK\footnote{Azure Bot Service: \href{https://docs.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0}{https://docs.microsoft.com/en-us/azure/bot-service/index-bf-sdk?view=azure-bot-service-4.0}}, as well as a GUI\footnote{Bot Framework Composer: \href{https://docs.microsoft.com/en-us/composer/}{https://docs.microsoft.com/en-us/composer/}} to create chatbots. Such bots use Language Understanding\footnote{Language Understanding: \href{https://www.luis.ai/}{https://www.luis.ai/}} to understand human requests.
+\subsection{Social Bot Framework}
 
-The Microsoft Bot Framework allows for an easy creation of a chatbot that can perform simple tasks, such as fetching weather reports, or answering FAQ questions \cite{CaWh14}. They can be deployed in a .NET or Node.js environment and can connect to a variety of different channels, such as Microsoft Teams, Amazon Alexa and Slack.
+The Social Bot Framework (SBF) is a Web-based model-driven near-realtime environment to develop chatbots \cite{NLKl19}. The model-driven development allows less experienced users to take part in the development, which is favorable for the creation of a chatbot inside a Community of Practice (CoP). The framework consists of a GUI to model the bot and define the actions, which it should perform, and a Social Bot Manager Service, which is used to deploy the bot.
 
 \subsection{RASA}
 Rasa is an open sourced framework for building chat- and voice-based bots. The goal of RASA is to bring current advances in machine-learning to end-users, such that they can create chatbots in a simple way \cite{BFPN17}. The RASA system is split into a component for natural language understanding (RASA NLU) and a dialogue management component (RASA Core).
@@ -145,12 +144,6 @@ RASA NLU is used to extract the intents of a user message with a text classifica
 RASA Core consists of a \emph{Tracker}, a \emph{Policy} and a set of \emph{Actions} \cite{BFPN17}. The Tracker manages the current state of the conversation. It gets an intent as an input and forwards it the Policy, which selects the next action, given the current state of the conversation and a predefined list of actions for each intent. The Action triggers the Tracker to recalculate the new state and might also send a reply to the user.
 
 The system is built in a modularized way and each service provides HTTP APIs \cite{BFPN17}, which makes it possible to use the NLU component independantly of the rest of the framework. This makes it easy to integrate it into an existing system \cite{RaKe19}.
-
-\section{Systems} \label{lab:systems}
-
-\subsection{Social Bot Framework}
-
-The Social Bot Framework (SBF) is a Web-based model-driven near-realtime environment to develop chatbots \cite{NLKl19}. The model-driven development allows less experienced users to take part in the development, which is favorable for the creation of a chatbot inside a Community of Practice (CoP). The framework consists of a GUI to model the bot and define the actions, which it should perform, and a Social Bot Manager Service, which is used to deploy the bot.
 
 \subsection{MobSOS}
 The MobSOS framework is a tool, which assists online communities in monitoring and evaluating services. The MobSOS success model extends the classical D\&M IS success model by adding feature aspects which were not covered initially, such as Qualitity of Service and mobility \cite{Renz08}.

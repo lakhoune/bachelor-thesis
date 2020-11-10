@@ -44,6 +44,27 @@ to modify the success model in chat. Therefore, an update routine needs to be im
 \subsection{MobSOS CCA}
 The MobSOS CCA system needs to be extended such that the success model data can be visualized and sent as a picture to the user. Therefore, the Google Charts API will be used in combination with an HTML renderer, which will render the visualizations which were produced by the Charts API and send them back as a PNG to the Bot Service.
 
+\subsection{Google Charts API}
+Google Charts API\footnotemark is an API that provides visualizations for database data. The data, which should be visulaized needs to be wrapped inside a Javascript class called \texttt{DataTable}, which represents a two-dimensional table with rows and columns, where each column has a datatype.
+A new column can be added using the \texttt{DataTable.addColumn} function, which takes the type and name as input. An example can be seen in Listing \ref{lst:gglCharts} from the Google Charts API documentation\footnotemark[\value{footnote}].
+
+\begin{lstlisting}[caption=Example use of the DataTable class,captionpos=b,label={lst:gglCharts}]
+var data = new google.visualization.DataTable();
+data.addColumn('string', 'Topping');
+data.addColumn('number', 'Slices');
+data.addRows([
+	['Mushrooms', 3],
+	['Onions', 1],
+	['Olives', 1], 
+	['Zucchini', 1],
+	['Pepperoni', 2]
+]);
+\end{lstlisting}
+
+The visualizations are rendered as SVGs in the browser, but can be the PNG file can be accessed by maken an http call with the \texttt{getImageURI} as image URI parameter.
+
+\footnotetext{\href{https://developers.google.com/chart}{Google Charts API}}
+
 \subsection{GraphQL}
 GraphQL\footnotemark is a query language specifation for web APIs. Instead of hitting multiple endpoints, like in standard REST APIs, for different requests, users can get all data from one endpoint, by specfifying the kind of data that they need as a query.
 
@@ -76,9 +97,6 @@ mutation addReview(){
   }
 }
 \end{lstlisting}
-
-
-
 
 \begin{figure}[h]
     \centering

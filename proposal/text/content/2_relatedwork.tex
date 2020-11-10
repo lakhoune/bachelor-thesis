@@ -47,17 +47,24 @@ By evaluating the results of those models for a given input, researchers can inc
 
 
 \subsection{Communities of Practice}
-Humans naturally gather in groups, which share a particular property, such as a common goal.
-Members of this group are distinguishable from people outside of this group by that particular property.
-Such groups are called communities.
+A Community of Practice (CoP) is a special kind of community consisting of members studying a certain domain.
+The definition of a CoP is given by \cite{Weng98}:
+\begin{quote}
+	``
+	Communities of practice are groups of people who share a concern or a passion for something they do and learn how to do it better as they interact regularly.''
+\end{quote}
 
-Communities of Practice (CoP) are groups of people who share a concern or a passion for something they do and who interact regularly to learn how to do it better \cite{Weng98}.
-Such CoPs are caracterized by a small number of members.
-The advantage of CoPs is that they enhance learning and transferring knowledge inside the community.
-In contrast to traditional knowledge systems, where the learner digests a static body of information, the transfer of knowledge is a dynamic social process, where an individual volontarily shares knowledge in the community \cite{AMMi15,Kern08}.
+In contrast to traditional knowledge systems, where the learner passively receives his information, the learner is actively participating in the community by volountarily sharing his knowledge with other members of the community \cite{AMMi15,Kern08}.
+The advantage of CoPs is that they make the learning process easier\cite{SaAr05} and the transfer of knowledge faster\cite{CuZe05}.
 
-The use of communities improves the qualitity of activities and makes the learning process easier\cite{SaAr05} and faster\cite{CuZe05}.
-Members of CoPs do not have to belong to the same organization, but rather participate in common work through the use of social networks\cite{CuZe05}.
+Members of a CoP have different degrees of knowledge of the domain.
+For example a student has less knowledge than a researcher in a specific domain.
+Furthermore, members have various degrees of interest in the practice of the community.
+Members with a lot of interest in that domain tend to know more about it and tend to contribute more to the community.
+Such members are called \emph{core members} of the community.
+Members, which are less active in the community are called \emph{lurkers}.
+
+Members of CoPs do not have to belong to the same organization, but rather participate in common work through the use of social networks \cite{CuZe05}. CoPs can be overlapping and multiple communities can exist inside a single CoP.
 
 \subsection{Measurement of Success}
 In order to justify their existence, communities have to constantly be aware of their successes and failures in order to improve their work and adjust to current needs.
@@ -110,7 +117,7 @@ In order to collect data for the metrics, one should follow the principle \cite{
 Mediabase has been proposed to store Web 2.0 data in a dynamic way \cite{KlPe08}.
 Mediabase uses graphs to model generated data.
 The nodes in those graphs are called \emph{Actors} and represent either a \emph{ Medium}, an \emph{Artifact}, a \emph{Member}, or a \emph{Network}.
-A \emph{ Medium} can be a blog or a wiki. 
+A \emph{ Medium} can be a blog or a wiki.
 The \emph{Artifact} would be an individual entry.
 The \emph{Network} represents the community, in which the different \emph{Members} interact in.
 \emph{Members} do not have to be human, but are assigned a specific role in the \emph{Network}.
@@ -151,24 +158,3 @@ las2peer is a disributed platform, which allows users to easily deploy their HTT
 
 The las2peer platform contains the MobSOS framework, but not the CCA.
 
-\subsection{Google Charts API}
-Google Charts API\footnotemark is an API that provides visualizations for database data. The data, which should be visulaized needs to be wrapped inside a Javascript class called \texttt{DataTable}, which represents a two-dimensional table with rows and columns, where each column has a datatype.
-A new column can be added using the \texttt{DataTable.addColumn} function, which takes the type and name as input. An example can be seen in Listing \ref{lst:gglCharts} from the Google Charts API documentation\footnotemark[\value{footnote}].
-
-\begin{lstlisting}[caption=Example use of the DataTable class,captionpos=b,label={lst:gglCharts}]
-var data = new google.visualization.DataTable();
-data.addColumn('string', 'Topping');
-data.addColumn('number', 'Slices');
-data.addRows([
-	['Mushrooms', 3],
-	['Onions', 1],
-	['Olives', 1], 
-	['Zucchini', 1],
-	['Pepperoni', 2]
-]);
-\end{lstlisting}
-
-
-The visualizations are rendered as SVGs in the browser, but can be the PNG file can be accessed by maken an http call with the \texttt{getImageURI} as image URI parameter.
-
-\footnotetext{\href{https://developers.google.com/chart}{Google Charts API}}

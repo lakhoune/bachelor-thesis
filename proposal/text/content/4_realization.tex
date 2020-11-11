@@ -15,10 +15,10 @@ The Bot Service communicates with the \emph{Mensa Service} in order to get the m
 The Bot Service communicates with the CCA system in order to retrieve data and visualisations of the success model. Furthermore, the MobSOS CCA system can also be used to modify the success model of the system. The bot sends the visualisations to the user in chat.
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth]{realization/components_overview.png}
-    \caption{Overview of the different components}
-    \label{fig:componentsOverview}
+  \centering
+  \includegraphics[width=\linewidth]{realization/components_overview.png}
+  \caption{Overview of the different components}
+  \label{fig:componentsOverview}
 \end{figure}
 
 \newpage
@@ -66,11 +66,12 @@ The visualizations are rendered as SVGs in the browser, but can be the PNG file 
 \footnotetext{\href{https://developers.google.com/chart}{Google Charts API}}
 
 \subsection{GraphQL}
-GraphQL\footnotemark is a query language specifation for web APIs. Instead of hitting multiple endpoints, like in standard REST APIs, for different requests, users can get all data from one endpoint, by specfifying the kind of data that they need as a query.
-
+GraphQL\footnotemark is a query language specifation for web APIs.
 \footnotetext{GraphQL: \href{https://graphql.github.io/}{https://graphql.github.io/}}
+Instead of hitting multiple endpoints, like in standard REST APIs, for different requests, users can get all data from one endpoint, by specfifying the kind of data that they need as a query. This means that it prevents over- and underfetching of data.\footnotemark
+\footnotetext{\href{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}} A GraphQL API can be used as a wrapper for another API, such as a RESTful API.
 
-Data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean and String, but new types can also be defined. An example can be seen in \ref{lst:GraphQLType}.
+In GraphQL, data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean and String, but new types can also be defined. An example can be seen in \ref{lst:GraphQLType}.
 \begin{lstlisting}[caption={Example of a GraphQL schema},captionpos=b,label={lst:GraphQLType}]
 type Review {
   id: ID
@@ -99,15 +100,15 @@ mutation addReview(){
 \end{lstlisting}
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\linewidth]{realization/chat_mockup.png}
-    \caption{Example use of community Service with the Bot}
-    \label{fig:chatMockup}
+  \centering
+  \includegraphics[width=0.8\linewidth]{realization/chat_mockup.png}
+  \caption{Example use of community Service with the Bot}
+  \label{fig:chatMockup}
 \end{figure}
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.35\linewidth]{realization/visual_req.png}
-    \caption{Example of a chat interaction with the Bot}
-    \label{fig:visualReq}
+  \centering
+  \includegraphics[width=0.35\linewidth]{realization/visual_req.png}
+  \caption{Example of a chat interaction with the Bot}
+  \label{fig:visualReq}
 \end{figure}

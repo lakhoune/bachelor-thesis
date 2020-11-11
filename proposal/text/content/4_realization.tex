@@ -76,7 +76,7 @@ GraphQL does not mandate the use of a specific programming language, the actual 
 \footnotetext{\href{http://spec.graphql.org/June2018/}{http://spec.graphql.org/June2018/}}
 Many different implemtentions have been written for programming languages like Java \footnote{Java GraphQL Library:\href{https://www.graphql-java.com/documentation/master/}{https://www.graphql-java.com/documentation/master/}} and Javascript. \footnote{Javascript GraphQL Library:\href{https://www.npmjs.com/package/express-graphql}{https://www.npmjs.com/package/express-graphql}}
 
-Transforming an existing REST API into a GraphQL API can be a cumbersome task. An automation process in the form of a Wrapper has been proposed, which transforms GraphQL requests into REST methods as depicted in Figure \ref{fig:graphqlWrapper}.
+Transforming an existing REST API into a GraphQL API can be a cumbersome task. An automation process in the form of a Wrapper has been proposed, which converts an existing schema such as a Swagger schema into a GraphQL schema\footnote{\href{https://github.com/yarax/swagger-to-graphql}{Swagger-to-GraphQL}}. Such a wrapper transforms GraphQL requests into RESTful requests as depicted in Figure \ref{fig:graphqlWrapper}.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.6\linewidth]{realization/graphqlWrapper.png}

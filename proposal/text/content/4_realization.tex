@@ -69,7 +69,12 @@ The visualizations are rendered as SVGs in the browser, but can be the PNG file 
 GraphQL\footnotemark is a query language specifation for web APIs.
 \footnotetext{GraphQL: \href{https://graphql.github.io/}{https://graphql.github.io/}}
 Instead of hitting multiple endpoints, like in standard REST APIs, for different requests, users can get all data from one endpoint, by specfifying the kind of data that they need as a query. This means that it prevents over- and underfetching of data.\footnotemark
-\footnotetext{\href{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}} A GraphQL API can be used as a wrapper for another API, such as a RESTful API.
+
+\footnotetext{\href{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}}
+
+GraphQL does not mandate the use of a specific programming language, the actual implemtention is up to the developer of the server. \footnotemark
+\footnotetext{\href{http://spec.graphql.org/June2018/}{http://spec.graphql.org/June2018/}}
+Many different implemtentions have been written for programming languages like Java \footnote{Java GraphQL Library:\href{https://www.graphql-java.com/documentation/master/}{https://www.graphql-java.com/documentation/master/}} and Javascript. \footnote{Javascript GraphQL Library:\href{https://www.npmjs.com/package/express-graphql}{https://www.npmjs.com/package/express-graphql}}
 
 In GraphQL, data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean and String, but new types can also be defined. An example can be seen in \ref{lst:GraphQLType}.
 \begin{lstlisting}[caption={Example of a GraphQL schema},captionpos=b,label={lst:GraphQLType}]

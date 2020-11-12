@@ -1,20 +1,29 @@
 \chapter{Concept}
 \section{Scenario: Mensa Community}
-We illustrate the software system by considering a community of frequent Mensa visitors. The students in this community share a common interests which is the food at the canteen.
+We illustrate the software system by considering a community of frequent mensa visitors.
+Although not a community of practice, the success principle can be applied to it.
+The success metrics for this community are e.g. the food quality or the price of the food.
+The members are students and university staff.
+They share a common interest which is the food at the canteen.
+The mensa community consists of different community levels.
+The top level represents the community of all canteens in Germany.
+The intermediate level represents the local mensa community of a particular university.
+The lowest level of the community represents a circle of friends, which frequent the canteen together. Note that members can belong to different circle of friends which means that communities can be overlapping.
 
-Students can rate meals through a social bot, which is designed with the help of the Social Bot Framework. The bot can be accessed by the Slack chat application. Students can ask the bot about which food will be served on a given day.
+Members of the community can rate meals through a social bot, which is designed with the help of the Social Bot Framework. The bot can be accessed by the Slack chat application. Members can ask the bot about which food will be served on a given day.
 
-Furhtermore, the students can query visualisations about the meals through the chat application. Those visualisations include current success metrics which were previously defined by the community. The metrics can be defined inside the MobSOS Continious Community Analytics (CCA) system.
+Furthermore, members can query visualizations about the meals through the chat application. Those visualizations include current success metrics which were previously defined by the community. The metrics can be defined inside the MobSOS Continious Community Analytics (CCA) system.
 
 \subsection{Use Cases}
 
-\subsubsection{Issuing a visualization request} A student wants to decide wether to go to the canteen on a given day. He opens Slack and asks the bot, which food will be served on that day. The resulting meal is then displayed inside the chat.
+\subsubsection{Get the menu for the canteen} A student wants to decide whether to go to the canteen on a given day. He opens Slack and asks the bot, which food will be served on that day. The resulting meal is then displayed inside the chat.
 
-The student is still unsure on wether to go to the canteen. He asks the bot how popular a specific meal is. The bot issues a query to the GraphQL interface of the CCA system, which contains a mediabase with reviews of meals, made by students. The resulting data is displayed as a chart inside the chat. The data is aggregated from different sources, like reviews on Facebook, Google, which are stored in the Mediabase, and reviews which were made inside the las2peer system. After the user has seen how good the food is, he is asked by the bot, wether he will go to the canteen. He tells the bot that he will go.
+\subsubsection{Issuing a visualization request}
+The student is still unsure on whether to go to the canteen. He asks the bot how popular a specific meal is. The bot issues a query to the GraphQL interface of the CCA system, which contains a mediabase with reviews of meals, made by students. The resulting data is displayed as a chart inside the chat. The data is aggregated from different sources, like reviews on Facebook, Google, which are stored in the Mediabase, and reviews which were made inside the las2peer system. After the user has seen how good the food is, he is asked by the bot, wether he will go to the canteen. He tells the bot that he will go.
 
 \subsubsection{Success Awareness} Students in the community are aware that the success of their community depends on the active participation of its members. They are discussing about the success of the community inside a group chat. They want to know how active the members of the community are. A student mentions the bot, which is a member of the chat group, and tells it to visulize the  average time, that a user is interacting with the service. The bot recognizes this and runs a predefined query. The resulting data is visualized in the group chat.
 
-\subsubsection{Success modeling} The Corona virus is having a great impact on the daily life of students and the canteen can only be used as takeout. The students want to define a metric which models the impact of the virus on the use of their service. Therefore they define visualization tasks inside the chat application. The bot recognizes this and creates a task with the query which will be used for visualisation.
+\subsubsection{Success modeling} The Corona virus is having a great impact on the daily life of students and the canteen can only be used as takeout. The students want to define a metric which models the impact of the virus on the use of their service. Therefore they define visualization tasks inside the chat application. The bot recognizes this and creates a task with the query which will be used for vizualisation.
 
 The students are asked to add a comment to the change, so that members of the community can understand the reason for the change at a later date.
 
@@ -37,15 +46,17 @@ The requirements are derived from the use case. We distinguish between functiona
 \subsubsection{Retrieving Data from GraphQL API}
 The system needs to be able to make queries to the GraphQL API, to get data, which will be used for the visualization of success metrics. The GraphQL API  for the Continious Community Analytics systems provides data from different datasources, such as a las2peer database, a Mediabase with data, which is collected from outside the las2peer system and a database, which contains service logs.
 
-\subsubsection{Get Menu for the Canteen} The bot needs to be able to get the menu for a specific canteen for the given day and display it inside the chat as a list of text items.
+\subsubsection{Get Menu for the Canteen} The bot needs to be able to get the menu for a specific canteen for the given day and display it inside the chat as a list of text items. The service should be able to use the OpenMensa API \footnotemark in order to get the menu for canteens all over germany.
+
+\footnotetext{\href{https://doc.openmensa.org/api/v2/}{https://doc.openmensa.org/api/v2/}}
 
 \subsubsection{Enter Review Context} The bot should be able to recognize, if a user wants to start a review.
 
 \subsubsection{Listen for Mentions} Inside a group chat, the bot should only respond to messages which specifically mentioned the bot.
 
-\subsubsection{Create new templates} The bot needs to be able to create visualisation-request templates and add them to the database
+\subsubsection{Create new templates} The bot needs to be able to create visualization-request templates and add them to the database.
 
-\subsubsection{Use Google Charts API} The data which has been retrieved from the GraphQL API needs to be passed to the Google Charts API to create a visualization. The resulting visualization should be a picture,so that it can be represented inside a chat.
+\subsubsection{Use Google Charts API} The data which has been retrieved from the GraphQL API needs to be passed to the Google Charts API to create a visualization. The resulting visualization should be a picture, so that it can be represented inside a chat. The visualization can be rendered by using an HTML image generator.
 
 \subsubsection{Group Chats} Users should be able to add a bot to a group chat.
 
@@ -55,7 +66,7 @@ The system needs to be able to make queries to the GraphQL API, to get data, whi
 
 \subsubsection{Usability} The bot should be easy to use. Non-trained users should be able to interact with the bot with ease.
 
-\subsubsection{UI optimization} The bot should be designed, for chats which will mainly run on mobile devices. As such, visualisations should be easy to read even on small devices.
+\subsubsection{UI optimization} The bot should be designed, for chats which will mainly run on mobile devices. As such, visualizations should be easy to read even on small devices.
 
 \subsubsection{Compatibility} The bot should be extensible to any chat platform, which allows the use of bots.
 

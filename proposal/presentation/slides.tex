@@ -68,46 +68,46 @@
 
 % Note: Title pages should be created as plain
 % Title page with a blue bar
-\setbeamercolor{title page bar}{fg=rwth}
-\setbeamertemplate{title page}[rwth]{}
-\begin{frame}[plain]
-\titlepage
+% \setbeamercolor{title page bar}{fg=rwth}
+% \setbeamertemplate{title page}[rwth]{}
+% \begin{frame}[plain]
+% \titlepage
 
-\parbox{0cm}{
-  \vspace{-5.5em}
-  \begin{tabbing}
-    \=\textbf{\firstname~\lastname}\=\\[0.5em]
-    \=Study Program: \studyProgram~~~\=Matr.-Nr.:\matrNo\\[0.5em]
-    \=Chair of Computer Science 5 Information Systems \& Databases \=\\[0.5em]
-    \={Supervisors}:~~~\=\firstsupervisor\\
-    \>                 \>\secondsupervisor\\[0.5em]
-    \>{Advisor}:       \>\firstadvisor\ifdefined\secondadvisor\\
-    \>                 \>\secondadvisor\\[0.5em]
-    \fi
-  \end{tabbing}
-}
-\end{frame}
+% \parbox{0cm}{
+%   \vspace{-5.5em}
+%   \begin{tabbing}
+%     \=\textbf{\firstname~\lastname}\=\\[0.5em]
+%     \=Study Program: \studyProgram~~~\=Matr.-Nr.:\matrNo\\[0.5em]
+%     \=Chair of Computer Science 5 Information Systems \& Databases \=\\[0.5em]
+%     \={Supervisors}:~~~\=\firstsupervisor\\
+%     \>                 \>\secondsupervisor\\[0.5em]
+%     \>{Advisor}:       \>\firstadvisor\ifdefined\secondadvisor\\
+%     \>                 \>\secondadvisor\\[0.5em]
+%     \fi
+%   \end{tabbing}
+% }
+% \end{frame}
 
 % Title page with a 1/3rd size picture
 \setbeamercolor{title page bar}{fg=white}
 \setbeamertemplate{title page}[rwth][title_small]{}
 \begin{frame}[plain]
-\vspace{1cm}
-\titlepage
+  \vspace{1cm}
+  \titlepage
 
-\vspace{-6em}
-\parbox{0cm}{
-  \begin{tabbing}
-    \=\textbf{\firstname~\lastname}\=\\[0.4em]
-    \=Study Program: \studyProgram~~~\=Matr.-Nr.:\matrNo\\[0.4em]
-    \=Chair of Computer Science 5 Information Systems \& Databases \=\\[0.4em]
-    \={Supervisors}:~~~\=\firstsupervisor\\
-    \>                 \>\secondsupervisor\\[0.4em]
-    \>{Advisor}:       \>\firstadvisor\ifdefined\secondadvisor\\
-    \>                 \>\secondadvisor\\[0.4em]
-    \fi
-  \end{tabbing}
-}
+  \vspace{-6em}
+  \parbox{0cm}{
+    \begin{tabbing}
+      \=\textbf{\firstname~\lastname}\=\\[0.4em]
+      \=Study Program: \studyProgram~~~\=Matr.-Nr.:\matrNo\\[0.4em]
+      \=Chair of Computer Science 5 Information Systems \& Databases \=\\[0.4em]
+      \={Supervisors}:~~~\=\firstsupervisor\\
+      \>                 \>\secondsupervisor\\[0.4em]
+      \>{Advisor}:       \>\firstadvisor\ifdefined\secondadvisor\\
+        \>                 \>\secondadvisor\\[0.4em]
+      \fi
+    \end{tabbing}
+  }
 \end{frame}
 
 % Frame with items
@@ -131,6 +131,6 @@
     \bibliographystyle{apalike}
     \bibliography{../../bibliography/bibliography}
   }
-  \end{frame}
+\end{frame}
 
 \end{document}

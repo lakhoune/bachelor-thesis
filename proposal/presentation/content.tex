@@ -30,9 +30,9 @@
   \begin{columns}
     \begin{column}[]{0.5\textwidth}
 
-      Current success modeling systems
+      Traditional success modeling systems
       \begin{itemize}
-        \item Complicated %and require technical know-how
+        \item Complicated, as they require technical know-how
         \item Not optimized for collaboration
         \item Do not take mobility into consideration
       \end{itemize}
@@ -41,8 +41,8 @@
     \begin{column}[]{0.5\textwidth}
       Chat platforms are used for information exchange
       \begin{itemize}
-        \item Intuitive
-        \item Collaboration
+        \item Familiar and intuitive
+        \item Real-time collaboration
         \item Optimized for mobile devices
       \end{itemize}
       %This shows how chat platforms could adress the aforementionted issues
@@ -57,14 +57,8 @@
 \begin{frame}{Thesis Goals}
   \begin{itemize}
     \item Design a chatbot for success modeling and visualizations
-    \item Interface which communicates between
-          \begin{itemize}
-            \item End-User
-            \item Existing Community Information Systems (CIS)
-                  %Especially for visualizations of success factors of the Community
-          \end{itemize}
-    \item Bot should communicate wit MobSOS (CCA) %framework
-    \item Should be deployed with the Social Bot Framework
+          insida a Community Information Systems (CIS)
+    \item Find out if the bot increases collaboration and success awareness of the commmunity %in contrast to traditional web frontends
   \end{itemize}
 \end{frame}
 
@@ -86,7 +80,7 @@
   \begin{itemize}
     \item Can be used for automation of daily tasks %e.g. Alexa Smart Home, Shopping lists Reminders
     \item Users interact with Bots through voice or chat %in the case of chat: Chatbots
-    \item Better user experience as more intuitive to use
+    \item Provie better user experience, as they are more intuitive to use
   \end{itemize}
 \end{frame}
 
@@ -104,63 +98,72 @@
     passion for something they do and learn how to do it better as they interact regularly.'' \cite{Weng98}
   \end{block}
   \begin{itemize}
-    \item Members of a Community of Practice:
+    \item CoPs are very diverse
+    \item Informal structures with permeable boundaries \cite{RKJa15}
+    \item Communities contain sub-commmunities which can be overlapping
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Members of a Communitiy of Practice}
+  \begin{itemize}
+    \item Have various roles
           \begin{itemize}
             \item Researchers
             \item Professionals
             \item Students
             \item Hobbyists
           \end{itemize} %DBIS and ACIS as an example????
-  \end{itemize}
-\end{frame}
-
-
-\begin{frame}{Communities of Practice}
-  \begin{itemize}
-    \item Members of different degrees of
+    \item Have different degrees of
           \begin{itemize}
             \item Knowledge %Researchers > students
             \item Interest %Professionals > Hobbyists
             \item Contribution
+                  \begin{itemize}
+                    \item Core Members %do most of the contribution 
+                    \item Lurkers %only consume but almost no contribution
+                          %study on open Source found that for random projects 22percent contribute. For the top 500 projects: ~90percent don't contribute -> 1% (90-9-1) rule
+                  \end{itemize}
           \end{itemize}
-    \item Based on Contribution we discern between
-          \begin{itemize}
-            \item Core Members %do most of the contribution 
-            \item Lurkers %only consume but almost no contribution
-                  %study on open Source found that for random projects 22percent contribute. For the top 500 projects: ~90percent don't contribute -> 1% (90-9-1) rule
-          \end{itemize}
-    \item Members do not have to belong to the same organization
+    \item Do not have to belong to the same organization
     \item Share their work through social interaction e.g. online Social Networks %in this case we also talk about an online CoP
-    \item Communities contain sub-commmunities which can be overlapping
+
   \end{itemize}
 \end{frame}
+
 
 \begin{frame}{Measurement of Success}
-  \begin{itemize}
-    \item Communities of Practice need to be aware of their success
-          \begin{itemize}
-            \item Improve their work
-            \item Adjust to current trends
-          \end{itemize}
-          %Success seems to be a very abstract metric so in order to measure it we build a success model
-    \item Measurement of Success through a \emph{Success Model}
-    \item Success model distinct for each Community of Practice %as CoPs are very diversen and informal structures with permeable boundaries
+  \begin{columns}
+    \begin{column}[]{0.3\textwidth}
+      \begin{itemize}
+        \item Communities of Practice need to be aware of their success
+              \begin{itemize}
+                \item Improve their work
+                \item Adjust to current trends
+              \end{itemize}
+              %Success seems to be a very abstract metric so in order to measure it we build a success model
+        \item Measurement of Success through a \emph{Success Model}
+        \item Success model distinct for each community
 
-  \end{itemize}
+      \end{itemize}
+    \end{column}
+    \begin{column}[]{0.7\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{related_work/deloneMclean.png}
+        \caption{Community Information Systems Success Model by DeLone and McLean \cite{DeMc92}}
+        %13!!!!
+      \end{figure}
+    \end{column}
+  \end{columns}
 \end{frame}
-\begin{frame}{Success Model}
-  \begin{figure}[!h]
-    \centering
-    \includegraphics[width=0.7\textwidth]{related_work/deloneMclean.png}
-    \caption{Community Information Systems Success Model by DeLone and McLean \cite{DeMc92}}
-    %13!!!!
-  \end{figure}
-  MobSOS success model is based on this model
-\end{frame}
+
+
 
 \begin{frame}{MobSOS}
 
   \begin{itemize}
+    \item MobSOS success model is based on the success model of DeLone and McLean
     \item Core Component of las2peer
     \item Monitors las2peer services
     \item MobSOS Continuous Community Analytics extends MobSOS
@@ -172,23 +175,34 @@
   %The MobSOS cca also allows the addition of Mediabases, which can be used to gather data produced outside the las2peer environment
 \end{frame}
 
-\begin{frame}{Mediabase Schema}
-  \begin{figure}[h]
-    \centering
-    \includegraphics[height=0.89\textheight]{related_work/mediabase.png}
-    \caption{Mediabase Overview \cite{Klam10e}}
-  \end{figure}
+\begin{frame}{Mediabase}
+  \begin{columns}
+
+    \begin{column}[]{0.4\textwidth}
+      \begin{itemize}
+        \item Proposed to handle Web 2.0 data in a more effective way
+        \item Mediabase includes
+              \begin{itemize}
+                \item Backend database (DB2 or MySQL)
+                \item Crawler scripts
+                \item Monitoring processes
+                \item Frontend for user interactions
+              \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}[]{0.6\textwidth}
+      \begin{figure}[h]
+        \centering
+        \includegraphics[height=0.8\textheight]{related_work/mediabase.png}
+        \caption{Mediabase Overview \cite{Klam10e}}
+      \end{figure}
+    \end{column}
+
+  \end{columns}
 \end{frame}
 
-\begin{frame}{Mediabase Concept}
-  Mediabase includes
-  \begin{itemize}
-    \item Backend database (DB2 or MySQL)
-    \item Crawler scripts
-    \item Monitoring processes
-    \item Frontend for user interactions
-  \end{itemize}
-\end{frame}
+
 
 \section{Concept}
 \subsection{Use Case}

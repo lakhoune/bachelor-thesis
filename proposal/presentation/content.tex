@@ -291,20 +291,46 @@
 \end{frame}
 
 \begin{frame}{Example use of community Service with the Bot}
-  \begin{figure}
-    \centering
-    \includegraphics[height=0.9\textheight]{realization/chat_mockup.png}
+  \begin{columns}
+    \begin{column}[]{0.6\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[height=0.85\textheight]{realization/chat_mockup.png}
 
-  \end{figure}
+      \end{figure}
+    \end{column}
+    \begin{column}[]{0.4\textwidth}
+      \begin{enumerate}
+        \item Menu request intent recognized
+              \begin{itemize}
+                \item Mensa service GET request
+              \end{itemize}
+        \item Mensa service response
+        \item Mensa service POST request
+      \end{enumerate}
+    \end{column}
+  \end{columns}
+
 \end{frame}
 
 \begin{frame}{Example of a visualization request}
-  \begin{figure}
-    \centering
-    \includegraphics[height=\textheight]{realization/visual_req.png}
-
-    \label{fig:visualReq}
-  \end{figure}
+  \begin{columns}
+    \begin{column}[]{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[height=0.85\textheight]{realization/visual_req.png}
+      \end{figure}
+    \end{column}
+    \begin{column}[]{0.5\textwidth}
+      \begin{enumerate}
+        \item Average food Rating request intent recognized
+              \begin{itemize}
+                \item MobSOS CCA request based on template
+              \end{itemize}
+        \item MobSOS CCA response
+      \end{enumerate}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \section{Evaluation}

@@ -97,9 +97,12 @@
     passion for something they do and learn how to do it better as they interact regularly.'' \cite{Weng98}
   \end{block}
   \begin{itemize}
-    \item CoPs are  diverse communities
+    \item CoPs are diverse communities, which study a certain domain
     \item Informal structures with permeable boundaries \cite{RKJa15}
+          %informal structures: This means that there are no strict rules about the hierarchy inside a community and they do not follow the same structure as traditional organizations
+          %Permeable boundaries: This means that it is not clearly defined which members belong to the CoP and which don't
     \item CoPs contain sub-commmunities which can be overlapping
+          % members can belong to more than one community
   \end{itemize}
 \end{frame}
 
@@ -126,7 +129,6 @@
           \end{itemize}
     \item Do not have to belong to the same organization
     \item Share their work through social interaction e.g. online Social Networks %in this case we also talk about an online CoP
-
   \end{itemize}
 \end{frame}
 
@@ -143,7 +145,8 @@
               %Success seems to be a very abstract metric so in order to measure it we build a success model
         \item Measurement of Success through a \emph{Success Model}
         \item Success model distinct for each community
-
+              %based on the goals that they want to achieve
+              %e.g. a community of web developers: front end developers have different goals  than backend developers (beautifull animations vs informative (plain html))
       \end{itemize}
     \end{column}
     \begin{column}[]{0.7\textwidth}
@@ -264,7 +267,15 @@
     \begin{column}[]{0.3\textwidth}
       Technologies:
       \begin{itemize}
-        \item las2peer
+        \item Chat Platforms
+              \begin{itemize}
+                \item Slack
+                \item Telegram
+                \item Rocket Chat
+              \end{itemize}
+        \item Social Bot Framework
+        \item Mensa Service
+
         \item MobSOS
               \begin{itemize}
                 \item MobSOS CCA
@@ -275,14 +286,7 @@
               \begin{itemize}
                 \item Javascript Crawler for Twitter
               \end{itemize}
-        \item Social Bot Framework
-        \item Mensa Service
-        \item Chat Platforms
-              \begin{itemize}
-                \item Slack
-                \item Telegram
-                \item Rocket Chat
-              \end{itemize}
+        \item las2peer
       \end{itemize}
     \end{column}
   \end{columns}
@@ -294,7 +298,7 @@
     \begin{column}[]{0.6\textwidth}
       \begin{figure}
         \centering
-        \includegraphics[height=0.85\textheight]{realization/chat_mockup.png}
+        \includegraphics[height=0.85\textheight]{realization/Menu_Queuery.png}
 
       \end{figure}
     \end{column}
@@ -302,10 +306,10 @@
       \begin{enumerate}
         \item Menu request intent recognized
               \begin{itemize}
-                \item Mensa service GET request
+                \item Bot calls mensa service
               \end{itemize}
         \item Mensa service response
-        \item Mensa service POST request
+        \item Mensa bot calls mensa service
       \end{enumerate}
     \end{column}
   \end{columns}
@@ -317,16 +321,18 @@
     \begin{column}[]{0.5\textwidth}
       \begin{figure}
         \centering
-        \includegraphics[height=0.85\textheight]{realization/visual_req.png}
+        \includegraphics[height=0.85\textheight]{realization/Visualization_request.png}
       \end{figure}
     \end{column}
     \begin{column}[]{0.5\textwidth}
       \begin{enumerate}
+        \item Bot recognizes that it is being mentioned
         \item Average food Rating request intent recognized
               \begin{itemize}
-                \item MobSOS CCA request based on template
+                \item Bot calls MobSOS CCA
               \end{itemize}
-        \item MobSOS CCA response
+        \item MobSOS CCA gets data and transforms it into chart
+        \item Renders chart as image and transmits it to the bot
       \end{enumerate}
     \end{column}
   \end{columns}
@@ -352,20 +358,20 @@
           \end{itemize}
     \item Chatbot will be deployed to various platforms for collecting reviews
     \item Crawler script collects reviews from webpages
+          \begin{itemize}
+            \item Use data collected by Clemens Kersjes
+          \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Overview}
   \begin{itemize}
     \item Find mensa commmunity
-          \begin{itemize}
-            \item people which frequently visit the canteen
-          \end{itemize}
     \item Participants are part of the mensa commmunity
     \item Evaluation will be done on two phases:
           \begin{itemize}
             \item  Community Service Phase
-            \item Success modeling phase
+            \item Success Modeling Phase
           \end{itemize}
   \end{itemize}
 \end{frame}
@@ -374,38 +380,36 @@
 \begin{frame}{Community Service Phase}
   \begin{itemize}
     \item Evaluate the usability of the bot for getting menu and making reviews
-    \item Volonteers will be acting as community members
-    \item Members will join a new Mensa Slack group
+    \item Volunteers will join a new Mensa Slack group
     \item The chatbot is included in a group channel
           \begin{itemize}
             \item can be used to query menu
           \end{itemize}
-    \item Members are asked to make a food review by Direct Message with the bot
+    \item Members are asked to make a food review by private chat with the bot
     \item Hand out questionnaire covering usability of the bot
-    \item Feedback is included into the success model
+    \item Feedback is included into the success model of the community
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Success Modeling Phase}
   \begin{itemize}
     \item Evaluate the collaboration aspect of the bot
-    \item Preferably same volonteers as first phase %maybe some new features were added in the first phase which they can now try out... See their impact on the community
+    \item Preferably same volunteers as first phase %maybe some new features were added in the first phase which they can now try out... See their impact on the community
     \item Divide into groups of 2-3 students
           \begin{itemize}
             \item make visualization requests
             \item update the success model
           \end{itemize}
+          Use MobSOS CCA frontend and new chatbot
     \item Hand out questionnaire covering collaboration and success awareness
   \end{itemize}
 \end{frame}
 
 \section{Project Plan}
-
 \begin{frame}
   \begin{figure}
     \centering
     \includegraphics[width=0.89\textwidth]{project_plan/projectplan.png}
-
-    \label{fig:visualReq}
+    %bot can be used from first evaluation onwards
   \end{figure}
 \end{frame}

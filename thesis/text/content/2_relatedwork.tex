@@ -8,26 +8,26 @@ This section gives a brief introduction to the concepts, which are relevant to t
 
 \subsection{Social Bots and Chatbots}
 Bots are interfaces, which provide automated services to end-users.
-In contrast to normal computer programs, bots use the services, which were designed for human users, such as browsing webpages and issuing API calls.
-Bots, which are deployed in social media, are called social bots.
+In contrast to normal computer programs, bots can use the same services and perform the same actions as human users. Those actions include browsing webpages or issuing API calls.
+Bots, which are interacting with users in a conversational manner, are called social bots.
 The definition of a social bot is provided by \cite{FVD*16b}:
 \begin{quote}
     ``A social bot is a computer algorithm that automatically produces content and interacts with humans on social media, [...]''
 \end{quote}
 
 Social bots are getting more and more popular in Human-Computer Interaction (HCI), by integrating automation into the daily lives of people \cite{BFPN17}. Users can interact with a social bot through a dedicated channel, such as the chat functionality of a social network.
-Social bots, which use chats to interact with users are called chatbots, or conversational bots \cite{WWX*16}.
-Chatbots have recently become very popular in the context of customer care \cite{CHW*17,FVD*16b}, where they act as virtual assistants, which can answer simple questions \cite{CaWh14} or perform predefined tasks.
-They thereby assist companies in customer service as they are more economical and the staff can concentrate on less mundane tasks.
+Social bots, which use chats to interact with users are called chatbots, or conversational bots \cite{WWX*16,AAA17}.
+Chatbots have recently become very popular in the context of customer care \cite{CHW*17,FVD*16b}, where they act as virtual assistants, which can answer simple questions \cite{CaWh14} or perform predefined tasks. Their simplicity allows even non-experienced users to perform actions of various degrees of difficulty. 
+Chatbots can assist companies in customer service. This allows the staff to concentrate on less mundane issues with customers and therefore increases the effectiveness of the service while keeping costs low. \cite{AAA17}
 
-Chatbots can be classified into chit-chat chatbots, or task-oriented bots.
-A chit-chat bot engages users into interesting conversations.
+% Chatbots can be classified into chit-chat chatbots, or task-oriented bots.
+% A chit-chat bot engages users into interesting conversations and focusses more on the actual conversation. Task-oriented bots are focused on getting certain actions done. As soon as the desired action is done, the bot will stop the conversation. 
 
 We can distinguish between retrieval based chatbots and generic chatbots \cite{NLKl19,WWX*16}.
 Retrieval based bots are focussed on getting specific tasks done and focus less on engaging in a coherent conversation.
-
 Retrieval based chatbots measure the similarity of user queries to candidate responses and run the task that is defined for that response.
 They do this by using natural language processing techniques.
+
 Generic chatbots on the other hand also produce generic responses.
 An advantage of the generic chatbots is that they provide a better user experience as users can interact more naturally with them than with retrieval based chatbots.
 
@@ -44,6 +44,7 @@ However humans take far more information into consideration, as the reading of a
 
 Computers try to close this knowledge gap with computational models, which emulate human cognitive processing.
 By evaluating the results of those models for a given input, researchers can incrementally improve the accuracy of the model. \cite{CaWh14}
+NLU is a domain that is a key research topic for companies like Google and Facebook. \cite{AAA17}
 
 
 \subsection{Communities of Practice}
@@ -146,9 +147,17 @@ This section describes existing systems which will be used for the realization o
 The Social Bot Framework (SBF) is a Web-based model-driven near-realtime environment to develop chatbots \cite{NLKl19}. The model-driven development allows less experienced users to take part in the development, which is favorable for the creation of a chatbot inside a Community of Practice (CoP). The framework consists of a GUI to model the bot and define the actions, which it should perform, and a Social Bot Manager Service, which is used to deploy the bot.
 
 \subsection{RASA}
-Rasa is an open sourced framework for building chat- and voice-based bots. The goal of RASA is to bring current advances in machine-learning to end-users, such that they can create chatbots in a simple way \cite{BFPN17}. The RASA system is split into a component for natural language understanding (RASA NLU) and a dialogue management component (RASA Core).
+Rasa is an open sourced framework for building chat- and voice-based bots. The goal of RASA is to bring current advances in machine-learning to end-users, such that they can create chatbots in a simple way \cite{BFPN17}. 
+The RASA system is split into a component for natural language understanding (RASA NLU) and a dialogue management component (RASA Core).
 
-RASA NLU is used to extract the intents of a user message with a text classification based on the fastText approach \cite{BFPN17}. fastText has a similar accuracy to conventional deep learning classifiers, but is much faster and therefore more easily scalable \cite{JGBM16}.
+RASA NLU is used to extract the \emph{intents} and intent \emph{entities} of a user message.
+The \emph{intent} of a message represents the thing that the user tries to accomplish \footnotemark. 
+Entities are keywords that are relevant to the current context.
+Intent recognition is done by using a text classification based on the fastText approach \cite{BFPN17}. 
+fastText has a similar accuracy to conventional deep learning classifiers, but is much faster and therefore more easily scalable \cite{JGBM16}.
+
+\footnotetext{ 
+  \href{https://rasa.com/docs/rasa/glossary\#intent}{Rasa: intents}}
 
 RASA Core consists of a \emph{Tracker}, a \emph{Policy} and a set of \emph{Actions} \cite{BFPN17}. The Tracker manages the current state of the conversation. It gets an intent as an input and forwards it the Policy, which selects the next action, given the current state of the conversation and a predefined list of actions for each intent. The Action triggers the Tracker to recalculate the new state and might also send a reply to the user.
 

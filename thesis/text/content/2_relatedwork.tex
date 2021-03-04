@@ -211,9 +211,9 @@ The system is built in a modularized way and each service provides HTTP APIs \ci
 
 
 \subsection{GraphQL}
-GraphQL\footnotemark is a query language specifation for web APIs.
+GraphQL\footnotemark is a query language specification for web APIs.
 \footnotetext{GraphQL: \href{https://graphql.github.io/}{https://graphql.github.io/}}
-Instead of hitting multiple endpoints, like in standard REST APIs, for different requests, users can get all data from one endpoint, by specfifying the kind of data that they need as a query. This means that it prevents over- and underfetching of data.\footnotemark
+Instead of hitting multiple endpoints, like in standard REST APIs, for different requests, users can get all data from one endpoint, by specfifying the kind of data that they need as a query. This means that it prevents over- and underfetching of data\footnotemark, which increases overall performance and user experience \cite{KKK20}.
 
 \footnotetext{\href{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}}
 
@@ -221,7 +221,7 @@ GraphQL does not mandate the use of a specific programming language, the actual 
 \footnotetext{\href{http://spec.graphql.org/June2018/}{http://spec.graphql.org/June2018/}}
 Many different implemtentions have been written for programming languages like Java \footnote{Java GraphQL Library:\href{https://www.graphql-java.com/documentation/master/}{https://www.graphql-java.com/documentation/master/}} and Javascript. \footnote{Javascript GraphQL Library:\href{https://www.npmjs.com/package/express-graphql}{https://www.npmjs.com/package/express-graphql}}
 
-Transforming an existing REST API into a GraphQL API can be a cumbersome task. An automation process in the form of a Wrapper has been proposed, which converts an existing schema such as a Swagger schema into a GraphQL schema\footnote{\href{https://github.com/yarax/swagger-to-graphql}{Swagger-to-GraphQL}}. Such a wrapper transforms GraphQL requests into RESTful requests as depicted in Figure \ref{fig:graphqlWrapper}.
+Transforming an existing REST API into a GraphQL API can be a cumbersome task \cite{WCL18}. That is why automation processes in the form of Wrappers have been proposed \cite{KKK20}, which convert an existing schema such as a Swagger schema into a GraphQL schema\footnote{\href{https://github.com/yarax/swagger-to-graphql}{Swagger-to-GraphQL}} \footnote{\href{https://github.com/IBM/openapi-to-graphql}{IBM: openapi-to-graphql}} \footnote{\href{https://github.com/rwth-acis/openapi-link-generator}{Github: Openapi Link Generator}}.   Such wrappers transform GraphQL requests into RESTful requests as depicted in Figure \ref{fig:graphqlWrapper}.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\linewidth]{realization/graphqlWrapper.png}
@@ -231,17 +231,22 @@ Transforming an existing REST API into a GraphQL API can be a cumbersome task. A
 
 In GraphQL, data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean and String, but new types can also be defined. An example can be seen in \ref{lst:GraphQLType}.
 \begin{lstlisting}[caption={Example of a GraphQL schema},captionpos=b,label={lst:GraphQLType}]
-type Review {
-  id: ID
-  rating: Int
-  description:String
-}
+  type REVIEW { 
+    dishId: String 
+    mensaId: String 
+    timestamp: String 
+    stars: Int 
+    comment:String
+    author: String 
+    id: ID 
+  }
 \end{lstlisting}
 New fields can be dynamically added without influencing existing queries. The schemas are formalized as either a \emph{Query }, or a \emph{Mutation}. They are declared by the keyword \emph{schema}. The query keyword can be omitted. An example of a query can be seen in listing \ref{lst:GraphQLQuery}.
 \begin{lstlisting}[caption={Example of a GraphQL Query},captionpos=b,label={lst:GraphQLQuery}]
 {
-  Review(id: "1000") {
-    rating
+  REVIEW(id: "1000") {
+    stars,
+    author
   }
 }
 \end{lstlisting}
@@ -251,8 +256,8 @@ Mutations are used to modify data. An example of a query can be seen in listing 
 \begin{lstlisting}[caption={Example of a GraphQL Mutation},captionpos=b,label={lst:GraphQLMut}]
 mutation addReview(){
   {
-	rating 
-	description
+  author
+	stars 
   }
 }
 \end{lstlisting}

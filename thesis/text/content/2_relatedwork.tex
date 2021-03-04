@@ -143,9 +143,36 @@ This approach is favorable for the management of large scale-free dynamic social
 This section describes existing systems which will be used for the realization of this project.
 
 \subsection{las2peer}
-las2peer \footnotemark is a disributed platform, which allows users to easily deploy their HTTP services. Each service is a node in the network and many nodes can form a peer-to-peer seed network, which communicate through standard protocols. Data storage and communications are encrypted, adding an extra layer of security to las2peer services. This allows even small communities to securely design and deploy las2peer services.   
+las2peer\footnotemark is a platform, which allows users to easily deploy their HTTP services. 
+It is a distributed platform, based on peer-to-peer networks without a central authority \cite{KRdJ16}.
+Each service is a node in the network and many nodes can form a peer-to-peer seed network, which communicate through standard protocols. 
+Data storage and communications are encrypted, adding an extra layer of security to las2peer services.
+This allows even small communities to securely design and deploy las2peer services. 
 
 \footnotetext{\href{https://las2peer.org/}{las2peer.org}}
+
+las2peer includes an editor for Modeling and Code Generation called Community Application Editor (CAE). 
+The CAE follows a model-driven approach as the  las2peer services can be created by designing a model using the \emph{Canvas} widget. The editor can be used as a collaborative, near-realtime framework \cite{dND*16}. 
+
+las2peer also includes a framework for community evaluation, based on MobSOS. This framework can be used to monitor and evaluate success data of community applications.
+
+The MobSOS Data Processing service\footnotemark processes data, which are monitored in the context of a service in the network, and stores it in a database.
+
+\footnotetext{\href{https://github.com/rwth-acis/mobsos-data-processing}{https://github.com/rwth-acis/mobsos-data-processing}}
+
+The MobSOS Success Modeling service\footnotemark can be used in order to create and manage success models that follow the six success dimensions proposed by DeLone and McLean \cite{DeMc92}.
+Each group in a las2peer network can create multiple success models for each las2peer service in the network. 
+\footnotetext{\href{https://github.com/rwth-acis/mobsos-success-modeling}{https://github.com/rwth-acis/mobsos-success-modeling}}
+Each success dimension has a list of factors describing the dimension. 
+Each factor can include multiple success measures. 
+A success measure includes a visualization type and a corresponding SQL query which fetches the data needed for the visualization. 
+Currently the supported visualization types are the following:
+\begin{itemize}
+  \item \emph{Value}: represents a single value
+  \item \emph{Chart}: a visual representation of the data displayed as a Google Chart \footnotemark
+  \item \emph{KPI}: combines values from multiple queries 
+\end{itemize}
+\footnotetext{\href{https://developers.google.com/chart}{Google Charts}}
 
 \subsection{Social Bot Framework}
 The Social Bot Framework (SBF) is a Web-based model-driven near-realtime environment to develop chatbots \cite{NLKl19}. 

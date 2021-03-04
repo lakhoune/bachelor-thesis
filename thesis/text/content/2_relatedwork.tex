@@ -151,6 +151,9 @@ This allows even small communities to securely design and deploy las2peer servic
 
 \footnotetext{\href{https://las2peer.org/}{las2peer.org}}
 
+Groups are a feature in las2peer for security and defining rights in a community. 
+A user can create a group by generating a \emph{GroupAgent}. 
+
 las2peer includes an editor for Modeling and Code Generation called Community Application Editor (CAE). 
 The CAE follows a model-driven approach as the  las2peer services can be created by designing a model using the \emph{Canvas} widget. The editor can be used as a collaborative, near-realtime framework \cite{dND*16}. 
 
@@ -158,11 +161,11 @@ las2peer also includes a framework for community evaluation, based on MobSOS. Th
 
 The MobSOS Data Processing service\footnotemark processes data, which are monitored in the context of a service in the network, and stores it in a database.
 
-\footnotetext{\href{https://github.com/rwth-acis/mobsos-data-processing}{https://github.com/rwth-acis/mobsos-data-processing}}
+\footnotetext{\href{https://github.com/rwth-acis/mobsos-data-processing}{Github: Data Processing}}
 
 The MobSOS Success Modeling service\footnotemark can be used in order to create and manage success models that follow the six success dimensions proposed by DeLone and McLean \cite{DeMc92}.
 Each group in a las2peer network can create multiple success models for each las2peer service in the network. 
-\footnotetext{\href{https://github.com/rwth-acis/mobsos-success-modeling}{https://github.com/rwth-acis/mobsos-success-modeling}}
+\footnotetext{\href{https://github.com/rwth-acis/mobsos-success-modeling}{Github: Success Modeling}}
 Each success dimension has a list of factors describing the dimension. 
 Each factor can include multiple success measures. 
 A success measure includes a visualization type and a corresponding SQL query which fetches the data needed for the visualization. 
@@ -178,19 +181,21 @@ Currently the supported visualization types are the following:
 The Social Bot Framework (SBF) is a Web-based model-driven near-realtime environment to develop chatbots \cite{NLKl19}. 
 The model-driven development allows less experienced users to take part in the development, which is favorable for the creation of a chatbot inside a Community of Practice (CoP). 
 The framework consists of a GUI and a Social Bot Manager Service.
-The GUI of the Social Bot Framework is used to model the bot and define the actions, which it should perform. 
+The GUI of the Social Bot Framework is used to model the bot and define the actions, which the bot should perform. 
 This is done through a modeling space that can be used in a collaborative manner. The modeling canvas can be used to model the bot by placing icons from the palett widdget representing certain elements of the bot and connecting them with each other. 
+
 The GUI also includes a NLU Model Training helper which can be used to write training data for intent recognition unsing a Rasa server.
-The resulting model is sent to the Social Bot Manager which deploys the bot and handles the communication with the chat platform. 
-The Social Bot Manager service is a las2peer service and can there call other las2peer services in the network. 
+The resulting model is sent to the Social Bot Manager which deploys the bot and handles the communication with chat platforms, like \emph{Slack} \footnote{\href{https://slack.com/}{Slack}} or \emph{rocket.chat}\footnote{\href{https://rocket.chat/}{rocket.chat}}. 
+The Social Bot Manager service\footnotemark is a las2peer service and can thereby call other las2peer services in the network. 
 Thereby the bot is able to perform actions with service in a las2peer network.
+\footnotetext{\href{https://github.com/rwth-acis/las2peer-social-bot-manager-service}{Github: Social Bot Manager}}
 
 \subsection{RASA}
 Rasa is an open sourced framework for building chat- and voice-based bots. The goal of RASA is to bring current advances in machine-learning to end-users, such that they can create chatbots in a simple way \cite{BFPN17}. 
 The RASA system is split into a component for natural language understanding (RASA NLU) and a dialogue management component (RASA Core).
 
 RASA NLU is used to extract the \emph{intents} and intent \emph{entities} of a user message.
-The \emph{intent} of a message represents the thing that the user tries to accomplish \footnotemark. 
+The \emph{intent}\footnotemark of a message represents the thing that the user tries to accomplish. 
 Entities are keywords that are relevant to the current context.
 Intent recognition is done by using a text classification based on the fastText approach \cite{BFPN17}. 
 fastText has a similar accuracy to conventional deep learning classifiers, but is much faster and therefore more easily scalable \cite{JGBM16}.

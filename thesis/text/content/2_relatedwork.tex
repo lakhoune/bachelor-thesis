@@ -145,14 +145,24 @@ This section describes existing systems which will be used for the realization o
 \subsection{las2peer}
 las2peer\footnotemark is a platform, which allows users to easily deploy their HTTP services. 
 It is a distributed platform, based on peer-to-peer networks without a central authority \cite{KRdJ16}.
-Each service is a node in the network and many nodes can form a peer-to-peer seed network, which communicate through standard protocols. 
+Each service is a \emph{node} in the network. Many nodes can form a peer-to-peer seed network, which communicate through standard protocols. 
 Data storage and communications are encrypted, adding an extra layer of security to las2peer services.
 This allows even small communities to securely design and deploy las2peer services. 
+
+New nodes can join the las2peer network by using the \emph{bootstrap} flag followed by the IP adress of one of the nodes in the network. The service can be adressed by its \emph{ServiceAgent} id or by listening to an arbitrary topic. It can adress other services in the network in the same way. 
+
+The services inside a network share a key-value store, which is a distributed hash table (DHT). The entries are stored on each node's host filesystem. The entries are encrypted by their author and only the author can change the value of an entry.
 
 \footnotetext{\href{https://las2peer.org/}{las2peer.org}}
 
 Groups are a feature in las2peer for security and defining rights in a community. 
 A user can create a group by generating a \emph{GroupAgent}. 
+
+In order to communicate with the nodes of the las2peer network from outside, a \emph{WebConnector} can be started on a node. This connector handles REST requests to the services. A service can then be accessed over http by the following url sheme: 
+\begin{lstlisting}
+  http(s)://ip:port/serviceAlias/methodName
+\end{lstlisting}
+where the \emph{serviceAlias} is a name which identifies the service in the network. 
 
 las2peer includes an editor for Modeling and Code Generation called Community Application Editor (CAE). 
 The CAE follows a model-driven approach as the  las2peer services can be created by designing a model using the \emph{Canvas} widget. The editor can be used as a collaborative, near-realtime framework \cite{dND*16}. 
@@ -261,3 +271,18 @@ mutation addReview(){
   }
 }
 \end{lstlisting}
+
+\subsection{Docker and Kubernetes}
+Docker\footnotemark is an open-source containerizing technology, which aims to simplify and accelerate the development of web services.
+\footnotetext{\href{https://www.docker.com/}{Docker}}
+A Docker \emph{container} is a standalone executable package that contains all depencies for the actual application. Docker containers run using the Docker \emph{engine}. Docker \emph{images} define the way a container should run, while the container is the actual runtime.
+In contrast to virtual machines (VMs), Docker containers are a virtualization of the application layer instead of the physical hardware layer. Thereby, they take up less space (only a few MBs) and are faster to boot.
+Docker images can be uploaded to Docker registries\footnotemark, wich are central repositories for Docker images. 
+\footnotetext{\href{https://docs.docker.com/docker-hub/}{Docker: Docker-hub}}
+
+Kubernetes\footnotemark (K8s) is an open-source container orchestration tool, which automates deployment and scaling of containerized application, like Docker containers. 
+\footnotetext{\href{https://kubernetes.io/}{Kubernetes}}
+K8s introduces an abstractation layer to containers called \emph{pods}. Pods can contain multiple containers. Pods are created and managed automatically by K8s. K8s also introduces \emph{services}, which serve as the communication endpoint of the pod, as it maps a single IP adress to a pod. This is necessary as the IP adress of the pod can change if it is restarted.
+Different application can communicate with each other via \texttt{http}. 
+Different services and pods can be grouped together in \emph{name-spaces}.
+K8s also has a service for DNS resolution. Each service gets its own domain in the form \texttt{my-service.my-namespace}

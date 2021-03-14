@@ -1,17 +1,19 @@
 \chapter{Concept}\label{cha:concept}
 \section{Scenario: Mensa Community}
 We illustrate the software system by considering a community of frequent mensa visitors.
-Although not a community of practice, the success principle can be applied to it.
-The success metrics for this community are e.g. the food quality or the price of the food at their local canteen.
-The members are students and university employees.
-They share a common interest which is the food at the canteen.
+Although not a community of practice, the success principle can be applied to it, as members of the community share a common interest which they are passionate about: the food at their local canteen.
+The success metrics for this community are based on the food quality and the activities and interest in their local canteen.
+The members of the mensa commnunity are students and university employees.
 
-The mensa community is a hierarchical structure, consisting of different community levels.
+The mensa community has a hierarchical structure, consisting of different community levels.
 In our case, the top level represents the community of all canteens in Germany.
 The intermediate level represents the local mensa community of a particular university.
 The lowest level of the community represents a circle of friends, which frequent the canteen together. Note that members can belong to different circle of friends which means that communities can be overlapping.
 
-Members of the community can rate meals through interaction with a social bot, called mensabot. The mensabot is modeled with  the Social Bot Framework. It can be accessed via the Slack chat application. Members can ask the bot about which food will be served on a given day.
+Members of the community use community applications \footnote{\url{https://tech4comp.dbis.rwth-aachen.de/mensa/}}
+\footnote{\url{https://monitor.tech4comp.dbis.rwth-aachen.de/}} to access information about the mensa and their community.
+
+embers of the community can interact with a chatbot, called mensabot. The mensabot is modeled with  the Social Bot Framework. It can be accessed via the Slack chat in the Slack workspace of the community. Members can ask the bot about which food will be served on a given day.
 
 As members of the mensa community are very passionate about the food at the canteen, they can also use the bot to add a review of their meal.
 
@@ -19,22 +21,25 @@ Furthermore, members can query visualizations about the success of the community
 
 \subsection{Use Cases}
 
-\subsubsection{Get the menu for the canteen} A student wants to decide whether to go to the canteen on a given day. He opens the Slack app and asks the bot for the menu at the canteen on that day. The bot looks up the menu for that canteen and the resulting menu is then displayed inside the chat along with an average rating of reviews made by the community. The reviews help the student to make a decision about which meal to choose.
+\subsubsection{Get the menu for the canteen} A student, called Alice, wants to decide whether to go to the canteen on a given day. She opens the Slack app and asks the bot for the menu at the canteen on that day. The bot looks up the menu for that canteen and the resulting menu is then displayed inside the chat along with an average rating of reviews made by the community. The reviews help her to make a decision about which meal to choose.
 
 \subsection{Setting a default city}
-A university employee asks the bot about the menu for Mensa Academica. The bot finds two mensas matching that name. One is located in Aachen, while the other one is located in Leipzig. 
-The bot asks the user to clarify which mensa he meant by displaying both mensas in a list. The user chooses the second item in the list and the bot returns the resulting menu.
-The bot asks the student if they want to save the city, in which their canteen is based in as their hometown. This helps the bot to better identify the mensa on further requests.
+A university employee, called Bob asks the bot about the menu for a mensa called "Mensa Academica". The bot finds two mensas matching that name. One is located in Aachen, while the other one is located in Leipzig. 
+The bot asks Bob to clarify which mensa he meant by displaying both mensas in a list. Bob chooses the second item in the list and the bot returns the resulting menu.
+The bot asks him if he wants to save the city, in which his canteen is based as his default city. This helps the bot to better identify the mensa on further requests.
 
-\subsubsection{Adding a review} A student just finished his meal at the mensa. To his surprise the food was better than expected. They decide to make a positive review using the mensabot. 
-The bot will start a dialogue, by asking questions about the meal. Those questions are designed to capture the success metrics, which were previously defined. Each question results in a datapoint for the review.
+\subsubsection{Adding a review} A student, called Charlie, just finished his meal at the mensa. To his surprise the food was better than expected. He decides to make a positive review using the mensabot. 
+The bot will start a dialogue, by asking questions about the meal. Each question results in a datapoint for the review. The bot saves the review and displays the result in the chat
 
 % The user is asked if he wants to upload a photo of his meal. He chooses to do so. The final review is then added to the database and will be taken into consideration for further evaluation requests.
 
 
 \subsubsection{Issuing a visualization request}
-The student is still unsure on whether to go to the canteen. He asks the bot how popular a specific meal is. The bot % issues a query to the GraphQL interface of the CCA system, which contains a mediabase with reviews of meals, made by students. 
-displays the  resulting data as a chart inside the chat. The data is aggregated from different sources, like reviews on Facebook, Google, which are stored in the Mediabase, and reviews which were made inside the las2peer system. 
+The student is still unsure on whether to go to the canteen. He asks the bot how popular a specific mensa is. The community had defined the popularity as a measure in the success model. The measure records the number of requests for the menu of that mensa and ranks it according to the other mensas.
+
+The bot % issues a query to the GraphQL interface of the CCA system, which contains a mediabase with reviews of meals, made by students. 
+displays the  resulting data as a visualization inside the chat.
+%  The data is aggregated from different sources, like reviews on Facebook, Google, which are stored in the Mediabase, and reviews which were made inside the las2peer system. 
 % After the user has seen how good the food is, he is asked by the bot, wether he will go to the canteen. He tells the bot that he will go.
 
 \subsubsection{Success Awareness} Students in the Mensa community are aware that the success of their community depends on the active participation of its members. They are discussing about the success of the community inside a group chat. They want to know how active the members of the community are. A student mentions the bot, which is a member of the chat group. They tell it to visulize the average time, that a user is interacting with the service. The bot recognizes this as a measure and runs a predefined query. The resulting data is visualized in the group chat.
@@ -43,7 +48,7 @@ displays the  resulting data as a chart inside the chat. The data is aggregated 
 The students blame the Corona virus for this negative trend as the canteen can only be used as takeout. Furthermore, a lot of students returned to their hometowns.
 The students want to verify that the lack of activities is indeed due to Corona virus and not due to decreasing food quality.
 They ask the bot to update the success model of their community.
-They add a metric which models the average stars of reviews over time.
+They add a measure which models the average stars of reviews over time.
 After visualizing the new metric, they observe that the average stars have remained more or less constant over time.
 
 % The students are asked to add a comment to the change, so that members of the community can understand the reason for the change at a later date.

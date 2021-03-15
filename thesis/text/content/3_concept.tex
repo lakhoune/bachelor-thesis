@@ -31,16 +31,17 @@ The bot asks him if he wants to save the city, in which his canteen is based as 
 \subsubsection{Adding a review} A student, called Charlie, just finished his meal at the mensa. To his surprise the food was better than expected. He decides to make a positive review using the mensabot. 
 The bot will start a dialogue, by asking questions about the meal. Each question results in a datapoint for the review. The bot saves the review and displays the result in the chat
 
-% The user is asked if he wants to upload a photo of his meal. He chooses to do so. The final review is then added to the database and will be taken into consideration for further evaluation requests.
+The user is asked if he wants to upload a photo of his meal. He chooses to do so. The final review is then added to the database and will be taken into consideration for further evaluation requests.
 
 
 \subsubsection{Issuing a visualization request}
 The student is still unsure on whether to go to the canteen. He asks the bot how popular a specific mensa is. The community had defined the popularity as a measure in the success model. The measure records the number of requests for the menu of that mensa and ranks it according to the other mensas.
+The bot recognizes this as a predefined measure contained in the success model. He looks up information about the measure in the measure catalog. 
 
-The bot % issues a query to the GraphQL interface of the CCA system, which contains a mediabase with reviews of meals, made by students. 
-displays the  resulting data as a visualization inside the chat.
-%  The data is aggregated from different sources, like reviews on Facebook, Google, which are stored in the Mediabase, and reviews which were made inside the las2peer system. 
-% After the user has seen how good the food is, he is asked by the bot, wether he will go to the canteen. He tells the bot that he will go.
+The measure contains all information about how to get the data and how to visualize it. This includes information about the database and the corresponding SQL query on that database. The bot transforms this information into a graphql request and sends it to the GraphQL interface of the CCA system. The graphql server returns the appropriate data.
+
+The bot then visualizes this data and displays the  resulting visualization inside the chat.
+After the user has seen how good the food is, he is asked by the bot, wether he will go to the canteen. He tells the bot that he will go.
 
 \subsubsection{Success Awareness} Students in the Mensa community are aware that the success of their community depends on the active participation of its members. They are discussing about the success of the community inside a group chat. They want to know how active the members of the community are. A student mentions the bot, which is a member of the chat group. They tell it to visulize the average time, that a user is interacting with the service. The bot recognizes this as a measure and runs a predefined query. The resulting data is visualized in the group chat.
 
@@ -51,10 +52,11 @@ They ask the bot to update the success model of their community.
 They add a measure which models the average stars of reviews over time.
 After visualizing the new metric, they observe that the average stars have remained more or less constant over time.
 
-% The students are asked to add a comment to the change, so that members of the community can understand the reason for the change at a later date.
+The students are asked to add a comment to the change, so that members of the community can understand the reason for the change at a later date.
 
 
-% \subsubsection{Modifying a review} A user can choose to update a past review. The bot will ask the user the same questions and afterwards update the entry in the database with the new review.
+\subsubsection{Modifying a review} A user just added a review to the database. He realizes that he forgot to mention the excellent quality of the fries. 
+He asks the bot if he can still update his review. The bot will ask the user the same questions and afterwards update the entry in the database with the new review.
 
 \subsubsection{Evaluating the service} A user, which has been using the service for some time, is asked questions about the quality of the service. Such questions include things like how satisfied they are with different aspects of the service, or how likely it is, that they would recommend the service to a colleague.
 
@@ -62,7 +64,9 @@ After visualizing the new metric, they observe that the average stars have remai
 The moderators are aware that many members of the community also add reviews on sites like Google reviews. 
 They add a Mediabase containing reviews collected by crawlers from sites like Google Reviews.
 
-% \subsubsection{Visualizations of multiple databases} Multiple databases can exist in a system. Apart from the reviews, which were added by chat, other reviews about overall user satisfaction are also collected with the help of crawlers. A student request a visualization of a metric which represents the overall success of the community. The resulting visualization contains results from all databases, to give an overview on how popular the specific canteen really is.
+\subsubsection{Visualizations of multiple databases} Multiple databases can exist in a system. Apart from the reviews, which were added by chat, other reviews about overall user satisfaction are also collected with the help of crawlers. A student request a visualization of a metric which represents the overall success of the community.
+The data is aggregated from different sources, like reviews on Facebook, Google, which are stored in the Mediabase, and reviews which were made inside the las2peer system. 
+The resulting visualization contains results from all databases, to give an overview on how popular the specific canteen really is.
 
 \begin{figure}
     \centering
@@ -81,15 +85,15 @@ The system needs to be able to make queries to the GraphQL API, to get data, whi
 
 \footnotetext{\href{https://doc.openmensa.org/api/v2/}{https://doc.openmensa.org/api/v2/}}
 
-\subsubsection{Enter Review Context} The bot should be able to recognize, if a user wants to start a review.
-
-\subsubsection{Listen for Mentions} Inside a group chat, the bot should only respond to messages which specifically mentioned the bot.
-
-\subsubsection{Create new templates} The bot needs to be able to create visualization-request templates and add them to the database.
-
-\subsubsection{Use Google Charts API} The data which has been retrieved from the GraphQL API needs to be passed to the Google Charts API to create a visualization. The resulting visualization should be a picture, so that it can be represented inside a chat. The visualization can be rendered by using an HTML image generator.
+\subsubsection{Enter Review Context} The bot should be able to recognize, if a user wants to start a review. This can be done with the help of intent recognition from a RASA server.
 
 \subsubsection{Group Chats} Users should be able to add a bot to a group chat.
+
+\subsubsection{Listen for Mentions} Inside a group chat, the bot should only respond to messages which specifically mentioned the bot. This is important to prevent the bot from spamming the chat.
+
+% \subsubsection{Create new templates} The bot needs to be able to create visualization-request templates and add them to the database.
+
+\subsubsection{Use Google Charts API} The data which has been retrieved from the GraphQL API needs to be passed to the Google Charts API to create a visualization. The resulting visualization should be a picture, so that it can be represented inside a chat. The visualization can be rendered by using an HTML image generator.
 
 \subsubsection{Cope with spelling mistakes} The bot should be able to understand the user, even if they made a spelling mistake.
 

@@ -5,13 +5,19 @@
 
 \begin{frame}{The Rise of online Communities}
   \begin{itemize}
-    \item World Wide Web is a place to meet and exchange information
+    \item  Social Networks and \emph{chat} platforms are used for information exchange
+    \begin{itemize}
+      \item Familiar and intuitive
+      \item Real-time collaboration
+      \item Optimized for mobile devices
+    \end{itemize}
     \item Researches collaborate in (online) Communities of Practice (CoP)
     \item CoPs are only sustainable, as long as its members continuously provide innovation efforts \cite{RKJa15}
-    \item Therefore members need to be aware of their successes and failures
+    \item To prevent the community from dying, the successes and failures need to be recorded and evluated
   \end{itemize}
 
 \end{frame}
+
 
 \begin{frame}{Measuring success}
   \begin{itemize}
@@ -34,18 +40,6 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Social Networks as a tool for information exchange}
-  
-  Social Networks and \emph{chat} platforms are used for information exchange
-  \begin{itemize}
-    \item Familiar and intuitive
-    \item Real-time collaboration
-    \item Optimized for mobile devices
-  \end{itemize}
-  %This shows how chat platforms could adress the aforementionted issues
-\end{frame}
-
-
 \subsection{Thesis Goals}
 
 \begin{frame}{Thesis Goals}
@@ -58,7 +52,7 @@
 
 \section{Background}
 
-\subsection{Social Bots}
+\subsection{Measurement of Success}
 
 % \begin{frame}{Social Bots and Chatbots}
 %   \begin{block}{Definition}
@@ -99,8 +93,8 @@
                 \item Adjust to current trends
               \end{itemize}
               %Success seems to be a very abstract metric so in order to measure it we build a success model
-        \item Measurement of Success through a \emph{Success Model}
-        \item Success model distinct for each community
+        \item Measurement of Success of a Comunity Information System \textbf{CIS} through a \emph{Success Model}
+        \item Success model \textbf{distinct} for each community
               %based on the goals that they want to achieve
               %e.g. a community of web developers: front end developers have different goals  than backend developers (beautifull animations vs informative (plain html))
       \end{itemize}
@@ -135,12 +129,17 @@
     \item Community of people frequently visiting the mensa
     \item Community consists of students and university employees
     \item Similar to the concept of Community of Practice %share a concern: food at the canteen. And Interact regularly: Students argumenting on which mensa is the best?? Freqwuent visits to mensa
-    \item Different community levels:
-          \begin{itemize}
-            \item Top level: all mensa frequenteers in Germany
-            \item Intermediate level: all mensa frequenteers for a University
-            \item Low level: individual circle of friends, which frequent the canteen together %Members can belong to different circles of friends->overlapping
-          \end{itemize}
+    % \item Different community levels:
+    %       \begin{itemize}
+    %         \item Top level: all mensa frequenteers in Germany
+    %         \item Intermediate level: all mensa frequenteers for a University
+    %         \item Low level: individual circle of friends, which frequent the canteen together %Members can belong to different circles of friends->overlapping
+    %       \end{itemize}
+    \item A chatbot called \emph{mensabot} is designed for this community
+    \begin{itemize}
+      \item Get mensa related information such as menu or reviews of food
+      \item Get information about the community
+    \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -202,57 +201,57 @@ If you have the Slack app  installed (or want to install it) on your phone, you 
 \end{frame}
 
 
-\begin{frame}{Task 1 part 1}
-  \begin{itemize}
-    \item Locate the bot in the left taskbar near the bottom under Apps
-    \item Write a greeting message (e.g. Hello)
-    \item You can type \emph{help} to see a list of the capabilities of the bot
-    \item Ask the bot to get the menu for your local mensa
-    \begin{itemize}
-      \item Mensas might be closed
-      \item Try using \emph{Aachen, Mensa Academica} or \emph{Aachen, Mensa Vita}
-    \end{itemize}
-    \item The bot might ask you, if you want to set a default city
-  \end{itemize}
-\end{frame}
+% \begin{frame}{Task 1 part 1}
+%   \begin{itemize}
+%     \item Locate the bot in the left taskbar near the bottom under Apps
+%     \item Write a greeting message (e.g. Hello)
+%     \item You can type \emph{help} to see a list of the capabilities of the bot
+%     \item Ask the bot to get the menu for your local mensa
+%     \begin{itemize}
+%       \item Mensas might be closed
+%       \item Try using \emph{Aachen, Mensa Academica} or \emph{Aachen, Mensa Vita}
+%     \end{itemize}
+%     \item The bot might ask you, if you want to set a default city
+%   \end{itemize}
+% \end{frame}
 
-\begin{frame}{Task 1 part 2}
-  \begin{itemize}
-    \item Ask the bot to make a review (e.g. I want to add a review)
-    \item The review process should now be starting 
-    \item The bot will ask you a series of questions
-    \begin{itemize}
-      \item Which mensa you went to and which meal you had (e.g. I went to Aachen, Mensa Academica and had the Klassiker) 
-      \item Pay attention to write the category of the dish in the same manner that it is displayed on the menu
-      \item How many stars out of 5 you would give your meal
-      \item The bot will ask you to leave a comment
-    \end{itemize}
-  \end{itemize}
-\end{frame}
+% \begin{frame}{Task 1 part 2}
+%   \begin{itemize}
+%     \item Ask the bot to make a review (e.g. I want to add a review)
+%     \item The review process should now be starting 
+%     \item The bot will ask you a series of questions
+%     \begin{itemize}
+%       \item Which mensa you went to and which meal you had (e.g. I went to Aachen, Mensa Academica and had the Klassiker) 
+%       \item Pay attention to write the category of the dish in the same manner that it is displayed on the menu
+%       \item How many stars out of 5 you would give your meal
+%       \item The bot will ask you to leave a comment
+%     \end{itemize}
+%   \end{itemize}
+% \end{frame}
 
-\begin{frame}{Task 2}
-  \begin{itemize}
-    \item Ask the bot to make a review Visualization
-    \item The bot will ask for a measure. Ask the bot to list all measures
-    \item Choose one of the measures 
-    \item The bot will respond with the appropriate visualization
-  \end{itemize}
-\end{frame}
+% \begin{frame}{Task 2}
+%   \begin{itemize}
+%     \item Ask the bot to make a review Visualization
+%     \item The bot will ask for a measure. Ask the bot to list all measures
+%     \item Choose one of the measures 
+%     \item The bot will respond with the appropriate visualization
+%   \end{itemize}
+% \end{frame}
 
-\begin{frame}{Task 3}
-  \begin{itemize}
-    \item Use the bot to get the success model
-    \item Aks the bot to update the success model
-    \item The bot will ask you to choose which success dimension you want to edit
-    \item Choose a dimension by providing a number
-    \item The bot will now ask you which success factor you want to edit
-    \item Choose one by providing a number or add one by choosing an name for the factor
-    \item Select one of the measures to add it to your factor. 
-    \item The bot will now add the factor to the model.
-    \item You can verify that it was added by typing "get the success model" into the chat
-    \item You can also visualize your new measure in the same way as described in Task 2 on the previous slide
-  \end{itemize}
-\end{frame}
+% \begin{frame}{Task 3}
+%   \begin{itemize}
+%     \item Use the bot to get the success model
+%     \item Aks the bot to update the success model
+%     \item The bot will ask you to choose which success dimension you want to edit
+%     \item Choose a dimension by providing a number
+%     \item The bot will now ask you which success factor you want to edit
+%     \item Choose one by providing a number or add one by choosing an name for the factor
+%     \item Select one of the measures to add it to your factor. 
+%     \item The bot will now add the factor to the model.
+%     \item You can verify that it was added by typing "get the success model" into the chat
+%     \item You can also visualize your new measure in the same way as described in Task 2 on the previous slide
+%   \end{itemize}
+% \end{frame}
 
 \section{Feedback}
 \begin{frame}

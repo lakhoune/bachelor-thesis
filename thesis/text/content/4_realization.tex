@@ -171,7 +171,7 @@ The services get access to the user message.
 The services also get access to context information like the intent and the entities that were recognized by the RASA server.
 Furthermore they also get access to meta-information from the chat platform like the channel\_id of the Slack channel or the email address of the chat user. 
 The email adress is used to store user information in the service. This is done in a static HashMap, which maps email adresses to context information. The context information for a particular user is a \texttt{json} object containing itself generic \texttt{Object}s referenced by a \texttt{string} key. 
-Storing this information inside the service is important for a REST service, as the context will not be provided on a next service.
+Storing this information inside the service is important for a REST service, as the context will not be provided on a next service request.
 
 \subsection{Communication with the Mensa Service}
 The first feature, which was implemented was quering the menu for a specific canteen. 
@@ -213,8 +213,11 @@ The food reviews will be done in private chat with the bot. The menu query shoul
 The next feature, which was implemented was the visualisation of success measures. Users can request visualisations by stating that they want to visualize something.
 This triggers the visualization routine of the bot.
 
-The bot starts by asking providing the name of a success \emph{measure}.
-This measure is recognized by the bot to run the visualisations. Additionally, templates will be available, which are to be run when specific intents are recognized, such that the query visualisations can be done in an intuitive way. An example can be seen in figure \ref{fig:visualReq}.
+The bot starts by asking providing the name of a success \emph{measure}. Alternetively the user can also ask the bot to list all measures of the success model.
+If the user asked to list measures, they can then choose one of the measure name from the list. 
+The measure name is passed on to the Success Modeling service. The service then gets the success success model for the community. In our case this is done by using the default group name and default service name, but they can be specified too.
+If a group different to the default group is chosen, then the service checks if the chat user is part of the las2peer group. It is important to note here that the email adress needs to be assigned to an Agent in the network. This can be done by using the las2peer frontend. Groups can also be managent under \emph{AgentTools} on the frontend.   
+ An example can be seen in figure \ref{fig:visualReq}.
 \begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth]{realization/bot/visual.png}
@@ -243,7 +246,7 @@ It also allows community members to editing existing success models or create ne
 Furthermore it also provides visualizations for the measures of the success model, which it gets from the MobSOS query visualization service.
 
 \subsection{MobSOS query visualization service}
-The MobSOS query visualization service is a las2peer service which can be used to make visualizations data in a database. It also allows users to add new database and store SQL queries. The MobSOS Evaluation Center uses this service to get the visualizations for success measures.
+The MobSOS query visualization service is a las2peer service which can be used to make visualizations of data in a database. It also allows users to add new database and store SQL queries. The MobSOS Evaluation Center uses this service to get the visualizations for success measures.
 
 
 
@@ -252,7 +255,7 @@ The MobSOS query visualization service is a las2peer service which can be used t
 % \subsection{MobSOS CCA}
 % The MobSOS CCA system needs to be extended such that the success model data can be visualized and sent as a picture to the user. Therefore, the Google Charts API will be used in combination with an HTML renderer, which will render the visualizations which were produced by the Charts API and send them back as a PNG to the Bot Service.
 
-
+This measure is recognized by the bot to run the visualisations. Additionally, templates will be available, which are to be run when specific intents are recognized, such that the query visualisations can be done in an intuitive way.
 
 
 

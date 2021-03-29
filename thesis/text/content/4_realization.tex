@@ -75,36 +75,34 @@ The success model contains the six MobSOS dimensions.
 </SuccessModel>
 \end{lstlisting}
 Each of these dimensions includes a list of success factors.
-Each factor contains a list of success measures. The success measures are stored in a separate file called \emph{Measurement Catalog}. Each measure contains a \texttt{query} element which contains the SQL query and a \texttt{visualization} element which contains information about the visualization.
-\begin{lstlisting}[language=XML, caption= example of a Measure Catalog]
-<Catalog>
-    <measure name="Your measurement">
-        <query name="countOfMessageX">
-            SELECT COUNT(*) as number 
-            FROM monitoringTable.MESSAGE
-            WHERE EVENT =  'SERVICE_CUSTOM_MESSAGE_X' 
-            AND SOURCE_AGENT = '$SERVICE$'
+Each factor contains a list of success measures. The success measures are stored in a separate file called \emph{Measurement Catalog}. Each measure contains a \texttt{data} element and a \texttt{visualization} element which contains information about the visualization.
+
+\begin{lstlisting}[language=XML, caption= example of a Measure]
+<measure name="Your measurement">
+    <data name="Your dataset">
+        <query name="countOfMessage">
+            SELECT COUNT(*) as number FROM MESSAGE
         </query>
-        <visualization type="KPI">
-            <operand name="countOfMessageX" index="0"/>
-        </visualization>
-    </measure>
-   .
-   .
-   .
-</Catalog>
+        <database name="las2peer" schema="LAS2PEERMON"/>
+    </data>
+    <visualization type="Value">
+        <unit/>
+    </visualization>
+</measure>
 \end{lstlisting}
+
+The measure definition was modified by including additional information about which database the query should be executed on. The data element contains the SQL query under the \texttt{query} element and information about where to execute the query on contained in the \texttt{database} element.
+The attributes for the \texttt{database} element are \texttt{name} and \texttt{schema}. The name identifies the database on the GraphQL server. The schema describes which schema should be used.
+If the database attribute is omitted, the default database and default database schema are used, which are \texttt{las2peer} and \texttt{LAS2PEERMON} respectively.
+This allows the community to visualize data from any database supported by the GraphQL service.
+
 Three types of visualization are supported
 \begin{itemize}
     \item Value
     \item Chart
     \item KPI
 \end{itemize}
-The MobSOS Success Modelling service uses the GraphQL API to get the data defined in the query and then uses the Data2chart service to visualize the data as a picture of a chart in base64 encoding. This encoded picture is then sent back to the las2peer bot manager.
-
-The measure definition was extended with a \texttt{database} element which is part of the query and which gives additional information about which database the query should be executed on. The attributes for the \texttt{database} element are \texttt{name} and \texttt{dbSchema}. The name identifies the database on the GraphQL server. The \texttt{dbSchema} describes which schema should be used.
-Both of these attributes can be omitted. In this case, when the GraphQL query is prepared the default database and default database schema are used, which are \texttt{las2peer} and \texttt{LAS2PEERMON} respectively.
-This allows the community to visualize data from any database supported by the GraphQL service.
+In the case of a chart visualization, the MobSOS Success Modelling service uses the Data2chart service. This service transforms the data into a picture of a chart in base64 encoding. This encoded picture is then sent back to the las2peer bot manager.
 
 \subsection{Google Charts API}
 Google Charts API\footnotemark is an API that provides visualizations for database data. The data, which should be visualized needs to be wrapped inside a JavaScript class called \texttt{DataTable}, which represents a two-dimensional table with rows and columns, where each column has a datatype.
@@ -200,7 +198,7 @@ Next the review process was implemented as a question-based dialogue. An example
 
 The bot starts by asking the user to which canteen he went and what category of dish they had. If the user did not specify a canteen, but had previously asked for the menu than the Mensa service gets the canteen from the \texttt{ContextInfo}. 
 The provided intent entities are the name of the canteen and the category of dish (e.g. Klassiker/ Vegetarisch) 
-The bot then extracts the dish from the menu and ask the user if the canteen and dish were correctly selected. Currently, dishes are only extracted by dish category, by using simple string matching. Furthermore, the dish categories need to be provided in the same way that they are mentioned on the menu. In our case, this means that they need to be provided in German.
+The bot then extracts the dish from the menu and asks the user if the canteen and dish were correctly selected. Currently, dishes are only extracted by dish category, by using simple string matching. Furthermore, the dish categories need to be provided in the same way that they are mentioned on the menu. In our case, this means that they need to be provided in German.
 If the user confirms the selection then the process continues. The canteen and dish are stored in the context. If the selection was wrong the bot asks the user to retry specifying the canteen and dish. The context is reset to the previous step in this case, this also includes removing the dish and canteen from the user context in the service.
 After the user has confirmed that the right canteen and dish were indeed selected, the bot continues to ask the user how many stars (out of 5) the user would give their meal. 
 The bot then asks the user to add a comment to the review. The user can either add a comment or not. If the user types \emph{no} into the chat the bot recognizes this as a rejection intent and adds a review without comment.
@@ -210,14 +208,21 @@ The food reviews will be done in private chat with the bot. The menu query shoul
 
 \subsection{Communication with the MobSOS Success Modelling service}
 
-The next feature, which was implemented was the visualisation of success measures. Users can request visualisations by stating that they want to visualize something.
+The next feature, which was implemented was the visualisation of success measures. Users can request them by stating that they want to visualize something.
 This triggers the visualization routine of the bot.
 
 The bot starts by asking providing the name of a success \emph{measure}. Alternatively the user can also ask the bot to list all measures of the success model.
 If the user asked to list measures, they can then choose one of the measure name from the list. 
 The measure name is passed on to the Success Modelling service. The service then gets the success success model for the community. In our case this is done by using the default group name and default service name, but they can be specified too.
-If a group different to the default group is chosen, then the service checks if the chat user is part of the las2peer group. It is important to note here that the email address needs to be assigned to an Agent in the network. This can be done by using the las2peer frontend. Groups can also be managed under \emph{AgentTools} on the frontend.   
- An example can be seen in figure \ref{fig:visualReq}.
+If a group different to the default group is chosen, then the service checks if the chat user is part of the las2peer group. 
+It is important to note here that the email address needs to be assigned to an Agent in the network. 
+This can be done by using the las2peer frontend. 
+Groups can also be managed under \emph{AgentTools} on the frontend.  
+The service looks up the measure in the measure catalog. The desired measure is chosen by matching the name with the name the user provided. 
+The resulting visualization is sent back to the bot service. If the visualization is a chart, the chart is sent as an base64 encoded image.
+
+If no name was found, the service looks up measures which have tags contained in the user input. The results from the tag-search are returned to the user and the user can choose the measure which they want to visualize.
+An example can be seen in figure \ref{fig:visualReq}.
 \begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth]{realization/bot/visual.png}
@@ -225,13 +230,25 @@ If a group different to the default group is chosen, then the service checks if 
     \label{fig:visualReq}
 \end{figure}
 
-After discussions with my supervisor, we decided not to add the ability to formulate queries directly with the bot. The GraphQL service is only used internally by the MobSOS Success Modelling service. The success measures are predefined using a tool like the MobSOS evaluation centre. The measures contain a \texttt{tags} attribute which can be used to add keywords to a measure. The bot uses entity extraction to extract possible tags from a user message, which then are used in the success modelling service to find the right measure for the visualization in the measure catalog and success model.
 
-The Bot Service communicates with the MobSOS Success Modelling system in order to get visualisations of the success model. The bot sends the resulting visualisations to the user in chat.
-Furthermore, it can also be used to modify the success model of the community. 
-Finally the success modelling will be implemented. Users should be able
-to modify the success model in chat. Therefore, an update routine needs to be implemented, which is started at the recognition of a specific intent.
-The bot is modelled with the help of the Social Bot Framework frontend canvas and deployed on the las2peer social bot manager service.
+The final feature, which was implemented is editing the success model. The user first needs to state that he wants to update the success model of the community.
+Currently, elements cannot be updated. 
+However they can be deleted or added. 
+To delete a factor or a measure, the user specifies it as follows \begin{lstlisting}
+    remove <factor/measure> [name]
+\end{lstlisting}  
+Adding a measure is a bit more complicated. The user first selects a \emph{dimension} which they want to add a measure to. The user then specifies the \emph{factor} under which the measure will be appended. The user can also add a factor by providing a new name. Finally the user chooses one of the measures from the catalog to add it to the success model. 
+The measures from the catalog are predefined using a tool like the MobSOS Evaluation Center. 
+
+After discussions with my supervisor, we decided not to add the ability to formulate queries directly with the bot. 
+
+% The measures contain a \texttt{tags} attribute which can be used to add keywords to a measure. The bot uses entity extraction to extract possible tags from a user message, which then are used in the success modelling service to find the right measure for the visualization in the measure catalog and success model.
+
+% The Bot Service communicates with the MobSOS Success Modelling system in order to get visualisations of the success model. The bot sends the resulting visualisations to the user in chat.
+% Furthermore, it can also be used to modify the success model of the community. 
+% Finally the success modelling will be implemented. Users should be able
+% to modify the success model in chat. Therefore, an update routine needs to be implemented, which is started at the recognition of a specific intent.
+% The bot is modelled with the help of the Social Bot Framework frontend canvas and deployed on the las2peer social bot manager service.
 
 
 \section{Additional services}\label{sec:additional}
@@ -242,7 +259,7 @@ The Mensa Guide service is a frontend to the las2peer Mensa service. It provides
 
 \subsection{MobSOS evaluation Center}
 The MobSOS evaluation Center is a service which communicates with the MobSOS backend services. It provides a range of functionalities. Those include: contact management and group management. 
-It also allows community members to editing existing success models or create new ones.
+It also allows community members to edit existing success models or create new ones.
 Furthermore it also provides visualizations for the measures of the success model, which it gets from the MobSOS query visualization service.
 
 \subsection{MobSOS query visualization service}
@@ -255,7 +272,7 @@ The MobSOS query visualization service is a las2peer service which can be used t
 % \subsection{MobSOS CCA}
 % The MobSOS CCA system needs to be extended such that the success model data can be visualized and sent as a picture to the user. Therefore, the Google Charts API will be used in combination with an HTML renderer, which will render the visualizations which were produced by the Charts API and send them back as a PNG to the Bot Service.
 
-This measure is recognized by the bot to run the visualisations. Additionally, templates will be available, which are to be run when specific intents are recognized, such that the query visualisations can be done in an intuitive way.
+% This measure is recognized by the bot to run the visualisations. Additionally, templates will be available, which are to be run when specific intents are recognized, such that the query visualisations can be done in an intuitive way.
 
 
 

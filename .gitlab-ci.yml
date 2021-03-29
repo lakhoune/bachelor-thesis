@@ -3,7 +3,7 @@ image: rwthacis/latex
 .build-tex:
   stage: build
   variables: 
-    THESIS_STATUS: 'proposal' # 'proposal' or 'thesis'
+    THESIS_STATUS: 'thesis' # 'proposal' or 'thesis'
     TEX_CMD: "latexmk -xelatex -latexoption='-shell-escape'"
   artifacts:
     paths:

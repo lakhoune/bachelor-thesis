@@ -169,23 +169,61 @@ The CAE follows a model-driven approach as the  las2peer services can be created
 
 las2peer also includes a framework for community evaluation, based on MobSOS. This framework can be used to monitor and evaluate success data of community applications.
 
+\subsubsection{MobSOS Data Processing}
+The MobSOS Data Processing service collects logs from the Mensa service and the MobSOS Success Modelling service. 
+Logging data in MobSOS can be done by using the listing \ref{lst:logging}
+\begin{lstlisting}[caption=Example use of a MonitoringEvent,captionpos=b,label={lst:logging}]
+    Context.get().monitorEvent(
+        MonitoringEvent.SERVICE_CUSTOM_MESSAGE_X, data
+    );
+\end{lstlisting}.
+The MonitoringEvent \texttt{enum} provides different events which are logged in the network. An overview of the different monitoring events can be found on GitHub \footnote{\href{https://github.com/rwth-acis/mobsos-data-processing/wiki/Built-In-Monitoring-Events}{GitHub: MonitoringEvent}}. 
+Each service can use its own events by using the \texttt{MonitoringEvent.CUSTOM\_MESSAGE\_X}, where \emph{X} is a number between 1 and 99. 
+Those \texttt{data} variables contains generic JSON data. This data provides information about how community members are using the service.
+To monitor messages in the service, the service needs to be started using the \texttt{--observer} flag.
+The data is stored in the MobSOS MySQL database under the \texttt{MESSAGE} table. The table contains a column \texttt{REMARKS} which is used to store the JSON data.
+
 The MobSOS Data Processing service\footnotemark processes data, which are monitored in the context of a service in the network, and stores it in a database.
 
 \footnotetext{\href{https://github.com/rwth-acis/mobsos-data-processing}{GitHub: Data Processing}}
 
+
+\subsubsection{MobSOS Success Modelling}
+
 The MobSOS Success Modelling service\footnotemark can be used in order to create and manage success models that follow the six success dimensions proposed by DeLone and McLean \cite{DeMc92}.
-Each group in a las2peer network can create multiple success models for each las2peer service in the network. 
 \footnotetext{\href{https://github.com/rwth-acis/mobsos-success-modeling}{GitHub: Success Modelling}}
-Each success dimension has a list of factors describing the dimension. 
-Each factor can include multiple success measures. 
-A success measure includes a visualization type and a corresponding SQL query which fetches the data needed for the visualization. 
-Currently the supported visualization types are the following:
+Each group in a las2peer network can create multiple success models for each las2peer service in the network. 
+The groups reflect the las2peer \emph{GroupAgent} and the services reflect the \emph{ServiceAgents} in the las2peer network.
+The success model contains the six MobSOS dimensions.
+\begin{lstlisting}[ caption=Example of a success model,language=XML ]
+<SuccessModel name="Name of success model" 
+    service="your.service.name@version">
+    <dimension name="name of dimension 1">
+        <factor name="Name of factor">
+            <measure name="No Factors or Measures yet"/>
+        </factor>
+    </dimension>
+    .
+    .
+    .
+    <dimension name="name of dimension n">
+        <factor name="Name of factor">
+            <measure name="No Factors or Measures yet"/>
+        </factor>
+    </dimension>
+</SuccessModel>
+\end{lstlisting}
+Each of these dimensions includes a list of success factors describing the dimension.
+Each factor contains a list of success measures. The success measures are stored in a separate file called \emph{Measurement Catalog}. A measure defines how to get data and how to visualize it. 
+
+Three types of visualization are supported
 \begin{itemize}
-  \item \emph{Value}: represents a single value
-  \item \emph{Chart}: a visual representation of the data displayed as a Google Chart \footnotemark
-  \item \emph{KPI}: combines values from multiple queries 
+    \item Value: This visualization returns a single value with and optional unit
+    \item Chart: This visualization returns a chart as a picture. Different chart types from the Google Charts API\footnotemark are available.
+    \item KPI: This visualization uses an arbitrary amount of queries, with each query returning a value. The values from the query can be combined through various mathematical operations.
 \end{itemize}
 \footnotetext{\href{https://developers.google.com/chart}{Google Charts}}
+
 
 \subsection{Social Bot Framework}
 The Social Bot Framework (SBF) is a Web-based model-driven near-real-time environment to develop chatbots \cite{NLKl19}. 
@@ -218,6 +256,25 @@ RASA Core consists of a \emph{Tracker}, a \emph{Policy} and a set of \emph{Actio
 The system is built in a modularized way and each service provides HTTP APIs \cite{BFPN17}, which makes it possible to use the NLU component independently of the rest of the framework. This makes it easy to integrate it into an existing system \cite{RaKe19}.
 
 
+\subsection{Google Charts API}
+Google Charts API\footnotemark is an API that provides visualizations for database data. The data, which should be visualized needs to be wrapped inside a JavaScript class called \texttt{DataTable}, which represents a two-dimensional table with rows and columns, where each column has a datatype.
+A new column can be added using the \texttt{DataTable.addColumn} function, which takes the type and name as input. An example can be seen in Listing \ref{lst:gglCharts} from the Google Charts API documentation\footnotemark[\value{footnote}].
+
+\begin{lstlisting}[caption=Example use of the DataTable class,captionpos=b,label={lst:gglCharts}]
+var data = new google.visualization.DataTable();
+data.addColumn('string', 'Topping');
+data.addColumn('number', 'Slices');
+data.addRows([
+	['Mushrooms', 3],
+	['Onions', 1],
+	['Olives', 1], 
+	['Zucchini', 1],
+	['Pepperoni', 2]
+]);
+\end{lstlisting}
+\footnotetext{\href{https://developers.google.com/chart}{Google Charts API}}
+
+The visualizations are rendered as SVGs in the browser, but can be the PNG file can be accessed by make a http call with the \texttt{getImageURI} as image URI parameter. 
 
 
 \subsection{GraphQL}

@@ -1,3 +1,4 @@
+
 \chapter{Realization}
 In the following chapter, we describe the realization of the software system. In section \ref{sec:structure}, we give an overview of the core components and how they interact with each other. 
 In section \ref{sec:additional}, we describe additional components. Figure \ref{fig:componentsOverview} shows an overview of the core components. Additional components from section \ref{sec:additional} are omitted.
@@ -12,18 +13,20 @@ In section \ref{sec:additional}, we describe additional components. Figure \ref{
 
 \section{Structure}\label{sec:structure}
 The system consists of three major components: the \emph{Social Framework}, the \emph{Mensa Service}\footnotemark and the \emph{MobSOS} services. 
-The resulting bot model can be seen in \ref{fig:botmodel}
+% The resulting bot model can be seen in \ref{fig:botmodel}
 \footnotetext{\href{https://github.com/rwth-acis/las2peer-Mensa-Service}{las2peer Mensa Service}}
 \subsection{Social Bot Framework}
-The Social Bot Framework is used to model and deploy the \emph{mensabot}. The mensabot is created in the space of the Social Bot Framework.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth]{realization/botmodel.png}
-    \caption{Bot model inside the canvas}
-    \label{fig:botmodel}
-\end{figure}
+The Social Bot Framework is used to model and deploy the \emph{mensabot}. The mensabot is created in the space \emph{mensabot} of the Social Bot Framework.
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=\linewidth]{realization/botmodel.png}
+%     \caption{Bot model inside the canvas}
+%     \label{fig:botmodel}
+% \end{figure}
 
-The bot model is created on the canvas of the frontend. The resulting model is shown in Figure \ref{fig:botmodel}. The frontend also serves to write the intents, which will be used to train an NLU model for intent recognition. 
+The bot model is created on the canvas of the frontend. 
+% The resulting model is shown in Figure \ref{fig:botmodel}. 
+The frontend also serves to write the intents, which will be used to train an NLU model for intent recognition. 
 The bot should be able to be added to group channels. The bot should act as a quiet agent listening to mentions and filter out the rest of the conversations.
 A mention has the following form \texttt{@botname}, where \emph{botname} represents the username that the bot has in the Slack channel.
 
@@ -57,35 +60,31 @@ In order to still comply with the GraphQL specification, we went along with opti
 
 \subsubsection{MobSOS Success Modelling}
 
-The measure definition was modified by including additional information about which database the query should be executed on. The data element contains the SQL query under the \texttt{query} element and information about where to execute the query on contained in the \texttt{database} element. An example is shown in Listing \ref{lst:measure}
-The attributes for the \texttt{database} element are \texttt{name} and \texttt{schema}. The name identifies the database on the GraphQL server. The schema describes which schema should be used.
+The measure definition was modified by including additional information about which database the query should be executed on. 
+An example is shown in Listing \ref{lst:measure}.
+The \texttt{data} element contains the SQL query under the \texttt{query} element and information about where to execute the query on contained in the \texttt{database} element.
+The attributes for the \texttt{database} element are \texttt{name} and \texttt{schema}. The name identifies the database on the GraphQL server. 
+The schema describes which schema should be used.
 If the database attribute is omitted, the default database and default database schema are used, which are \texttt{las2peer} and \texttt{LAS2PEERMON} respectively.
 This allows the community to visualize data from any database supported by the GraphQL service.
 
+\begin{lstlisting}[language=XML, caption= example of a Measure, label=lst:measure,escapeinside={(*@}{@*)}]
+<measure name="Your measurement">
+    (*@\textcolor{blue}{<data name="Your dataset">}@*)   
+        <query name="countOfMessage">
+            SELECT COUNT(*) as number FROM MESSAGE
+        </query>
+        (*@\textcolor{blue}{<database name="las2peer" schema="LAS2PEERMON"/>}@*)
+    (*@\textcolor{blue}{</data>}@*)
+    <visualization type="Value">
+        <unit/>
+    </visualization>
+</measure>
+\end{lstlisting}
 
-\begin{lstlisting}[language=XML, caption= example of a Measure, label=lst:measure]
-    <measure name="Your measurement">
-        <data name="Your dataset">
-            <query name="countOfMessage">
-                SELECT COUNT(*) as number FROM MESSAGE
-            </query>
-            <database name="las2peer" schema="LAS2PEERMON"/>
-        </data>
-        <visualization type="Value">
-            <unit/>
-        </visualization>
-    </measure>
-    \end{lstlisting}
+In the case of a chart visualization, the MobSOS Success Modelling service uses the Data2chart service. This service transforms the data into a picture of a chart in base64 encoding. This encoded picture is then sent back to the success modelling service which sends it back to the social bot manager.
 
-Three types of visualization are supported
-\begin{itemize}
-    \item Value
-    \item Chart
-    \item KPI
-\end{itemize}
-In the case of a chart visualization, the MobSOS Success Modelling service uses the Data2chart service. This service transforms the data into a picture of a chart in base64 encoding. This encoded picture is then sent back to the las2peer bot manager.
-
-\subsection{Data2chart}
+\subsection{Data2Chart}
 This service\footnotemark was written by us in order to render google charts as an image which could be sent to the chatbot and visualized in the chat. This service was created as an alternative to the MobSOS query visualization service which did not provide the option to render the chart as an image. 
 \footnotetext{\url{https://github.com/lakhoune/image-renderer}}
 The service is written in NodeJS and uses an NPM library called google-charts-node\footnotemark.
@@ -168,7 +167,8 @@ The RASA server also extracts the name of the Mensa and the city in which it is 
 Certain actions, like requesting the menu or a visualisation , trigger a service call to the \emph{Mensa Service}, or the \emph{Success Modelling Service}.
 The services get access to the user message.  
 The services also get access to context information like the intent and the entities that were recognized by the RASA server.
-Furthermore they also get access to meta-information from the chat platform like the channel\_id of the Slack channel or the email address of the chat user. 
+
+Furthermore they also get access to meta-information from the chat platform like the \texttt{channel\_id} of the Slack channel or the email address of the chat user. 
 The email address is used to store user information in the service. This is done in a static HashMap, which maps email addresses to context information. The context information for a particular user is a \texttt{JSON} object containing itself generic \texttt{Object}s referenced by a \texttt{string} key. 
 Storing this information inside the service is important for a REST service, as the context will not be provided on a next service request.
 
@@ -178,15 +178,18 @@ The process is depicted in Figure \ref{fig:getMenu}.
 \begin{figure}[h]
     \centering
     \includegraphics[width=8cm]{realization/bot/menu.png}
-    \caption{Get Mensa related information}
+    \caption{Get canteen related information}
     \label{fig:getMenu}
 \end{figure}
-The user asks the bot for the menu at a specific canteen. 
-This then triggers a bot action calling the las2peer Mensa service. 
-Possible intent entities which are recognized at this step are the \emph{name} of the canteen and the city in which the canteen is located.
-If the name of the canteen is not recognized, the bot will ask  the user again to specify it. The city name can be omitted. In this case it is possible that multiple canteens match the name provided by the user. If this is the case the bot will provide a list of all matching canteen names and then ask the user to choose one of the canteens from the list. The list is saved in context, so that the user can provide a number and the service can then select the appropriate canteen from the list.
+The user asks the bot for the menu at a specific canteen, which results in a \emph{Bot Action} being triggered. This action calls the las2peer Mensa service. 
+
+Possible intent entities which are recognized at this step are the \emph{name} of the canteen and the \emph{city} in which the canteen is located.
+If the name of the canteen is not recognized, the bot will ask  the user again to specify it. 
+
+The city name can be omitted. In this case it is possible that multiple canteens match the name provided by the user. I that case, the bot will provide a list of all matching canteen names and then ask the user to choose one of the canteens from the list. The list is saved in context, so that the user can provide a number and the service can then select the appropriate canteen from the list.
+
 After fetching the menu the bot asks the user if they would like to set the city in which the canteen is located as their default city. If the user types yes, then this city is saved in the context of the user. On further requests this information can be helpful to extract the right canteen if more canteen names are possible. 
-I chose to set the default city instead of the default canteen students from one Mensa community might visit different canteens in the same city and less likely to change cities. 
+We chose to set the default city instead of the default canteen students from one Mensa community might visit different canteens in the same city and less likely to change cities. 
 
 Next the review process was implemented as a question-based dialogue. An example can be seen in figure \ref{fig:addReview}.
 
@@ -197,17 +200,33 @@ Next the review process was implemented as a question-based dialogue. An example
     \label{fig:addReview}
 \end{figure}
 
-The bot starts by asking the user to which canteen he went and what category of dish they had. If the user did not specify a canteen, but had previously asked for the menu than the Mensa service gets the canteen from the \texttt{ContextInfo}. 
-The provided intent entities are the name of the canteen and the category of dish (e.g. Klassiker/ Vegetarisch) 
-The bot then extracts the dish from the menu and asks the user if the canteen and dish were correctly selected. Currently, dishes are only extracted by dish category, by using simple string matching. Furthermore, the dish categories need to be provided in the same way that they are mentioned on the menu. In our case, this means that they need to be provided in German.
-If the user confirms the selection then the process continues. The canteen and dish are stored in the context. If the selection was wrong the bot asks the user to retry specifying the canteen and dish. The context is reset to the previous step in this case, this also includes removing the dish and canteen from the user context in the service.
-After the user has confirmed that the right canteen and dish were indeed selected, the bot continues to ask the user how many stars (out of 5) the user would give their meal. 
-The bot then asks the user to add a comment to the review. The user can either add a comment or not. If the user types \emph{no} into the chat the bot recognizes this as a rejection intent and adds a review without comment.
-Both of these features should be implemented as soon as possible. The reason for this is to allow the collection of food reviews and service logs, which can then be evaluated at a later time.
-This also allows the first phase of the evaluation to take place (see Chapter \ref{cha:eval}).
-The food reviews will be done in private chat with the bot. The menu query should be available both in private chat and in channels, given that the SBF is already extended to allow for mentions.
+The bot starts by asking the user to which canteen the user went to and what category of dish they had. If the user did not specify a canteen, but had previously asked for the menu, then the Mensa service gets the canteen from the \texttt{ContextInfo}. 
+
+The provided intent entities are the name of the canteen and the category of dish (e.g. Klassiker/ Vegetarisch).
+The bot then extracts the dish from the menu and asks the user if the canteen and dish were correctly selected. 
+Currently, dishes are only extracted by dish category, by using simple string matching. Furthermore, the dish categories need to be provided in the same way that they are mentioned on the menu. In our case, this means that they need to be provided in German.
+
+If the user confirms the selection then the process continues. 
+The canteen and dish are stored in the context. 
+If the selection was wrong the bot asks the user to retry specifying the canteen and dish. 
+The context is reset to the previous step in this case, this also includes removing the dish and canteen from the user context in the service.
+
+After the user has confirmed that the right canteen and dish were indeed selected, the bot continues to ask the user how many stars (between 1 and 5) the user would give their meal. 
+The bot asks the user to add a comment to the review. The user can either add a comment or not. If the user types \emph{no} into the chat the bot recognizes this as a rejection intent and adds a review without comment.
+
+Both of these features were be implemented first, as this allowed us to start collecting food reviews and service logs, which can then be evaluated at a later time with the Success Modelling service.
+Making food reviews should only be allowed in private chat with the bot. 
+The menu query should be available both in private chat and in channels.
+For this to work the Social Bot Manager service needs to be updated so that it can discern between private and public channels.
 
 \subsection{Communication with the MobSOS Success Modelling service}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{realization/visualization_sequence.png}
+    \caption{Sequence diagram of a visualization request}
+    \label{fig:addReview}
+\end{figure}
 
 The next feature, which was implemented was the visualisation of success measures. Users can request them by stating that they want to visualize something.
 This triggers the visualization routine of the bot.
@@ -242,6 +261,7 @@ Adding a measure is a bit more complicated. The user first selects a \emph{dimen
 The measures from the catalog are predefined using a tool like the MobSOS Evaluation Center. 
 
 After discussions with my supervisor, we decided not to add the ability to formulate queries directly with the bot. 
+We argue that this is not a crucial requirement, because community members might not necessarily know how to write them. Furthermore, the ones that do, can probably do it more efficiently by editing the measure catalog directly.
 
 % The measures contain a \texttt{tags} attribute which can be used to add keywords to a measure. The bot uses entity extraction to extract possible tags from a user message, which then are used in the success modelling service to find the right measure for the visualization in the measure catalog and success model.
 
@@ -256,7 +276,7 @@ After discussions with my supervisor, we decided not to add the ability to formu
 Some additional systems were deployed or added during my work.
 
 \subsection{Mensa Guide}
-The Mensa Guide service is a frontend to the las2peer Mensa service. It provides basic functionalities like getting the menu for canteens in Aachen, making reviews and uploading pictures for dishes.  
+The Mensa Guide service is a frontend to the las2peer Mensa service. It provides basic functionalities like getting the menu for canteens in Aachen, making reviews and uploading pictures for dishes. It was updated to use latest version of the Mensa service backend. It should also be extended in the future to use all available canteens. This should be easy to do as we have added a service function to get a list of all canteens in a particular city.
 
 \subsection{MobSOS evaluation Center}
 The MobSOS evaluation Center is a service which communicates with the MobSOS backend services. It provides a range of functionalities. Those include: contact management and group management. 

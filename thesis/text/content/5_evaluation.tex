@@ -1,29 +1,72 @@
 \chapter{Evaluation}\label{cha:eval}
 In this chapter, we want to evaluate how communities are impacted by the use of chatbots.
-Specifcally, we want to see wether chatbots are favorable to traditional web frontends in regards to the following questions
+Specifically, we want to see whether chatbots are favourable to traditional web frontends in regards to the following questions:
 \begin{itemize}
     \item Does the use of chatbots increase the success awareness of the community?
     \item Does it increase collaboration between members?
     \item Does it improve the user experience in terms of mobility?
 \end{itemize}
 
-In order to evaluate the community, an artificial community, as described in \ref{cha:concept}, is created.
-The members of this community, will be volonteers, who frequent the mensa more or less regularly.
+In order to evaluate the community, an artificial community, as described in \ref{cha:concept}, is created.  The community is using a Slack workspace called \emph{Mensa Community} to exchange information.
+
+The members of this community, are participants , who frequent the canteen more or less regularly.
 Thus, the community will consist largely of students and staff members of the university.
-The evaluation will be conducted in two phases.
 
-In the first phase, we want to familiarize the participants with the chatbot and the mensa service.
-The participants will join a Slack group in which the Social Bot is deployed.
-Furthermore, there will be a group channel in which users are encouraged to exchange Mensa related topics. The Social Bot will be a part of the channel and can be used to query the canteen menu.
-Participants will also be able to make food reviews by contacting the bot in private chat.
-Participants will be provided a questionnaire, which covers usability questions of the service.
+\subsection{Collecting the requirements of the community}
+The first step was to find out what the requirements of the community were and what success factors are most important to them. Therefore a survey was created which asked participants to order success factors based on their relevance. 
+Furthermore, users were asked to list additional factors.
+A success model was then created based on the factors from the survey. The resulting success model can be seen in Listing \ref{lst:successModel}
 
-In the second phase, we want to find out how easy it is to deploy the Social Bot into an existing CIS.
-Furthermore, we want to find out if the bot is helpfull for visualization of success metrics and if the bot encourages collaboration inside the community, especially for success modeling.
-In order to measure the collaboration aspect, participants should be divided into groups of at least three.
-Each group should then be asked to update the success model.
-This task should be performed in the original MobSOS CCA frontend and in a group chat, which contains the bot.
+\begin{lstlisting}[language=XML,caption=Success Model based on requirements, label=lst:successModel]
+<SuccessModel name="mensa" 
+service="i5.las2peer.services.mensaService.MensaService">
+    <questionnaires/>
+    <dimension name="System Quality">
+        <factor name="Low error rate"/>
+        <factor name="Efficiency"/>
+        <factor name="Fast responses"/>
+    </dimension>
+    <dimension name="Information Quality">
+        <factor name="Reliability"/>
+        <factor name="Accuracy"/>
+        <factor name="Relevance"/>
+    </dimension>
+    <dimension name="Use">
+        <factor name="Contributions"/>
+        <factor name="Getting the menu"/>
+        <factor name="Frequency of use"/>
+    </dimension>
+    <dimension name="User Satisfaction">
+        <factor name="Enjoyment of use"/>
+        <factor name="Number of user complaints"/>
+    </dimension>
+    <dimension name="Individual Impact">
+        <factor name="Time to complete a task"/>
+        <factor name="Time savings"/>
+    </dimension>
+    <dimension name="Community Impact">
+    </dimension>
+</SuccessModel>
+\end{lstlisting}
+
+\subsection{Evaluation setup}
+The mensabot was setup in the Slack workspace. Members of the workspace could contact the bot through a private channel or add it to a public channel.
+
+The evaluation was planned to be conducted in two phases.
+In the first phase, we wanted to familiarize the participants with the chatbot, by allowing them to use the bot for an extended period of approximately one month. 
+We also wanted to evaluated the bot's performance for providing canteen related information.
+Users would be asked to use the bot whenever they went to the canteen. The idea was to collect logs and reviews, which would later be used in success visualizations. 
+Participants would then have been asked to fill out a questionnaire, which covers usability questions of the service.  
+Unfortunately, due to the Corona pandemic, the canteens were closed for most of the time. Therefore we decided not to do this first phase, but integrate it in the final evaluation.
+
+% % The participants will join a Slack group in which the Social Bot is deployed.
+% Furthermore, there will be a group channel in which users are encouraged to exchange Mensa related topics. The Social Bot will be a part of the channel and can be used to query the canteen menu.
+% Participants will also be able to make food reviews by contacting the bot in private chat.
+
+In the final evaluation, we wanted to find out how the bot affects the success awareness of the community.
+We want to find out if the bot is helpful for visualization of success metrics and if the bot encourages collaboration inside the community, especially for success modelling.
+% In order to measure the collaboration aspect, participants should be divided into groups of at least three.
+% Each group should then be asked to update the success model.
+% This task should be performed in the original MobSOS CCA frontend and in a group chat, which contains the bot.
 Afterwards, participants are handed out a final questionnaire.
 The questionnaire should cover questions about how users felt about using the bot, when compared to the MobSOS CCA frontend, especially in terms of success awareness.
-
-

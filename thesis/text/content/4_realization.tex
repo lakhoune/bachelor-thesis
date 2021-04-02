@@ -1,4 +1,3 @@
-
 \chapter{Realization}
 In the following chapter, we describe the realization of the software system. In section \ref{sec:structure}, we give an overview of the core components and how they interact with each other. 
 In section \ref{sec:additional}, we describe additional components. Figure \ref{fig:componentsOverview} shows an overview of the core components. Additional components from section \ref{sec:additional} are omitted.
@@ -193,10 +192,22 @@ We chose to set the default city instead of the default canteen students from on
 
 Next the review process was implemented as a question-based dialogue. An example can be seen in figure \ref{fig:addReview}.
 
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=\linewidth]{realization/bot/review.png}
+%     \caption{Add a review}
+%     \label{fig:addReview}
+% \end{figure}
+
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth]{realization/bot/review.png}
-    \caption{Add a review}
+    \begin{minipage}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{realization/bot/review1.png} 
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{realization/bot/review2.png}
+        
+    \end{minipage}
+    \caption{An example of what the review process looks like}
     \label{fig:addReview}
 \end{figure}
 
@@ -221,15 +232,14 @@ For this to work the Social Bot Manager service needs to be updated so that it c
 
 \subsection{Communication with the MobSOS Success Modelling service}
 
+The next feature, which was implemented was the visualisation of success measures. Users can request them by stating that they want to visualize something.
+This triggers the visualization routine of the bot. Figure \ref{fig:visualReqSeq} shows how different components are used in a visualization.
 \begin{figure}[h]
     \centering
     \includegraphics[width=\linewidth]{realization/visualization_sequence.png}
     \caption{Sequence diagram of a visualization request}
-    \label{fig:addReview}
+    \label{fig:visualReqSeq}
 \end{figure}
-
-The next feature, which was implemented was the visualisation of success measures. Users can request them by stating that they want to visualize something.
-This triggers the visualization routine of the bot.
 
 The bot starts by asking providing the name of a success \emph{measure}. Alternatively the user can also ask the bot to list all measures of the success model.
 If the user asked to list measures, they can then choose one of the measure name from the list. 
@@ -243,10 +253,27 @@ The resulting visualization is sent back to the bot service. If the visualizatio
 
 If no name was found, the service looks up measures which have tags contained in the user input. The results from the tag-search are returned to the user and the user can choose the measure which they want to visualize.
 An example can be seen in figure \ref{fig:visualReq}.
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=\linewidth]{realization/bot/visual.png}
+%     \caption{Requesting a visualisation}
+%     \label{fig:visualReq}
+% \end{figure}
+
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=\linewidth]{realization/bot/visual.png}
-    \caption{Requesting a visualisation}
+    \begin{minipage}[t]{0.5\textwidth}
+        \centering
+\vspace{0pt}
+
+        \includegraphics[width=\textwidth]{realization/bot/visual1.png} 
+    \end{minipage}
+    \begin{minipage}[t]{0.5\textwidth}
+        \centering
+\vspace{0pt}
+
+        \includegraphics[width=\textwidth]{realization/bot/visual2.png}
+    \end{minipage}
+    \caption{An example of what the review process looks like}
     \label{fig:visualReq}
 \end{figure}
 

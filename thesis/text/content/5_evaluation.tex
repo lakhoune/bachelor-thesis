@@ -91,19 +91,23 @@ The participants were asked to specify their \textbf{main} role 85\% of the part
 % This task should be performed in the original MobSOS CCA frontend and in a group chat, which contains the bot.
 \subsection{Canteen specific tasks}
 
+    
 \begin{figure}[H] 
-   
+    \begin{center}
     \begin{tikzpicture}
       \begin{axis}
-        [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
-                        tick label style={font=\footnotesize},
-        height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
-        yticklabels={I could imagine myself using this bot to get the menu.},scatter/classes={
-      a={mark=,red!50!black},
-      b={mark=,blue!50!black},
-      c={mark=,green!50!black},
-      d={mark=,white!50!black}
-     }]
+        [xmin=0.9,xmax=5.1,
+            label style={font=\footnotesize},
+            tick label style={font=\footnotesize},
+            yticklabels,
+            height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7},ylabel={Average User Rating }
+           ,scatter/classes={
+          a={mark=,red!50!black},
+          b={mark=,blue!50!black},
+          c={mark=,green!50!black},
+          d={mark=,white!50!black}
+         },title={"I could imagine myself using this bot to get the menu."}]
+        
         \addplot[color=blue,
         boxplot prepared={
           median= 4,
@@ -121,24 +125,26 @@ The participants were asked to specify their \textbf{main} role 85\% of the part
         ]
     {
     x y 
-    1.23 1 
+    4 1 
     
     };
     \node[align=center, text=black]
-    at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=1.5}};
+    at (axis cs:4,1.2) {\scalebox{0.8}{SD=1.5}};
       \end{axis}
     \end{tikzpicture}
     \begin{tikzpicture}
         \begin{axis}
-          [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
-                          tick label style={font=\footnotesize},
-          height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
-          yticklabels={I could imagine myself using the bot to make reviews.},scatter/classes={
-        a={mark=,red!50!black},
-        b={mark=,blue!50!black},
-        c={mark=,green!50!black},
-        d={mark=,white!50!black}
-       }]
+            [xmin=0.9,xmax=5.1,
+            label style={font=\footnotesize},
+            tick label style={font=\footnotesize},
+            yticklabels,
+            height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7},ylabel={Average User Rating }
+           ,scatter/classes={
+          a={mark=,red!50!black},
+          b={mark=,blue!50!black},
+          c={mark=,green!50!black},
+          d={mark=,white!50!black}
+         },title={"I could imagine myself using the bot to make reviews."}]
           \addplot[color=blue,
           boxplot prepared={
             median= 4,
@@ -156,29 +162,31 @@ The participants were asked to specify their \textbf{main} role 85\% of the part
           ]
       {
       x y 
-      1.23 1 
+      4 1 
       };
       \node[align=center, text=black]
-      at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=1.27}};
+      at (axis cs:4,1.2) {\scalebox{0.8}{SD=1.27}};
         \end{axis}
       \end{tikzpicture}
 
       \begin{tikzpicture}
         \begin{axis}
-          [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
-                          tick label style={font=\footnotesize},
-          height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
-          yticklabels={Making reviews is useful for the community.},scatter/classes={
-        a={mark=,red!50!black},
-        b={mark=,blue!50!black},
-        c={mark=,green!50!black},
-        d={mark=,white!50!black}
-       }]
+            [xmin=0.9,xmax=5.1,
+            label style={font=\footnotesize},
+            tick label style={font=\footnotesize},
+            yticklabels,
+            height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7},ylabel={Average User Rating }
+           ,scatter/classes={
+          a={mark=,red!50!black},
+          b={mark=,blue!50!black},
+          c={mark=,green!50!black},
+          d={mark=,white!50!black}
+         },title={"Making reviews is useful for the community."}]
           \addplot[color=blue,
           boxplot prepared={
             median= 5,
-            upper quartile=4,
-            lower quartile=5,
+            upper quartile=5,
+            lower quartile=4,
             upper whisker=5,
             lower whisker=3,
           },
@@ -191,30 +199,35 @@ The participants were asked to specify their \textbf{main} role 85\% of the part
           ]
       {
       x y 
-      1.23 1 
+      4.5 1 
       };
       \node[align=center, text=black]
-      at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=0.69}};
+      at (axis cs:4.5,1.2) {\scalebox{0.8}{SD=0.69}};
         \end{axis}
       \end{tikzpicture}
-
+    \end{center}
     \end{figure}
+
 
  
 \subsection{Visualization}
 \begin{figure}[H] 
-   
+    \begin{center}
     \begin{tikzpicture}
       \begin{axis}
-        [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
-                        tick label style={font=\footnotesize},
-        height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
-        yticklabels={I understood the visualizations\\ without needing explanations.},scatter/classes={
-      a={mark=,red!50!black},
-      b={mark=,blue!50!black},
-      c={mark=,green!50!black},
-      d={mark=,white!50!black}
-     }]
+        [xmin=0.9,xmax=5.1,
+            label style={font=\footnotesize},
+            tick label style={font=\footnotesize},
+            yticklabels,
+            height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7},ylabel={Average User Rating }
+           ,scatter/classes={
+          a={mark=,red!50!black},
+          b={mark=,blue!50!black},
+          c={mark=,green!50!black},
+          d={mark=,white!50!black}
+         },title={"I understood the visualizations without needing explanations."}]
+         
+       
         \addplot[color=blue,
         boxplot prepared={
           median= 5,
@@ -232,24 +245,27 @@ The participants were asked to specify their \textbf{main} role 85\% of the part
         ]
     {
     x y 
-    1.23 1 
+    4.5 1 
     
     };
     \node[align=center, text=black]
-    at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=0.9}};
+    at (axis cs:4.5,1.2) {\scalebox{0.8}{SD=0.9}};
       \end{axis}
     \end{tikzpicture}
     \begin{tikzpicture}
         \begin{axis}
-          [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
-                          tick label style={font=\footnotesize},
-          height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
-          yticklabels={I could imagine myself using this bot\\ to make visualizations.},scatter/classes={
-        a={mark=,red!50!black},
-        b={mark=,blue!50!black},
-        c={mark=,green!50!black},
-        d={mark=,white!50!black}
-       }]
+            [xmin=0.9,xmax=5.1,
+            label style={font=\footnotesize},
+            tick label style={font=\footnotesize},
+            yticklabels,
+            height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7},ylabel={Average User Rating }
+           ,scatter/classes={
+          a={mark=,red!50!black},
+          b={mark=,blue!50!black},
+          c={mark=,green!50!black},
+          d={mark=,white!50!black}
+         },title={"I could imagine myself using this bot to make visualizations."}]
+         
           \addplot[color=blue,
           boxplot prepared={
             median= 4,
@@ -267,25 +283,26 @@ The participants were asked to specify their \textbf{main} role 85\% of the part
           ]
       {
       x y 
-      1.23 1 
+      4 1 
       };
       \node[align=center, text=black]
-      at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=1.18}};
+      at (axis cs:4,1.2) {\scalebox{0.8}{SD=1.18}};
         \end{axis}
       \end{tikzpicture}
-
-      \begin{tikzpicture}
+    \begin{tikzpicture}
         \begin{axis}
-          [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
-                          tick label style={font=\footnotesize},
-          height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
-          yticklabels={The size inside the visualizations was large enough
-          \\ to be read inside the chat.},scatter/classes={
-        a={mark=,red!50!black},
-        b={mark=,blue!50!black},
-        c={mark=,green!50!black},
-        d={mark=,white!50!black}
-       }]
+            [xmin=0.9,xmax=5.1,
+            label style={font=\footnotesize},
+            tick label style={font=\footnotesize},
+            yticklabels,
+            height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7},ylabel={Average User Rating }
+           ,scatter/classes={
+          a={mark=,red!50!black},
+          b={mark=,blue!50!black},
+          c={mark=,green!50!black},
+          d={mark=,white!50!black}
+         },title={"The size inside the visualizations was large enough to be read inside the chat."}]
+          
           \addplot[color=blue,
           boxplot prepared={
             median= 4,
@@ -303,26 +320,26 @@ The participants were asked to specify their \textbf{main} role 85\% of the part
           ]
       {
       x y 
-      1.23 1 
+      4.5 1 
       };
       \node[align=center, text=black]
-      at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=1.1}};
+      at (axis cs:4.5,1.2) {\scalebox{0.8}{SD=1.1}};
         \end{axis}
-      \end{tikzpicture}
+    \end{tikzpicture}
 
-      \begin{tikzpicture}
+    \begin{tikzpicture}
         \begin{axis}
-          [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
-                          tick label style={font=\footnotesize},
-          height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
-          yticklabels={I think that using this chatbot for \\
-          making visualizations increases\\
-          the success awareness in the community.},scatter/classes={
-        a={mark=,red!50!black},
-        b={mark=,blue!50!black},
-        c={mark=,green!50!black},
-        d={mark=,white!50!black}
-       }]
+            [xmin=0.9,xmax=5.1,
+            label style={font=\footnotesize},
+            tick label style={font=\footnotesize},
+            yticklabels,
+            height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7},ylabel={Average User Rating }
+           ,scatter/classes={
+          a={mark=,red!50!black},
+          b={mark=,blue!50!black},
+          c={mark=,green!50!black},
+          d={mark=,white!50!black}
+         },title={"Using the chatbot for visualizations increases the success awareness in the community."}]
           \addplot[color=blue,
           boxplot prepared={
             median= 4,
@@ -340,29 +357,32 @@ The participants were asked to specify their \textbf{main} role 85\% of the part
           ]
       {
       x y 
-      1.23 1 
+      4 1 
       };
       \node[align=center, text=black]
-      at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=1.15}};
+      at (axis cs:4,1.2) {\scalebox{0.8}{SD=1.15}};
         \end{axis}
-      \end{tikzpicture}
-    
+    \end{tikzpicture}
+    \end{center}
 \end{figure}
 
 \subsection{Success modelling}
+
 \begin{figure}[H] 
-   
+    \begin{center}
     \begin{tikzpicture}
       \begin{axis}
-        [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
-                        tick label style={font=\footnotesize},
-        height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
-        yticklabels={I could imagine using the bot \\ to add measures to the success model},scatter/classes={
+        [xmin=0.9,xmax=5.1,
+        label style={font=\footnotesize},
+        tick label style={font=\footnotesize},
+        yticklabels,
+        height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7},ylabel={Average User Rating }
+       ,scatter/classes={
       a={mark=,red!50!black},
       b={mark=,blue!50!black},
       c={mark=,green!50!black},
       d={mark=,white!50!black}
-     }]
+     },title={"I could imagine using the bot to add measures to the success model"}]
         \addplot[color=blue,
         boxplot prepared={
           median= 5,
@@ -380,19 +400,20 @@ The participants were asked to specify their \textbf{main} role 85\% of the part
         ]
     {
     x y 
-    1.23 1 
+    4.5 1 
     
     };
     \node[align=center, text=black]
-    at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=1.38}};
+    at (axis cs:4.5,1.2) {\scalebox{0.8}{SD=1.38}};
       \end{axis}
     \end{tikzpicture}
+
     \begin{tikzpicture}
         \begin{axis}
           [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
-                          tick label style={font=\footnotesize},
-          height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
-          yticklabels={Being able to edit the success model \\ increases the success awareness of the community},scatter/classes={
+            tick label style={font=\footnotesize},
+          height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, ylabel={Average User Rating}, yticklabels,
+         title={"Being able to edit the success model increases the success awareness of the community"},scatter/classes={
         a={mark=,red!50!black},
         b={mark=,blue!50!black},
         c={mark=,green!50!black},
@@ -415,15 +436,16 @@ The participants were asked to specify their \textbf{main} role 85\% of the part
           ]
       {
       x y 
-      1.23 1 
+      4 1 
       };
       \node[align=center, text=black]
-      at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=1.17}};
+      at (axis cs:4,1.2) {\scalebox{0.8}{SD=1.17}};
         \end{axis}
-      \end{tikzpicture}
+    \end{tikzpicture}
    
-    \caption{Usability of the bot to edit the success model}
-        \label{fig:plotmensa}
+    \end{center}
 \end{figure}
+
+
 
 \subsection{General usability of the bot}

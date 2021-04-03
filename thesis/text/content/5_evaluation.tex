@@ -49,7 +49,7 @@ service="i5.las2peer.services.mensaService.MensaService">
 </SuccessModel>
 \end{lstlisting}
 
-\section{Evaluation setup}
+\section{Evaluation procedure}
 The mensabot was setup in the Slack workspace. Members of the workspace could contact the bot through a private channel or add it to a public channel.
 
 The evaluation was planned to be conducted in two phases.
@@ -62,22 +62,368 @@ Unfortunately, due to the Corona pandemic, the canteens were closed for most of 
 % % The participants will join a Slack group in which the Social Bot is deployed.
 % Furthermore, there will be a group channel in which users are encouraged to exchange Mensa related topics. The Social Bot will be a part of the channel and can be used to query the canteen menu.
 % Participants will also be able to make food reviews by contacting the bot in private chat.
-
+\section{Main tasks for the evaluations}
 In the final evaluation, we wanted to find out how the bot affects the success awareness of the community.
 We wanted to find out if the bot is helpful for visualization of success metrics and if the bot encourages collaboration inside the community, especially for success modelling.
 We extended the success model of the community with example measures for each factor. We defined measures for the measure catalog which reflected the success factors of the success model.
 Participants were asked to join the Slack workspace and contact the bot privately. They were asked to share their screen to be assisted in the case of any issues. They could ask the bot at any time what its capabilities were by typing \emph{help}.
 The participants were then asked to perform three main tasks.
 
-In the first tasks, they were asked to get the menu for a local canteen and make a review for a dish on the menu. 
+In the first tasks, they were asked first asked to get the menu for a local canteen. This could be done with a phrase like "I want to get the menu for Mensa Academica".
+They were then asked to make a review for a dish on the menu. This could be done with a phrase like "I want to write a review". The bot then asked how many stars the user would give their meal and ask them give a comment.  
 
-In the second task, users were asked to visualize different success measures from the success model.
+In the second task, users were asked to visualize different success measures from the success model. This could be done by using a phrase like "Make a visualization". Users were told to ask the bot to list all measures and then select one of the measures, which from the list.
 
-In the third task they were asked to update the success model by adding a measure from the measure catalog to a factor of their choice. 
+In the third task they were asked to visualize the success model. This could be done with a phrase like "Get the success model". They were then asked to update that model update the success model by adding a measure from the measure catalog to a factor of their choice. This was done first asking the bot to update the success model. Then the bot would ask them which dimension they wanted to edit. The participants would then choose a dimension from the list. The bot would then ask them what factor they wanted to add a measure to. At this stage, users could either select a factor from the list, or add a new one by providing a name. In the final stage, a list of measures from the measure catalog was provided and users were asked to select a number from the list. The bot would then add the measure to the factor and the resulting success model was returned.
+
+\section{Evaluation results}
 
 Afterwards, participants were handed out a final questionnaire.
-The questionnaire covered questions about how users felt about using the bot, especially in terms of success awareness.
+The questionnaire covered questions about how users felt about using the bot, especially in terms of success awareness. The questionnaire was divided into five main sections. 
+
+\subsection{Demographics}
+A total of 20 participants took part in the final evaluation. Out of those 30\% had filled out the first survey about the requirements of the community. 
+Most of the participants (90\%) were between 18 and 24 years old. The remaining participants were between 25 and 34 years old. Most participants were male (85\%).
+The participants were asked to specify their \textbf{main} role 85\% of the participants identified as Students, 5\% identified as Researchers and 5\% as University employees. Thus all of our participants are part of our target group. Out of the 20 part 
 
 % In order to measure the collaboration aspect, participants should be divided into groups of at least three.
 % Each group should then be asked to update the success model.
 % This task should be performed in the original MobSOS CCA frontend and in a group chat, which contains the bot.
+\subsection{Canteen specific tasks}
+
+\begin{figure}[H] 
+   
+    \begin{tikzpicture}
+      \begin{axis}
+        [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
+                        tick label style={font=\footnotesize},
+        height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
+        yticklabels={I could imagine myself using this bot to get the menu.},scatter/classes={
+      a={mark=,red!50!black},
+      b={mark=,blue!50!black},
+      c={mark=,green!50!black},
+      d={mark=,white!50!black}
+     }]
+        \addplot[color=blue,
+        boxplot prepared={
+          median= 4,
+          upper quartile=5,
+          lower quartile=3,
+          upper whisker=5,
+          lower whisker=1,
+        },
+         ] coordinates {}; 
+    
+         \addplot[scatter,only marks,scatter src=explicit symbolic] 
+       table [
+         y=y,
+         x=x
+        ]
+    {
+    x y 
+    1.23 1 
+    
+    };
+    \node[align=center, text=black]
+    at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=1.5}};
+      \end{axis}
+    \end{tikzpicture}
+    \begin{tikzpicture}
+        \begin{axis}
+          [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
+                          tick label style={font=\footnotesize},
+          height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
+          yticklabels={I could imagine myself using the bot to make reviews.},scatter/classes={
+        a={mark=,red!50!black},
+        b={mark=,blue!50!black},
+        c={mark=,green!50!black},
+        d={mark=,white!50!black}
+       }]
+          \addplot[color=blue,
+          boxplot prepared={
+            median= 4,
+            upper quartile=5,
+            lower quartile=3,
+            upper whisker=5,
+            lower whisker=1,
+          },
+           ] coordinates {}; 
+      
+           \addplot[scatter,only marks,scatter src=explicit symbolic] 
+         table [
+           y=y,
+           x=x
+          ]
+      {
+      x y 
+      1.23 1 
+      };
+      \node[align=center, text=black]
+      at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=1.27}};
+        \end{axis}
+      \end{tikzpicture}
+
+      \begin{tikzpicture}
+        \begin{axis}
+          [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
+                          tick label style={font=\footnotesize},
+          height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
+          yticklabels={Making reviews is useful for the community.},scatter/classes={
+        a={mark=,red!50!black},
+        b={mark=,blue!50!black},
+        c={mark=,green!50!black},
+        d={mark=,white!50!black}
+       }]
+          \addplot[color=blue,
+          boxplot prepared={
+            median= 5,
+            upper quartile=4,
+            lower quartile=5,
+            upper whisker=5,
+            lower whisker=3,
+          },
+           ] coordinates {}; 
+      
+           \addplot[scatter,only marks,scatter src=explicit symbolic] 
+         table [
+           y=y,
+           x=x
+          ]
+      {
+      x y 
+      1.23 1 
+      };
+      \node[align=center, text=black]
+      at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=0.69}};
+        \end{axis}
+      \end{tikzpicture}
+
+    \end{figure}
+
+ 
+\subsection{Visualization}
+\begin{figure}[H] 
+   
+    \begin{tikzpicture}
+      \begin{axis}
+        [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
+                        tick label style={font=\footnotesize},
+        height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
+        yticklabels={I understood the visualizations\\ without needing explanations.},scatter/classes={
+      a={mark=,red!50!black},
+      b={mark=,blue!50!black},
+      c={mark=,green!50!black},
+      d={mark=,white!50!black}
+     }]
+        \addplot[color=blue,
+        boxplot prepared={
+          median= 5,
+          upper quartile=5,
+          lower quartile=4,
+          upper whisker=5,
+          lower whisker=2,
+        },
+         ] coordinates {}; 
+    
+         \addplot[scatter,only marks,scatter src=explicit symbolic] 
+       table [
+         y=y,
+         x=x
+        ]
+    {
+    x y 
+    1.23 1 
+    
+    };
+    \node[align=center, text=black]
+    at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=0.9}};
+      \end{axis}
+    \end{tikzpicture}
+    \begin{tikzpicture}
+        \begin{axis}
+          [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
+                          tick label style={font=\footnotesize},
+          height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
+          yticklabels={I could imagine myself using this bot\\ to make visualizations.},scatter/classes={
+        a={mark=,red!50!black},
+        b={mark=,blue!50!black},
+        c={mark=,green!50!black},
+        d={mark=,white!50!black}
+       }]
+          \addplot[color=blue,
+          boxplot prepared={
+            median= 4,
+            upper quartile=5,
+            lower quartile=3,
+            upper whisker=5,
+            lower whisker=1,
+          },
+           ] coordinates {}; 
+      
+           \addplot[scatter,only marks,scatter src=explicit symbolic] 
+         table [
+           y=y,
+           x=x
+          ]
+      {
+      x y 
+      1.23 1 
+      };
+      \node[align=center, text=black]
+      at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=1.18}};
+        \end{axis}
+      \end{tikzpicture}
+
+      \begin{tikzpicture}
+        \begin{axis}
+          [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
+                          tick label style={font=\footnotesize},
+          height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
+          yticklabels={The size inside the visualizations was large enough
+          \\ to be read inside the chat.},scatter/classes={
+        a={mark=,red!50!black},
+        b={mark=,blue!50!black},
+        c={mark=,green!50!black},
+        d={mark=,white!50!black}
+       }]
+          \addplot[color=blue,
+          boxplot prepared={
+            median= 4,
+            upper quartile=5,
+            lower quartile=4,
+            upper whisker=5,
+            lower whisker=1,
+          },
+           ] coordinates {}; 
+      
+           \addplot[scatter,only marks,scatter src=explicit symbolic] 
+         table [
+           y=y,
+           x=x
+          ]
+      {
+      x y 
+      1.23 1 
+      };
+      \node[align=center, text=black]
+      at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=1.1}};
+        \end{axis}
+      \end{tikzpicture}
+
+      \begin{tikzpicture}
+        \begin{axis}
+          [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
+                          tick label style={font=\footnotesize},
+          height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
+          yticklabels={I think that using this chatbot for \\
+          making visualizations increases\\
+          the success awareness in the community.},scatter/classes={
+        a={mark=,red!50!black},
+        b={mark=,blue!50!black},
+        c={mark=,green!50!black},
+        d={mark=,white!50!black}
+       }]
+          \addplot[color=blue,
+          boxplot prepared={
+            median= 4,
+            upper quartile=5,
+            lower quartile=3,
+            upper whisker=5,
+            lower whisker=1,
+          },
+           ] coordinates {}; 
+      
+           \addplot[scatter,only marks,scatter src=explicit symbolic] 
+         table [
+           y=y,
+           x=x
+          ]
+      {
+      x y 
+      1.23 1 
+      };
+      \node[align=center, text=black]
+      at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=1.15}};
+        \end{axis}
+      \end{tikzpicture}
+    
+\end{figure}
+
+\subsection{Success modelling}
+\begin{figure}[H] 
+   
+    \begin{tikzpicture}
+      \begin{axis}
+        [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
+                        tick label style={font=\footnotesize},
+        height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
+        yticklabels={I could imagine using the bot \\ to add measures to the success model},scatter/classes={
+      a={mark=,red!50!black},
+      b={mark=,blue!50!black},
+      c={mark=,green!50!black},
+      d={mark=,white!50!black}
+     }]
+        \addplot[color=blue,
+        boxplot prepared={
+          median= 5,
+          upper quartile=5,
+          lower quartile=4,
+          upper whisker=5,
+          lower whisker=2,
+        },
+         ] coordinates {}; 
+    
+         \addplot[scatter,only marks,scatter src=explicit symbolic] 
+       table [
+         y=y,
+         x=x
+        ]
+    {
+    x y 
+    1.23 1 
+    
+    };
+    \node[align=center, text=black]
+    at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=1.38}};
+      \end{axis}
+    \end{tikzpicture}
+    \begin{tikzpicture}
+        \begin{axis}
+          [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
+                          tick label style={font=\footnotesize},
+          height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
+          yticklabels={Being able to edit the success model \\ increases the success awareness of the community},scatter/classes={
+        a={mark=,red!50!black},
+        b={mark=,blue!50!black},
+        c={mark=,green!50!black},
+        d={mark=,white!50!black}
+       }]
+          \addplot[color=blue,
+          boxplot prepared={
+            median= 4,
+            upper quartile=5,
+            lower quartile=3,
+            upper whisker=5,
+            lower whisker=1,
+          },
+           ] coordinates {}; 
+      
+           \addplot[scatter,only marks,scatter src=explicit symbolic] 
+         table [
+           y=y,
+           x=x
+          ]
+      {
+      x y 
+      1.23 1 
+      };
+      \node[align=center, text=black]
+      at (axis cs:1.5,1.2) {\scalebox{0.8}{SD=1.17}};
+        \end{axis}
+      \end{tikzpicture}
+   
+    \caption{Usability of the bot to edit the success model}
+        \label{fig:plotmensa}
+\end{figure}
+
+\subsection{General usability of the bot}

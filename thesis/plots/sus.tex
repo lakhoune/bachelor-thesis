@@ -1,0 +1,148 @@
+\begin{figure}[H] 
+    \begin{center}
+    \begin{tikzpicture}
+      \begin{axis}
+        [xmin=0.9,xmax=5.1,
+        height=20cm,width=9cm,ytick={1,2,3,4,5,6,7,8,9,10},
+                        label style={font=\footnotesize},
+                        tick label style={font=\footnotesize}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
+        yticklabels={I needed to learn a lot of things\\ before I could get going with\\ the system.,I felt very confident using \\the system. , I found the system very cumbersome to use. ,I would imagine that most people\\ would learn to use the system very quickly. ,I thought there was too\\ much inconsistency in the \\system. ,I found the various functions\\ in the system\\ were well integrated. ,I think that I would need the\\ support of a technical person to \\be able to use the system. ,I thought the system\\ was easy to use. ,I found the system\\ unnecessarily complex. ,I think that I would like to \\ use this system frequently.},scatter/classes={
+      a={mark=*,red!50!black},
+      b={mark=*,blue!50!black},
+      c={mark=*,green!50!black},
+      d={mark=*,white!50!black}
+     }]
+        \addplot[color=blue,
+        boxplot prepared={
+            median= 2,
+          upper quartile=3,
+          lower quartile=1,
+          upper whisker=5,
+          lower whisker=1
+        },
+         ] coordinates {}; 
+        \addplot[color=blue,
+        boxplot prepared={
+            median= 4,
+          upper quartile=5,
+          lower quartile=3,
+          upper whisker=5,
+          lower whisker=2
+        },
+         ] coordinates {}; 
+        \addplot[color=blue,
+        boxplot prepared={
+            median= 2,
+          upper quartile=3,
+          lower quartile=1,
+          upper whisker=5,
+          lower whisker=1
+        },
+         ] coordinates {}; 
+        \addplot[color=blue,
+        boxplot prepared={
+            median= 4,
+          upper quartile=5,
+          lower quartile=3,
+          upper whisker=5,
+          lower whisker=2
+        },
+         ] coordinates {}; 
+        \addplot[color=blue,
+        boxplot prepared={
+            median= 2,
+          upper quartile=3,
+          lower quartile=1,
+          upper whisker=5,
+          lower whisker=1
+        },
+         ] coordinates {}; 
+        
+     \addplot[color=blue,
+        boxplot prepared={
+            median= 4,
+          upper quartile=5,
+          lower quartile=4,
+          upper whisker=5,
+          lower whisker=3
+        },
+         ] coordinates {}; 
+        \addplot[color=blue,
+        boxplot prepared={
+            median= 1,
+          upper quartile=2,
+          lower quartile=1,
+          upper whisker=5,
+          lower whisker=1
+        },
+         ] coordinates {}; 
+         \addplot[color=blue,
+        boxplot prepared={
+            median= 4,
+          upper quartile=5,
+          lower quartile=3,
+          upper whisker=5,
+          lower whisker=1
+        },
+         ] coordinates {}; 
+         \addplot[color=blue,
+        boxplot prepared={
+            median= 2,
+          upper quartile=2,
+          lower quartile=1,
+          upper whisker=5,
+          lower whisker=1
+        },
+         ] coordinates {}; 
+         \addplot[color=blue,
+        boxplot prepared={
+            median= 4,
+          upper quartile=5,
+          lower quartile=3,
+          upper whisker=5,
+          lower whisker=1
+        },
+         ] coordinates {}; 
+         \addplot[scatter,only marks,scatter src=explicit symbolic] 
+            table [
+                y=y,
+                x=x
+                ]
+            {
+            x y 
+            2 1 
+            4 2 
+            2 3 
+            4 4
+            2 5
+            4.5 6
+            1.5 7
+            4 8
+            1.5 9
+            4 10
+            };
+    \node[align=center, text=black]
+    at (axis cs:4 ,10.2) {\scalebox{0.8}{SD=1.25}};
+    \node[align=center, text=black]
+    at (axis cs:1.5,9.2) {\scalebox{0.8}{SD=1.23}};
+    \node[align=center, text=black]
+    at (axis cs:4 ,8.2) {\scalebox{0.8}{SD=1.3}};
+    \node[align=center, text=black]
+    at (axis cs:1.5 ,7.2) {\scalebox{0.8}{SD=1.08}};
+    \node[align=center, text=black]
+    at (axis cs:4.5 ,6.2) {\scalebox{0.8}{SD=0.69}};
+    \node[align=center, text=black]
+    at (axis cs:2 ,5.2) {\scalebox{0.8}{SD=1.28}};
+    \node[align=center, text=black]
+    at (axis cs:4 ,4.2) {\scalebox{0.8}{SD=0.91}};
+    \node[align=center, text=black]
+    at (axis cs:2 ,3.2) {\scalebox{0.8}{SD=1.3}};
+    \node[align=center, text=black]
+    at (axis cs:4 ,2.2) {\scalebox{0.8}{SD=1.01}};
+    \node[align=center, text=black]
+    at (axis cs:2 ,1.2) {\scalebox{0.8}{SD=1.22}};
+      \end{axis}
+    \end{tikzpicture}
+    \end{center}\caption{Results of SUS Statements}
+        \label{fig:SusPlot}
+\end{figure}

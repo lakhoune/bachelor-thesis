@@ -1,6 +1,6 @@
 
 \begin{figure}[H] 
-    \begin{center}
+    \centering
     \begin{tikzpicture}
       \begin{axis}
         [xmin=0.9,xmax=5.1,
@@ -38,41 +38,9 @@
     at (axis cs:4.5,1.2) {\scalebox{0.8}{SD=1.38}};
       \end{axis}
     \end{tikzpicture}
-
-    \begin{tikzpicture}
-        \begin{axis}
-          [xmin=0.9,xmax=5.1,label style={font=\footnotesize},
-            tick label style={font=\footnotesize},
-          height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7}, ylabel={Average User Rating}, yticklabels,
-         title={"Being able to edit the success model increases the success awareness of the community"},scatter/classes={
-        a={mark=,red!50!black},
-        b={mark=,blue!50!black},
-        c={mark=,green!50!black},
-        d={mark=,white!50!black}
-       }]
-          \addplot[color=blue,
-          boxplot prepared={
-            median= 4,
-            upper quartile=5,
-            lower quartile=3,
-            upper whisker=5,
-            lower whisker=1,
-          },
-           ] coordinates {}; 
-      
-           \addplot[scatter,only marks,scatter src=explicit symbolic] 
-         table [
-           y=y,
-           x=x
-          ]
-      {
-      x y 
-      4 1 
-      };
-      \node[align=center, text=black]
-      at (axis cs:4,1.2) {\scalebox{0.8}{SD=1.17}};
-        \end{axis}
-    \end{tikzpicture}
+\caption{}
+\label{fig:SuccPlot1}
+    
    
-    \end{center}
+    
 \end{figure}

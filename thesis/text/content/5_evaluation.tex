@@ -91,7 +91,7 @@ The bot would then add the measure to the factor and the resulting success model
 \section{Evaluation results}
 
 After performing the main tasks, participants were handed out a questionnaire.
-The questionnaire covered questions about how users felt about using the bot, especially in terms of success awareness. The questionnaire was divided into five main sections. 
+The questionnaire covered questions about how users felt about using the bot, especially in terms of success awareness. The questionnaire was divided into six main sections. 
 
 \subsection{Demographics}
 A total of 20 participants took part in the final evaluation. Out of those 30\% had filled out the first survey about the requirements of the community. 
@@ -108,6 +108,8 @@ Participants also agreed that making reviews is useful for the community, as can
 However, the awareness of the importance of making reviews was higher than the desire to contribute to the community. This could be explained by a lack of interest in the community for some participants and follows the natural structures of a community.
 Some participants also noted that it would be great if the review is shown in the chat after submission and if the review could be updated at a later time.
 Another participant found the procedure of adding a review a bit cumbersome, as you would have to follow a rigid number of steps, with intermediate waiting periods for the bot's answers. They suggested, that users make multiple steps at once. User could for example specify the dish, the canteen and the stars all in one message. After that, the bot could just ask for confirmation once.
+
+On some of the first evaluations, the dish category "Vegetarisch" was not recognized as an entity, which meant that users could not write a review for vegetarian dishes. This issue was fixed on later evaluations by adding categories like "Vegetarisch" and "Klassiker" as lookups in the training data of the NLU model. As one participant also pointed out, synonyms like "classics" should also be recognized.
 
 We were also facing an issue with one participant. They would ask for the menu of a canteen, the bot would provide a list of suggestions. The user would choose a  canteen by providing a number, but the wrong canteen was chosen in the service. We figured out that this issue was due to the fact that the selection was saved as a \texttt{Set} instead of an ordered list.
 This issue has been fixed immediately after the evaluation session.
@@ -142,7 +144,8 @@ If we consider Figure \ref{fig:visualPlot3}, we conclude visualizations to be us
 \subsection{Evaluation of success modelling task}
 Figure \ref{fig:SuccPlot1} suggests that participants seemed to be pretty eager to add success measures to the success model.
 \input{../plots/success.tex}
-
+During the evaluation some participants were not sure which element of the success model was a success model and typed in the name of a factor when trying to make a visualization.
+One participant also had the issue that the success modeling service was stuck in the wrong context. Thus they were unfortunately not able to finish this task.
 Figure \ref{fig:SuccPlot2} suggests that participants think that success modelling is useful to the community.
 \input{../plots/success2.tex}
 Overall participants seemed to be eager to add measures to the success model.
@@ -152,3 +155,29 @@ We conclude that success modelling does indeed increase the success awareness of
 For this section the general usability of the mensabot was evaluated. For this, the System Usability Scale (SUS) was used.
 \input{../plots/sus.tex}
 Calculating the usability score with the arithmetic means, results in a score of 71,7 which is above the average usability score of 68 and is an adjective rating of \textbf{Good}. 
+
+\subsection{General feedback}
+Participants were finally asked to leave general feedback of the chatbot. This section also includes verbal feedback during the evaluation. 
+
+Participants felt that most functionalities were self explanatory. 
+
+%NLU and intent recognition
+Participants liked that you could use natural language to communicate with the bot instead of just issuing commands.
+They also found it good that the bot could cope with small spelling mistakes.
+Participants also noted that the intent recognition was very good.
+One participant also noted that they liked that the bot had a "personality". Another participant really liked the Emojis in the bots' responses. A third participant found it helpful that they could always ask the bot for help.
+
+One participant also would have liked to communicate with the bot in German and English
+
+%Mensa
+One participant would have preferred to be able to set the default canteen instead of just a default city. 
+
+%Success modelling
+Participants found that the success modelling part was not intuitive and would have preferred if the bot could have given more information on this part. 
+
+%Selection handling
+Some participants did not like the way users have to select an item for a list. Some found that there were some inconsistencies here as sometimes the bot will expect a number or sometimes the item. 
+Participants wished to have a clickable list instead, or buttons where they can select their option.
+
+%Feedback of bot
+Participants found it helpful that the bot provides feedback if some operation might take longer, or if something failed. One participant also wrote that "There's a general lack of feedback after commands." We assume that the participant meant the delay between the user input and first response of the bot.  

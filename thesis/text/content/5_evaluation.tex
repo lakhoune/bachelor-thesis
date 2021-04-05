@@ -1,21 +1,21 @@
 \chapter{Evaluation}\label{cha:eval}
-In this chapter, we want to evaluate how communities are impacted by the use of chatbots.
-Specifically, we want to see whether chatbots are favourable to traditional web frontends in regards to the following questions:
+In this chapter, we want to evaluate how the use of a chatbot affects a community.
+Specifically, we want to answer the following questions:
 \begin{itemize}
     \item Does the use of chatbots increase the success awareness of the community?
     \item Does it increase collaboration between members?
-    \item Does it improve the user experience in terms of mobility?
+    % \item Does it improve the user experience in terms of mobility?
 \end{itemize}
 
-In order to evaluate the community, an artificial community, as described in \ref{cha:concept}, is created.  The community is using a Slack workspace called \emph{Mensa Community} to exchange information.
-
-The members of this community, are participants , who frequent the canteen more or less regularly.
+In order to evaluate those questions, an artificial community, as described in \ref{cha:concept}, is created.  
+The community is using a Slack workspace called \emph{Mensa Community} to exchange information.
+The members of this community, are people , who frequent the canteen more or less regularly.
 Thus, the community will consist largely of students and staff members of the university.
 
-\section{Collecting the requirements of the community}
+\section{The requirements of the community}
 The first step was to find out what the requirements of the community were and what success factors are most important to them. Therefore a survey was created which asked participants to order success factors based on their relevance. 
 Furthermore, users were asked to list additional factors.
-A success model was then created based on the factors from the survey. The resulting success model can be seen in Listing \ref{lst:successModel}
+A success model was then created based on the most relevant factors from the survey. The resulting success model can be seen in Listing \ref{lst:successModel}.
 
 \begin{lstlisting}[language=XML,caption=Success Model based on requirements, label=lst:successModel]
 <SuccessModel name="mensa" 
@@ -49,36 +49,48 @@ service="i5.las2peer.services.mensaService.MensaService">
 </SuccessModel>
 \end{lstlisting}
 
-\section{Evaluation procedure}
-The mensabot was setup in the Slack workspace. Members of the workspace could contact the bot through a private channel or add it to a public channel.
+A measure catalog with example measures was added for the community by us. The measures were created so that they would match the success factors in Listing \ref{lst:successModel}.
 
 The evaluation was planned to be conducted in two phases.
 In the first phase, we wanted to familiarize the participants with the chatbot, by allowing them to use the bot for an extended period of approximately one month. 
-We also wanted to evaluated the bot's performance for providing canteen related information.
-Users would be asked to use the bot whenever they went to the canteen. The idea was to collect logs and reviews, which would later be used in success visualizations. 
-Participants would then have been asked to fill out a questionnaire, which covers usability questions of the service.  
-Unfortunately, due to the Corona pandemic, the canteens were closed for most of the time. Therefore we decided not to do this first phase, but integrate it in the final evaluation.
+We also wanted to evaluate the bot's performance for providing canteen related information.
+Users would have been asked to use the bot whenever they went to the canteen. 
+The idea was to collect logs and reviews, which would later be used in success visualizations. 
+Participants would then have been asked to fill out a questionnaire, which covered usability questions of the service, which could then in turn be included in the success model of the community.
+Unfortunately, due to the Corona pandemic, the canteens were closed for most of the time. Thus, we decided not to do this first phase, but integrate it in the final evaluation.
+
+In the final evaluation, we wanted to find out how the bot affects the success awareness of the community.
+We wanted to find out if the bot is helpful for visualization of success metrics and if the bot encourages collaboration inside the community, especially for success modelling.
+
 
 % % The participants will join a Slack group in which the Social Bot is deployed.
 % Furthermore, there will be a group channel in which users are encouraged to exchange Mensa related topics. The Social Bot will be a part of the channel and can be used to query the canteen menu.
-% Participants will also be able to make food reviews by contacting the bot in private chat.
+% Participants will also be able to make food reviews by contacting the bot in private chat. Members of the workspace could contact the bot through a private channel or add it to a public channel.
+
 \section{Main tasks for the evaluations}
-In the final evaluation, we wanted to find out how the bot affects the success awareness of the community.
-We wanted to find out if the bot is helpful for visualization of success metrics and if the bot encourages collaboration inside the community, especially for success modelling.
-We extended the success model of the community with example measures for each factor. We defined measures for the measure catalog which reflected the success factors of the success model.
-Participants were asked to join the Slack workspace and contact the bot privately. They were asked to share their screen to be assisted in the case of any issues. They could ask the bot at any time what its capabilities were by typing \emph{help}.
+
+The chatbot was setup in the Slack workspace. 
+We extended the success model of the community with some measures from the measure catalog. 
+% We defined measures for the measure catalog which reflected the success factors of the success model.
+Participants were asked to join the Slack workspace and contact the bot privately. They were asked to share their screen to be assisted in case any issues would occur. They could ask the bot at any time what its capabilities were by typing \emph{help}.
 The participants were then asked to perform three main tasks.
 
 In the first tasks, they were asked first asked to get the menu for a local canteen. This could be done with a phrase like "I want to get the menu for Mensa Academica".
 They were then asked to make a review for a dish on the menu. This could be done with a phrase like "I want to write a review". The bot then asked how many stars the user would give their meal and ask them give a comment.  
 
-In the second task, users were asked to visualize different success measures from the success model. This could be done by using a phrase like "Make a visualization". Users were told to ask the bot to list all measures and then select one of the measures, which from the list.
+In the second task, users were asked to visualize different success measures from the success model. This could be done by using a phrase like "Make a visualization". Users were told to ask the bot to list all measures and then select one of the measures from the list.
 
-In the third task they were asked to visualize the success model. This could be done with a phrase like "Get the success model". They were then asked to update that model update the success model by adding a measure from the measure catalog to a factor of their choice. This was done first asking the bot to update the success model. Then the bot would ask them which dimension they wanted to edit. The participants would then choose a dimension from the list. The bot would then ask them what factor they wanted to add a measure to. At this stage, users could either select a factor from the list, or add a new one by providing a name. In the final stage, a list of measures from the measure catalog was provided and users were asked to select a number from the list. The bot would then add the measure to the factor and the resulting success model was returned.
+In the third task they were asked to visualize the success model. This could be done with a phrase like "Get the success model". They were then asked to update the success model by adding a measure from the measure catalog to a factor of their choice. 
+This was done by first asking the bot to update the success model. The bot would then ask which dimension to update. 
+The participants chose a dimension from the list. 
+The bot would ask them what factor they wanted to add a measure to. 
+At this stage, users could either select a factor from the list, or add a new one by providing a name. 
+In the final stage, a list of measures from the measure catalog was provided and users were asked to select a number from the list. 
+The bot would then add the measure to the factor and the resulting success model was returned.
 
 \section{Evaluation results}
 
-Afterwards, participants were handed out a final questionnaire.
+After performing the main tasks, participants were handed out a questionnaire.
 The questionnaire covered questions about how users felt about using the bot, especially in terms of success awareness. The questionnaire was divided into five main sections. 
 
 \subsection{Demographics}
@@ -90,23 +102,32 @@ The participants were asked to specify their \textbf{main} role 85\% of the part
 % Each group should then be asked to update the success model.
 % This task should be performed in the original MobSOS CCA frontend and in a group chat, which contains the bot.
 \subsection{Evaluation of canteen specific tasks}  
-This section covers the usability of the mensabot to get the menu of the canteen and write a review for a dish on the menu. It covers the aspects of the first main task. Figure \ref{fig:canteenPlot1} shows the results. Most participants could imagine themselves using the mensabot to get the menu and write reviews.
+This section covers the usability of the mensabot to get the menu of the canteen and write a review for a dish on the menu. It covered the aspects of the first main task. Figure \ref{fig:canteenPlot1} shows the results. Most participants could imagine themselves using the mensabot to get the menu and write reviews.
 \input{../plots/canteen.tex} 
 Participants also agreed that making reviews is useful for the community, as can be seen in Figure \ref{fig:canteenPlot2}. 
-However, they awareness of the importance of making reviews was higher than the desire to contribute to the community. This could be explained by a lack of interest in the community for some participants. 
+However, they awareness of the importance of making reviews was higher than the desire to contribute to the community. This could be explained by a lack of interest in the community for some participants.
+Thus we conclude that the chatbot could have the potential to increase the collaboration inside the community, but does not yet do so. 
+
+A way to increase contributions would be to introduce \emph{Gamification}. 
 \input{../plots/canteen2.tex}
 \subsection{Evaluation of visualization task}
-\input{../plots/visualization.tex}
-This section covers the usability of the mensabot to get visualizations of success measures. As mentioned before, the participants were asked to select a measure from the success model. The resulting visualization were then displayed in chat. As Figure \ref{fig:visualPlot1} suggests, participants mostly understood the visualizations without needing any assistance. Some participants were overwhelmed with the number of predefined measures and found that just listing the measure name is not very helpful. 
+
+This section covers the usability of the mensabot to get visualizations of success measures. As mentioned before, participants were asked to select a measure from the success model. The resulting visualization were then displayed in chat. As Figure \ref{fig:visualPlot1} suggests, participants mostly understood the visualizations without needing any assistance. Some participants were overwhelmed with the number of predefined measures and found that just listing the measure name is not very helpful. 
 
 Some participants were surprised when certain measures returned a single value instead of a chart. This was due to the fact that they mistook visualizations for charts. 
+
+\input{../plots/visualization.tex}
+
+Overall, the visualizations seemed to be clear and intuitive to understand, even for non-technical users.  
+
 \input{../plots/visualization2.tex}
 
 Figure \ref{fig:visualPlot2} shows that participants found making visualizations a useful feature. 
 
 \input{../plots/visualization3.tex}
 
-Figure \ref{fig:visualPlot3} suggests that the visualizations increase the success awareness of the community. 
+Figure \ref{fig:visualPlot3} suggests that the visualizations increase the success awareness of the community. Thus we conclude visualizations to be useful.
+
 \subsection{Evaluation of success modelling task}
 \input{../plots/success.tex}
 \subsection{General usability of the bot}

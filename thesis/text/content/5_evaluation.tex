@@ -66,7 +66,7 @@ We wanted to find out if the bot is useful for the visualization of success metr
 
 
 % % The participants will join a Slack group in which the Social Bot is deployed.
-% Furthermore, there will be a group channel in which users are encouraged to exchange Mensa related topics. The Social Bot will be a part of the channel and can be used to query the canteen menu.
+% Furthermore, there will be a group channel in which users are encouraged to exchange Mensa-related topics. The Social Bot will be a part of the channel and can be used to query the canteen menu.
 % Participants will also be able to make food reviews by contacting the bot in private chat. Members of the workspace could contact the bot through a private channel or add it to a public channel.
 
 \section{Main tasks for the evaluations}
@@ -113,7 +113,7 @@ Some participants also noted that it would be great if the review is shown in th
 Participants also agreed that reviews are helpful for the community, as observed in Figure \ref{fig:canteenPlot2}. 
 However, the awareness of the importance of reviews was higher than the desire to contribute to the community. 
 
-One participant found the procedure of adding a review a bit cumbersome, as you would have to follow a rigid number of steps, with intermediate waiting periods for the bot's answers. They suggested that users make multiple steps at once. For example, users could specify the dish, the canteen and the stars all in one message. After that, the bot could just ask for confirmation once.
+One participant found the procedure of adding a review a bit cumbersome, as you would have to follow a rigid number of steps, with intermediate waiting periods for the bot's answers. They suggested that users make multiple steps at once. For example, users could specify the dish, the canteen, and the stars all in one message. After that, the bot could ask for confirmation.
 
 On some of the first evaluations, the dish category "Vegetarisch" was not recognized as an entity, which meant that users could not write a review for vegetarian dishes. This issue was fixed on later evaluations by adding categories like "Vegetarisch" and "Klassiker" as lookups in the training data of the NLU model. As one participant also pointed out, synonyms like "classics" should also be recognized.
 
@@ -150,9 +150,9 @@ We conclude that success modeling does indeed increase the success awareness of 
 \subsection{General usability of the bot}
 For this section, the general usability of the mensabot was evaluated. For this, we used the System Usability Scale (SUS).
 
-\input{../plots/sus.tex}
 Calculating the usability score\footnote{\label{note1}\url{https://www.usability.gov/how-to-and-tools/methods/system-usability-scale.html}} with the arithmetic means results in a score of 71.7, which is above the average usability score of 68 and is an Adjective Rating of \textbf{Good} \footnote{\url{https://uiuxtrend.com/measuring-system-usability-scale-sus/}}.
 
+\input{../plots/sus.tex}
 
 
 \subsection{General feedback}
@@ -161,21 +161,21 @@ Participants were finally asked to leave general feedback on the chatbot. This s
 Participants felt that most functionalities were self-explanatory. 
 
 %NLU and intent recognition
-Participants liked that you could use natural language to communicate with the bot instead of just issuing commands.
-They also found it good that the bot could cope with small spelling mistakes.
-Participants also noted that the intent recognition was very good.
-One participant also noted that they liked that the bot had a "personality". Another participant really liked the Emojis in the bots' responses. A third participant found it helpful that they could always ask the bot for help.
+Participants liked that they could use natural language to communicate with the bot instead of just issuing commands.
+They liked that the bot could cope with small spelling mistakes.
+Participants also noted that the intent recognition was accurate.
+One participant also noted that they liked that the bot had a "personality". Another participant found the Emojis in the bots' responses satisfactory. A third participant found it helpful that they could always ask the bot for help anytime.
 
-One participant also would have liked to communicate with the bot in German and English
+One participant also would have liked to communicate with the bot in German.
 
 %Mensa
 One participant would have preferred to be able to set the default canteen instead of just a default city. 
 
-%Success modelling
+%Success modeling
 Participants found that the success modeling part was not intuitive and would have preferred if the bot could have given more information on this part. 
 
 %Selection handling
-Some participants did not like the way users have to select an item for a list. Some found that there were some inconsistencies. Sometimes the bot would expect a number and other times an item. 
+Some participants did not like the way users have to select an item for a list. Some found that there were some inconsistencies. Sometimes the bot would expect a number, and other times an item. 
 Participants wished to have a clickable list instead or buttons where they can select their option.
 
 %Feedback of bot
@@ -184,7 +184,9 @@ The bot provided feedback if some operation might take longer or if something fa
 \subsection{Discussion}
 Through our evaluations, we have learned that most members of the community are aware that contributions are helpful for the community but are less inclined to contribute to the community themselves. 
 % We explain this behavior by a lack of interest of some participants in the community. 
-We conclude that the group of participants represents the natural structures of a CoP, which is explained in detail in section \ref{sec:CoP}. Most members of the community only consume information, but do not contribute to the community themselves. We learned that users are often not willing to contribute to the community without receiving anything in return. We propose \emph{Gamification } as an incentive to motivate users to contribute to the community.
+We conclude that the group of participants represents the natural structures of a CoP, which is explained in detail in section \ref{sec:CoP}. Most members of the community only consume information but do not contribute to the community themselves. We learned that users are often not willing to contribute to the community without receiving anything in return. We propose \emph{Gamification} as an incentive to motivate users to contribute to the community.
 We have added a measure that visualizes the top contributors of the community. It could be possible to periodically visualize this measure to motivate users to contribute to the community.
-Users could receive certain badges when reaching defined quotas. The bot could periodically show the users contribution compared to the rest of the community to motivate them to make more reviews.
-Another solution, which was also brought up during the evaluation sessions, is that the bot could nudge the user to make a review if they asked for the menu earlier that day.
+Users could receive badges when reaching defined quotas. The bot could periodically show the users' contribution compared to the rest of the community to motivate them to make more contributions.
+Another solution, which was also brought up during the evaluation sessions, is that the bot could nudge the user to write a review if they asked for the menu earlier that day.
+
+We found out that the chatbot can be useful to do simple tasks. Even non-experienced users can communicate with the bot. Leveraging NLU, the bot can understand user intents and extract intent entities for simple sentence structures with ease. However,  participants felt dissatisfied with the bot as soon as more complex tasks with multiple steps are needed. 

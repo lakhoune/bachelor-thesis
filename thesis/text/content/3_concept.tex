@@ -1,7 +1,7 @@
 \chapter{Concept}\label{cha:concept}
 \section{Scenario: Mensa Community}
 We illustrate the software system by considering a community of frequent canteen visitors. We will call this community the Mensa Community.
-Although not a community of practice, the success principle can be applied to it, as members of the community share a common interest which they are passionate about: the food at their local canteen.
+Although it is not a community of practice, the success principle can be applied to it, as members of the community share a common interest which they are passionate about: the food at their local canteen.
 The success metrics for this community are based on the food quality and the activities and interest in their local canteen.
 The members of the Mensa community are students and university employees.
 
@@ -13,7 +13,7 @@ The lowest level of the community represents a circle of friends, which frequent
 Members of the community use community applications \footnote{\url{https://tech4comp.dbis.rwth-aachen.de/mensa/}}
 \footnote{\url{https://monitor.tech4comp.dbis.rwth-aachen.de/}} to access information about the Mensa and their community.
 
-embers of the community can interact with a chatbot, called \emph{mensabot}. The mensabot is modelled with  the Social Bot Framework. It can be accessed via the Slack chat in the Slack workspace of the community. Members can ask the bot about which food will be served on a given day.
+Members of the community can interact with a chatbot, called \emph{mensabot}. The mensabot is modelled with  the Social Bot Framework. It can be accessed via the Slack chat in the Slack workspace of the community. Members can ask the bot about which food will be served on a given day.
 
 As members of the Mensa community are very passionate about the food at the canteen, they can also use the bot to add a review of their meal.
 
@@ -35,13 +35,19 @@ The user is asked if he wants to upload a photo of his meal. He chooses to do so
 
 
 \subsubsection{Issuing a visualization request}
-The student is still unsure on whether to go to the canteen. He asks the bot how popular a specific canteen is. The community had defined the popularity as a measure in the success model. The measure records the number of requests for the menu of that canteen and ranks it according to the other canteens.
-The bot recognizes this as a predefined measure contained in the success model. He looks up information about the measure in the measure catalog. 
+The student is still unsure on whether to go to the canteen. 
+They ask the bot how popular a specific canteen is. 
+The community had defined the popularity as a measure in the success model. The measure records the number of requests for the menu of that canteen and ranks it according to the other canteens.
+The bot recognizes this as a predefined measure contained in the success model.
+The service looks up information about the measure in the measure catalog. 
 
-The measure contains all information about how to get the data and how to visualize it. This includes information about the database and the corresponding SQL query on that database. The bot transforms this information into a GraphQL request and sends it to the GraphQL interface of the CCA system. The GraphQL server returns the appropriate data.
+The measure contains all information about how to get the data and how to visualize it. 
+This includes information about the database and the corresponding SQL query on that database. 
+The bot transforms this information into a GraphQL request and sends it to the GraphQL interface of the CCA system. 
+The GraphQL server returns the appropriate data.
 
 The bot then visualizes this data and displays the  resulting visualization inside the chat.
-After the user has seen how good the food is, he is asked by the bot, whether he will go to the canteen. He tells the bot that he will go.
+After the user has seen how good the food is, they are asked by the bot, whether they will go to the canteen. They tell the bot that they will go.
 
 \subsubsection{Success Awareness} Students in the Mensa community are aware that the success of their community depends on the active participation of its members. They are discussing about the success of the community inside a group chat. They want to know how active the members of the community are. A student mentions the bot, which is a member of the chat group. They tell it to visualize the average time, that a user is interacting with the service. The bot recognizes this as a measure and runs a predefined query. The resulting data is visualized in the group chat.
 
@@ -56,7 +62,8 @@ The students are asked to add a comment to the change, so that members of the co
 
 
 \subsubsection{Modifying a review} A user just added a review to the database. He realizes that he forgot to mention the excellent quality of the fries. 
-He asks the bot if he can still update his review. The bot will ask the user the same questions and afterwards update the entry in the database with the new review.
+He asks the bot if he can still update his review. 
+The bot will ask the user the same questions and afterwards update the entry in the database with the new review.
 
 \subsubsection{Evaluating the service} A user, which has been using the service for some time, is asked questions about the quality of the service. Such questions include things like how satisfied they are with different aspects of the service, or how likely it is, that they would recommend the service to a colleague.
 
@@ -101,7 +108,7 @@ The system needs to be able to make queries to the GraphQL API, to get data, whi
 
 \subsubsection{Usability} The bot should be easy to use. Non-trained users should be able to interact with the bot with ease.
 
-\subsubsection{UI optimization} The bot should be designed, for chats which will mainly run on mobile devices. As such, visualizations should be easy to read even on small devices.
+\subsubsection{UI optimization} The bot should be designed, for chats which will mainly run on smartphones. As such, visualizations should be easy to read even on small devices.
 
 \subsubsection{Compatibility} The bot should be extensible to any chat platform, which allows the use of bots.
 

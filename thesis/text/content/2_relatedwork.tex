@@ -1,46 +1,46 @@
 %  Prerequisites
 \chapter{State of the Art}
-This chapter provides an overview of the concepts and technologies which are important in the field of my current work. First in Section \ref{lab:background} we define domain-specific terms. In Section \ref{lab:systems}, we describe the systems, which will be used for this thesis.
+This chapter provides an overview of the concepts and technologies which are important in the field of our current work. First, we define domain-specific terms in Section \ref{lab:background}. In Section \ref{lab:systems}, we describe the technologies, which will be used for this thesis.
 
 \section{Background} \label{lab:background}
 
-This section gives a brief introduction to the concepts, which are relevant to the implementation part of this thesis.
+This section introduces the concepts, which are relevant to the implementation part of this thesis.
 
 \subsection{Social Bots and Chatbots}
-Bots are interfaces, which provide automated services to end-users.
+Bots are interfaces, providing automated services to end-users.
 In contrast to normal computer programs, bots can use the same services and perform the same actions as human users. Those actions include browsing webpages or issuing API calls.
 Bots, which are interacting with users in a conversational manner, are called social bots.
-The definition of a social bot is provided by \cite{FVD*16b}:
 \begin{quote}
-    ``A social bot is a computer algorithm that automatically produces content and interacts with humans on social media, [...]''
+    ``A social bot is a computer algorithm that automatically produces content and interacts with humans on social media, [...]'' \cite{FVD*16b}
 \end{quote}
-
-Social bots are getting more and more popular in Human-Computer Interaction (HCI), by integrating automation into the daily lives of people \cite{BFPN17}. Users can interact with a social bot through a dedicated channel, such as the chat functionality of a social network.
+Social bots are getting more and more popular in Human-Computer Interaction (HCI), as they integrate automation into the daily lives of people \cite{BFPN17}. Users can interact with a social bot through a dedicated channel, such as the chat functionality of a social network.
 Social bots, which use chats to interact with users are called chatbots, or conversational bots \cite{WWX*16,AAA17}.
-Chatbots have recently become very popular in the context of customer care \cite{CHW*17,FVD*16b}, where they act as virtual assistants, which can answer simple questions \cite{CaWh14} or perform predefined tasks. Their simplicity allows even non-experienced users to perform actions of various degrees of difficulty. 
-Chatbots can assist companies in customer service. This allows the staff to concentrate on less mundane issues with customers and therefore increases the effectiveness of the service while keeping costs low. \cite{AAA17}
+Chatbots have recently become very popular in the context of customer care \cite{CHW*17,FVD*16b}, where they act as virtual assistants, which can answer simple questions \cite{CaWh14} or perform predefined tasks. 
+Their simplicity allows even non-experienced users to perform actions of various degrees of difficulty. 
+Chatbots can assist companies in customer service, allowing staff to concentrate on less mundane issues with customers, which in turn increases the effectiveness of the service while lowering costs. \cite{AAA17}
 
 % Chatbots can be classified into chit-chat chatbots, or task-oriented bots.
 % A chit-chat bot engages users into interesting conversations and focusses more on the actual conversation. Task-oriented bots are focused on getting certain actions done. As soon as the desired action is done, the bot will stop the conversation. 
 
-We can distinguish between retrieval based chatbots and generic chatbots \cite{NLKl19,WWX*16}.
-Retrieval based bots are focussed on getting specific tasks done and focus less on engaging in a coherent conversation.
+We can distinguish between retrieval-based chatbots and generic chatbots \cite{NLKl19,WWX*16}.
+Retrieval-based bots are more focussed on getting specific tasks done than engaging in a coherent conversation.
 Retrieval based chatbots measure the similarity of user queries to candidate responses and run the task that is defined for that response.
-They do this by using natural language processing techniques.
+
 
 Generic chatbots on the other hand also produce generic responses.
-An advantage of the generic chatbots is that they provide a better user experience as users can interact more naturally with them than with retrieval based chatbots.
+An advantage of the generic chatbots is that they provide a better user experience as users can interact more naturally with them than with retrieval-based chatbots.
 
+Chatbots use natural language processing techniques to determine what the user wants to do.
 Chatbots provide a better user experience \cite{CHW*17}, because the user is not required to memorize commands in order to get the desired results.
 This means that even non-trained users can use such chatbots.
-From such a standpoint, it becomes clear why such chatbots are desirable as assistants, as they provide a familiar environment for users to interact with.
+From such a standpoint, it becomes clear why such chatbots are desirable as assistants, as users can interact with them in a familiar environment.
 
 \subsubsection{Natural Language Understanding}
 Natural Language Understanding (NLU) is a branch of Artificial Intelligence (AI), which tries to make computer programs understand the semantics of human language.
-It does this by transforming a block of input text into a data structure that is programmer-friendly but still describes the original meaning of the text \cite{CWB*11}.
+NLU transforms a block of input text into a data structure that is programmer-friendly but still describes the original meaning of the text \cite{CWB*11}.
 
-Most NLU algorithms these days only look at the syntactic of words, which relies on statistical features, such as word occurrence frequency \cite{CaWh14}.
-However humans take far more information into consideration, as the reading of a word triggers a whole bunch of related concepts and experiences which are combined to give the understanding of a text.
+Most actual NLU algorithms look only at the syntax of words, which relies on statistical features, such as word occurrence frequency \cite{CaWh14}.
+However, humans take far more information into consideration, as the reading of a word triggers a whole bunch of related concepts and experiences which are combined to give the understanding of a text.
 
 Computers try to close this knowledge gap with computational models, which emulate human cognitive processing.
 By evaluating the results of those models for a given input, researchers can incrementally improve the accuracy of the model. \cite{CaWh14}
@@ -49,13 +49,11 @@ NLU is a domain that is a key research topic for companies like Google and Faceb
 
 \subsection{Communities of Practice}
 A Community of Practice (CoP) is a special kind of community consisting of members studying a certain domain.
-The definition of a CoP is given by \cite{Weng98}:
 \begin{quote}
     ``
-    Communities of practice are groups of people who share a concern or a passion for something they do and learn how to do it better as they interact regularly.''
+    Communities of practice are groups of people who share a concern or a passion for something they do and learn how to do it better as they interact regularly.''  \cite{Weng98}
 \end{quote}
-
-In contrast to traditional knowledge systems, where the learner passively receives his information, the learner is actively participating in the community by voluntarily sharing his knowledge with other members of the community \cite{AMMi15,Kern08}.
+In contrast to traditional knowledge systems, where a student passively receives his information, the learner is actively participating in the community by voluntarily sharing his knowledge with other members of the community \cite{AMMi15,Kern08}.
 The advantage of CoPs is that they make the learning process easier \cite{SaAr05} and the transfer of knowledge faster \cite{CuZe05}.
 
 Members of a CoP have different degrees of knowledge of the domain.
@@ -115,10 +113,10 @@ In order to collect data for the metrics, one should follow the principle \cite{
 \end{quotation}
 
 \subsection{MobSOS}
-The MobSOS framework is a tool, which assists online communities in monitoring and evaluating services. The MobSOS success model extends the classical D\&M IS success model by adding feature aspects which were not covered initially, such as Quality of Service and mobility \cite{Renz08}.
+The Mobile Community Information System Oracle for Success (MobSOS) framework is a tool, which assists online communities in monitoring and evaluating services. The MobSOS success model extends the classical IS success model of DeLone and McLean (D\&M) by adding features, which were not covered by the original model, such as Quality of Service and mobility \cite{Renz08}.
 The MobSOS Success Modelling concept is described as an iterative process. 
 
-The MobSOS Continuous Community Analytics (CCA) system extends the MobSOS framework by providing visualizations of MobSOS data and the ability to add more databases, which can be used for success modelling.
+The MobSOS Continuous Community Analytics (CCA) services extend the MobSOS framework by providing visualizations of MobSOS data and the ability to add more databases, which can be used for success modelling.
 
 \subsection{Mediabase}
 Storing Web 2.0 data is a challenging task due to the variety of different non-interoperable formats.
@@ -145,11 +143,11 @@ This section describes existing systems which will be used for the realization o
 \subsection{las2peer}
 las2peer\footnotemark is a platform, which allows users to easily deploy their HTTP services. 
 It is a distributed platform, based on peer-to-peer networks without a central authority \cite{KRdJ16}.
-Each service is a \emph{node} in the network. Many nodes can form a peer-to-peer seed network, which communicate through standard protocols. 
+Each service is a \emph{node} in the network. Many nodes can form a peer-to-peer seed network, communicating through standard protocols. 
 Data storage and communications are encrypted, adding an extra layer of security to las2peer services.
 This allows even small communities to securely design and deploy las2peer services. 
 
-New nodes can join the las2peer network by using the \emph{bootstrap} flag followed by the IP address of one of the nodes in the network. The service can be addressed by its \emph{ServiceAgent} id or by listening to an arbitrary topic. It can address other services in the network in the same way. 
+New nodes can join the las2peer network by using the \emph{bootstrap} flag followed by the IP address of one of the nodes in the network. The service can be addressed by its \emph{ServiceAgent id}  or by listening to an arbitrary topic. It can address other services in the network in the same way. 
 
 The services inside a network share a key-value store, which is a distributed hash table (DHT). The entries are stored on each node's host filesystem. The entries are encrypted by their author and only the author can change the value of an entry.
 
@@ -218,7 +216,7 @@ Each factor contains a list of success measures. The success measures are stored
 
 Three types of visualization are supported
 \begin{itemize}
-    \item Value: This visualization returns a single value with and optional unit
+    \item Value: This visualization returns a single value with an optional unit
     \item Chart: This visualization returns a chart as a picture. Different chart types from the Google Charts API\footnotemark are available.
     \item KPI: This visualization uses an arbitrary amount of queries, with each query returning a value. The values from the query can be combined through various mathematical operations.
 \end{itemize}
@@ -235,7 +233,7 @@ This is done through a modelling space that can be used in a collaborative manne
 The GUI also includes a NLU Model Training helper which can be used to write training data for intent recognition using a Rasa server.
 The resulting model is sent to the Social Bot Manager which deploys the bot and handles the communication with chat platforms, like \emph{Slack} \footnote{\href{https://slack.com/}{Slack}} or \emph{rocket.chat}\footnote{\href{https://rocket.chat/}{rocket.chat}}. 
 The Social Bot Manager service\footnotemark is a las2peer service and can thereby call other las2peer services in the network. 
-Thereby the bot is able to perform actions with service in a las2peer network.
+Thereby the bot can perform service-requests to any service in a las2peer network.
 \footnotetext{\href{https://github.com/rwth-acis/las2peer-social-bot-manager-service}{GitHub: Social Bot Manager}}
 
 \subsection{RASA}
@@ -274,13 +272,13 @@ data.addRows([
 \end{lstlisting}
 \footnotetext{\href{https://developers.google.com/chart}{Google Charts API}}
 
-The visualizations are rendered as SVGs in the browser, but can be the PNG file can be accessed by make a http call with the \texttt{getImageURI} as image URI parameter. 
+The visualizations are rendered as SVGs in the browser, but can also be downloaded as a PNG file by making a \texttt{http} call with the \texttt{getImageURI} as image URI parameter. 
 
 
 \subsection{GraphQL}
 GraphQL\footnotemark is a query language specification for web APIs.
 \footnotetext{GraphQL: \href{https://graphql.github.io/}{https://graphql.github.io/}}
-Instead of hitting multiple endpoints, like in standard REST APIs, for different requests, users can get all data from one endpoint, by specifying the kind of data that they need as a query. This means that it prevents over- and under-fetching of data\footnotemark, which increases overall performance and user experience \cite{KKK20}.
+Instead of hitting multiple endpoints, like in standard REST APIs, for different requests, users can get all data from one endpoint, by specifying the kind of data that they need as a query. This way, it prevents over- and under-fetching of data\footnotemark, thereby, increasing overall performance. This leads to a better user experience \cite{KKK20}.
 
 \footnotetext{\href{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}}
 
@@ -340,6 +338,6 @@ Docker images can be uploaded to Docker registries\footnotemark, which are centr
 Kubernetes\footnotemark (K8s) is an open-source container orchestration tool, which automates deployment and scaling of containerized application, like Docker containers. 
 \footnotetext{\href{https://kubernetes.io/}{Kubernetes}}
 K8s introduces an abstraction layer to containers called \emph{pods}. Pods can contain multiple containers. Pods are created and managed automatically by K8s. K8s also introduces \emph{services}, which serve as the communication endpoint of the pod, as it maps a single IP address to a pod. This is necessary as the IP address of the pod can change if it is restarted.
-Different application can communicate with each other via \texttt{http}. 
+Different application can communicate with each other using \texttt{http}. 
 Different services and pods can be grouped together in \emph{name-spaces}.
-K8s also has a service for DNS resolution. Each service gets its own domain in the form \texttt{my-service.my-namespace}
+K8s also has a service for DNS resolution. Each service gets its own domain in the form \texttt{my-service.my-namespace}.

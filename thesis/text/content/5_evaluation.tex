@@ -169,10 +169,10 @@ One participant also noted that they liked that the bot had a "personality". Ano
 One participant also would have liked to communicate with the bot in German.
 
 %Mensa
-One participant would have preferred to be able to set the default canteen instead of just a default city. 
+One participant would have preferred setting the default canteen instead of just a default city. 
 
 %Success modeling
-Participants found that the success modeling part was not intuitive and would have preferred if the bot could have given more information on this part. 
+Participants found that the success modeling part was not intuitive. They would have preferred if the bot could have given more information on this part. 
 
 %Selection handling
 Some participants did not like the way users have to select an item for a list. Some found that there were some inconsistencies. Sometimes the bot would expect a number, and other times an item. 
@@ -182,11 +182,13 @@ Participants wished to have a clickable list instead or buttons where they can s
 The bot provided feedback if some operation might take longer or if something failed. Participants found that feedback helpful. However, one participant also wrote that "There's a general lack of feedback after commands." We assume that the participant meant the delay between the user input and the first response of the bot.  
 
 \subsection{Discussion}
-Through our evaluations, we have learned that most members of the community are aware that contributions are helpful for the community but are less inclined to contribute to the community themselves. 
+Through our evaluations, we have learned that most members of the community are aware that contributions are helpful for the community. However, they are less inclined to contribute to the community themselves, without receiving anything in return. 
 % We explain this behavior by a lack of interest of some participants in the community. 
-We conclude that the group of participants represents the natural structures of a CoP, which is explained in detail in section \ref{sec:CoP}. Most members of the community only consume information but do not contribute to the community themselves. We learned that users are often not willing to contribute to the community without receiving anything in return. We propose \emph{Gamification} as an incentive to motivate users to contribute to the community.
-We have added a measure that visualizes the top contributors of the community. It could be possible to periodically visualize this measure to motivate users to contribute to the community.
+We conclude that the group of participants follows the natural structure of a CoP, which is explained in detail in section \ref{sec:CoP}. Most members of the community only consume information but do not contribute to the community themselves. We learned that users are often not willing to contribute to the community. We propose \emph{Gamification} as an incentive to motivate users to contribute to the community.
+We have added a measure that visualizes the top contributors of the community. It could be possible to periodically display that chart to motivate users to contribute to the community.
 Users could receive badges when reaching defined quotas. The bot could periodically show the users' contribution compared to the rest of the community to motivate them to make more contributions.
-Another solution, which was also brought up during the evaluation sessions, is that the bot could nudge the user to write a review if they asked for the menu earlier that day.
+Another solution, which was also brought up during the evaluation sessions, is to use nudging. The bot could ask the user to write a review if they asked for the menu earlier that day.
 
-We found out that the chatbot can be useful to do simple tasks. Even non-experienced users can communicate with the bot. Leveraging NLU, the bot can understand user intents and extract intent entities for simple sentence structures with ease. However,  participants felt dissatisfied with the bot as soon as more complex tasks with multiple steps are needed. 
+We found out that the chatbot can be useful to do simple tasks. Even non-experienced users can communicate with the bot. This corrresponds to our definition of chatbots in section \ref{sec:chatbots}. Leveraging NLU, the bot can understand user intents and extract intent entities for simple sentence structures with ease. However,  participants felt dissatisfied with the bot as soon as more complex tasks with multiple steps are needed. Furthermore, the more tasks we define for the bot, the slower the intent recognition will be and the less responsive the bot will be. 
+Furthermore, users can pronounce intents in many different ways and it is difficult to capture all possibilities.
+Therefore, as mentioned in section \ref{sec:NLU}, NLU needs to go beyond analysing the syntax of a sentence. It should rather focus on narrative understanding by emulating the way a human brain is processing natural language. \cite{CaWh14}

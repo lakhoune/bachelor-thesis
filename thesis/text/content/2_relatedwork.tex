@@ -225,33 +225,31 @@ Three types of visualization are supported
 
 \subsection{Social Bot Framework}
 The Social Bot Framework (SBF) is a Web-based model-driven near-real-time environment to develop chatbots \cite{NLKl19}. 
-The model-driven development allows less experienced users to take part in the development, which is favourable for the creation of a chatbot inside a Community of Practice (CoP). 
+The model-driven development allows less experienced users to take part in the development process. This type of development is favorable for creating a chatbot inside a Community of Practice (CoP). 
 The framework consists of a GUI and a Social Bot Manager Service.
-The GUI of the Social Bot Framework is used to model the bot and define the actions, which the bot should perform. 
-This is done through a modelling space that can be used in a collaborative manner. The modelling canvas can be used to model the bot by placing icons from the palette widget representing certain elements of the bot and connecting them with each other. 
+The GUI of the Social Bot Framework (SBF) is used to model the bot and define the actions, which the bot should perform. 
+The modeling space of the SBF can be used collaboratively. The modeling canvas is used to model the bot. Icons, representing elements of the bot, can be selected from the palette widget and connected with each other. 
 
-The GUI also includes a NLU Model Training helper which can be used to write training data for intent recognition using a Rasa server.
+The GUI also includes an NLU Model Training helper, which can be used to write training data for intent recognition using a Rasa server.
 The resulting model is sent to the Social Bot Manager which deploys the bot and handles the communication with chat platforms, like \emph{Slack} \footnote{\href{https://slack.com/}{Slack}} or \emph{rocket.chat}\footnote{\href{https://rocket.chat/}{rocket.chat}}. 
 The Social Bot Manager service\footnotemark is a las2peer service and can thereby call other las2peer services in the network. 
-Thereby the bot can perform service-requests to any service in a las2peer network.
+Thereby the bot can perform service requests to any service in a las2peer network.
 \footnotetext{\href{https://github.com/rwth-acis/las2peer-social-bot-manager-service}{GitHub: Social Bot Manager}}
 
 \subsection{RASA}
-Rasa is an open sourced framework for building chat- and voice-based bots. The goal of RASA is to bring current advances in machine-learning to end-users, such that they can create chatbots in a simple way \cite{BFPN17}. 
+Rasa is an open-sourced framework for building chat- and voice-based bots. The goal of RASA is to bring current advances in machine-learning to end-users, such that they can create chatbots in a simple way \cite{BFPN17}. 
 The RASA system is split into a component for natural language understanding (RASA NLU) and a dialogue management component (RASA Core).
 
 RASA NLU is used to extract the \emph{intents} and intent \emph{entities} of a user message.
 The \emph{intent}\footnotemark of a message represents the thing that the user tries to accomplish. 
 Entities are keywords that are relevant to the current context.
 Intent recognition is done by using a text classification based on the fastText approach \cite{BFPN17}. 
-fastText has a similar accuracy to conventional deep learning classifiers, but is much faster and therefore more easily scalable \cite{JGBM16}.
+fastText has similar accuracy to conventional deep learning classifiers but is much faster and more easily scalable \cite{JGBM16}.
+\footnotetext{\href{https://rasa.com/docs/rasa/glossary\#intent}{Rasa: intents}}
 
-\footnotetext{ 
-  \href{https://rasa.com/docs/rasa/glossary\#intent}{Rasa: intents}}
+RASA Core consists of a \emph{Tracker}, a \emph{Policy} and a set of \emph{Actions} \cite{BFPN17}. The Tracker manages the current state of the conversation. It gets an intent as input and forwards it the Policy, which selects the next Action, given the current state of the conversation and a predefined list of actions for each intent. The Action triggers the Tracker to recalculate the new state and might also send a reply to the user.
 
-RASA Core consists of a \emph{Tracker}, a \emph{Policy} and a set of \emph{Actions} \cite{BFPN17}. The Tracker manages the current state of the conversation. It gets an intent as an input and forwards it the Policy, which selects the next action, given the current state of the conversation and a predefined list of actions for each intent. The Action triggers the Tracker to recalculate the new state and might also send a reply to the user.
-
-The system is built in a modularized way and each service provides HTTP APIs \cite{BFPN17}, which makes it possible to use the NLU component independently of the rest of the framework. This makes it easy to integrate it into an existing system \cite{RaKe19}.
+The system is built in a modularized way, with each service providing HTTP APIs \cite{BFPN17}. Thereby, the NLU component can be used independently of the rest of the framework, making it easy to integrate it into an existing system \cite{RaKe19}.
 
 
 \subsection{Google Charts API}
@@ -272,13 +270,12 @@ data.addRows([
 \end{lstlisting}
 \footnotetext{\href{https://developers.google.com/chart}{Google Charts API}}
 
-The visualizations are rendered as SVGs in the browser, but can also be downloaded as a PNG file by making a \texttt{http} call with the \texttt{getImageURI} as image URI parameter. 
-
+The visualizations are rendered as SVGs in the browser or downloaded as a PNG file by making a \texttt{http} call with the \texttt{getImageURI} as image URI parameter. 
 
 \subsection{GraphQL}
 GraphQL\footnotemark is a query language specification for web APIs.
 \footnotetext{GraphQL: \href{https://graphql.github.io/}{https://graphql.github.io/}}
-Instead of hitting multiple endpoints, like in standard REST APIs, for different requests, users can get all data from one endpoint, by specifying the kind of data that they need as a query. This way, it prevents over- and under-fetching of data\footnotemark, thereby, increasing overall performance. This leads to a better user experience \cite{KKK20}.
+Instead of calling multiple endpoints for different requests, users can get all data from one endpoint by specifying what they need in a query. This prevents over- and under-fetching of data\footnotemark, thus increasing overall performance. This leads to a better user experience \cite{KKK20}.
 
 \footnotetext{\href{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}}
 
@@ -294,7 +291,7 @@ Transforming an existing REST API into a GraphQL API can be a cumbersome task \c
     \label{fig:graphqlWrapper}
 \end{figure}
 
-In GraphQL, data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean and String, but new types can also be defined. An example can be seen in \ref{lst:GraphQLType}. \\
+In GraphQL, data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean, and String, but new types can also be defined. An example can be seen in \ref{lst:GraphQLType}. \\
 \begin{lstlisting}[caption={Example of a GraphQL schema},captionpos=b,label={lst:GraphQLType}]
   type REVIEW { 
     dishId: String 
@@ -306,7 +303,7 @@ In GraphQL, data objects are defined as a \emph{type}. GraphQL provides simple b
     id: ID 
   }
 \end{lstlisting}
-New fields can be dynamically added without influencing existing queries. The schemas are formalized as either a \emph{Query }, or a \emph{Mutation}. They are declared by the keyword \emph{schema}. The query keyword can be omitted. An example of a query can be seen in listing \ref{lst:GraphQLQuery}.
+New fields can be dynamically added without influencing existing queries. The schemas are formalized as either a \emph{Query} or a \emph{Mutation}. They are declared by the keyword \emph{schema}. The query keyword can be omitted. An example of a query can be seen in listing \ref{lst:GraphQLQuery}.
 \begin{lstlisting}[caption={Example of a GraphQL Query},captionpos=b,label={lst:GraphQLQuery}]
 {
   REVIEW(id: "1000") {
@@ -335,9 +332,9 @@ In contrast to virtual machines (VMs), Docker containers are a virtualization of
 Docker images can be uploaded to Docker registries\footnotemark, which are central repositories for Docker images. 
 \footnotetext{\href{https://docs.docker.com/docker-hub/}{Docker: Docker-hub}}
 
-Kubernetes\footnotemark (K8s) is an open-source container orchestration tool, which automates deployment and scaling of containerized application, like Docker containers. 
+Kubernetes\footnotemark (K8s) is an open-source container orchestration tool, which automates deployment and scaling of a containerized application, like Docker containers. 
 \footnotetext{\href{https://kubernetes.io/}{Kubernetes}}
 K8s introduces an abstraction layer to containers called \emph{pods}. Pods can contain multiple containers. Pods are created and managed automatically by K8s. K8s also introduces \emph{services}, which serve as the communication endpoint of the pod, as it maps a single IP address to a pod. This is necessary as the IP address of the pod can change if it is restarted.
-Different application can communicate with each other using \texttt{http}. 
+The different applications can communicate with each other using \texttt{http}. 
 Different services and pods can be grouped together in \emph{name-spaces}.
 K8s also has a service for DNS resolution. Each service gets its own domain in the form \texttt{my-service.my-namespace}.

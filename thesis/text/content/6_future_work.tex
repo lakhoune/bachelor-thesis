@@ -11,3 +11,24 @@ Thus we conclude that chatbots can be a great tool to assist a community and inc
 
 
 \section{Improvements and Future Work}
+As mentioned in our evaluations, the bots' usability can be improved.
+Users frequently need to select an item from a list of options. Three possible input types should be supported:
+\begin{enumerate}
+    \item The list of options is enumerated and the user can provide a number to select the item.
+    \item The items in the list are clickable. The user can select an option by tapping on it. 
+    \item The user types the desired item from the list directly into the chat. 
+\end{enumerate}
+The first requirement should be easy to implement and has been done for some tasks.
+The third requirement could be done with text mining techniques by comparing the users' input to the items from the list and select the most fitting one.
+
+The review process needs to be revised. Users could add reviews more quickly by describing which meal they had and how many stars they would give the meal in one sentence. This allows users to add reviews more quickly. The resulting review should also be shown after it has been saved. Futhermore, it should also be possible to allow users to update their review in the future. Lastly, the bot could also provide reviews for certain dishes.
+
+The Social Bot Manager could be extended, so that bots can discern between group chats and direct chat. It should also be possible to restrict certain actions in group chats. For example, the mensabot could be added to a group chat to get the menu for the canteen, but only allow writing reviews in private chat.
+It should also be possible to filter certain messages. The bot shoud only respond to messages containing a keyword, e.g. the mentioning by name (\emph{@mensabot}).
+
+The success modeling service could be extended to generate visualizations from the success model and display them periodically in chat. A possibility would also be to generate \emph{reports} in the same fashion that the frontend of the MobSOS CCA does it. 
+
+The Mensa Service needs to be extended to check whether canteens are open on a given day. The picture upload also needs to be fixed. We could use the las2peer FileService to store them. The bot can then also be extended to allow picture upload. 
+We also need to setup a Mediabase and a crawler such that reviews can be collected from outside the las2peer network. 
+
+Finally, to increase contributions in the community, we should use \emph{Gamification}. A possibility would be to combine the las2peer Gamification framework\footnote{\url{https://github.com/rwth-acis/Gamification-Framework}}.

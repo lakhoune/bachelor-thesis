@@ -4,7 +4,7 @@
 In our work, we analyzed the impact of a chatbot on collaboration and success awareness in the community. We have developed a chatbot that provided community-related information and served as an interface for success modeling.  We have evaluated the chatbot in an existing community.
 
 We found that the use of a chatbot increased the success awareness of the community. Users were able to inspect the visualizations without any further help.
-We also found out that the bot increases contributions in the community. Contributions might further increase by other means like gamification. 
+We also found out that the bot increases contributions in the community. Contributions might further increase by other means like Gamification. 
 We confirmed that chatbots are favorable for quick and small tasks. Nonetheless, we noted that complex tasks were less intuitive and that intent recognition is challenging for complex sentence structures.
 
 Thus we conclude that chatbots can be a great tool to assist a community and increases the success awareness of non-experienced users.  
@@ -14,23 +14,23 @@ Thus we conclude that chatbots can be a great tool to assist a community and inc
 As mentioned in our evaluations, the bots' usability can be improved.
 Users frequently need to select an item from a list of options. Three possible input types should be supported:
 \begin{enumerate}
-    \item The list of options is enumerated and the user can provide a number to select the item.
+    \item The list of options is enumerated, and the user can provide a number to select the item.
     \item The items in the list are clickable. The user can select an option by tapping on it. 
     \item The user types the desired item from the list directly into the chat. 
 \end{enumerate}
 The first requirement should be easy to implement and has been done for some tasks.
-The third requirement could be done with text mining techniques by comparing the users' input to the items from the list and select the most fitting one.
+For the third requirement, we could use text mining techniques to comparing the users' input to the items from the list and select the most fitting one.
 
-The review process needs to be revised. Users could add reviews more quickly by describing which meal they had and how many stars they would give the meal in one sentence. This allows users to add reviews more quickly. The resulting review should be shown after it has been saved. Futhermore, it should also be possible to allow users to update them in the future. Lastly, the bot could also provide reviews for certain dishes.
+The review process needs to be revised. Users could add reviews more quickly by describing which meal they had and how many stars the meal was worth in one sentence. Consequently, users could add reviews more quickly. The resulting review should be shown after it has been saved. Moreover, it should also be possible to allow users to update them in the future. Lastly, the bot could also provide reviews for certain dishes.
 
-The Social Bot Manager could be extended, so that bots can discern between group chats and direct chat. It should also be possible to restrict certain actions in group chats. For example, the mensabot could be added to a group chat to get the menu for the canteen, but only allow writing reviews in private chat.
-It should also be possible to filter certain messages. The bot should only respond to messages containing a keyword, e.g. the mentioning by name (\emph{@mensabot}).
+We should extend the Social Bot Manager to allow bots and services to distinguish between group chats and direct chat. It should also be possible to restrict certain actions in group chats. For example, the mensabot could be added to a group chat to get the canteen menu, but only allow writing reviews in private chat.
+It should also be possible to filter certain messages. The bot should only respond to messages containing a keyword, e.g., the mentioning by name (\emph{@mensabot}).
 
-The success modeling service could be extended to generate visualizations from the success model and display them periodically in chat. A possibility would also be to generate \emph{reports} in the same fashion that the frontend of the MobSOS CCA does it. 
+We should extend the success modeling service to generate visualizations from the success model and display them periodically in chat. A possibility would also be to generate \emph{reports} in the same fashion that the frontend of the MobSOS CCA does it. 
 
 The MobSOSb Evaluation Center needs to be updated to use the new data format for measure definitions.
 
-The Mensa Service needs to be extended to check whether canteens are open on a given day. The picture upload also needs to be fixed. We could use the las2peer FileService to store them. The bot can then also be extended to allow picture upload. 
-We also need to setup a Mediabase and a crawler such that reviews can be collected from outside the las2peer network. 
+We need to fix the picture upload for the Mensa Service. We could use the las2peer FileService to store pictures in the network. The bot can then also be extended to support picture upload. 
+We also need to set up a Mediabase and a crawler such that reviews can be collected from outside the las2peer network. 
 
 Finally, to increase contributions in the community, we should use \emph{Gamification}. A possibility would be to combine the las2peer Gamification framework\footnote{\url{https://github.com/rwth-acis/Gamification-Framework}}.

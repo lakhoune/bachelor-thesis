@@ -50,18 +50,18 @@ service="i5.las2peer.services.mensaService.MensaService">
 </SuccessModel>
 \end{lstlisting}
 
-A measure catalog with example measures was added for the community by us. The measures were created so that they would match the success factors in Listing \ref{lst:successModel}.
+A measure catalog with example measures was added for the community by us. We created the measures according to the success factors in Listing \ref{lst:successModel}.
 
-The evaluation was planned to be conducted in two phases.
+We planned to conduct the evaluation in two phases.
 In the first phase, we wanted to familiarize the participants with the chatbot.
 Users could have been using the bot for an extended period of approximately one month. 
 We also wanted to evaluate the bots' performance in providing canteen-related information.
 We would have asked users to use the bot whenever they went to the canteen. 
-The idea was to collect logs and reviews. This data could later have been used in visualizations of success factors. 
+The idea was to collect logs and reviews. We could later have used this data in visualizations of success factors. 
 Participants would have been asked to fill out a questionnaire that covered usability questions of the service. The data from that questionnaire would be included in the success model of the community.
 Unfortunately, due to the Corona pandemic, the canteens were closed for most of the time. Thus, we decided not to do this first phase but to integrate it into the final evaluation.
 
-In the final evaluation, we wanted to find out how the bot affects the community's success awareness.
+In the final evaluation, we wanted to determine how the bot affects the community's success awareness.
 We wanted to find out if the bot is useful for the visualization of success metrics and if the bot encourages collaboration inside the community, especially for success modeling.
 
 
@@ -82,7 +82,7 @@ Afterward, they added a review for one dish on the menu. This could be done with
 
 In the second task, participants asked the bot to visualize different success measures from the success model. This could be done by using a phrase like "Make a visualization." They asked the bot to list all success measures and then select one from the list.
 
-In the third task, participants asked the bot to visualize the success model. This could be done with a phrase like "Get the success model." They updated the success model. They were asked to add a measure from the measure catalog to a factor of their choice. 
+In the third task, participants asked the bot to visualize the success model. This could be done with a phrase like "Get the success model." They updated the success model. We asked them to add a measure from the measure catalog to a factor of their choice. 
 First, the participants asked the bot to update the success model. The bot would then ask which dimension to update. 
 The participants chose a dimension from the list. 
 The bot would ask them which factor they wanted to add a measure. 
@@ -104,7 +104,7 @@ The participants needed to specify their \textbf{main} role 85\% of the particip
 
 % In order to measure the collaboration aspect, participants should be divided into groups of at least three.
 % Each group should then be asked to update the success model.
-% This task should be performed in the original MobSOS CCA frontend and in a group chat containing the bot.
+% This task should be performed in the original MobSOS CCA frontend and a group chat containing the bot.
 \subsection{Evaluation of canteen specific tasks}  
 This section covers the usability of the mensabot to get the menu of the canteen and write a review for a dish on the menu. It covers the aspects of the first main task. Figure \ref{fig:canteenPlot1} shows the results. Most participants could imagine themselves using the mensabot to get the menu and write reviews.
 \input{../plots/canteen.tex} 
@@ -115,19 +115,20 @@ However, the awareness of the importance of reviews was higher than the desire t
 
 One participant found the procedure of adding a review a bit cumbersome, as you would have to follow a rigid number of steps, with intermediate waiting periods for the bot's answers. They suggested that users make multiple steps at once. For example, users could specify the dish, the canteen, and the stars all in one message. After that, the bot could ask for confirmation.
 
-On some of the first evaluations, the dish category "Vegetarisch" was not recognized as an entity, which meant that users could not write a review for vegetarian dishes. This issue was fixed on later evaluations by adding categories like "Vegetarisch" and "Klassiker" as lookups in the training data of the NLU model. As one participant also pointed out, synonyms like "classics" should also be recognized.
+On some of the first evaluations, the bot did not recognize the dish category "Vegetarisch" as an entity, which meant users could not write a review for vegetarian dishes. We fixed this issue for further evaluations by adding categories like "Vegetarisch" and "Klassiker" as lookups in the training data of the NLU model. 
+As one participant also pointed out, synonyms like "classics" should also be recognized.
 
-We were also facing an issue with one participant. They would ask for the menu of a canteen the bot would provide a list of suggestions. The user would choose a  canteen by providing a number, but the wrong canteen was chosen in the service. We figured out that this issue was since the selection was saved as a \texttt{Set} instead of an ordered list.
+We were also facing an issue with one participant. They would ask for the menu of a canteen the bot would provide a list of suggestions. The user would choose a  canteen by providing a number, but the wrong canteen was selected in the service. We figured out that this issue was because the service saved the selection as a \texttt{Set} instead of an ordered list.
 This issue has been fixed immediately after the evaluation session.
 
-Finally, due to the current pandemic, a lot of canteens were closed. The Mensa Service does not check yet if the canteen is open before showing the canteen in the suggestions list. This resulted in the bot failing to retrieve the menu, which caused some frustration. A possible fix for this would be to add a label to canteens, which are closed.
+Finally, due to the current pandemic, a lot of canteens were closed. The Mensa Service does not check yet if the canteen is open before showing the canteen in the suggestions list. Hence the bot failed to retrieve the menu, which caused some frustration. A possible fix for this would be to add a label to canteens, which are closed.
 \input{../plots/canteen2.tex}
 
 We conclude that the chatbot could have the potential to increase collaboration inside the community but does not yet fully capitalize on its potential. 
 
 \subsection{Evaluation of visualization task}
 
-This section covers the usability of the mensabot to get visualizations of success measures. As mentioned before, participants were asked to select a measure from the success model. The resulting visualization was then displayed in chat. As Figure \ref{fig:visualPlot1} suggests, participants mostly understood the visualizations without needing any assistance. Some participants were overwhelmed with the number of predefined measures and found that just listing the measure name is not very helpful. 
+This section covers the usability of the mensabot to get visualizations of success measures. As mentioned before, we asked participants to select a measure from the success model. The resulting visualization was displayed in chat. As Figure \ref{fig:visualPlot1} suggests, participants mostly understood the visualizations without needing any assistance. Some participants were overwhelmed with the number of predefined measures and found that just listing the measure name is not very helpful. 
 
 Some participants were surprised when certain measures returned a single value instead of a chart. This was because they mistook visualizations for charts. 
 \input{../plots/visualization.tex}
@@ -148,12 +149,11 @@ Overall, participants seemed to be eager to add measures to the success model.
 We conclude that success modeling does indeed increase the success awareness of the community. 
 
 \subsection{General usability of the bot}
-For this section, the general usability of the mensabot was evaluated. For this, we used the System Usability Scale (SUS).
+For this section, we evaluated the general usability of the mensabot. We used the System Usability Scale (SUS).
 
 Calculating the usability score\footnote{\label{note1}\url{https://www.usability.gov/how-to-and-tools/methods/system-usability-scale.html}} with the arithmetic means results in a score of 71.7, which is above the average usability score of 68 and is an Adjective Rating of \textbf{Good} \footnote{\url{https://uiuxtrend.com/measuring-system-usability-scale-sus/}}.
 
 \input{../plots/sus.tex}
-
 
 \subsection{General feedback}
 Participants were finally asked to leave general feedback on the chatbot. This section also includes verbal feedback during the evaluation. 
@@ -181,13 +181,13 @@ Participants wished to have a clickable list instead or buttons where they can s
 The bot provided feedback if some operation might take longer or if something failed. Participants found that feedback helpful. However, one participant also wrote that "There's a general lack of feedback after commands." We assume that the participant meant the delay between the user input and the bot's first response.  
 
 \subsection{Discussion}
-Through our evaluations, we have learned that most community members are aware that contributions are helpful for the community. However, they are less inclined to contribute to the community themselves without receiving anything in return. 
+Through our evaluations, we have learned that most community members are aware that contributions help the community. However, they are less inclined to contribute to the community themselves without receiving anything in return. 
 % We explain this behavior by a lack of interest of some participants in the community. 
 We conclude that the group of participants follows the natural structure of a CoP, which is explained in detail in section \ref{sec:CoP}. Most members of the community only consume information but do not contribute to the community themselves. We learned that users are often not willing to contribute to the community. We propose \emph{Gamification} as an incentive to motivate users to contribute to the community.
 We have added a measure that visualizes the top contributors of the community. It could be possible to periodically display that chart to motivate users to contribute to the community.
-Users could receive badges when reaching defined quotas. The bot could periodically show the users' contribution compared to the rest of the community to motivate them to make more contributions.
-Another solution, which was also brought up during the evaluation sessions, is to use nudging. The bot could ask the user to write a review if they asked for the menu earlier that day.
+Users could receive badges when reaching defined quotas. The bot could periodically show the users' contribution to the rest of the community to motivate them to make more contributions.
+Another solution, brought up during the evaluation sessions, is to use nudging. The bot could ask the user to write a review if they asked for the menu earlier that day.
 
 We found out that the chatbot can be useful to do simple tasks. Even non-experienced users can communicate with the bot, which corresponds to our definition of chatbots in section \ref{sec:chatbots}. Leveraging NLU, the bot can understand user intents and extract intent entities for simple sentence structures with ease. However,  participants felt dissatisfied with the bot as soon as more complex tasks with multiple steps are needed. Furthermore, the more tasks we define for the bot, the slower the intent recognition will be, and the less responsive the bot will be. 
 Furthermore, users can pronounce intents in many different ways. It is difficult to capture all possibilities.
-Therefore, as mentioned in section \ref{sec:NLU}, NLU needs to go beyond analyzing a sentence's syntax. It should rather focus on narrative understanding by emulating the way a human brain is processing natural language \cite{CaWh14}.
+Therefore, as mentioned in section \ref{sec:NLU}, NLU needs to go beyond analyzing a sentence's syntax. It should rather focus on narrative understanding by emulating how a human brain is processing natural language \cite{CaWh14}.

@@ -1,32 +1,37 @@
-\chapter{Conclusion and Future Work}
+\chapter{Introduction}
+Community Information Systems (CIS) help Communities of Practice (CoPs) in structuring their work by offering tools to coordinate and evaluate different tasks within the community.
+A CoP consists of members with various degrees of knowledge and interest in the field.
+Researchers are the core members of the CoP.
+They contribute to the \emph{success awareness} of the CoP with the help of so-called CIS \emph{success models} \cite{Klam10c}.
+Technical know-how is required to modify those success models, thus hindering the participation of less experienced members
+%, like students or hobbyists, 
+in the development process.
 
-\section{Summary}
-In our work, we analyzed the impact of a chatbot on collaboration and success awareness in the community. We have developed a chatbot that provided community-related information and served as an interface for success modeling.  We have evaluated the chatbot in an existing community.
+Meanwhile, chatbots are offering an intuitive interface to perform tasks with varying degrees of complexity. 
+Therefore, the use of chatbots could increase the \emph{success awareness} non-core members, which increases the overall success awareness of the CoP.
 
-We found that the use of a chatbot increased the success awareness of the community. Users were able to inspect the visualizations without any further help.
-We also found out that the bot increases contributions in the community. Contributions might further increase by other means like Gamification. 
-We confirmed that chatbots are favorable for quick and small tasks. Nonetheless, we noted that complex tasks were less intuitive and that intent recognition is challenging for complex sentence structures.
+\section{Motivation}
+The rise of the World Wide Web allowed researchers to collaborate more easily. Researchers from all over the world can meet and exchange information more easily. A community of researchers studying a particular domain is referred to as (online) Community of Practice (CoP) \cite{Renz08}.
+The success of CoPs relies on various internal and external factors, such as the active participation of its members or the general interest in the field.
+The evaluation of success is described as a dynamic process, as various needs of a CoP are changing over time \cite{Renz08,GKJa08}.
+Thus, the CoP needs to be evaluated continuously to predict future challenges and opportunities.
+Nonetheless, such evaluations are often time-consuming. Automating the evaluation process and providing an intuitive interface helps Communities of Practice (CoP) implement continuous success evaluations into existing CIS, which in return helps them find ways to improve the community \cite{Renz08}.
 
-Thus we conclude that chatbots can be a great tool to assist a community and increases the success awareness of non-experienced users.  
+\emph{Success modelling} is the process of describing the success of a CIS with the help of a model. 
+Current success modeling techniques are complicated web interfaces, which require technical know-how to use them.
+On the other hand, success modeling is a social process in which all community members should participate. However, current web interfaces are often not optimized for collaboration.
+Furthermore, the use of smartphones has not been taken into consideration by classic web interfaces.
+Thus, new interfaces are required, which cope with the form factor of hand-held devices. Those interfaces need to provide simple and intuitive collaboration possibilities to include all community members in the success evaluation process. 
 
+\section{Thesis Goals}
 
-\section{Improvements and Future Work}
-As mentioned in our evaluations, the bots' usability can be improved.
-Users frequently need to select an item from a list of options. 
-The list of options should be enumerated, and the user can provide a number to select the item. This has been done for some tasks and should be easy to implement for the remaining tasks.
-The items in the list should be clickable. The user can select an option by tapping on it. 
-The user should also be able to type the desired item from the list directly into the chat. We could use text mining techniques to comparing the users' input to the items from the list and select the most fitting one.
+Social networks are a popular tool for information exchange and social interaction inside a community.
+Using a chatbot inside a CIS as an interface is easier to learn and seems more natural to non-experienced users.
+Chat platforms are optimized for smartphones and other hand-held devices. Therefore, the use of chatbots might address the preceding issues.
 
-The review process needs to be revised. Users could add reviews more quickly by describing which meal they had and how many stars the meal was worth in one sentence. Consequently, users could add reviews more quickly. The resulting review should be shown after it has been saved. Moreover, it should also be possible to allow users to update them in the future. Lastly, the bot could also provide reviews for certain dishes.
+Accordingly, we created a social bot to define and visualize \emph{success models} for existing CIS. The social bot provides an interface to communicate with the Mobile Community Information System Oracle for Success (MobSOS) system.
 
-We should extend the Social Bot Manager to allow bots and services to distinguish between group chats and direct chat. It should also be possible to restrict certain actions in group chats. For example, the mensabot could be added to a group chat to get the canteen menu, but only allow writing reviews in private chat.
-It should also be possible to filter certain messages. The bot should only respond to messages containing a keyword, e.g., the mentioning by name (\emph{@mensabot}).
+The bot was modeled with the Social Bot Framework and deployed with the las2peer Social Bot Manager. Users can add the bot to a chat platform that allows bots, such as Slack or Telegram.
+The bot can be integrated into group conversations to allow members of a community to collaborate more easily.
 
-We should extend the success modeling service to generate visualizations from the success model and display them periodically in chat. A possibility would also be to generate \emph{reports} in the same fashion that the frontend of the MobSOS CCA does it. 
-
-The MobSOSb Evaluation Center needs to be updated to use the new data format for measure definitions.
-
-We need to fix the picture upload for the Mensa Service. We could use the las2peer FileService to store pictures in the network. The bot can then also be extended to support picture upload. 
-We also need to set up a Mediabase and a crawler such that reviews can be collected from outside the las2peer network. 
-
-Finally, to increase contributions in the community, we should use \emph{Gamification}. A possibility would be to combine the las2peer Gamification framework\footnote{\url{https://github.com/rwth-acis/Gamification-Framework}}.
+The main focus is to combine the MobSOS framework with the Social Bot Framework. We want to determine if such a service improves the communities' collaboration and \emph{success awareness}.

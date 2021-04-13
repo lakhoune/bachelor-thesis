@@ -17,7 +17,7 @@ Social bots are getting more and more popular in Human-Computer Interaction (HCI
 Social bots, which use chat platforms, are called chatbots, or conversational bots \cite{WWX*16,AAA17}.
 Chatbots have recently become very popular in the context of customer care \cite{CHW*17,FVD*16b}, where they act as virtual assistants, which can answer simple questions \cite{CaWh14} or perform predefined tasks. 
 Their simplicity allows even non-experienced users to perform actions of various degrees of difficulty. 
-Chatbots can assist companies in customer service, allowing staff to concentrate on less mundane issues with customers. This increases the effectiveness of the service while lowering costs. \cite{AAA17}
+Chatbots can assist companies in customer service, allowing staff to concentrate on less mundane issues with customers. This increases the effectiveness of the service while lowering costs \cite{AAA17}.
 
 % Chatbots can be classified into chit-chat chatbots, or task-oriented bots.
 % A chit-chat bot engages users into interesting conversations and focusses more on the actual conversation. Task-oriented bots are focused on getting certain actions done. As soon as the desired action is done, the bot will stop the conversation. 
@@ -43,8 +43,8 @@ Most actual NLU algorithms look only at the syntax of words, which relies on sta
 However, humans consider far more information. The reading of a word triggers related concepts and experiences. Those experiences are combined to deduce the meaning of a text.
 
 Computers try to close this knowledge gap with computational models, which emulate human cognitive processing.
-By evaluating the results of those models for a given input, researchers can incrementally improve the accuracy of the model. \cite{CaWh14}
-NLU is a domain that is a key research topic for companies like Google and Facebook. \cite{AAA17}
+By evaluating the results of those models for a given input, researchers can incrementally improve the accuracy of the model \cite{CaWh14}.
+NLU is a domain that is a key research topic for companies like Google and Facebook \cite{AAA17}.
 
 
 \subsection{Communities of Practice}\label{sec:CoP}
@@ -284,14 +284,14 @@ GraphQL does not mandate the use of a specific programming language, the actual 
 Many different implementations have been written for programming languages like Java \footnote{Java GraphQL Library:\href{https://www.graphql-java.com/documentation/master/}{https://www.graphql-java.com/documentation/master/}} and JavaScript. \footnote{JavaScript GraphQL Library:\href{https://www.npmjs.com/package/express-graphql}{https://www.npmjs.com/package/express-graphql}}
 
 Transforming an existing REST API into a GraphQL API can be a cumbersome task \cite{WCL18}. That is why automation processes in the form of Wrappers have been proposed \cite{KKK20}, which convert an existing schema such as a Swagger schema into a GraphQL schema\footnote{\href{https://github.com/yarax/swagger-to-graphql}{Swagger-to-GraphQL}} \footnote{\href{https://github.com/IBM/openapi-to-graphql}{IBM: openapi-to-graphql}} \footnote{\href{https://github.com/rwth-acis/openapi-link-generator}{GitHub: Openapi Link Generator}}.   Such wrappers transform GraphQL requests into RESTful requests as depicted in Figure \ref{fig:graphqlWrapper}.
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth]{realization/graphqlWrapper.png}
     \caption{Example of a GraphQL request}
     \label{fig:graphqlWrapper}
 \end{figure}
 
-In GraphQL, data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean, and String, but new types can also be defined. An example can be seen in \ref{lst:GraphQLType}. \\
+In GraphQL, data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean, and String, but new types can also be defined. An example can be seen in Listing \ref{lst:GraphQLType}.
 \begin{lstlisting}[caption={Example of a GraphQL schema},captionpos=b,label={lst:GraphQLType}]
   type REVIEW { 
     dishId: String 
@@ -303,7 +303,7 @@ In GraphQL, data objects are defined as a \emph{type}. GraphQL provides simple b
     id: ID 
   }
 \end{lstlisting}
-New fields can be dynamically added without influencing existing queries. The schemas are formalized as either a \emph{Query} or a \emph{Mutation}. They are declared by the keyword \emph{schema}. The query keyword can be omitted. An example of a query can be seen in listing \ref{lst:GraphQLQuery}.
+New fields can be dynamically added without influencing existing queries. The schemas are formalized as either a \emph{Query} or a \emph{Mutation}. They are declared by the keyword \emph{schema}. The query keyword can be omitted. An example of a query can be seen in Listing \ref{lst:GraphQLQuery}.
 \begin{lstlisting}[caption={Example of a GraphQL Query},captionpos=b,label={lst:GraphQLQuery}]
 {
   REVIEW(id: "1000") {

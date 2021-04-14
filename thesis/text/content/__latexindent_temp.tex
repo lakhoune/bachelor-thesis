@@ -1,34 +1,145 @@
-\chapter{Conclusion and Future Work}
+\chapter{Concept}\label{cha:concept}
+\section{Scenario: Mensa Community}
+We illustrate the software system by considering a community of frequent canteen visitors. We will call this community the Mensa Community.
+The success principle can be applied to this community because community members share a common interest that they are passionate about: the food at their local canteen \cite{Kers20}.
+The success factors for this community describe how users are interacting with the service. The members of the Mensa community are students and university employees.
 
-\section{Summary}
-In our work, we analyzed the impact of a chatbot on collaboration and success awareness in the community. We have developed a chatbot that provided community-related information and served as an interface for success modeling.  We have evaluated the chatbot in an existing community.
+The community has a hierarchical structure consisting of different community levels.
+In our case, the top-level represents the community of all canteens in Germany.
+The intermediate level represents the local Mensa community of a particular university.
+The lowest level of the community represents a circle of friends, which frequent the canteen together. Note that members can belong to multiple circles of friends. Thus communities can be overlapping.
 
-We found that the use of a chatbot increased the success awareness of the community. Users were able to inspect the visualizations without any further help.
-We also found out that the bot increases contributions in the community. Contributions might further increase by other means like Gamification. 
-We confirmed that chatbots are favorable for quick and small tasks. Nonetheless, we noted that complex tasks were less intuitive and that intent recognition is challenging for complex sentence structures.
+Members of the community use community applications \footnote{\url{https://tech4comp.dbis.rwth-aachen.de/mensa/}}
+\footnote{\url{https://monitor.tech4comp.dbis.rwth-aachen.de/}} 
+to access information about the Mensa and their community respectively.
 
-Thus we conclude that chatbots can be a great tool to assist a community and increases the success awareness of non-experienced users.  
+Members of the community can interact with a chatbot called \emph{mensabot}. The mensabot is modeled using the Social Bot Framework. 
+Users interact with the bot via chat in the Slack workspace of the community. They can ask the bot about the food served on a given day.
+
+As members of the Mensa community are very passionate about the food, they can also use the bot to add a review of their meal.
+
+Furthermore, members can query visualizations about the success of the community through the chat application. Those visualizations include current success metrics defined by members of the community. The metrics are defined using the MobSOS Evaluation Center \cite{Hoss19}. Members can add measures to the success model of the community with the help of the bot.
+
+\subsection{Use Cases}
+
+\subsubsection{Get the menu for the canteen} 
+Alice wants to decide whether to go to the canteen on a given day. She opens the Slack app and asks the bot for the menu at the canteen on that day. The bot looks up the menu for that canteen.
+The resulting menu is displayed inside the chat. 
+Each dish includes an average rating of reviews made by the community. The reviews help Alice decide on a meal.
+
+\subsection{Setting a default city}
+Bob asks the bot about the menu for a canteen called \emph{Mensa Academica}. 
+The bot finds two canteens matching that name. One is located in Aachen, while the other one is located in Leipzig. 
+The bot asks Bob to clarify which canteen he meant by displaying both canteens in a list. Bob chooses the second item in the list. 
+The bot returns the resulting menu.
+The bot asks him if he wants to save the city, in which his canteen is based as his default city. This helps the bot to identify the canteen on further requests better.
+
+\subsubsection{Adding a review} 
+Erdzan just finished his meal at the canteen. To his surprise, the food was better than expected. He decides to do a positive review using the mensabot. 
+The bot will start a dialogue by asking questions about the meal. Each question results in a data point for the review. The bot saves the review and displays the result in the chat.
+
+The bot asks him if he wants to upload a photo of his meal. He chooses to do so. The final review is then added to the database and included in future evaluation requests.
+
+\subsubsection{Issuing a visualization request}
+Aaron is unsure of whether to go to the canteen. 
+He asks the bot how popular a specific canteen is. 
+The community had previously defined \emph{popularity} as a measure in the success model. The measure records the number of requests for that canteen's menu and ranks it according to the other canteens.
+The bot recognizes this as a predefined measure contained in the success model.
+It looks up information about the measure in the measure catalog. 
+
+The measure contains information on how to get the data and how to visualize it. This includes information about the database and the corresponding SQL query on that database. 
+The bot transforms this information into a GraphQL request and sends it to the CCA system's GraphQL API. 
+The GraphQL server returns the appropriate data.
+
+The bot then visualizes this data and displays the resulting visualization inside the chat.
+After the user has seen how good the food is, they are asked by the bot whether they will go to the canteen. They tell the bot that they will go.
+
+\subsubsection{Success Awareness}
+Students in the Mensa community are aware that their community's success depends on the active participation of its members. 
+They are discussing the success of the community inside a group chat. They want to know how active the members of the community are. One student calls the bot, which is a member of the chat group, by name. They tell it to visualize the average time that a user is interacting with the service. The bot recognizes this as a measure and runs a predefined query. The resulting data is visualized in the group chat.
+
+\subsubsection{Success modeling} 
+The students see a trend in the visualization, which indicates that fewer people are using the bot.
+The students blame the Coronavirus for this negative trend as the canteen can only be used as takeout. Furthermore, many students returned to their hometowns.
+The students want to verify that the lack of activities is due to the Coronavirus and not decreasing food quality.
+They ask the bot to update the success model of their community.
+They add a measure that models the average stars of reviews over time.
+After visualizing the new metric, they observe that the average stars have remained more or less constant over time.
+
+The students are asked to add a comment to the change so that community members can understand the reason for the change at a later date.
 
 
-\section{Improvements and Future Work}
-As mentioned in our evaluations, the bots' usability can be improved.
-Users frequently need to select an item from a list of options. 
-The list of options should be enumerated, and the user can provide a number to select the item. This has been done for some tasks and should be easy to implement for the remaining tasks.
-The items in the list should be clickable. The user can select an option by tapping on it.
-The user should also be able to type the desired item from the list directly into the chat. We could use text mining techniques to comparing the users' input to the items from the list and select the most fitting one.
+\subsubsection{Modifying a review} 
+Alexander just added a review to the database. He realizes that he forgot to mention the excellent quality of the fries. 
+He asks the bot if he can still update his review. 
+The bot will ask the user the same questions and, afterward, update the entry in the new review database.
 
-The review process needs to be revised. Users could add reviews more quickly by describing which meal they had and how many stars the meal was worth in one sentence. Consequently, users could add reviews more quickly. The resulting review should be shown after it has been saved. Moreover, it should also be possible to allow users to update them in the future. Lastly, the bot could also provide reviews for certain dishes.
+\subsubsection{Evaluating the service} 
+Peter has been using the bot for some time now. The bot asks questions about the quality of the service. Such questions include how satisfied he is with different aspects of the service or how likely it is to recommend it to a colleague. The results are used for measures in the User Satisfaction dimension.
 
-The mensabot could also use recommender systems to show recommendations for certain dishes. The bot could study the users' behavior for writing reviews. If the user tends to add reviews for a particular dish, the bot could alert the user if that dish is served again in the future.
+\subsubsection{Adding a new database} 
+Core members and moderators of the community can add a new information source by adding a new database to the system. They do it using the frontend of the CCA service and the MobSOS query visualization service.
+The moderators are aware that many members of the community also add reviews on sites like Google reviews. 
+They add a Mediabase containing reviews collected by crawlers from sites like Google Reviews. Those reviews can now also be used for success modeling.
 
-We should extend the Social Bot Manager to allow bots and services to distinguish between group chats and direct chat. It should also be possible to restrict certain actions in group chats. For example, the mensabot could be added to a group chat to get the canteen menu, but only allow writing reviews in private chat.
-It should also be possible to filter certain messages. The bot should only respond to messages containing a keyword, e.g., the mentioning by name (\emph{@mensabot}).
+\subsubsection{Visualizations of multiple databases} 
+Multiple databases can exist in a system. Apart from the reviews added by chat, other reviews are also collected with crawlers. A student requests a visualization of a metric that represents the overall success of the community.
+The data is aggregated from different sources, like reviews on Facebook, Google, stored in the Mediabase, and reviews made inside the las2peer system. 
+The resulting visualization contains all databases' results to define how popular the specific canteen is.
 
-We should extend the success modeling service to generate visualizations from the success model and display them periodically in chat. The bot could periodically generate \emph{reports}. Those reports include all the visualizations from the success model. 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{concept/usecase.png}
+    \caption{Use case diagram for the Chatbot}
+\end{figure}
 
-The MobSOSb Evaluation Center needs to be updated to use the new data format for measure definitions.
+\section{Requirements}
+The requirements are derived from the use case. We distinguish between functional and non-functional requirements.
+\subsection{Functional Requirements}
 
-We need to fix the picture upload for the Mensa Service. We could use the las2peer FileService to store pictures in the network. The bot can then also be extended to support picture upload. 
-We also need to set up a Mediabase and a crawler such that reviews can be collected from outside the las2peer network. 
+\subsubsection{Retrieving Data from GraphQL API}
+The system needs to be able to make queries to the GraphQL API, to get data, which will be used to visualize success metrics. The GraphQL API  for the Continuous Community Analytics systems provides data from different data sources, such as a las2peer database, a Mediabase with data collected from outside the las2peer system, and a database contains service logs.
 
-Finally, to increase contributions in the community, we should use \emph{Gamification}. A possibility would be to combine the las2peer Gamification framework\footnote{\url{https://github.com/rwth-acis/Gamification-Framework}}.
+\subsubsection{Get Menu for a canteen} The bot needs to be able to get the menu for a specific canteen for the given day and display it inside the chat as a list of text items. The service should be able to use the OpenMensa API \footnotemark to get the menu for canteens all over Germany.
+
+\footnotetext{\href{https://doc.openmensa.org/api/v2/}{https://doc.openmensa.org/api/v2/}}
+
+\subsubsection{Enter Review Context} The bot should be able to recognize if a user wants to start a review. This can be done with the help of intent recognition from a RASA server. Adding reviews should only be possible in private chat with the bot.
+
+\subsubsection{Group Chats} Users should be able to add a bot to a group chat. Services which the bot calls should be able to distinguish between private and group chats.
+
+\subsubsection{Restrict certain actions}
+Certain actions should be restricted based on the user that is requesting the action. Updating the success model should only be possible by a member of the community.
+
+\subsubsection{Listen to Mentions} Inside a group chat, the bot should only respond to messages which specifically mentioned the bot. This is important to prevent the bot from spamming public channels.
+
+% \subsubsection{Create new templates} The bot needs to be able to create visualization-request templates and add them to the database.
+
+\subsubsection{Use Google Charts API}
+The data retrieved from the GraphQL API needs to be passed to the Google Charts API to create a visualization. The resulting visualization should be a picture so that it can be represented inside a chat. The visualization can be rendered by using an HTML image generator.
+
+\subsubsection{Cope with spelling mistakes} The bot should be able to understand the user, even if they made a spelling mistake.
+
+\subsection{Non-Functional Requirements}
+
+\subsubsection{Usability} The bot should be easy to use. Non-trained users should be able to interact with the bot with ease.
+
+\subsubsection{UI optimization} The bot should be designed for chats which will mainly run on smartphones. As such, visualizations should be easy to read, even on small devices.
+
+\subsubsection{Compatibility} The bot should be extensible to any chat platform, which allows the use of bots.
+
+\section{System overview}
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{realization/Component_Diagramm.png}
+    \caption{System overview}
+    \label{fig:sytsemOverview}
+\end{figure}
+
+Figure \ref{fig:sytsemOverview} shows how the \emph{Bot Service} can be integrated into an existing community information system. Users communicate with the \emph{Chat Platform}, which transmits requests to the Bot Service.
+
+The Bot Service communicates with the \emph{Community Service} to provide users the same, or similar, information as an existing \emph{Community Application}. The bot service also communicates with the \emph{MobSOS CCA} system to retrieve success visualizations and display them as charts on the Chat Platform. Users can also use the chat to model success queries and modify the existing success model.
+
+Both the community service and the bot service generate logs from requests. The logs are stored in a database representing the \emph{System Quality} dimension of the MobSOS success model. The MobSOS CCA system can retrieve those logs. Furthermore, the MobSOS CCA system also has access to various content databases that represent the \emph{Information Quality} dimension of the MobSOS success model.

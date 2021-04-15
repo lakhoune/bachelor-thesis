@@ -151,7 +151,7 @@ New nodes can join the las2peer network by using the \emph{bootstrap} flag follo
 
 The services inside a network share a key-value store as a distributed hash table (DHT). The entries are stored on each node's host filesystem. The entries are encrypted by their author. Only the author can change the value of an entry.
 
-\footnotetext{\href{https://las2peer.org/}{las2peer.org}}
+\footnotetext{\url{https://las2peer.org/}}
 
 Groups are a feature in las2peer for security and defining rights in a community. 
 A user can create a group by generating a \emph{GroupAgent}. 
@@ -175,7 +175,7 @@ Logging data in MobSOS can be done by using the listing \ref{lst:logging}
         MonitoringEvent.SERVICE_CUSTOM_MESSAGE_X, data
     );
 \end{lstlisting}.
-The MonitoringEvent \texttt{enum} provides different events which are logged in the network. An overview of the different monitoring events can be found on GitHub \footnote{\href{https://github.com/rwth-acis/mobsos-data-processing/wiki/Built-In-Monitoring-Events}{GitHub: MonitoringEvent}}. 
+The MonitoringEvent \texttt{enum} provides different events which are logged in the network. An overview of the different monitoring events can be found on GitHub \footnote{\url{https://github.com/rwth-acis/mobsos-data-processing/wiki/Built-In-Monitoring-Events}}. 
 Each service can use its own events by using the \texttt{MonitoringEvent.CUSTOM\_MESSAGE\_X}, where \emph{X} is a number between 1 and 99. 
 Those \texttt{data} variables contains generic JSON data. This data provides information about how community members are using the service.
 To monitor messages in the service, the service needs to be started using the \texttt{--observer} flag.
@@ -183,13 +183,13 @@ The data is stored in the MobSOS MySQL database under the \texttt{MESSAGE} table
 
 The MobSOS Data Processing service\footnotemark processes data, which are monitored in the context of a service in the network, and stores it in a database.
 
-\footnotetext{\href{https://github.com/rwth-acis/mobsos-data-processing}{GitHub: Data Processing}}
+\footnotetext{\url{https://github.com/rwth-acis/mobsos-data-processing}}
 
 
 \subsubsection{MobSOS Success Modelling}
 
 The MobSOS Success Modelling service\footnotemark can be used in order to create and manage success models that follow the six success dimensions proposed by DeLone and McLean \cite{DeMc92}.
-\footnotetext{\href{https://github.com/rwth-acis/mobsos-success-modeling}{GitHub: Success Modelling}}
+\footnotetext{\url{https://github.com/rwth-acis/mobsos-success-modeling}}
 Each group in a las2peer network can create multiple success models for each las2peer service in the network. 
 The groups reflect the las2peer \emph{GroupAgent} and the services reflect the \emph{ServiceAgents} in the las2peer network.
 The success model contains the six MobSOS dimensions.
@@ -201,9 +201,7 @@ The success model contains the six MobSOS dimensions.
             <measure name="No Factors or Measures yet"/>
         </factor>
     </dimension>
-    .
-    .
-    .
+    ...
     <dimension name="name of dimension n">
         <factor name="Name of factor">
             <measure name="No Factors or Measures yet"/>
@@ -220,7 +218,7 @@ Three types of visualization are supported
     \item Chart: This visualization returns a chart as a picture. Different chart types from the Google Charts API\footnotemark are available.
     \item KPI: This visualization uses an arbitrary amount of queries, with each query returning a value. The values from the query can be combined through various mathematical operations.
 \end{itemize}
-\footnotetext{\href{https://developers.google.com/chart}{Google Charts}}
+\footnotetext{\url{https://developers.google.com/chart}}
 
 
 \subsection{Social Bot Framework}
@@ -232,10 +230,10 @@ Recent changes of the SBF enabled bidirectional communication between the Social
 The modeling space of the SBF can be used collaboratively. The modeling canvas is used to model the bot. Icons, representing elements of the bot, can be selected from the palette widget and connected with each other. 
 
 The GUI also includes an NLU Model Training helper, which can be used to write training data for intent recognition using a Rasa server.
-The resulting model is sent to the Social Bot Manager which deploys the bot and handles the communication with chat platforms, like \emph{Slack} \footnote{\href{https://slack.com/}{Slack}} or \emph{rocket.chat}\footnote{\href{https://rocket.chat/}{rocket.chat}}. 
+The resulting model is sent to the Social Bot Manager which deploys the bot and handles the communication with chat platforms, like \emph{Slack} \footnote{\url{https://slack.com/}} or \emph{rocket.chat}\footnote{\url{https://rocket.chat/}}. 
 The Social Bot Manager service\footnotemark is a las2peer service and can thereby call other las2peer services in the network. 
 Thereby the bot can perform service requests to any service in a las2peer network.
-\footnotetext{\href{https://github.com/rwth-acis/las2peer-social-bot-manager-service}{GitHub: Social Bot Manager}}
+\footnotetext{\url{https://github.com/rwth-acis/las2peer-social-bot-manager-service}}
 
 \subsection{RASA}
 Rasa is an open-sourced framework for building chat- and voice-based bots. The goal of RASA is to bring current advances in machine-learning to end-users, such that they can create chatbots in a simple way \cite{BFPN17}. 
@@ -246,7 +244,7 @@ The \emph{intent}\footnotemark of a message represents the thing that the user t
 Entities are keywords that are relevant to the current context.
 Intent recognition is done by using a text classification based on the fastText approach \cite{BFPN17}. 
 fastText has similar accuracy to conventional deep learning classifiers but is much faster and more easily scalable \cite{JGBM16}.
-\footnotetext{\href{https://rasa.com/docs/rasa/glossary\#intent}{Rasa: intents}}
+\footnotetext{\url{https://rasa.com/docs/rasa/glossary\#intent}}
 
 RASA Core consists of a \emph{Tracker}, a \emph{Policy} and a set of \emph{Actions} \cite{BFPN17}. The Tracker manages the current state of the conversation. It gets an intent as input and forwards it the Policy, which selects the next Action, given the current state of the conversation and a predefined list of actions for each intent. The Action triggers the Tracker to recalculate the new state and might also send a reply to the user.
 
@@ -269,22 +267,22 @@ data.addRows([
 	['Pepperoni', 2]
 ]);
 \end{lstlisting}
-\footnotetext{\href{https://developers.google.com/chart}{Google Charts API}}
+\footnotetext{\url{https://developers.google.com/chart}}
 
 The visualizations are rendered as SVGs in the browser or downloaded as a PNG file by making a \texttt{http} call with the \texttt{getImageURI} as image URI parameter. 
 
 \subsection{GraphQL}
 GraphQL\footnotemark is a query language specification for web APIs.
-\footnotetext{GraphQL: \href{https://graphql.github.io/}{https://graphql.github.io/}}
-Instead of calling multiple endpoints for different requests, users can get all data from one endpoint by specifying what they need in a query. This prevents over- and under-fetching of data\footnotemark, thus increasing overall performance. This leads to a better user experience \cite{KKK20}.
+\footnotetext{GraphQL: \url{https://graphql.github.io/}}
+Instead of calling multiple endpoints for different requests, users can get all data from one endpoint by specifying what they need in a query. This prevents over- and under-fetching of data\footnotemark, thus increasing overall performance, thus, leading to a better user experience \cite{KKK20}.
 
-\footnotetext{\href{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}}
+\footnotetext{\url{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}}
 
 GraphQL does not mandate the use of a specific programming language, the actual implementation is up to the developer of the server. \footnotemark
-\footnotetext{\href{http://spec.graphql.org/June2018/}{http://spec.graphql.org/June2018/}}
-Many different implementations have been written for programming languages like Java \footnote{Java GraphQL Library:\href{https://www.graphql-java.com/documentation/master/}{https://www.graphql-java.com/documentation/master/}} and JavaScript. \footnote{JavaScript GraphQL Library:\href{https://www.npmjs.com/package/express-graphql}{https://www.npmjs.com/package/express-graphql}}
+\footnotetext{\url{http://spec.graphql.org/June2018/}}
+Many different implementations have been written for programming languages like Java \footnote{Java GraphQL Library:\url{https://www.graphql-java.com/documentation/master/}} and JavaScript. \footnote{JavaScript GraphQL Library:\url{https://www.npmjs.com/package/express-graphql}}
 
-Transforming an existing REST API into a GraphQL API can be a cumbersome task \cite{WCL18}. That is why automation processes in the form of Wrappers have been proposed \cite{KKK20}, which convert an existing schema such as a Swagger schema into a GraphQL schema\footnote{\href{https://github.com/yarax/swagger-to-graphql}{Swagger-to-GraphQL}} \footnote{\href{https://github.com/IBM/openapi-to-graphql}{IBM: openapi-to-graphql}} \footnote{\href{https://github.com/rwth-acis/openapi-link-generator}{GitHub: Openapi Link Generator}}.   Such wrappers transform GraphQL requests into RESTful requests as depicted in Figure \ref{fig:graphqlWrapper}.
+Transforming an existing REST API into a GraphQL API can be a cumbersome task \cite{WCL18}. That is why automation processes in the form of Wrappers have been proposed \cite{KKK20}, which convert an existing schema such as a Swagger schema into a GraphQL schema\footnote{\url{https://github.com/yarax/swagger-to-graphql}} \footnote{\url{https://github.com/IBM/openapi-to-graphql}} \footnote{\url{https://github.com/rwth-acis/openapi-link-generator}}.   Such wrappers transform GraphQL requests into RESTful requests as depicted in Figure \ref{fig:graphqlWrapper}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth]{realization/graphqlWrapper.png}
@@ -327,14 +325,14 @@ mutation addReview(){
 
 \subsection{Docker and Kubernetes}
 Docker\footnotemark is an open-source containerizing technology, which aims to simplify and accelerate the development of web services.
-\footnotetext{\href{https://www.docker.com/}{Docker}}
+\footnotetext{\url{https://www.docker.com/}}
 A Docker \emph{container} is a standalone executable package that contains all dependencies for the actual application. Docker containers run using the Docker \emph{engine}. Docker \emph{images} define the way a container should run, while the container is the actual runtime.
 In contrast to virtual machines (VMs), Docker containers are virtualizations of the application layer instead of the physical hardware layer. Thereby, they take up less space (only a few MBs) and are faster to boot.
 Docker images can be uploaded to Docker registries\footnotemark, which are central repositories for Docker images. 
-\footnotetext{\href{https://docs.docker.com/docker-hub/}{Docker: Docker-hub}}
+\footnotetext{\url{https://docs.docker.com/docker-hub/}}
 
 Kubernetes\footnotemark (K8s) is an open-source container orchestration tool, which automates deployment and scaling of a containerized application, like Docker containers. 
-\footnotetext{\href{https://kubernetes.io/}{Kubernetes}}
+\footnotetext{\url{https://kubernetes.io/}}
 K8s introduces an abstraction layer to containers called \emph{pods}. Pods can contain multiple containers. Pods are created and managed automatically by K8s. K8s also introduces \emph{services}, which serve as the communication endpoint of the pod, as it maps a single IP address to a pod. This is necessary as the IP address of the pod can change if it is restarted.
 The different applications can communicate with each other using \texttt{http}. 
 Different services and pods can be grouped together in \emph{name-spaces}.

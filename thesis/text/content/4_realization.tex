@@ -12,7 +12,7 @@ In section \ref{sec:additional}, we describe additional components. Figure \ref{
 \section{Structure}\label{sec:structure}
 The system consists of three major components: the \emph{Social Framework}, the \emph{Mensa Service}\footnotemark and the \emph{MobSOS} services. 
 % The resulting bot model can be seen in \ref{fig:botmodel}
-\footnotetext{\href{https://github.com/rwth-acis/las2peer-Mensa-Service}{las2peer Mensa Service}}
+\footnotetext{\url{https://github.com/rwth-acis/las2peer-Mensa-Service}}
 \subsection{Social Bot Framework}
 The Social Bot Framework is used to model and deploy the \emph{mensabot}. The mensabot is created in the space \emph{mensabot} of the Social Bot Framework.
 % \begin{figure}[h]
@@ -120,7 +120,7 @@ Using the OpenMensa API has one drawback. The menu is displayed only in the cant
 However, it also has many advantages:
 \begin{itemize}
     \item We are not limited to canteens in Aachen but can get canteens from all over Germany, Luxembourg, and Austria. 
-    \item We do not have to scrape the webpage of the Studierendenwerk \footnote{\href{https://www.studierendenwerk-aachen.de/}{Studierendenwerk Aachen}}, which is prone to errors if they change their frontend.
+    \item We do not have to scrape the webpage of the Studierendenwerk \footnote{\url{https://www.studierendenwerk-aachen.de/}}, which is prone to errors if they change their frontend.
 \end{itemize}
 Initially, the service stored canteen-related information in the shared node storage. The service was modified to use its own database. Using a database allows us to persist data and make them available for MobSOS related success visualizations. 
 Therefore some tables were added to the LAS2PEERMON schema:
@@ -132,7 +132,7 @@ Therefore some tables were added to the LAS2PEERMON schema:
         \item address (varchar(255)): The address of the canteen
         \item city (varchar(255)): The city in which the canteen is located 
     \end{itemize}
-    The entries are updated once a month, as the list of canteens does not often change \footnote{\href{ OpenMensa API specification}{https://doc.openmensa.org/api/v2/canteens/}}
+    The entries are updated once a month, as the list of canteens does not often change \footnote{\url{ OpenMensa API specification}}
     \item \texttt{Dishes}: This table contains information about the dishes served at canteens. Whenever the service fetches a new menu, it checks whether it had not been fetched in the last six hours. If not, the entries are updated. The table contains the following columns:
     \begin{itemize}
         \item id (int PK): The id of the dish. 

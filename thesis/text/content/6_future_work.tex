@@ -25,8 +25,11 @@ We should extend the Social Bot Manager to allow bots and services to distinguis
 It should also be possible to filter certain messages. The bot should only respond to messages containing a keyword, e.g., the mentioning by name (\emph{@mensabot}).
 
 We should extend the success modeling service to generate visualizations from the success model and display them periodically in chat. The bot could periodically generate \emph{reports}. Those reports include all the visualizations from the success model. 
-
 The MobSOSb Evaluation Center needs to be updated to use the new data format for measure definitions.
+We could also use the Slack API to get workspace analytics\footnotemark.
+Those analytics could be added to MobSOS to get more community insights.
+
+\footnotetext{\url{https://api.slack.com/methods/admin.analytics.getFile}}
 
 We need to fix the picture upload for the Mensa Service. We could use the las2peer FileService to store pictures in the network. The bot can then also be extended to support picture upload. 
 We also need to set up a Mediabase and a crawler such that reviews can be collected from outside the las2peer network. 

@@ -1,341 +1,332 @@
-%  Prerequisites
-\chapter{State of the Art}
-This chapter provides an overview of the concepts and technologies that are necessary for our current work. First, we define domain-specific terms in section \ref{lab:background}. We describe the technologies used in the implementation in section \ref{lab:systems}.
+\chapter{Realization}
+In the following chapter, we describe the realization of the software system. In section \ref{sec:structure}, we give an overview of the core components and how they interact with each other. 
+In section \ref{sec:additional}, we describe additional components. Figure \ref{fig:componentsOverview} shows an overview of the core components. Additional components from section \ref{sec:additional} are omitted to prevent cluttering.
 
-\section{Background} \label{lab:background}
-
-This section introduces the concepts, which are relevant to the implementation part of this thesis.
-
-\subsection{Social Bots and Chatbots}\label{sec:chatbots}
-Bots are interfaces, providing automated services to end-users.
-In contrast to traditional computer programs, bots can use the same services and perform the same actions as human users. Those actions include browsing web pages or issuing API calls.
-\begin{quote}
-    ``A social bot is a computer algorithm that automatically produces content and interacts with humans on social media, [...]'' \cite{FVD*16b}
-\end{quote}
-Social bots are interacting with users in human-like conversations.
-Social bots are getting more and more popular in Human-Computer Interaction (HCI), as they integrate automation into the daily lives of people \cite{BFPN17}. Users interact with a social bot through a dedicated channel like the chat functionality of a social network.
-Social bots, which use chat platforms, are called chatbots, or conversational bots \cite{WWX*16,AAA17}.
-Chatbots have recently become very popular in the context of customer care \cite{CHW*17,FVD*16b}, where they act as virtual assistants, which can answer simple questions \cite{CaWh14} or perform predefined tasks. 
-Their simplicity allows even non-experienced users to perform actions of various degrees of difficulty. 
-Chatbots can assist companies in customer service, allowing staff to concentrate on less mundane issues with customers. This increases the effectiveness of the service while lowering costs \cite{AAA17}.
-
-% Chatbots can be classified into chit-chat chatbots, or task-oriented bots.
-% A chit-chat bot engages users into interesting conversations and focusses more on the actual conversation. Task-oriented bots are focused on getting certain actions done. As soon as the desired action is done, the bot will stop the conversation. 
-
-We can distinguish between retrieval-based chatbots and generic chatbots \cite{NLKl19,WWX*16}.
-Retrieval-based bots are more focused on getting specific tasks done than engaging in a coherent conversation.
-Retrieval-based chatbots measure the similarity of user queries to candidate responses and run the task that is defined for that response.
-
-Generic chatbots, on the other hand, also produce generic responses.
-An advantage of generic chatbots is that they provide a better user experience as users can interact more naturally with them than with retrieval-based chatbots.
-
-Chatbots use natural language processing techniques to determine what the user wants to do.
-Chatbots provide a better user experience \cite{CHW*17} than traditional command-based tools because the user is not required to memorize commands to get the desired results.
-Thus, even non-trained users can use such chatbots.
-Users can interact with them in a familiar environment. 
-Therefore, chatbots are desirable as assistants.
-
-\subsubsection{Natural Language Understanding}\label{sec:NLU}
-Natural Language Understanding (NLU) is a branch of Artificial Intelligence (AI), which aims to make computer programs understand human language.
-NLU transforms a block of input text into a data structure that is programmer-friendly but still describes the original meaning of the text \cite{CWB*11}.
-
-Most actual NLU algorithms look only at the syntax of words, which relies on statistical features, such as word occurrence frequency \cite{CaWh14}.
-However, humans consider far more information. The reading of a word triggers related concepts and experiences. Those experiences are combined to deduce the meaning of a text.
-
-Computers try to close this knowledge gap with computational models, which emulate human cognitive processing.
-By evaluating the results of those models for a given input, researchers can incrementally improve the accuracy of the model \cite{CaWh14}.
-NLU is a domain that is a key research topic for companies like Google and Facebook \cite{AAA17}.
-
-
-\subsection{Communities of Practice}\label{sec:CoP}
-A Community of Practice (CoP) is a special kind of community consisting of members studying a particular domain.
-\begin{quote}
-    ``
-    Communities of practice are groups of people who share a concern or a passion for something they do and learn how to do it better as they interact regularly.''  \cite{Weng98}
-\end{quote}
-In contrast to traditional knowledge systems, where a student passively receives his information, the learner is actively participating in the community by voluntarily sharing his knowledge with other members of the community \cite{AMMi15,Kern08}.
-The advantage of CoPs is that they make the learning process easier \cite{SaAr05} and the transfer of knowledge faster \cite{CuZe05}.
-
-Members of a CoP have different degrees of knowledge of the domain.
-For example, a student has less knowledge than a researcher in a specific domain.
-Furthermore, members have various degrees of interest in the practice of the community.
-Members with a lot of interest in that domain tend to know more about it and tend to contribute more to the community.
-Such members are called \emph{core members} of the community.
-Members, which are less active in the community are called \emph{lurkers}.
-
-Members of CoPs do not have to belong to the same organization but participate in common work through social interactions \cite{Weng98}. In the case of an online CoP, this could be an online social network \cite{CuZe05}. Multiple, overlapping, CoPs can communities can exist inside a single CoP.
-
-\subsection{Measurement of Success}
-Communities need to constantly be aware of their successes and failures to improve their work and adjust to current requirements.
-A general model for success does not exist, as communities are very diverse, dynamic, and informal structures with permeable boundaries.
-The members of the community thus can be active participators in the community success modeling, as the success factors are relevant to the practice of the community members \cite{RKJa15}.
-
-The community must continuously adjust the success factors of the success model to satisfy current requirements. Success factors can be internal aspects, like project duration, cost, and quality. Success factors can also be external aspects, like customer satisfaction \cite{AgRa06}.
-
-It is important to note that a project can be evaluated from different perspectives \cite{RKJa15}, like the developers, the customers, or the end-users.
-In each of these perspectives, each dimension of success can be more or less valuable.
-DeLone and McLean \cite{DeMc92} base their model on six different interdependent measures:
-\begin{itemize}
-    \item \textbf{System Quality} are factors that describe the technical specifications of the system, such as service response time and scalability.
-    \item \textbf{Information Quality} are factors about content quality, such as understandability and conciseness.
-    \item \textbf{Use} are factors about how a system is used, such as the regularity of use by individual users or for the whole community.
-    \item \textbf{User Satisfaction} includes factors describing users' personal experiences and is thereby largely subjective.
-    \item \textbf{Individual Impact} are factors about how a user adapts to the system over time, such as task performance.
-    \item \textbf{Organizational (or Community) Impact} includes factors about how the system influences the organization (or community) over time.
-\end{itemize}
-\begin{figure}[!h]
-    \centering
-    \begin{tikzpicture}[node distance=3.0cm and 6.0cm]
-        \node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (0,2) (SysQ) {System\\ Quality};
-        \node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (0,0) (InfoQ) {Information\\ Quality};
-        \node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (4,2) (Use) {Use};
-        \node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (4,0) (UserSat) {User\\ Satisfaction};
-        \node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (8,1) (Indivi) {Individual\\ Impact};
-        \node[draw, align=center, minimum width=3cm, minimum height=1.2cm] at (12,1) (Orga) {Organizational\\ Impact};
-        \draw [->, very thick] (InfoQ) -- (Use);
-        \draw [->, very thick] (InfoQ) -- (UserSat);
-        \draw [->, very thick] (SysQ) -- (Use);
-        \draw [->, very thick] (SysQ) -- (UserSat);
-        \draw [->, very thick] (Use) -- (Indivi);
-        \draw [->, very thick] (UserSat) -- (Indivi);
-        \draw [->, very thick] (Use) -- (UserSat);
-        \draw [->, very thick] (UserSat) -- (Use);
-        \draw [->, very thick] (Indivi) -- (Orga);
-        \draw[dotted] (2,-1) -- (2,3);
-        \draw[dotted] (6,-1) -- (6,3);
-    \end{tikzpicture}
-    \caption{Community Information Systems Success Model by DeLone and McLean~\cite{DeMc92}}
-    \label{CISModel}
-\end{figure}
-In order to collect data for the metrics, one should follow the principle \cite{RKJa15}:
-\begin{quotation}
-    ``observe, where possible; only survey,	where inevitable.''
-\end{quotation}
-
-\subsection{MobSOS}
-The Mobile Community Information System Oracle for Success (MobSOS) framework is a tool, which assists online communities in monitoring and evaluating services. The MobSOS success model extends the classical IS success model of DeLone and McLean (D\&M) by adding features, which were not covered by the original model, such as Quality of Service and mobility \cite{Renz08}.
-The MobSOS Success Modelling concept is described as an iterative process. 
-
-The MobSOS Continuous Community Analytics (CCA) services extend the MobSOS framework by providing visualizations of MobSOS data and the ability to add Mediabases \cite{Kers20}, which can be used for visualizations.
-
-\subsection{Mediabase}
-Storing Web 2.0 data is a challenging task due to the variety of different non-interoperable formats.
-Mediabase is a concept that has been proposed to store Web 2.0 data in a dynamic way by delivering an analysis environment for Web Science data sets \cite{KlPe08}.
-Mediabase uses graphs to model the generated data.
-The nodes in those graphs are called \emph{Actors} and represent either a \emph{ Medium}, an \emph{Artifact}, a \emph{Member} or a \emph{Network}.
-A \emph{ Medium} can be a blog or a wiki.
-The \emph{Artifact} would be an individual entry.
-The \emph{Network} represents the community in which the different \emph{Members} interact.
-\emph{Members} do not have to be human but are assigned a specific role in the \emph{Network}.
 \begin{figure}[h]
     \centering
-    \includegraphics*[width=0.9\linewidth]{related_work/mediabase.png}
-    \caption{Mediabase Overview \cite{Klam10e}}
+    \includegraphics[width=\linewidth]{realization/components_overview.png}
+    \caption{Overview of the different components}
+    \label{fig:componentsOverview}
 \end{figure}
-Furthermore, Mediabase includes \emph{Services}, like a \emph{Watcher} to inspect the data.
-A Mediabase consists of a backend database, like DB2, or MySQL, crawler scripts, monitoring processes, and a frontend for visualization of data and user interaction.
 
-This approach is favorable for the management of large scale-free dynamic social graphs.
+\section{Structure}\label{sec:structure}
+The system consists of three major components: the \emph{Social Framework}, the \emph{Mensa Service}\footnotemark and the \emph{MobSOS} services. 
+% The resulting bot model can be seen in \ref{fig:botmodel}
+\footnotetext{\url{https://github.com/rwth-acis/las2peer-Mensa-Service}}
+\subsection{Social Bot Framework}
+The Social Bot Framework is used to model and deploy the \emph{mensabot}. The mensabot is created in the space \emph{mensabot} of the Social Bot Framework.
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=\linewidth]{realization/botmodel.png}
+%     \caption{Bot model inside the canvas}
+%     \label{fig:botmodel}
+% \end{figure}
 
-\section{Systems} \label{lab:systems}
-This section describes existing systems which will be used for the realization of this project.
+We created the bot model using the canvas of the frontend. 
+% The resulting model is shown in Figure \ref{fig:botmodel}. 
+The frontend also serves to write the intents to train an NLU model for intent recognition. 
+The bot should be able to be added to group channels. The bot should act as a quiet agent listening to mentions and filter out the rest of the conversations.
+A mention has the following form \texttt{@botname}, where \emph{botname} represents the username that the bot has in the Slack channel.
 
-\subsection{las2peer}
-las2peer\footnotemark is a platform, which allows users to deploy their HTTP services with ease. 
-It is a distributed platform based on peer-to-peer networks without a central authority \cite{KRdJ16}.
-Each service is a \emph{node} in the network. Many nodes can form a peer-to-peer seed network, communicating through standard protocols. 
-Data storage and communications are encrypted, adding an extra layer of security to las2peer services.
-This allows even small communities to design and deploy secure las2peer services. 
 
-New nodes can join the las2peer network by using the \emph{bootstrap} flag followed by the IP address of one of the nodes in the network. The service can be addressed by its \emph{ServiceAgent id}  or by listening to an arbitrary topic. It can address other services in the network in the same way. 
+\subsection{MobSOS services}
+The MobSOS services include the MobSOS Data Processing, MobSOS Success Modelling, MobSOS CCA GraphQL, MobSOS CCA REST services.
 
-The services inside a network share a key-value store as a distributed hash table (DHT). The entries are stored on each node's host filesystem. The entries are encrypted by their author. Only the author can change the value of an entry.
+\subsubsection{MobSOS CCA GraphQL and REST}
+The MobSOS CCA backend service has access to three different databases. First, the MobSOS CCA service can access the food reviews stored inside the las2peer database of MobSOS.
 
-\footnotetext{\href{https://las2peer.org/}{las2peer.org}}
+Second, the system can access \emph{Mediabase} data, which contains data from reviews made outside of the las2peer system. 
+This data could be collected by a crawler bot, which searches Google and Twitter for reviews of the canteen. 
+Those two databases provide mostly data for the Information Quality factors of the MobSOS success model.
 
-Groups are a feature in las2peer for security and defining rights in a community. 
-A user can create a group by generating a \emph{GroupAgent}. 
+Third, the service can also access monitoring data generated by the Bot and the Mensa Service, stored in the MobSOS database. 
 
-In order to communicate with the nodes of the las2peer network from outside, a \emph{WebConnector} can be started on a node. This connector handles REST requests to the services. A service can then be accessed over HTTP by the following URL scheme: 
-\begin{lstlisting}
-  http(s)://ip:port/serviceAlias/methodName
-\end{lstlisting}
-The \emph{serviceAlias} is a name, which identifies the service in the network. 
+Initially, the REST service fetched data from the database by providing a SQL query and the database and schema on which it should run. It would then create a connection to that database, execute the query and create a JSON object from the \texttt{ResultSet}. 
 
-las2peer includes an editor for Modelling and Code Generation called Community Application Editor (CAE). 
-The CAE follows a model-driven approach as the  las2peer services can be created by designing a model using the \emph{Canvas} widget. The editor can be used as a collaborative, near-real-time framework \cite{dND*16}. 
+The problem with this approach is that the order of the attributes specified in the \texttt{SELECT} statement of the query is lost.
+However, this order is crucial when making visualizations. 
+We considered two possible solutions:
+\begin{enumerate}
+    \item Modify the service to provide the data directly as an array of arrays.
+    \item Send order information along with the response and then use it to sort the data.
+\end{enumerate}
+In order to still comply with the GraphQL specification, we went along with option 2. 
 
-las2peer also includes a framework for community evaluation based on MobSOS. This framework can be used to monitor and evaluate the success data of community applications.
+% Those monitoring messages provide the system quality factors of the MobSOS success model.
 
-\subsubsection{MobSOS Data Processing}
-The MobSOS Data Processing service collects logs from the Mensa service and the MobSOS Success Modelling service. 
-Logging data in MobSOS can be done by using the listing \ref{lst:logging}
-\begin{lstlisting}[caption=Example use of a MonitoringEvent,captionpos=b,label={lst:logging}]
-    Context.get().monitorEvent(
-        MonitoringEvent.SERVICE_CUSTOM_MESSAGE_X, data
-    );
-\end{lstlisting}.
-The MonitoringEvent \texttt{enum} provides different events which are logged in the network. An overview of the different monitoring events can be found on GitHub \footnote{\href{https://github.com/rwth-acis/mobsos-data-processing/wiki/Built-In-Monitoring-Events}{GitHub: MonitoringEvent}}. 
-Each service can use its own events by using the \texttt{MonitoringEvent.CUSTOM\_MESSAGE\_X}, where \emph{X} is a number between 1 and 99. 
-Those \texttt{data} variables contains generic JSON data. This data provides information about how community members are using the service.
-To monitor messages in the service, the service needs to be started using the \texttt{--observer} flag.
-The data is stored in the MobSOS MySQL database under the \texttt{MESSAGE} table. The table contains a column \texttt{REMARKS} which is used to store the JSON data.
-
-The MobSOS Data Processing service\footnotemark processes data, which are monitored in the context of a service in the network, and stores it in a database.
-
-\footnotetext{\href{https://github.com/rwth-acis/mobsos-data-processing}{GitHub: Data Processing}}
 
 
 \subsubsection{MobSOS Success Modelling}
 
-The MobSOS Success Modelling service\footnotemark can be used in order to create and manage success models that follow the six success dimensions proposed by DeLone and McLean \cite{DeMc92}.
-\footnotetext{\href{https://github.com/rwth-acis/mobsos-success-modeling}{GitHub: Success Modelling}}
-Each group in a las2peer network can create multiple success models for each las2peer service in the network. 
-The groups reflect the las2peer \emph{GroupAgent} and the services reflect the \emph{ServiceAgents} in the las2peer network.
-The success model contains the six MobSOS dimensions.
-\begin{lstlisting}[ caption=Example of a success model,language=XML ]
-<SuccessModel name="Name of success model" 
-    service="your.service.name@version">
-    <dimension name="name of dimension 1">
-        <factor name="Name of factor">
-            <measure name="No Factors or Measures yet"/>
-        </factor>
-    </dimension>
-    .
-    .
-    .
-    <dimension name="name of dimension n">
-        <factor name="Name of factor">
-            <measure name="No Factors or Measures yet"/>
-        </factor>
-    </dimension>
-</SuccessModel>
-\end{lstlisting}
-Each of these dimensions includes a list of success factors describing the dimension.
-Each factor contains a list of success measures. The success measures are stored in a separate file called \emph{Measurement Catalog}. A measure defines how to get data and how to visualize it. 
+The measure definition was modified by including additional information about which database the query is executed on. 
+Listing \ref{lst:measure} shows an example.
+The \texttt{data} element contains the SQL query under the \texttt{query} element and information about where to execute the query contained in the \texttt{database} element.
+The attributes for the \texttt{database} element are \texttt{name} and \texttt{schema}. The name identifies the database on the GraphQL server. 
+The schema attribute describes which database schema to use.
+If the database attribute is omitted, the default database name and schema are used, which are \texttt{las2peer} and \texttt{LAS2PEERMON} respectively.
+Thereby, the community can visualize data from any database supported by the GraphQL service.
 
-Three types of visualization are supported
+\begin{lstlisting}[language=XML, caption= example of a Measure, label=lst:measure,escapeinside={(*@}{@*)}]
+<measure name="Your measurement">
+    (*@\textcolor{blue}{<data name="Your dataset">}@*)   
+        <query name="countOfMessage">
+            SELECT COUNT(*) as number FROM MESSAGE
+        </query>
+        (*@\textcolor{blue}{<database name="las2peer" schema="LAS2PEERMON"/>}@*)
+    (*@\textcolor{blue}{</data>}@*)
+    <visualization type="Value">
+        <unit/>
+    </visualization>
+</measure>
+\end{lstlisting}
+
+In the case of a chart visualization, the MobSOS Success Modelling service uses the Data2chart service. This service transforms the data into a picture of a chart in base64 encoding. This encoded picture is sent back to the success modeling service, which sends it back to the social bot manager.
+
+\subsection{Data2Chart}
+We wrote this service\footnotemark to render google charts as an image that could be sent to the bot and visualized in the chat. We developed this service as an alternative to the MobSOS query visualization service, which did not provide the option to render the chart as an image. 
+\footnotetext{\url{https://github.com/lakhoune/image-renderer}}
+The service is written in NodeJS and uses an NPM library called google-charts-node\footnotemark.
+\footnotetext{\url{https://www.npmjs.com/package/google-charts-node}}
+The google-charts-node module creates an HTML file that loads the google charts and then renders that HTML file in a headless browser \footnotemark and returns the resulting image.
+\footnotetext{\url{https://www.npmjs.com/package/puppeteer}}
+The MobSOS success modeling service calls the NodeJS server if a bot is requesting a visualization. It includes the data for the graph in a \texttt{POST} request, which has the following form:
+\begin{lstlisting}
+POST  http://localhost:3000/ HTTP/1.1
+content-type: application/JSON
+
+{
+    "data": [...],
+    "chartType":"BarChart",
+    "options":{
+        "title":"Chart title",
+        "hAxis":{
+            "title":"Axis title"
+        }
+    },
+    "clean":true 
+}
+\end{lstlisting}
+Under the data key, an array of data points. Each data point can be in the form of an array or JSON object. 
+The chartType specifies the type of the chart. It uses the same format as the Google Charts API. 
+Options also follow the same structure as defined by the Google Charts API.
+The clean attribute specifies whether the data should be cleaned. The Google Charts API expects each data point to be of the same length. Cleaning in this context means that each data point with fewer attributes than the data point with the maximum number of attributes is removed.
+The data will be cleaned unless this attribute is specifically set to true.  
+
+\subsection{Mensa Service}
+The Mensa Service provides information about the community to the bot. This information includes canteens, dishes, and reviews. The Mensa service logs MobSOS data used to get insights into how the Mensa community uses it.
+
+We also extended the Mensa service to use the OpenMensa API \footnote{\url{https://openMensa.org/}}. 
+Using the OpenMensa API has one drawback. The menu is displayed only in the canteen's local language, so we cannot get the dishes name in English anymore.
+However, it also has many advantages:
 \begin{itemize}
-    \item Value: This visualization returns a single value with an optional unit
-    \item Chart: This visualization returns a chart as a picture. Different chart types from the Google Charts API\footnotemark are available.
-    \item KPI: This visualization uses an arbitrary amount of queries, with each query returning a value. The values from the query can be combined through various mathematical operations.
+    \item We are not limited to canteens in Aachen but can get canteens from all over Germany, Luxembourg, and Austria. 
+    \item We do not have to scrape the webpage of the Studierendenwerk \footnote{\url{https://www.studierendenwerk-aachen.de/}}, which is prone to errors if they change their frontend.
 \end{itemize}
-\footnotetext{\href{https://developers.google.com/chart}{Google Charts}}
+Initially, the service stored canteen-related information in the shared node storage. The service was modified to use its own database. Using a database allows us to persist data and make them available for MobSOS related success visualizations. 
+Therefore some tables were added to the LAS2PEERMON schema:
+\begin{itemize}
+    \item \texttt{Mensas}: This table contains information about canteens, supported by the OpenMensa API. It contains the columns:
+    \begin{itemize}
+        \item id (int PK): The id of the canteen
+        \item name (varchar(255)): The name of the canteen
+        \item address (varchar(255)): The address of the canteen
+        \item city (varchar(255)): The city in which the canteen is located 
+    \end{itemize}
+    The entries are updated once a month, as the list of canteens does not often change \footnote{\url{ OpenMensa API specification}}
+    \item \texttt{Dishes}: This table contains information about the dishes served at canteens. Whenever the service fetches a new menu, it checks whether it had not been fetched in the last six hours. If not, the entries are updated. The table contains the following columns:
+    \begin{itemize}
+        \item id (int PK): The id of the dish. 
+        \item mensaId (int PK): The canteen's id at which the dish was served. The id references a key in the \texttt{mensas} table
+        \item name (varchar(255)): The name of the dish.
+        \item category (varchar(255)): The category of the dish. Categories do not seem to be structured. Each region of canteen seems to have its own category names.
+    \end{itemize}
+    \item \texttt{Reviews}: This table contains reviews of food made by the community. It contains the following columns:
+    \begin{itemize}
+        \item id (int AI PK): The id of the review.
+        \item author (varchar(255)): The author of the review. For reviews made by the chatbot, the email address of the user is used.
+        \item mensaId (int): The id of the canteen at which the food was served. This attribute references a canteen in the \texttt{mensas} table
+        \item dishId (int): The id of the dish. This id references a dish in the \texttt{dishes} table.
+        \item timestamp (timestamp): The timestamp at which the review was recorded
+        \item stars (int): The overall satisfaction with the food. The values range from 1 to 5.
+        \item comment (varchar(255)): The user can choose to add a comment to his review.
+    \end{itemize}
+\end{itemize}
+We added the tables to the LAS2PEERMON schema, but in the future, we could set up a separate Mediabase.
+Ids seem to be unique for each dish at each canteen, each day it is served. To reduce overhead, we should define \texttt{name}, \texttt{mensaId} as primary keys for dishes.
 
 
-\subsection{Social Bot Framework}
-The Social Bot Framework (SBF) is a Web-based model-driven near-real-time environment to develop social bots \cite{NLKl19,Neum18}. 
-The model-driven development allows less experienced users to take part in the development process. This type of development is favorable for creating a chatbot inside a Community of Practice (CoP). 
-The framework consists of a GUI and a Social Bot Manager Service.
-The GUI of the Social Bot Framework is used to model the bot and define the actions, which the bot should perform. 
-Recent changes of the SBF enabled bidirectional communication between the Social Bot Manager Service and chat platforms \cite{Wies19}.
-The modeling space of the SBF can be used collaboratively. The modeling canvas is used to model the bot. Icons, representing elements of the bot, can be selected from the palette widget and connected with each other. 
+\section{Social Bot}
+The bot acts as an interface between the user and the las2peer backend services. The bot is called \emph{Mensabot}.
+Chat messages from users are sent to the bot manager service. 
+The bot manager uses a RASA server for intent recognition. 
+The RASA server also extracts the name of the Mensa and the city in which it is located as possible intent entities from the user input.
 
-The GUI also includes an NLU Model Training helper, which can be used to write training data for intent recognition using a Rasa server.
-The resulting model is sent to the Social Bot Manager which deploys the bot and handles the communication with chat platforms, like \emph{Slack} \footnote{\href{https://slack.com/}{Slack}} or \emph{rocket.chat}\footnote{\href{https://rocket.chat/}{rocket.chat}}. 
-The Social Bot Manager service\footnotemark is a las2peer service and can thereby call other las2peer services in the network. 
-Thereby the bot can perform service requests to any service in a las2peer network.
-\footnotetext{\href{https://github.com/rwth-acis/las2peer-social-bot-manager-service}{GitHub: Social Bot Manager}}
+Certain actions trigger a service call to the \emph{Mensa Service}, or the \emph{Success Modelling Service}.
+The services get access to the user message.  
+The services also get access to context information like the intent and the entities recognized by the RASA server.
 
-\subsection{RASA}
-Rasa is an open-sourced framework for building chat- and voice-based bots. The goal of RASA is to bring current advances in machine-learning to end-users, such that they can create chatbots in a simple way \cite{BFPN17}. 
-RASA is split into a component for natural-language understanding (RASA NLU), and a dialogue management component (RASA Core).
+Furthermore, they also get access to meta-information from the chat platform like the \texttt{channel\_id} of the Slack channel or the chat user's email address. 
+The email address is used to store user information in the service. We added a static HashMap, which maps email addresses to context information. The context information for a particular user is a \texttt{JSON} object containing itself generic \texttt{Object}s referenced by a \texttt{string} key. 
+Storing this information inside the service is important for a REST service, as the context is lost on the next service request.
 
-RASA NLU is used to extract the \emph{intents} and intent \emph{entities} of a user message.
-The \emph{intent}\footnotemark of a message represents the thing that the user tries to accomplish. 
-Entities are keywords that are relevant to the current context.
-Intent recognition is done by using a text classification based on the fastText approach \cite{BFPN17}. 
-fastText has similar accuracy to conventional deep learning classifiers but is much faster and more easily scalable \cite{JGBM16}.
-\footnotetext{\href{https://rasa.com/docs/rasa/glossary\#intent}{Rasa: intents}}
-
-RASA Core consists of a \emph{Tracker}, a \emph{Policy} and a set of \emph{Actions} \cite{BFPN17}. The Tracker manages the current state of the conversation. It gets an intent as input and forwards it the Policy, which selects the next Action, given the current state of the conversation and a predefined list of actions for each intent. The Action triggers the Tracker to recalculate the new state and might also send a reply to the user.
-
-The system is built in a modularized way, with each service providing HTTP APIs \cite{BFPN17}. Thereby, the NLU component can be used independently of the rest of the framework, making it easy to integrate it into an existing system \cite{RaKe19}.
-
-
-\subsection{Google Charts API}
-Google Charts API\footnotemark is an API that provides visualizations for database data. The data, which should be visualized needs to be wrapped inside a JavaScript class called \texttt{DataTable}, which represents a two-dimensional table with rows and columns, where each column has a datatype.
-A new column can be added using the \texttt{DataTable.addColumn} function, which takes the type and name as input. An example can be seen in Listing \ref{lst:gglCharts} from the Google Charts API documentation\footnotemark[\value{footnote}].
-
-\begin{lstlisting}[caption=Example use of the DataTable class,captionpos=b,label={lst:gglCharts}]
-var data = new google.visualization.DataTable();
-data.addColumn('string', 'Topping');
-data.addColumn('number', 'Slices');
-data.addRows([
-	['Mushrooms', 3],
-	['Onions', 1],
-	['Olives', 1], 
-	['Zucchini', 1],
-	['Pepperoni', 2]
-]);
-\end{lstlisting}
-\footnotetext{\href{https://developers.google.com/chart}{Google Charts API}}
-
-The visualizations are rendered as SVGs in the browser or downloaded as a PNG file by making a \texttt{http} call with the \texttt{getImageURI} as image URI parameter. 
-
-\subsection{GraphQL}
-GraphQL\footnotemark is a query language specification for web APIs.
-\footnotetext{GraphQL: \href{https://graphql.github.io/}{https://graphql.github.io/}}
-Instead of calling multiple endpoints for different requests, users can get all data from one endpoint by specifying what they need in a query. This prevents over- and under-fetching of data\footnotemark, thus increasing overall performance. This leads to a better user experience \cite{KKK20}.
-
-\footnotetext{\href{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}{https://www.howtographql.com/basics/1-graphql-is-the-better-rest}}
-
-GraphQL does not mandate the use of a specific programming language, the actual implementation is up to the developer of the server. \footnotemark
-\footnotetext{\href{http://spec.graphql.org/June2018/}{http://spec.graphql.org/June2018/}}
-Many different implementations have been written for programming languages like Java \footnote{Java GraphQL Library:\href{https://www.graphql-java.com/documentation/master/}{https://www.graphql-java.com/documentation/master/}} and JavaScript. \footnote{JavaScript GraphQL Library:\href{https://www.npmjs.com/package/express-graphql}{https://www.npmjs.com/package/express-graphql}}
-
-Transforming an existing REST API into a GraphQL API can be a cumbersome task \cite{WCL18}. That is why automation processes in the form of Wrappers have been proposed \cite{KKK20}, which convert an existing schema such as a Swagger schema into a GraphQL schema\footnote{\href{https://github.com/yarax/swagger-to-graphql}{Swagger-to-GraphQL}} \footnote{\href{https://github.com/IBM/openapi-to-graphql}{IBM: openapi-to-graphql}} \footnote{\href{https://github.com/rwth-acis/openapi-link-generator}{GitHub: Openapi Link Generator}}.   Such wrappers transform GraphQL requests into RESTful requests as depicted in Figure \ref{fig:graphqlWrapper}.
-\begin{figure}[H]
+\subsection{Communication with the Mensa Service}
+The first feature, which was implemented was querying the menu for a specific canteen. 
+The process is depicted in Figure \ref{fig:getMenu}.
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\linewidth]{realization/graphqlWrapper.png}
-    \caption{Example of a GraphQL request}
-    \label{fig:graphqlWrapper}
+    \includegraphics[width=8cm]{realization/bot/menu.png}
+    \caption{Get canteen related information}
+    \label{fig:getMenu}
+\end{figure}
+The user asks the bot for the menu at a specific canteen, which results in a triggered \emph{Bot Action}. This action calls the las2peer Mensa service. 
+
+Possible intent entities recognized at this step are the \emph{name} of the canteen and the \emph{city} in which the canteen is located.
+If the canteen's name is not recognized, the bot will ask the user again to specify it. 
+
+The city name can be omitted. In this case, multiple canteens may match the name provided by the user. In that case, the bot will provide a list of all matching canteen names and then ask the user to choose one of the canteens from the list. The list is saved in context so that the user can provide a number, and the service can then select the appropriate canteen from the list.
+
+After fetching the menu, the bot asks the user if they would like to set the city where the canteen is located as their default city. If the user types yes, then this city is saved in the context of the user. On further requests, this information can help extract the right canteen if more canteen names are possible. 
+We chose to set the default city instead of the default canteen students from one Mensa community might visit different canteens in the same city and less likely to change cities. 
+
+Next, we implemented the review process as a question-based dialogue. An example can be seen in figure \ref{fig:addReview}.
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=\linewidth]{realization/bot/review.png}
+%     \caption{Add a review}
+%     \label{fig:addReview}
+% \end{figure}
+
+\begin{figure}[h]
+    \begin{minipage}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{realization/bot/review1.png} 
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{realization/bot/review2.png}
+        
+    \end{minipage}
+    \caption{An example of what the review process looks like}
+    \label{fig:addReview}
 \end{figure}
 
-In GraphQL, data objects are defined as a \emph{type}. GraphQL provides simple base-types like Int Float, Boolean, and String, but new types can also be defined. An example can be seen in Listing \ref{lst:GraphQLType}.
-\begin{lstlisting}[caption={Example of a GraphQL schema},captionpos=b,label={lst:GraphQLType}]
-  type REVIEW { 
-    dishId: String 
-    mensaId: String 
-    timestamp: String 
-    stars: Int 
-    comment:String
-    author: String 
-    id: ID 
-  }
-\end{lstlisting}
-New fields can be dynamically added without influencing existing queries. The schemas are formalized as either a \emph{Query} or a \emph{Mutation}. They are declared by the keyword \emph{schema}. The query keyword can be omitted. An example of a query can be seen in Listing \ref{lst:GraphQLQuery}.
-\begin{lstlisting}[caption={Example of a GraphQL Query},captionpos=b,label={lst:GraphQLQuery}]
-{
-  REVIEW(id: "1000") {
-    stars,
-    author
-  }
-}
-\end{lstlisting}
-Here we access the rating of the review with the ID 1000.
+The bot starts by asking the user which canteen the user went to and what category of dish they had. If the user did not specify a canteen but had previously asked for the menu, then the Mensa service gets the canteen from the \texttt{ContextInfo}. 
 
-Mutations are used to modify data. An example of a query can be seen in listing \ref{lst:GraphQLMut}.
-\begin{lstlisting}[caption={Example of a GraphQL Mutation},captionpos=b,label={lst:GraphQLMut}]
-mutation addReview(){
-  {
-  author
-	stars 
-  }
-}
-\end{lstlisting}
+The available intent entities are the name of the canteen and a dish's category (e.g., Klassiker/ Vegetarisch).
+The bot then extracts the dish from the menu and asks the user if the canteen and dish were correctly selected. 
+Currently, the service only extracts dish categories by using simple string matching. Furthermore, the dish categories need to be provided in the same way they are listed on the menu. In our case, this means that they need to be provided in German.
 
-\subsection{Docker and Kubernetes}
-Docker\footnotemark is an open-source containerizing technology, which aims to simplify and accelerate the development of web services.
-\footnotetext{\href{https://www.docker.com/}{Docker}}
-A Docker \emph{container} is a standalone executable package that contains all dependencies for the actual application. Docker containers run using the Docker \emph{engine}. Docker \emph{images} define the way a container should run, while the container is the actual runtime.
-In contrast to virtual machines (VMs), Docker containers are virtualizations of the application layer instead of the physical hardware layer. Thereby, they take up less space (only a few MBs) and are faster to boot.
-Docker images can be uploaded to Docker registries\footnotemark, which are central repositories for Docker images. 
-\footnotetext{\href{https://docs.docker.com/docker-hub/}{Docker: Docker-hub}}
+If the user confirms the selection, then the process continues. 
+The serivce stores the canteen and dish in the context. 
+If the selection was wrong, the bot asks the user to retry, specifying the canteen and dish. 
+The service resets the context to the previous step. In this case, this also includes removing the dish and canteen from the user context in the service.
 
-Kubernetes\footnotemark (K8s) is an open-source container orchestration tool, which automates deployment and scaling of a containerized application, like Docker containers. 
-\footnotetext{\href{https://kubernetes.io/}{Kubernetes}}
-K8s introduces an abstraction layer to containers called \emph{pods}. Pods can contain multiple containers. Pods are created and managed automatically by K8s. K8s also introduces \emph{services}, which serve as the communication endpoint of the pod, as it maps a single IP address to a pod. This is necessary as the IP address of the pod can change if it is restarted.
-The different applications can communicate with each other using \texttt{http}. 
-Different services and pods can be grouped together in \emph{name-spaces}.
-K8s also has a service for DNS resolution. Each service gets its own domain in the form \texttt{my-service.my-namespace}.
+After the user confirmed canteen and dish selection, the bot continues to ask the user how many stars (between 1 and 5) would give their meal. 
+The bot asks the user to add a comment to the review. The user may or not add a comment. If the user types \emph{no} into the chat, the bot recognizes this as a rejection intent and adds a review without comment.
+
+We implemented both of these features first, as this allowed us to start collecting food reviews and service logs, which can then be evaluated later with the Success Modelling service.
+Making food reviews should only be allowed in private chat with the bot. 
+The menu query should be available both in private chat and in channels.
+For this to work, the Social Bot Manager service needs to be updated to discern between private and public channels.
+
+\subsection{Communication with the MobSOS Success Modelling service}
+The next feature, which we implemented, was the visualization of success measures. Users can request them by stating that they want to visualize something.
+This triggers the visualization routine of the bot. Figure \ref{fig:visualReqSeq} shows how different components are used in a visualization.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{realization/visualization_sequence.png}
+    \caption{Sequence diagram of a visualization request}
+    \label{fig:visualReqSeq}
+\end{figure}
+
+The bot starts by asking providing the name of a success \emph{measure}. Alternatively, the user can also ask the bot to list all measures of the success model.
+If the user is asked to list measures, they can then choose one of the listed measures. 
+The bot passes the measure name on to the Success Modelling service. The service then gets the success model for the community. This is currently done by using the default group name and default service name, but they can be specified.
+If a group different from the default group is chosen, the service checks if the chat user is part of the las2peer group. 
+It is important to note here that the email address needs to be assigned to an Agent in the network. 
+This can be done by using the las2peer frontend. 
+Groups can also be managed under \emph{AgentTools} on the frontend.  
+The service looks up the measure in the measure catalog. 
+
+The service chooses the desired measure by matching the name with the name the user-provided. 
+The resulting visualization is sent back to the bot service. If the visualization is a chart, the chart is sent as a base64 encoded image.
+
+If no name was found, the service looks up measures with tags in the user input. The tag search results are returned to the user, and the user can choose the measure they want to visualize.
+An example can be seen in figure \ref{fig:visualReq}.
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=\linewidth]{realization/bot/visual.png}
+%     \caption{Requesting a visualisation}
+%     \label{fig:visualReq}
+% \end{figure}
+
+\begin{figure}[h]
+    \begin{minipage}[t]{0.5\textwidth}
+        \centering
+\vspace{0pt}
+
+        \includegraphics[width=\textwidth]{realization/bot/visual1.png} 
+    \end{minipage}
+    \begin{minipage}[t]{0.5\textwidth}
+        \centering
+\vspace{0pt}
+
+        \includegraphics[width=\textwidth]{realization/bot/visual2.png}
+    \end{minipage}
+    \caption{An example of what the review process looks like}
+    \label{fig:visualReq}
+\end{figure}
+
+
+The final feature, which we implemented, was editing the success model. The user first needs to state that he wants to update the success model of the community.
+Currently, elements cannot be updated. 
+However, they can be deleted or added. 
+To delete a factor or a measure, the user specifies it as follows \begin{lstlisting}
+    remove <factor/measure> [name]
+\end{lstlisting}  
+Adding a measure is a bit more complicated. The user first selects a \emph{dimension} which they want to add a measure to. The user then specifies the \emph{factor} under which the measure will be appended. The user can also add a factor by providing a new name. Finally, the user chooses one of the measure catalog measures to add to the success model. 
+The measures from the catalog are predefined using a tool like the MobSOS Evaluation Center. 
+
+After discussions with my supervisor, we decided not to add the ability to formulate queries directly with the bot. 
+We argue that this is not a crucial requirement because community members might not necessarily know how to write them. Furthermore, the ones that do can probably do it more efficiently by editing the measure catalog directly.
+
+% The measures contain a \texttt{tags} attribute, which can be used to add keywords to a measure. The bot uses entity extraction to extract possible tags from a user message, used in the success modeling service to find the right measure for the visualization in the measure catalog and success model.
+
+% The Bot Service communicates with the MobSOS Success Modelling system to get visualizations of the success model. The bot sends the resulting visualizations to the user in the chat.
+% Furthermore, it can also be used to modify the success model of the community. 
+% Finally, the success modeling will be implemented. Users should be able
+% to modify the success model in chat. Therefore, an updated routine needs to be implemented, which is recognized as a specific intent.
+% The bot is modeled with the help of the Social Bot Framework frontend canvas and deployed on the las2peer social bot manager service.
+
+
+\section{Additional services}\label{sec:additional}
+Some additional systems were deployed or added during my work.
+
+\subsection{Mensa Guide}
+The Mensa Guide service is a frontend to the las2peer Mensa service. It provides basic functionalities like getting the menu for canteens in Aachen, doing reviews, and uploading pictures for dishes. It was updated to use the latest version of the Mensa service backend. It should also be extended in the future to use all available canteens. This should be easy to do as we have added a service function to get a list of all canteens in a particular city.
+
+\subsection{MobSOS evaluation Center}
+The MobSOS evaluation Center is a service that communicates with the MobSOS backend services. It provides a range of functionalities. Those include contact management and group management. 
+It also allows community members to edit existing success models or create new ones.
+Furthermore, it also provides visualizations for the success model's measures, which it gets from the MobSOS query visualization service.
+
+\subsection{MobSOS query visualization service}
+The MobSOS query visualization service is a las2peer service that can be used to make visualizations of data in a database. It also allows users to add new databases and store SQL queries. The MobSOS Evaluation Center uses this service to get the visualizations for success measures.
+
+% \subsection{MobSOS CCA}
+% The MobSOS CCA system needs to be extended such that the success model data can be visualized and sent as a picture to the user. Therefore, the Google Charts API will be used in combination with an HTML renderer, which will render the visualizations which were produced by the Charts API and send them back as a PNG to the Bot Service.
+
+% This measure is recognized by the bot to run the visualizations. Additionally, templates will be available, which are to be run when specific intents are recognized, such that the query visualizations can be done intuitively.
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[height=0.45\textheight]{realization/chat_mockup.png}
+%     \caption{Example use of community Service with the Bot}
+%     \label{fig:chatMockup}
+% \end{figure}
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[height=0.45\textheight]{realization/visual_req.png}
+%     \caption{Example of a chat interaction with the Bot}
+%     \label{fig:visualReq}
+% \end{figure}

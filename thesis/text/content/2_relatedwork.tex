@@ -39,7 +39,7 @@ Therefore, chatbots are desirable as assistants.
 Natural Language Understanding (NLU) is a branch of Artificial Intelligence (AI), which aims to make computer programs understand human language.
 NLU transforms a block of input text into a data structure that is programmer-friendly but still describes the original meaning of the text \cite{CWB*11}.
 
-Most actual NLU algorithms look only at the syntax of words, which relies on statistical features, such as word occurrence frequency \cite{CaWh14}.
+Current NLU algorithms look only at the syntax of words, which relies on statistical features, such as word occurrence frequency \cite{CaWh14}.
 However, humans consider far more information. The reading of a word triggers related concepts and experiences. Those experiences are combined to deduce the meaning of a text.
 
 Computers try to close this knowledge gap with computational models, which emulate human cognitive processing.
@@ -114,7 +114,7 @@ In order to collect data for the metrics, one should follow the principle \cite{
 
 \subsection{MobSOS}
 The Mobile Community Information System Oracle for Success (MobSOS) framework is a tool, which assists online communities in monitoring and evaluating services. The MobSOS success model extends the classical IS success model of DeLone and McLean (D\&M) by adding features, which were not covered by the original model, such as Quality of Service and mobility \cite{Renz08}.
-The MobSOS Success Modelling concept is described as an iterative process. 
+The MobSOS Success Modeling concept is described as an iterative process. 
 
 The MobSOS Continuous Community Analytics (CCA) services extend the MobSOS framework by providing visualizations of MobSOS data and the ability to add Mediabases \cite{Kers20}, which can be used for visualizations.
 
@@ -162,13 +162,13 @@ In order to communicate with the nodes of the las2peer network from outside, a \
 \end{lstlisting}
 The \emph{serviceAlias} is a name, which identifies the service in the network. 
 
-las2peer includes an editor for Modelling and Code Generation called Community Application Editor (CAE). 
+las2peer includes an editor for Modeling and Code Generation called Community Application Editor (CAE). 
 The CAE follows a model-driven approach as the  las2peer services can be created by designing a model using the \emph{Canvas} widget. The editor can be used as a collaborative, near-real-time framework \cite{dND*16}. 
 
 las2peer also includes a framework for community evaluation based on MobSOS. This framework can be used to monitor and evaluate the success data of community applications.
 
 \subsubsection{MobSOS Data Processing}
-The MobSOS Data Processing service collects logs from the Mensa service and the MobSOS Success Modelling service. 
+The MobSOS Data Processing service collects logs from the Mensa service and the MobSOS Success Modeling service. 
 Logging data in MobSOS can be done by using the listing \ref{lst:logging}
 \begin{lstlisting}[caption=Example use of a MonitoringEvent,captionpos=b,label={lst:logging}]
     Context.get().monitorEvent(
@@ -186,14 +186,14 @@ The MobSOS Data Processing service\footnotemark processes data, which are monito
 \footnotetext{\url{https://github.com/rwth-acis/mobsos-data-processing}}
 
 
-\subsubsection{MobSOS Success Modelling}
+\subsubsection{MobSOS Success Modeling}
 
-The MobSOS Success Modelling service\footnotemark can be used in order to create and manage success models that follow the six success dimensions proposed by DeLone and McLean \cite{DeMc92}.
+The MobSOS Success Modeling service\footnotemark can be used in order to create and manage success models that follow the six success dimensions proposed by DeLone and McLean \cite{DeMc92}.
 \footnotetext{\url{https://github.com/rwth-acis/mobsos-success-modeling}}
 Each group in a las2peer network can create multiple success models for each las2peer service in the network. 
 The groups reflect the las2peer \emph{GroupAgent} and the services reflect the \emph{ServiceAgents} in the las2peer network.
 The success model contains the six MobSOS dimensions.
-\begin{lstlisting}[ caption=Example of a success model,language=XML ]
+\begin{lstlisting}[ caption=Example of a success model,language=XML,captionpos=b ]
 <SuccessModel name="Name of success model" 
     service="your.service.name@version">
     <dimension name="name of dimension 1">

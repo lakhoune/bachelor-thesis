@@ -235,39 +235,39 @@
 
 
 
-% \section{Concept}
-% \subsection{Use Case}
-% \begin{frame}{Mensa Communities}
-%   \begin{itemize}
-%     \item Community of people frequently visiting the mensa
-%     \item Community consists of students and university employees
-%     \item Similar to the concept of Community of Practice %share a concern: food at the canteen. And Interact regularly: Students argumenting on which mensa is the best?? Freqwuent visits to mensa
-%     \item Different community levels:
-%           \begin{itemize}
-%             \item Top level: all mensa frequenteers in Germany
-%             \item Intermediate level: all mensa frequenteers for a University
-%             \item Low level: individual circle of friends, which frequent the canteen together %Members can belong to different circles of friends->overlapping
-%           \end{itemize}
-%   \end{itemize}
-% \end{frame}
+\section{Concept}
+\subsection{Use Case}
+\begin{frame}{Mensa Communities}
+  \begin{itemize}
+    \item Community of people frequently visiting the mensa
+    \item Community consists of students and university employees
+    \item Similar to the concept of Community of Practice %share a concern: food at the canteen. And Interact regularly: Students argumenting on which mensa is the best?? Freqwuent visits to mensa
+    % \item Different community levels:
+    %       \begin{itemize}
+    %         \item Top level: all mensa frequenteers in Germany
+    %         \item Intermediate level: all mensa frequenteers for a University
+    %         \item Low level: individual circle of friends, which frequent the canteen together %Members can belong to different circles of friends->overlapping
+    %       \end{itemize}
+  \end{itemize}
+\end{frame}
 
 
 
-% % \begin{frame}{Mensa Bot}
-% %   For this community a chatbot is designed, which can be used to
-% %   \begin{itemize}
-% %     \item Get the menu for a canteen
-% %     \item Rate meals
-% %     \item Query success visualizations for meals, canteens and other success metrics, which can be designed by the community
-% %   \end{itemize}
-% %   The chatbot is deployed with Slack.
-% % \end{frame}
+\begin{frame}{mensabot}
+  For this community a chatbot called \emph{mensabot} is designed, which can be used to
+  \begin{itemize}
+    \item Get the menu for a canteen
+    \item Rate meals
+    \item Query success visualizations designed by the community
+    \item Modify the success model of the community
+  \end{itemize}
+  The chatbot is deployed to Slack.
+\end{frame}
 
 % \begin{frame}{Use case diagram for the Chatbot}
 %   \begin{figure}
 %     \centering
 %     \includegraphics[height=0.85\textheight]{concept/usecase.png}
-
 %   \end{figure}
 % \end{frame}
 
@@ -282,45 +282,39 @@
 %   \end{figure}
 % \end{frame}
 
-% \section{Realization}
+\section{Realization}
 
-% \begin{frame}\begin{columns}
-%     \begin{column}[]{0.7\textwidth}
-%       \begin{figure}
-%         \centering
-%         \includegraphics[height=0.9\textheight]{realization/components_overview.png}
-%         \caption{Overview of the different components}
-%         \label{fig:componentsOverview}
-%       \end{figure}
-%     \end{column}
-%     \begin{column}[]{0.3\textwidth}
-%       Technologies:
-%       \begin{itemize}
-%         \item Chat Platforms
-%               \begin{itemize}
-%                 \item Slack
-%                 \item Telegram
-%                 \item Rocket Chat
-%               \end{itemize}
-%         \item Social Bot Framework
-%         \item Mensa Service
-
-%         \item MobSOS
-%               \begin{itemize}
-%                 \item MobSOS CCA
-%                 \item MobSOS Data Processing
-%                 \item MobSOS Success Modeling
-%               \end{itemize}
-%         \item Mediabase
-%               \begin{itemize}
-%                 \item Javascript Crawler for Twitter
-%               \end{itemize}
-%         \item las2peer
-%       \end{itemize}
-%     \end{column}
-%   \end{columns}
-
-% \end{frame}
+\begin{frame}\begin{columns}
+    \begin{column}[]{0.7\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[height=0.9\textheight]{realization/components_overview.png}
+        \caption{Overview of the different components}
+        \label{fig:componentsOverview}
+      \end{figure}
+    \end{column}
+    \begin{column}[]{0.3\textwidth}
+      Technologies:
+      \begin{itemize}
+        \item Chat Platform (Slack)
+        \item las2peer
+        \item Social Bot Manager
+        \item Mensa Service
+        \item MobSOS
+              \begin{itemize}
+                \item MobSOS CCA GraphQL API
+                \item MobSOS CCA REST API
+                \item MobSOS Data Processing
+                \item MobSOS Success Modeling
+              \end{itemize}
+        \item Mediabase
+              \begin{itemize}
+                \item Javascript Crawler
+              \end{itemize}
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
 
 % \begin{frame}{Use of Community Service in Private Chat}
 %   \begin{columns}

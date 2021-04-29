@@ -1,48 +1,4 @@
 
-% \begin{figure}[H] 
-%     \centering
-%     \begin{tikzpicture}
-%       \begin{axis}
-%         [xmin=0.9,xmax=5.1,
-%         label style={font=\footnotesize},
-%         tick label style={font=\footnotesize},
-%         yticklabels,
-%         height=4.5cm,width=8cm,ytick={1,2,3,4,5,6,7},ylabel={Average User Rating }
-%        ,scatter/classes={
-%       a={mark=,red!50!black},
-%       b={mark=,blue!50!black},
-%       c={mark=,green!50!black},
-%       d={mark=,white!50!black}
-%      },title={"I could imagine using the bot to add measures to the success model"}]
-%         \addplot[color=blue,
-%         boxplot prepared={
-%           median= 5,
-%           upper quartile=5,
-%           lower quartile=4,
-%           upper whisker=5,
-%           lower whisker=2,
-%         },
-%          ] coordinates {}; 
-    
-%          \addplot[scatter,only marks,scatter src=explicit symbolic] 
-%        table [
-%          y=y,
-%          x=x
-%         ]
-%     {
-%     x y 
-%     3.37 1 
-    
-%     };
-%     \node[align=center, text=black]
-%     at (axis cs:4.5,1.2) {\scalebox{0.8}{SD=1.38}};
-%       \end{axis}
-%     \end{tikzpicture}
- 
-    
-% \end{figure}
-
-
 \begin{figure}[] 
   \begin{tikzpicture}
     \begin{axis}
@@ -50,7 +6,7 @@
       height=11cm,width=10cm,ytick={1,2,3,4,5,6,7,8,9,10},
                       label style={font=\footnotesize},
                       tick label style={font=\footnotesize}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
-      yticklabels={Being able to edit the success model \\increases the success awareness \\of the community,I could imagine using the bot \\to add measures to the success model},scatter/classes={
+      yticklabels={Being able to edit the success model \\increases the success awareness \\of the community,I could imagine using the bot \\to add measures to the success model,I could imagine myself using this bot \\to make visualizations.,},scatter/classes={
     a={mark=*,red!50!black},
     b={mark=*,blue!50!black},
     c={mark=*,green!50!black},
@@ -74,7 +30,15 @@
       lower whisker=2,
     },
     ] coordinates {}; 
- 
+    \addplot[color=blue,
+    boxplot prepared={
+      median= 4,
+      upper quartile=5,
+      lower quartile=3,
+      upper whisker=5,
+      lower whisker=1,
+    },
+    ] coordinates {}; 
     
        \addplot[scatter,only marks,scatter src=explicit symbolic] 
           table [

@@ -10,7 +10,7 @@
           \begin{itemize}
             \item World-wide collaboration
             \item Fast information exchange
-            \item Community Information Systems (CIS) help structuring their work
+            \item Community Information Systems (CIS) help structure their work
           \end{itemize}
           %researchers in particular from all over the world can collaborate more easily 
           %what Cops are will be discussed in more detail later.
@@ -31,7 +31,7 @@
           \begin{itemize}
             \item Factors are changing over time \cite{Renz16}
             \item Domain-specific success factors
-            \item Less ressources in long-tail communities
+            \item Less resources in long-tail communities
             \item Time consuming
           \end{itemize}
     \item Traditional success modeling systems automate success evaluation
@@ -82,41 +82,42 @@
 \section{State of the Art}
 
 \subsection{Social Bots}
+% \begin{frame}{Social Bots and Chatbots}
+%   \begin{block}{Definition}
+%     ``A social bot is a computer algorithm that automatically produces content and interacts with humans on social media, \dots'' \cite{FVD*16b}
+%   \end{block}
+% \end{frame}
+
 \begin{frame}{Social Bots and Chatbots}
   \begin{block}{Definition}
     ``A social bot is a computer algorithm that automatically produces content and interacts with humans on social media, \dots'' \cite{FVD*16b}
   \end{block}
-\end{frame}
-
-\begin{frame}{Social Bots and Chatbots}
-%   \begin{block}{Definition}
-%     ``A social bot is a computer algorithm that automatically produces content and interacts with humans on social media, \dots'' \cite{FVD*16b}
-%   \end{block}
+  \ \\
   \begin{itemize}
     % \item integrate automation into daily lives of users  %e.g. Alexa Smart Home, Shopping lists Reminders
     % \item Users interact with bots by voice or chat %in the case of chat: Chatbots
     \item Provide better user experience, compared to traditional interfaces, as they are more intuitive to use
     \item Engage users in human-like conversations 
-    \item Use Natural Language Understanding to determine users' intent
+    % \item Use Natural Language Understanding to determine users' intent
 \end{itemize}
 \end{frame}
 
 
 \subsection{Success in Communities of Practice}
+% \begin{frame}{Communities of Practice}
+%   \begin{block}{Definition}
+%     ``Communities of practice are groups of people who share a concern or a passion for something they do and learn how to do it better as they interact regularly.'' \cite{Weng98}
+%   \end{block}
+% \end{frame}
+
 \begin{frame}{Communities of Practice}
   \begin{block}{Definition}
     ``Communities of practice are groups of people who share a concern or a
     passion for something they do and learn how to do it better as they interact regularly.'' \cite{Weng98}
   \end{block}
-\end{frame}
-
-\begin{frame}{Communities of Practice}
-%   \begin{block}{Definition}
-%     ``Communities of practice are groups of people who share a concern or a
-%     passion for something they do and learn how to do it better as they interact regularly.'' \cite{Weng98}
-%   \end{block}
+  \ \\
   \begin{itemize}
-    \item CoPs are diverse communities, which study a certain domain
+    % \item CoPs are diverse communities, which study a certain domain
     \item Learner is actively participating in the work of the community
     \begin{itemize}
         \item Naturally gains knowledge in the domain
@@ -126,7 +127,7 @@
           %informal structures: This means that there are no strict rules about the hierarchy inside a community and they do not follow the same structure as traditional organizations
           %Permeable boundaries: This means that it is not clearly defined which members belong to the CoP and which don't
     \item CoPs contain sub-communities which can be overlapping
-    \item CoPs use Communitiy Information Systems to structure their work
+    \item CoPs use Community Information Systems to structure their work
           % members can belong to more than one community
   \end{itemize}
 \end{frame}
@@ -158,7 +159,7 @@
 % \end{frame}
 
 
-\begin{frame}{Measurement of Success}
+\begin{frame}{Success of a CoP}
   \begin{columns}
     \begin{column}[]{0.3\textwidth}
       \begin{itemize}
@@ -190,14 +191,15 @@
 \begin{frame}{MobSOS}
 
   \begin{itemize}
-    \item MobSOS success model is based on the success model of DeLone and McLean
-    \item Core Component of las2peer
-    \item Monitors las2peer services
+    % \item MobSOS success model is based on the success model of DeLone and McLean
+    % \item Core Component of las2peer
+    \item Monitors las2peer services \cite{Renz16}
     \begin{itemize}
-        \item MobSOS Success Modeling
         \item MobSOS Data Processing
+        \item MobSOS Success Modeling
     \end{itemize}
-    \item MobSOS Continuous Community Analytics \cite{Kers20} extends MobSOS
+    \item MobSOS Continuous Community Analytics \cite{Kers20} 
+    % extends MobSOS
           \begin{itemize}
             \item Provides visualizations of MobSOS data
             \item Ability to dynamically add databases
@@ -375,8 +377,8 @@
 \section{Evaluation}
 \begin{frame}{Research Questions}
   \begin{enumerate}
-    \item Does the use of chatbots increase the success awareness of the community?
-    \item Does it increase collaboration between members?
+    \item How does the use of chatbots affect the success awareness of the community?
+    \item How does it affect collaboration between members?
     % \item Does it improve the user experience in terms of mobility?
   \end{enumerate}
 \end{frame}
@@ -396,7 +398,23 @@
       \input{../plots2/canteen.tex}
     \end{column}
     \begin{column}[t]{0.5\textwidth}
-      \input{../plots2/canteen2.tex}
+      \begin{itemize}
+        \item Participants are aware of the importance of contributions
+        \item But: are less inclined to contribute themselves
+        % \item This confirms earlier findings which 
+        \item Confirms that only about 10\% of the community actively contribute \cite{Kers20}
+       \item Participants suggested that contributing without receiving anything in return was not attractive to them.
+        \item Possible Solution: introduce \emph{Gamification}
+        \begin{itemize}
+          \item Periodic visualization of Top contributors 
+          \item Collect points for making reviews
+          \item Special bot functionalities could be unlocked at a certain level e.g.
+          \begin{itemize}
+            \item Recommendations for canteens
+            \item Alerts if a certain dish is served
+          \end{itemize} 
+        \end{itemize}
+      \end{itemize}
     \end{column}
   \end{columns}
 \end{frame}
@@ -404,210 +422,35 @@
 \begin{frame}{Evaluation of visualization task}
   \begin{columns}
     \begin{column}[t]{0.5\textwidth}
-      \input{../plots2/visualization.tex}
+      \input{../plots2/success.tex}
     \end{column}
     \begin{column}[t]{0.5\textwidth}
-      \input{../plots2/visualization3.tex}
+      \begin{itemize}
+        \item Visualizations were intuitive to participants
+        \item Participants wished to get more information about measures
+        \item The success model itself seemed not very intuitive to users.
+        \begin{itemize}
+          \item Provide general information of the meaning of elements in the success model.
+          \item Participants suggested starting the success modeling by selecting a measure to be easier 
+        \end{itemize}
+        \item Overall, both success modeling and visualizations were well received
+      \end{itemize}
     \end{column}
   \end{columns}
 \end{frame}
 
-
-\begin{frame}{Evaluation of success modeling task}
- 
-      \input{../plots2/success.tex}
-   
-      % \input{../plots2/success2.tex}
-   
-\end{frame}
-
 \begin{frame}{Discussion}
   \begin{itemize}
-    \item Overall, the chatbot is usefull for simple tasks
+    \item Chatbot was evaluated using the System Usability Scale (SUS)
+    \begin{itemize}
+      \item SUS score of 71,7 \textbf{Good}
+    \end{itemize}
+    \item Overall, the chatbot is useful for simple tasks
     \item Chatbot increases the success awareness in the community
     \item Most community members are aware that contributions help the community.
     \item However, they are less inclined to contribute to the community themselves.
-    \item Participants suggested that contributing without receiving anything in return was not attractive to them.
-    \item Solution: introduce \emph{Gamification}
-    \begin{itemize}
-      \item Visualization of Top contributers 
-    \end{itemize}
+    \item We need to introduce incentives to increase contributions
   \end{itemize}
 \end{frame}
-% \begin{frame}{Overview}
-%   \begin{itemize}
-%     \item Find mensa community
-%     \item Participants are part of the mensa community
-%     \item Evaluation will be done on two phases:
-%           \begin{itemize}
-%             \item  Community Service Phase
-%             \item Success Modeling Phase
-%           \end{itemize}
-%   \end{itemize}
-% \end{frame}
 
 
-% \begin{frame}{Community Service Phase}
-%   \begin{itemize}
-%     \item Evaluate the usability of the bot for getting menu and making reviews
-%     \item Volunteers will join a new Mensa Slack group
-%     \item The chatbot is included in a group channel
-%           \begin{itemize}
-%             \item can be used to query menu
-%           \end{itemize}
-%     \item Members are asked to make a food review by private chat with the bot
-%     \item Hand out questionnaire covering usability of the bot
-%     \item Feedback is included into the success model of the community
-%   \end{itemize}
-% \end{frame}
-
-% \begin{frame}{Success Modeling Phase}
-%   \begin{itemize}
-%     \item Evaluate the collaboration aspect of the bot
-%     \item Preferably same volunteers as first phase %maybe some new features were added in the first phase which they can now try out... See their impact on the community
-%     \item Divide into groups of 2-3 students
-%           \begin{itemize}
-%             \item make visualization requests
-%             \item update the success model
-%           \end{itemize}
-%           Use MobSOS CCA frontend and new chatbot
-%     \item Hand out questionnaire covering collaboration and success awareness
-%   \end{itemize}
-% \end{frame}
-
-% \section{Project Plan}
-% \begin{frame}
-%   \begin{figure}
-%     \centering
-%     \includegraphics[width=0.89\textwidth]{project_plan/projectplan.png}
-%     %bot can be used from first evaluation onwards
-%   \end{figure}
-% \end{frame}
-
-
-% \section{First Section} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
-% %------------------------------------------------
-
-% \subsection{Subsection Example} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
-
-% \begin{frame}
-% \frametitle{Paragraphs of Text}
-% Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
-
-% Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. Aliquam vel dui orci, a porta odio. Nullam id suscipit ipsum. Aenean lobortis commodo sem, ut commodo leo gravida vitae. Pellentesque vehicula ante iaculis arcu pretium rutrum eget sit amet purus. Integer ornare nulla quis neque ultrices lobortis. Vestibulum ultrices tincidunt libero, quis commodo erat ullamcorper id.
-% \end{frame}
-
-% %------------------------------------------------
-
-% \begin{frame}
-% \frametitle{Bullet Points}
-% \begin{itemize}
-% \item Lorem ipsum dolor sit amet, consectetur adipiscing elit
-% \item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
-% \item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
-% \item Nam cursus est eget velit posuere pellentesque
-% \item Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
-% \end{itemize}
-% \end{frame}
-
-% %------------------------------------------------
-
-% \begin{frame}
-% \frametitle{Blocks of Highlighted Text}
-% \begin{block}{Block 1}
-% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
-% \end{block}
-
-% \begin{block}{Block 2}
-% Pellentesque sed tellus purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum quis magna at risus dictum tempor eu vitae velit.
-% \end{block}
-
-% \begin{block}{Block 3}
-% Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenatis rutrum, ipsum neque consectetur orci, sed blandit justo nisi ac lacus.
-% \end{block}
-% \end{frame}
-
-% %------------------------------------------------
-
-% \begin{frame}
-% \frametitle{Multiple Columns}
-% \begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-
-% \column{.45\textwidth} % Left column and width
-% \textbf{Heading}
-% \begin{enumerate}
-% \item Statement
-% \item Explanation
-% \item Example
-% \end{enumerate}
-
-% \column{.5\textwidth} % Right column and width
-% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
-
-% \end{columns}
-% \end{frame}
-
-% %------------------------------------------------
-% \section{Second Section}
-% %------------------------------------------------
-
-% \begin{frame}
-% \frametitle{Table}
-% \begin{table}
-% \begin{tabular}{l l l}
-% \toprule
-% \textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-% \midrule
-% Treatment 1 & 0.0003262 & 0.562 \\
-% Treatment 2 & 0.0015681 & 0.910 \\
-% Treatment 3 & 0.0009271 & 0.296 \\
-% \bottomrule
-% \end{tabular}
-% \caption{Table caption}
-% \end{table}
-% \end{frame}
-
-% %------------------------------------------------
-
-% \begin{frame}
-% \frametitle{Theorem}
-% \begin{theorem}[Mass--energy equivalence]
-% $E = mc^2$
-% \end{theorem}
-% \end{frame}
-
-% %------------------------------------------------
-
-% \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-% \frametitle{Verbatim}
-% \begin{example}[Theorem Slide Code]
-% \begin{verbatim}
-% \begin{frame}
-% \frametitle{Theorem}
-% \begin{theorem}[Mass--energy equivalence]
-% $E = mc^2$
-% \end{theorem}
-% \end{frame}\end{verbatim}
-% \end{example}
-% \end{frame}
-
-% %------------------------------------------------
-
-% \begin{frame}
-% \frametitle{Figure}
-% Code to include your own image as figure~\ref{fig:acis} from the `Figure' directory.
-% \begin{figure}
-% \includegraphics[width=0.5\linewidth]{acis}
-% \caption{Acis logo}
-% \label{fig:acis}
-% \end{figure}
-% \end{frame}
-
-% %------------------------------------------------
-
-% \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
-% \frametitle{Citation}
-% An example of the \verb|\cite| command to cite within the presentation:\\~
-
-% This statement requires citation \cite{Weng98}.
-% \end{frame}

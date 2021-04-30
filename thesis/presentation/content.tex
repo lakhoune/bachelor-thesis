@@ -9,7 +9,7 @@
     \item Researches transformed Communities of Practice into online Communities of Practice (CoPs)
           \begin{itemize}
             \item World-wide collaboration
-            \item Fast information exchange
+            \item Fast, effortless, information exchange
             \item Community Information Systems (CIS) help structure their work
           \end{itemize}
           %researchers in particular from all over the world can collaborate more easily 
@@ -17,8 +17,8 @@
     \item A CoP is only sustainable, if members continuously provide innovation efforts \cite{RKJa15}
     \item Therefore members need to be aware of their successes and failures to 
     \begin{itemize}
-        \item predict future challenges and opportunities
-        \item ensure the survival of the CoP
+        \item Predict future challenges and opportunities
+        \item Ensure the survival of the CoP
     \end{itemize}
   \end{itemize}
 
@@ -63,7 +63,8 @@
   \begin{itemize}
     \item Design a chatbot for success modeling and visualizations for a CIS
     \begin{itemize}
-        \item Simplify the success modeling and visualization process
+        \item Simplify the success modeling and visualization process 
+        % in order to include non-experienced users in the evaluation process
     \end{itemize}
         %   \begin{itemize}
         %     \item Bot should communicate with MobSOS (CCA) %framework
@@ -131,7 +132,7 @@
           % members can belong to more than one community
   \end{itemize}
 
-   CoPs use Community Information Systems to structure their work
+   CoPs use Community Information Systems (CIS) to structure their work
 \end{frame}
 
 
@@ -203,8 +204,8 @@
     \item MobSOS Continuous Community Analytics \cite{Kers20} 
     % extends MobSOS
           \begin{itemize}
-            \item GraphQL API
             \item REST API
+            \item GraphQL API
             \item Provides visualizations of MobSOS data
             \item Ability to dynamically add databases
           \end{itemize}
@@ -269,14 +270,14 @@
     \item Query success visualizations designed by the community
     \item Modify the success model of the community
   \end{itemize}
-  The chatbot is deployed to Slack.
+  The chatbot is deployed to Slack
     \end{column}
     \begin{column}[]{0.7\textwidth}
       \begin{figure}
-            \centering
-            \includegraphics[height=0.85\textheight]{concept/usecase.png}
-          \end{figure}
-      \end{column}     
+          \centering
+          \includegraphics[height=0.85\textheight]{concept/usecase.png}
+      \end{figure}
+    \end{column}     
   \end{columns}
 \end{frame}
 
@@ -325,7 +326,7 @@
               \end{itemize}
         \item Mediabase
               \begin{itemize}
-                \item JavaScript Crawler
+                \item Crawler
               \end{itemize}
       \end{itemize}
     \end{column}
@@ -337,20 +338,19 @@
     \begin{columns}
         \begin{column}[t]{0.5\textwidth}
             \begin{figure}
-               
-                \includegraphics[width=\textwidth]{realization/bot/visual_alt1_anot.png} 
+                \includegraphics[width=0.9\textwidth]{realization/bot/visual_alt1_anot.png} 
             \end{figure}
         \end{column}
         \begin{column}[t]{0.5\textwidth}
             \begin{enumerate}
-              \item intent visualization is recognized
+              \item Intent visualization is recognized
               \begin{itemize}
                 \item Visualization routine is triggered
               \end{itemize}
-              \item user message is passed to success modeling service
-            \item success modeling service prepares the visualization
+              \item User message is passed to success modeling service
+            \item Success modeling service prepares the visualization
             \begin{itemize}
-              \item extract the measure from the catalog
+              \item Extract the measure from the catalog
               \item CCA GraphQL request for data
               \item Data2Chart request to generate chart
             \end{itemize}
@@ -363,14 +363,14 @@
   \begin{columns}
     \begin{column}[t]{0.5\textwidth}
       \begin{figure}
-        \includegraphics[width=.8\textwidth]{realization/bot/visual_alt2.png} 
+        \includegraphics[width=.7\textwidth]{realization/bot/visual_alt2.png} 
       \end{figure}
     \end{column}
     \begin{column}[t]{0.5\textwidth}
       \begin{enumerate}
         \setcounter{enumi}{3}
-        \item resulting chart is sent back to the bot manager
-        \item mensabot displays the chart in the chat
+        \item Resulting chart is sent back to the bot manager
+        \\Bot displays the chart in the chat
       \end{enumerate}
     \end{column}
   \end{columns}
@@ -414,7 +414,7 @@
         \item Participants are aware of the importance of contributions
         \item But: are less inclined to contribute themselves
         % \item This confirms earlier findings which 
-        \item Confirms that only about 10\% of the community actively contribute \cite{Kers20}
+        \item Confirms that about 90\% of the community do not contribute \cite{Niel06}
        \item Participants suggested that contributing without receiving anything in return was not attractive to them.
         \item Possible Solution: introduce \emph{Gamification}
         \begin{itemize}
@@ -443,7 +443,6 @@
         \item The success model itself seemed not very intuitive to users.
         \begin{itemize}
           \item Provide general information of the meaning of elements in the success model.
-          \item Participants suggested starting the success modeling by selecting a measure to be easier 
         \end{itemize}
         \item Overall, both success modeling and visualizations were well received
       \end{itemize}

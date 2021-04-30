@@ -1,63 +1,51 @@
-
-\begin{figure}[] 
-  \begin{tikzpicture}
-    \begin{axis}
-      [xmin=0.9,xmax=5.1,
-      height=11cm,width=10cm,ytick={1,2,3,4,5,6,7,8,9,10},
-                      label style={font=\footnotesize},
-                      tick label style={font=\footnotesize}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
-      yticklabels={Being able to edit the success model \\increases the success awareness \\of the community,I could imagine using the bot \\to add measures to the success model,I could imagine myself using this bot \\to make visualizations.,},scatter/classes={
-    a={mark=*,red!50!black},
-    b={mark=*,blue!50!black},
-    c={mark=*,green!50!black},
-    d={mark=*,white!50!black}
-   }]
-   \addplot[color=blue,
-   boxplot prepared={
-     median= 4,
-     upper quartile=5,
-     lower quartile=3,
-     upper whisker=5,
-     lower whisker=1,
-   },
-     ] coordinates {}; 
-   \addplot[color=blue,
-    boxplot prepared={
-      median= 5,
-      upper quartile=5,
-      lower quartile=4,
-      upper whisker=5,
-      lower whisker=2,
-    },
-    ] coordinates {}; 
-    \addplot[color=blue,
-    boxplot prepared={
-      median= 4,
-      upper quartile=5,
-      lower quartile=3,
-      upper whisker=5,
-      lower whisker=1,
-    },
-    ] coordinates {}; 
-    
-       \addplot[scatter,only marks,scatter src=explicit symbolic] 
-          table [
-              y=y,
-              x=x
-              ]
-          {
-          x y 
-          3.84 1 
-          3.37 2  
-          3.95 3   
-          };
-          \node[align=center, text=black]
-          at (axis cs:4.5,2.2) {\scalebox{0.7}{SD=1.38}};
-          \node[align=center, text=black]
-           at (axis cs:4,3.2) {\scalebox{0.8}{SD=1.18}};
-          \node[align=center, text=black]
-          at (axis cs:3.95,1.2) {\scalebox{0.7}{SD=1.17}};
-    \end{axis}
-  \end{tikzpicture}
-  
-\end{figure}
+      \begin{figure}[] 
+        \begin{tikzpicture}
+          \begin{axis}
+            [xmin=0.9,xmax=5.1,
+            height=11cm,width=11cm,ytick={1,2,3,4,5,6,7,8,9,10},
+                            label style={font=\footnotesize},
+                            tick label style={font=\footnotesize}, yticklabel style={align=right},ylabel={Average User Rating (N=20)},
+            yticklabels={I could imagine myself \\using the bot to make reviews.,Making reviews is useful\\ for the community., },scatter/classes={
+          a={mark=*,red!50!black},
+          b={mark=*,blue!50!black},
+          c={mark=*,green!50!black},
+          d={mark=*,white!50!black}
+         }]
+         \addplot[color=blue,
+         boxplot prepared={
+           median= 4,
+           upper quartile=5,
+           lower quartile=3,
+           upper whisker=5,
+           lower whisker=1,
+         },
+          ] coordinates {};  
+         \addplot[color=blue,
+        boxplot prepared={
+          median= 5,
+          upper quartile=5,
+          lower quartile=4,
+          upper whisker=5,
+          lower whisker=3,
+        },
+         ] coordinates {}; 
+        
+          
+             \addplot[scatter,only marks,scatter src=explicit symbolic] 
+                table [
+                    y=y,
+                    x=x
+                    ]
+                {
+                x y 
+                3.79 1
+                4.58 2
+                };
+                \node[align=center, text=black]
+                at (axis cs:4,1.2) {\scalebox{0.8}{SD=1.27}};
+                \node[align=center, text=black]
+                at (axis cs:4.5,2.2) {\scalebox{0.8}{SD=0.69}};
+          \end{axis}
+        \end{tikzpicture}
+        
+    \end{figure}

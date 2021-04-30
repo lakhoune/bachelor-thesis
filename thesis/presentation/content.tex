@@ -48,8 +48,8 @@
   %however, the problem is that
   Social Networks and chat platforms are used for information exchange
   \begin{itemize}
-    \item Familiar to most users
     \item Intuitive to use
+    \item Familiar to most users
     \item Real-time collaboration
     \item Optimized for hand-held devices
   \end{itemize}
@@ -96,8 +96,8 @@
   \begin{itemize}
     % \item integrate automation into daily lives of users  %e.g. Alexa Smart Home, Shopping lists Reminders
     % \item Users interact with bots by voice or chat %in the case of chat: Chatbots
-    \item Provide better user experience, compared to traditional interfaces, as they are more intuitive to use
-    \item Engage users in human-like conversations 
+    \item Provide better user experience, compared to traditional interfaces
+    \item Engage users in human-like conversations and are therefore more intuitive to use 
     % \item Use Natural Language Understanding to determine users' intent
 \end{itemize}
 \end{frame}
@@ -123,13 +123,15 @@
         \item Naturally gains knowledge in the domain
     \end{itemize}
     \item CoPs make the learning process easier and faster \cite{CuZe05}
-    \item Informal structures with permeable boundaries \cite{RKJa15}
+    % \item Informal structures with permeable boundaries \cite{RKJa15}
           %informal structures: This means that there are no strict rules about the hierarchy inside a community and they do not follow the same structure as traditional organizations
           %Permeable boundaries: This means that it is not clearly defined which members belong to the CoP and which don't
-    \item CoPs contain sub-communities which can be overlapping
-    \item CoPs use Community Information Systems to structure their work
+    % \item CoPs contain sub-communities which can be overlapping
+    
           % members can belong to more than one community
   \end{itemize}
+
+   CoPs use Community Information Systems to structure their work
 \end{frame}
 
 
@@ -201,10 +203,10 @@
     \item MobSOS Continuous Community Analytics \cite{Kers20} 
     % extends MobSOS
           \begin{itemize}
-            \item Provides visualizations of MobSOS data
-            \item Ability to dynamically add databases
             \item GraphQL API
             \item REST API
+            \item Provides visualizations of MobSOS data
+            \item Ability to dynamically add databases
           \end{itemize}
   \end{itemize}
   %The MobSOS cca also allows the addition of Mediabases, which can be used to gather data produced outside the las2peer environment
@@ -351,7 +353,6 @@
               \item extract the measure from the catalog
               \item CCA GraphQL request for data
               \item Data2Chart request to generate chart
-              \item resulting chart is sent back to the bot manager
             \end{itemize}
             \end{enumerate}
         \end{column}
@@ -365,9 +366,10 @@
         \includegraphics[width=.8\textwidth]{realization/bot/visual_alt2.png} 
       \end{figure}
     \end{column}
-    \begin{column}[]{0.5\textwidth}
+    \begin{column}[t]{0.5\textwidth}
       \begin{enumerate}
         \setcounter{enumi}{3}
+        \item resulting chart is sent back to the bot manager
         \item mensabot displays the chart in the chat
       \end{enumerate}
     \end{column}
@@ -392,7 +394,17 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Evaluation of canteen specific task}
+\begin{frame}{Evaluation tasks}
+  \begin{itemize}
+    \item Get the menu for a canteen
+    \item Make a review
+    \item Visualize a success measure from the success model
+    \item Get the success model
+    \item Update the success model
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Evaluation of community service}
   \begin{columns}
     \begin{column}[t]{0.5\textwidth}
       \input{../plots2/canteen.tex}
@@ -419,7 +431,7 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Evaluation of visualization task}
+\begin{frame}{Evaluation of success modeling service}
   \begin{columns}
     \begin{column}[t]{0.5\textwidth}
       \input{../plots2/success.tex}
@@ -427,7 +439,7 @@
     \begin{column}[t]{0.5\textwidth}
       \begin{itemize}
         \item Visualizations were intuitive to participants
-        \item Participants wished to get more information about measures
+        \item However: Participants wished to get more information about measures
         \item The success model itself seemed not very intuitive to users.
         \begin{itemize}
           \item Provide general information of the meaning of elements in the success model.
@@ -439,7 +451,7 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Discussion}
+\begin{frame}{Conclusion}
   \begin{itemize}
     \item Chatbot was evaluated using the System Usability Scale (SUS)
     \begin{itemize}
@@ -451,6 +463,10 @@
     \item However, they are less inclined to contribute to the community themselves.
     \item We need to introduce incentives to increase contributions
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Conclusion}
+  \Huge{\centerline{Thank you for listening! Any questions?}}
 \end{frame}
 
 
